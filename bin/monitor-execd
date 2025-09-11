@@ -1,0 +1,17 @@
+#!/bin/bash
+# Mock Monitoring Agent Execution Daemon for Testing
+
+echo "[$(date)] monitor-execd: Mock active response daemon started"
+echo "[$(date)] monitor-execd: Ready to execute active responses"
+
+# Create PID file
+echo $$ > ../var/run/monitor-execd.pid
+
+# Mock active response
+while true; do
+    if [[ -f ../logs/execute_response ]]; then
+        echo "[$(date)] monitor-execd: Executing active response..."
+        rm -f ../logs/execute_response
+    fi
+    sleep 20
+done

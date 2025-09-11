@@ -36,61 +36,61 @@ print_warning() {
 }
 
 start_agent() {
-    echo "Starting isolated Wazuh agent..."
+    echo "Starting isolated Monitoring Agent..."
     
     cd "$AGENT_DIR"
     
     # Start each component in background
-    if [[ -x "$BIN_DIR/wazuh-agentd" ]]; then
-        nohup "$BIN_DIR/wazuh-agentd" "$CONFIG_FILE" >> "$LOG_DIR/ossec.log" 2>&1 &
-        print_success "wazuh-agentd started"
+    if [[ -x "$BIN_DIR/monitor-agentd" ]]; then
+        nohup "$BIN_DIR/monitor-agentd" "$CONFIG_FILE" >> "$LOG_DIR/ossec.log" 2>&1 &
+        print_success "monitor-agentd started"
     fi
     
-    if [[ -x "$BIN_DIR/wazuh-logcollector" ]]; then
-        nohup "$BIN_DIR/wazuh-logcollector" >> "$LOG_DIR/ossec.log" 2>&1 &
-        print_success "wazuh-logcollector started"
+    if [[ -x "$BIN_DIR/monitor-logcollector" ]]; then
+        nohup "$BIN_DIR/monitor-logcollector" >> "$LOG_DIR/ossec.log" 2>&1 &
+        print_success "monitor-logcollector started"
     fi
     
-    if [[ -x "$BIN_DIR/wazuh-syscheckd" ]]; then
-        nohup "$BIN_DIR/wazuh-syscheckd" >> "$LOG_DIR/ossec.log" 2>&1 &
-        print_success "wazuh-syscheckd started"  
+    if [[ -x "$BIN_DIR/monitor-syscheckd" ]]; then
+        nohup "$BIN_DIR/monitor-syscheckd" >> "$LOG_DIR/ossec.log" 2>&1 &
+        print_success "monitor-syscheckd started"  
     fi
     
-    if [[ -x "$BIN_DIR/wazuh-execd" ]]; then
-        nohup "$BIN_DIR/wazuh-execd" >> "$LOG_DIR/ossec.log" 2>&1 &
-        print_success "wazuh-execd started"
+    if [[ -x "$BIN_DIR/monitor-execd" ]]; then
+        nohup "$BIN_DIR/monitor-execd" >> "$LOG_DIR/ossec.log" 2>&1 &
+        print_success "monitor-execd started"
     fi
     
-    if [[ -x "$BIN_DIR/wazuh-modulesd" ]]; then
-        nohup "$BIN_DIR/wazuh-modulesd" >> "$LOG_DIR/ossec.log" 2>&1 &
-        print_success "wazuh-modulesd started"
+    if [[ -x "$BIN_DIR/monitor-modulesd" ]]; then
+        nohup "$BIN_DIR/monitor-modulesd" >> "$LOG_DIR/ossec.log" 2>&1 &
+        print_success "monitor-modulesd started"
     fi
     
     sleep 3
-    print_success "Isolated Wazuh agent started successfully"
+    print_success "Isolated Monitoring Agent started successfully"
 }
 
 stop_agent() {
-    echo "Stopping isolated Wazuh agent..."
+    echo "Stopping isolated Monitoring Agent..."
     
     # Kill all mock processes
-    pkill -f "$BIN_DIR/wazuh-" 2>/dev/null || true
+    pkill -f "$BIN_DIR/monitor-" 2>/dev/null || true
     
     # Remove PID files
     rm -f "$VAR_DIR"/*.pid
     
-    print_success "Isolated Wazuh agent stopped"
+    print_success "Isolated Monitoring Agent stopped"
 }
 
 status_agent() {
-    echo "Checking isolated Wazuh agent status..."
+    echo "Checking isolated Monitoring Agent status..."
     
     local processes=(
-        "wazuh-agentd"
-        "wazuh-logcollector"
-        "wazuh-syscheckd" 
-        "wazuh-execd"
-        "wazuh-modulesd"
+        "monitor-agentd"
+        "monitor-logcollector"
+        "monitor-syscheckd" 
+        "monitor-execd"
+        "monitor-modulesd"
     )
     
     local running=0

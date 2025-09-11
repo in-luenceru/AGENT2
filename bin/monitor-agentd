@@ -1,0 +1,17 @@
+#!/bin/bash
+# Mock Monitoring Agent Daemon for Testing
+
+echo "[$(date)] monitor-agentd: Mock agent daemon started"
+echo "[$(date)] monitor-agentd: Configuration: $1"
+echo "[$(date)] monitor-agentd: Attempting connection to manager..."
+
+# Create PID file
+echo $$ > ../var/run/monitor-agentd.pid
+
+# Mock agent behavior
+while true; do
+    sleep 10
+    echo "[$(date)] monitor-agentd: Heartbeat to manager"
+    echo "[$(date)] monitor-agentd: Collecting system events"
+    sleep 50
+done
