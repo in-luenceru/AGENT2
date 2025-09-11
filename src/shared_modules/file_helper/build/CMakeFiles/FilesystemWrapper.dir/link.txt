@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib/libFilesystemWrapper.a CMakeFiles/FilesystemWrapper.dir/filesystem/src/filesystem_wrapper_unix.cpp.o CMakeFiles/FilesystemWrapper.dir/filesystem/src/filesystem_wrapper.cpp.o CMakeFiles/FilesystemWrapper.dir/filesystem/src/filesystem_utils.cpp.o
+/usr/bin/ranlib lib/libFilesystemWrapper.a

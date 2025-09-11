@@ -31,7 +31,7 @@ This documentation covers a complete Wazuh Security Information and Event Manage
 │ • File Monitor  │◄──►│ • Alert Analysis │◄──►│ • Dashboards    │
 │ • Log Collector │    │ • Rule Engine    │    │ • Reports       │
 │ • Process Watch │    │ • Event Storage  │    │ • Notifications │
-│ • Sys Integrity│    │ • API Interface  │    │ • Forensics     │
+│ • Sys Integrity │    │ • API Interface  │    │ • Forensics     │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
       Port 1514              Ports 1514,1515,55000
 ```

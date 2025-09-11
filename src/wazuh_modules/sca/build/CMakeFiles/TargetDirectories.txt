@@ -1,0 +1,8 @@
+/home/anandhu/Desktop/wazuh/src/wazuh_modules/sca/build/CMakeFiles/sca.dir
+/home/anandhu/Desktop/wazuh/src/wazuh_modules/sca/build/CMakeFiles/test.dir
+/home/anandhu/Desktop/wazuh/src/wazuh_modules/sca/build/CMakeFiles/edit_cache.dir
+/home/anandhu/Desktop/wazuh/src/wazuh_modules/sca/build/CMakeFiles/rebuild_cache.dir
+/home/anandhu/Desktop/wazuh/src/wazuh_modules/sca/build/sca_impl/CMakeFiles/SCAImpl.dir
+/home/anandhu/Desktop/wazuh/src/wazuh_modules/sca/build/sca_impl/CMakeFiles/test.dir
+/home/anandhu/Desktop/wazuh/src/wazuh_modules/sca/build/sca_impl/CMakeFiles/edit_cache.dir
+/home/anandhu/Desktop/wazuh/src/wazuh_modules/sca/build/sca_impl/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libSCAImpl.a CMakeFiles/SCAImpl.dir/src/sca_impl.cpp.o CMakeFiles/SCAImpl.dir/src/sca_policy.cpp.o CMakeFiles/SCAImpl.dir/src/sca_policy_check.cpp.o CMakeFiles/SCAImpl.dir/src/sca_policy_loader.cpp.o CMakeFiles/SCAImpl.dir/src/sca_policy_parser.cpp.o CMakeFiles/SCAImpl.dir/src/sca_event_handler.cpp.o CMakeFiles/SCAImpl.dir/src/sca_utils.cpp.o CMakeFiles/SCAImpl.dir/src/sca_checksum.cpp.o CMakeFiles/SCAImpl.dir/src/check_condition_evaluator.cpp.o
+/usr/bin/ranlib ../lib/libSCAImpl.a

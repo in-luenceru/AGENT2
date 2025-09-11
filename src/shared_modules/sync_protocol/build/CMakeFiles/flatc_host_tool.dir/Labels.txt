@@ -1,0 +1,13 @@
+# Target labels
+ flatc_host_tool
+# Source files and their labels
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/CMakeFiles/flatc_host_tool
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/CMakeFiles/flatc_host_tool.rule
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/CMakeFiles/flatc_host_tool-complete.rule
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-stamp/flatc_host_tool-build.rule
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-stamp/flatc_host_tool-configure.rule
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-stamp/flatc_host_tool-download.rule
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-stamp/flatc_host_tool-install.rule
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-stamp/flatc_host_tool-mkdir.rule
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-stamp/flatc_host_tool-patch.rule
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-stamp/flatc_host_tool-update.rule

@@ -1,0 +1,7 @@
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-build/CMakeFiles/flatc.dir
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-build/CMakeFiles/edit_cache.dir
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-build/CMakeFiles/rebuild_cache.dir
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-build/CMakeFiles/list_install_components.dir
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-build/CMakeFiles/install.dir
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-build/CMakeFiles/install/local.dir
+/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-build/CMakeFiles/install/strip.dir

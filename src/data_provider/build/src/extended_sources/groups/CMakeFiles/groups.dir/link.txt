@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../lib/libgroups.a CMakeFiles/groups.dir/src/groups_linux.cpp.o CMakeFiles/groups.dir/src/user_groups_linux.cpp.o
+/usr/bin/ranlib ../../../lib/libgroups.a

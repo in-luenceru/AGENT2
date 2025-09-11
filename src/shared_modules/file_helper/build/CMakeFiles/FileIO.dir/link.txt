@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib/libFileIO.a CMakeFiles/FileIO.dir/file_io/src/file_io_utils.cpp.o CMakeFiles/FileIO.dir/file_io/src/file_io_wrapper.cpp.o
+/usr/bin/ranlib lib/libFileIO.a

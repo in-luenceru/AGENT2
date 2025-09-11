@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../lib/libusers.a CMakeFiles/users.dir/src/sudoers_unix.cpp.o CMakeFiles/users.dir/src/logged_in_users_linux.cpp.o CMakeFiles/users.dir/src/shadow_linux.cpp.o CMakeFiles/users.dir/src/users_linux.cpp.o
+/usr/bin/ranlib ../../../lib/libusers.a

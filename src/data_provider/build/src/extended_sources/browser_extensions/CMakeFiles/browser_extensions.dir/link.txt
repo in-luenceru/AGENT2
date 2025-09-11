@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../lib/libbrowser_extensions.a CMakeFiles/browser_extensions.dir/src/chrome.cpp.o CMakeFiles/browser_extensions.dir/src/firefox.cpp.o
+/usr/bin/ranlib ../../../lib/libbrowser_extensions.a

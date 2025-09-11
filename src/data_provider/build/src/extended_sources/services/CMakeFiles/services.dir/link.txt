@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../lib/libservices.a CMakeFiles/services.dir/src/systemd_units_linux.cpp.o
+/usr/bin/ranlib ../../../lib/libservices.a

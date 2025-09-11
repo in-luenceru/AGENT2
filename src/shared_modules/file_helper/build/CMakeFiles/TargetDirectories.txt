@@ -1,0 +1,4 @@
+/home/anandhu/Desktop/wazuh/src/shared_modules/file_helper/build/CMakeFiles/FilesystemWrapper.dir
+/home/anandhu/Desktop/wazuh/src/shared_modules/file_helper/build/CMakeFiles/FileIO.dir
+/home/anandhu/Desktop/wazuh/src/shared_modules/file_helper/build/CMakeFiles/edit_cache.dir
+/home/anandhu/Desktop/wazuh/src/shared_modules/file_helper/build/CMakeFiles/rebuild_cache.dir

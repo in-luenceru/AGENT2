@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/CMakeFiles/flatc_host_tool"
+		},
+		{
+			"file" : "/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/CMakeFiles/flatc_host_tool.rule"
+		},
+		{
+			"file" : "/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/CMakeFiles/flatc_host_tool-complete.rule"
+		},
+		{
+			"file" : "/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-stamp/flatc_host_tool-build.rule"
+		},
+		{
+			"file" : "/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-stamp/flatc_host_tool-configure.rule"
+		},
+		{
+			"file" : "/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-stamp/flatc_host_tool-download.rule"
+		},
+		{
+			"file" : "/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-stamp/flatc_host_tool-install.rule"
+		},
+		{
+			"file" : "/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-stamp/flatc_host_tool-mkdir.rule"
+		},
+		{
+			"file" : "/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-stamp/flatc_host_tool-patch.rule"
+		},
+		{
+			"file" : "/home/anandhu/Desktop/wazuh/src/shared_modules/sync_protocol/build/flatc_host_tool-prefix/src/flatc_host_tool-stamp/flatc_host_tool-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"flatc_host_tool"
+		],
+		"name" : "flatc_host_tool"
+	}
+}
