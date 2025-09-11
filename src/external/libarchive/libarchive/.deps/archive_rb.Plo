@@ -1,0 +1,35 @@
+libarchive/archive_rb.lo: libarchive/archive_rb.c \
+ libarchive/archive_platform.h config.h /usr/include/sys/cdefs.h \
+ /usr/include/features.h /usr/include/gnu/stubs.h \
+ /usr/include/bits/wordsize.h /usr/include/gnu/stubs-64.h \
+ /usr/include/inttypes.h \
+ /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/wchar.h \
+ /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include/stddef.h \
+ libarchive/archive_rb.h
+
+libarchive/archive_platform.h:
+
+config.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/features.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/include/inttypes.h:
+
+/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/bits/wchar.h:
+
+/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include/stddef.h:
+
+libarchive/archive_rb.h:

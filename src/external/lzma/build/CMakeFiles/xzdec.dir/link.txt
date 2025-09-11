@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG CMakeFiles/xzdec.dir/src/common/tuklib_exit.c.o CMakeFiles/xzdec.dir/src/common/tuklib_progname.c.o CMakeFiles/xzdec.dir/src/xzdec/xzdec.c.o -o xzdec  liblzma.a -pthread 

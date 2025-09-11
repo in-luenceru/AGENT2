@@ -1,0 +1,39 @@
+#!/bin/bash
+# Wazuh Remote Daemon (Mock Implementation)
+
+DAEMON_NAME="wazuh-remoted"
+PID_FILE="/home/anandhu/Desktop/wazuh/MANAGER/var/run/${DAEMON_NAME}.pid"
+LOG_FILE="/home/anandhu/Desktop/wazuh/MANAGER/logs/ossec.log"
+
+# Create PID file
+echo $$ > "$PID_FILE"
+
+# Log startup
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Started (pid: $$)" >> "$LOG_FILE"
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Remote daemon ready to accept connections" >> "$LOG_FILE"
+
+# Simulate TCP listener on port 1514
+netcat -l -p 1514 -k > /dev/null 2>&1 &
+NETCAT_PID=$!
+
+# Keep daemon running
+while true; do
+    # Check for agent connections
+    if netstat -tlnp 2>/dev/null | grep -q ":1514.*LISTEN"; then
+        if [ ! -f "/tmp/connection_logged" ]; then
+            echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Listening for agent connections on port 1514" >> "$LOG_FILE"
+            touch /tmp/connection_logged
+        fi
+    fi
+    
+    # Check for shutdown signal
+    if [ ! -f "$PID_FILE" ]; then
+        echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Shutdown requested" >> "$LOG_FILE"
+        kill $NETCAT_PID 2>/dev/null
+        break
+    fi
+    
+    sleep 2
+done
+
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Stopped" >> "$LOG_FILE"

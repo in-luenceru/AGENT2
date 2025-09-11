@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/CMakeFiles/upstream_popt"
+		},
+		{
+			"file" : "/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/CMakeFiles/upstream_popt.rule"
+		},
+		{
+			"file" : "/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/CMakeFiles/upstream_popt-complete.rule"
+		},
+		{
+			"file" : "/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/upstream_popt-prefix/src/upstream_popt-stamp/upstream_popt-install.rule"
+		},
+		{
+			"file" : "/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/upstream_popt-prefix/src/upstream_popt-stamp/upstream_popt-mkdir.rule"
+		},
+		{
+			"file" : "/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/upstream_popt-prefix/src/upstream_popt-stamp/upstream_popt-download.rule"
+		},
+		{
+			"file" : "/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/upstream_popt-prefix/src/upstream_popt-stamp/upstream_popt-update.rule"
+		},
+		{
+			"file" : "/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/upstream_popt-prefix/src/upstream_popt-stamp/upstream_popt-patch.rule"
+		},
+		{
+			"file" : "/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/upstream_popt-prefix/src/upstream_popt-stamp/upstream_popt-configure.rule"
+		},
+		{
+			"file" : "/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/upstream_popt-prefix/src/upstream_popt-stamp/upstream_popt-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"upstream_popt"
+		],
+		"name" : "upstream_popt"
+	}
+}

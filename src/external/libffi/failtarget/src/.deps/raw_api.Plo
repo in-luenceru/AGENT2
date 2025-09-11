@@ -1,0 +1,53 @@
+src/raw_api.lo: ../src/raw_api.c /usr/include/stdc-predef.h include/ffi.h \
+ include/ffitarget.h \
+ /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include/stddef.h \
+ /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include-fixed/limits.h \
+ /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/features.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h ../include/ffi_common.h fficonfig.h \
+ /usr/include/alloca.h /usr/include/string.h /usr/include/xlocale.h
+
+/usr/include/stdc-predef.h:
+
+include/ffi.h:
+
+include/ffitarget.h:
+
+/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include/stddef.h:
+
+/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include-fixed/limits.h:
+
+/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/bits/posix2_lim.h:
+
+../include/ffi_common.h:
+
+fficonfig.h:
+
+/usr/include/alloca.h:
+
+/usr/include/string.h:
+
+/usr/include/xlocale.h:

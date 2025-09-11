@@ -1,0 +1,79 @@
+libarchive/archive_blake2s_ref.lo: libarchive/archive_blake2s_ref.c \
+ libarchive/archive_platform.h config.h /usr/include/sys/cdefs.h \
+ /usr/include/features.h /usr/include/gnu/stubs.h \
+ /usr/include/bits/wordsize.h /usr/include/gnu/stubs-64.h \
+ /usr/include/inttypes.h \
+ /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/wchar.h /usr/include/string.h \
+ /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include/stddef.h \
+ /usr/include/xlocale.h /usr/include/bits/string.h \
+ /usr/include/bits/string2.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/stdlib.h /usr/include/stdio.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include/stdarg.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ libarchive/archive_blake2.h libarchive/archive_blake2_impl.h
+
+libarchive/archive_platform.h:
+
+config.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/features.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/include/inttypes.h:
+
+/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/bits/wchar.h:
+
+/usr/include/string.h:
+
+/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include/stddef.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/bits/string.h:
+
+/usr/include/bits/string2.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/stdio.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include/stdarg.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+libarchive/archive_blake2.h:
+
+libarchive/archive_blake2_impl.h:

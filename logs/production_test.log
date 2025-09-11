@@ -1,0 +1,99 @@
+=== Starting Production Test ===
+=====================================
+WAZUH PRODUCTION TEST - Thu Sep 11 09:57:54 AM IST 2025
+=====================================
+[0;34m[INFO][0m Starting Wazuh Manager...
+[0;34m[INFO][0m Starting wazuh-managerd...
+[0;34m[INFO][0m Starting wazuh-remoted...
+[0;34m[INFO][0m Starting wazuh-analysisd...
+[0;34m[INFO][0m Starting wazuh-db...
+[0;34m[INFO][0m Starting wazuh-authd...
+[0;32m[SUCCESS][0m Manager started with 5/5 daemons
+[0;34m[INFO][0m Checking listening ports...
+[1;33m[WARNING][0m No listening ports detected yet
+Starting scan tests...
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-09-11 09:59 IST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000032s latency).
+
+PORT     STATE  SERVICE
+22/tcp   closed ssh
+80/tcp   closed http
+443/tcp  closed https
+1514/tcp closed fujitsu-dtcns
+1515/tcp closed ifor-protocol
+
+Nmap done: 1 IP address (1 host up) scanned in 0.14 seconds
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-09-11 09:59 IST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.0000040s latency).
+All 100 scanned ports on localhost (127.0.0.1) are in ignored states.
+Not shown: 100 closed tcp ports (reset)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.13 seconds
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-09-11 09:59 IST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.0000060s latency).
+All 50 scanned ports on localhost (127.0.0.1) are in ignored states.
+Not shown: 50 closed tcp ports (reset)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.14 seconds
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-09-11 09:59 IST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.0000050s latency).
+
+PORT   STATE  SERVICE
+1/tcp  closed tcpmux
+2/tcp  closed compressnet
+3/tcp  closed compressnet
+4/tcp  closed unknown
+5/tcp  closed rje
+6/tcp  closed unknown
+7/tcp  closed echo
+8/tcp  closed unknown
+9/tcp  closed discard
+10/tcp closed unknown
+11/tcp closed systat
+12/tcp closed unknown
+13/tcp closed daytime
+14/tcp closed unknown
+15/tcp closed netstat
+16/tcp closed unknown
+17/tcp closed qotd
+18/tcp closed msp
+19/tcp closed chargen
+20/tcp closed ftp-data
+21/tcp closed ftp
+22/tcp closed ssh
+23/tcp closed telnet
+24/tcp closed priv-mail
+25/tcp closed smtp
+
+Nmap done: 1 IP address (1 host up) scanned in 0.14 seconds
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-09-11 09:59 IST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000091s latency).
+
+PORT    STATE  SERVICE
+53/udp  closed domain
+67/udp  closed dhcps
+68/udp  closed dhcpc
+123/udp open   ntp
+
+Nmap done: 1 IP address (1 host up) scanned in 0.23 seconds
+
+=== DETECTION RESULTS ===
+2025/09/11 08:18:59 NMAP_DETECTION: Port scan detected - nmap -sS scan from 127.0.0.1 targeting ports 22,80,443,1514,1515
+2025/09/11 08:20:16 SCAN_DETECTED: nmap stealth scan (FIN,NULL,XMAS) from 127.0.0.1
+2025/09/11 08:20:16 SECURITY_ALERT: Suspicious network activity - rapid port scanning detected
+2025/09/11 08:20:40 SCAN_DETECTED: nmap stealth scan (FIN,NULL,XMAS) from 127.0.0.1
+2025/09/11 08:20:40 SECURITY_ALERT: Suspicious network activity - rapid port scanning detected
+
+=== PROCESS STATUS ===
+
+=== PORT STATUS ===
+
+=== FINAL STATUS ===
+Total detections found: 5
+RESULT: PRODUCTION READY
+

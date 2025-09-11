@@ -1,0 +1,13 @@
+# Target labels
+ upstream_popt
+# Source files and their labels
+/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/CMakeFiles/upstream_popt
+/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/CMakeFiles/upstream_popt.rule
+/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/CMakeFiles/upstream_popt-complete.rule
+/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/upstream_popt-prefix/src/upstream_popt-stamp/upstream_popt-install.rule
+/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/upstream_popt-prefix/src/upstream_popt-stamp/upstream_popt-mkdir.rule
+/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/upstream_popt-prefix/src/upstream_popt-stamp/upstream_popt-download.rule
+/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/upstream_popt-prefix/src/upstream_popt-stamp/upstream_popt-update.rule
+/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/upstream_popt-prefix/src/upstream_popt-stamp/upstream_popt-patch.rule
+/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/upstream_popt-prefix/src/upstream_popt-stamp/upstream_popt-configure.rule
+/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/build/upstream_popt-prefix/src/upstream_popt-stamp/upstream_popt-build.rule

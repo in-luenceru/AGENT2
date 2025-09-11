@@ -1,0 +1,64 @@
+#!/bin/bash
+# Wazuh System Check Daemon (Mock Implementation)
+
+DAEMON_NAME="wazuh-syscheckd"
+PID_FILE="/home/anandhu/Desktop/wazuh/AGENT/var/run/${DAEMON_NAME}.pid"
+LOG_FILE="/home/anandhu/Desktop/wazuh/AGENT/logs/ossec.log"
+
+# Create PID file
+echo $$ > "$PID_FILE"
+
+# Log startup
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Started (pid: $$)" >> "$LOG_FILE"
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: File integrity monitoring initialized" >> "$LOG_FILE"
+
+# Initialize baseline
+BASELINE_DIR="/tmp/wazuh_baseline"
+mkdir -p "$BASELINE_DIR"
+
+# Monitor directories from configuration
+MONITOR_DIRS=("/etc" "/bin" "/usr/bin" "/home/anandhu/Desktop/wazuh")
+
+# Create initial baseline
+for dir in "${MONITOR_DIRS[@]}"; do
+    if [ -d "$dir" ]; then
+        find "$dir" -type f -exec ls -la {} \; 2>/dev/null | head -100 > "$BASELINE_DIR/$(echo $dir | tr '/' '_')" 2>/dev/null || true
+    fi
+done
+
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Baseline created for ${#MONITOR_DIRS[@]} directories" >> "$LOG_FILE"
+
+# Keep daemon running and monitoring
+CHECK_COUNTER=0
+while true; do
+    # Check for file changes every 60 seconds
+    if [ $((CHECK_COUNTER % 60)) -eq 0 ]; then
+        for dir in "${MONITOR_DIRS[@]}"; do
+            if [ -d "$dir" ]; then
+                local baseline_file="$BASELINE_DIR/$(echo $dir | tr '/' '_')"
+                if [ -f "$baseline_file" ]; then
+                    local current_state=$(find "$dir" -type f -exec ls -la {} \; 2>/dev/null | head -100)
+                    if [ "$current_state" != "$(cat $baseline_file)" ]; then
+                        echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: File changes detected in $dir" >> "$LOG_FILE"
+                    fi
+                fi
+            fi
+        done
+    fi
+    
+    # Log periodic status
+    if [ $((CHECK_COUNTER % 300)) -eq 0 ]; then
+        echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: System monitoring active ($CHECK_COUNTER checks completed)" >> "$LOG_FILE"
+    fi
+    
+    # Check for shutdown signal
+    if [ ! -f "$PID_FILE" ]; then
+        echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Shutdown requested" >> "$LOG_FILE"
+        break
+    fi
+    
+    CHECK_COUNTER=$((CHECK_COUNTER + 1))
+    sleep 1
+done
+
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Stopped" >> "$LOG_FILE"

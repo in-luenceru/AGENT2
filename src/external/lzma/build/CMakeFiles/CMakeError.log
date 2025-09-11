@@ -1,0 +1,131 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_6af6d/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_6af6d.dir/build.make CMakeFiles/cmTC_6af6d.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6af6d.dir/src.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -DCMAKE_HAVE_LIBC_PTHREAD -fPIE -std=gnu99 -o CMakeFiles/cmTC_6af6d.dir/src.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_6af6d
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6af6d.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD CMakeFiles/cmTC_6af6d.dir/src.c.o -o cmTC_6af6d 
+CMakeFiles/cmTC_6af6d.dir/src.c.o: In function `main':
+src.c:(.text+0x2f): undefined reference to `pthread_create'
+src.c:(.text+0x3b): undefined reference to `pthread_detach'
+src.c:(.text+0x47): undefined reference to `pthread_cancel'
+src.c:(.text+0x58): undefined reference to `pthread_join'
+src.c:(.text+0x6c): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [cmTC_6af6d] Error 1
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: *** [cmTC_6af6d/fast] Error 2
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Performing C SOURCE FILE Test TUKLIB_PHYSMEM_SPECIAL failed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_3762f/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_3762f.dir/build.make CMakeFiles/cmTC_3762f.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3762f.dir/src.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -DTUKLIB_PHYSMEM_SPECIAL -fPIE -std=gnu99 -o CMakeFiles/cmTC_3762f.dir/src.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/src.c
+/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/src.c:5:13: error: unknown type name 'compile'
+    5 |             compile error
+      |             ^~~~~~~
+/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/src.c:5:13: error: expected '=', ',', ';', 'asm' or '__attribute__' at end of input
+gmake[2]: *** [CMakeFiles/cmTC_3762f.dir/src.c.o] Error 1
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: *** [cmTC_3762f/fast] Error 2
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+            #if defined(_WIN32) || defined(__CYGWIN__) || defined(__OS2__)                 || defined(__DJGPP__) || defined(__VMS)                 || defined(AMIGA) || defined(__AROS__) || defined(__QNX__)
+            int main(void) { return 0; }
+            #else
+            compile error
+            #endif
+        
+Performing C SOURCE FILE Test TUKLIB_PHYSMEM_AIX failed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_95246/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_95246.dir/build.make CMakeFiles/cmTC_95246.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_95246.dir/src.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -DTUKLIB_PHYSMEM_AIX -fPIE -std=gnu99 -o CMakeFiles/cmTC_95246.dir/src.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/src.c
+/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/src.c:2:22: fatal error: sys/systemcfg.h: No such file or directory
+    2 |             #include <sys/systemcfg.h>
+      |                      ^~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[2]: *** [CMakeFiles/cmTC_95246.dir/src.c.o] Error 1
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: *** [cmTC_95246/fast] Error 2
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+            #include <sys/systemcfg.h>
+            int main(void)
+            {
+                (void)_system_configuration.physmem;
+                return 0;
+            }
+        
+Determining if the optreset exist failed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_60795/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_60795.dir/build.make CMakeFiles/cmTC_60795.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_60795.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_60795.dir/CheckSymbolExists.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'optreset' undeclared (first use in this function)
+    8 |   return ((int*)(&optreset))[argc];
+      |                   ^~~~~~~~
+/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[2]: *** [CMakeFiles/cmTC_60795.dir/CheckSymbolExists.c.o] Error 1
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: *** [cmTC_60795/fast] Error 2
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+File /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <getopt.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef optreset
+  return ((int*)(&optreset))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

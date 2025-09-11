@@ -1,0 +1,73 @@
+<!--
+  Network File System Decoders
+  Author: Wazuh Agent Security Enhancement
+  Updated: 2025-09-11
+-->
+
+<decoder name="mount-decoder">
+  <program_name>mount</program_name>
+</decoder>
+
+<decoder name="mount-decoder-details">
+  <parent>mount-decoder</parent>
+  <regex>^(\S+) on (\S+) type (\S+) \((\S+)\)</regex>
+  <order>device,mount_point,filesystem_type,options</order>
+</decoder>
+
+<decoder name="umount-decoder">
+  <program_name>umount</program_name>
+</decoder>
+
+<decoder name="nfs-decoder">
+  <program_name>nfsd</program_name>
+</decoder>
+
+<decoder name="nfs-mount-decoder">
+  <parent>nfs-decoder</parent>
+  <regex>^(\S+):(\S+) on (\S+)</regex>
+  <order>nfs_server,nfs_export,local_mount</order>
+</decoder>
+
+<decoder name="smb-decoder">
+  <program_name>smbd</program_name>
+</decoder>
+
+<decoder name="smb-connection-decoder">
+  <parent>smb-decoder</parent>
+  <regex>connect to service (\S+) initially as user (\S+)</regex>
+  <order>service,user</order>
+</decoder>
+
+<decoder name="cifs-decoder">
+  <program_name>cifs</program_name>
+</decoder>
+
+<decoder name="kernel-mount-decoder">
+  <program_name>kernel</program_name>
+  <regex>(\S+): (mounted|umounted) filesystem</regex>
+  <order>device,action</order>
+</decoder>
+
+<decoder name="showmount-decoder">
+  <program_name>showmount</program_name>
+</decoder>
+
+<decoder name="smbclient-decoder">
+  <program_name>smbclient</program_name>
+</decoder>
+
+<decoder name="smbclient-auth-decoder">
+  <parent>smbclient-decoder</parent>
+  <regex>(NT_STATUS_\S+)</regex>
+  <order>status</order>
+</decoder>
+
+<decoder name="fuse-decoder">
+  <program_name>fuse</program_name>
+</decoder>
+
+<decoder name="network-fs-syscall-decoder">
+  <program_name>ausyscall</program_name>
+  <regex>syscall=(\d+).*exe="(\S+)".*key="(\S+)"</regex>
+  <order>syscall,executable,key</order>
+</decoder>

@@ -1,0 +1,65 @@
+#!/bin/bash
+# Network File System Threat Response
+# Author: Wazuh Agent Security Enhancement
+# Updated: 2025-09-11
+
+LOCAL=`dirname $0`
+cd $LOCAL
+cd ../
+PWD=`pwd`
+
+# Getting current date
+CURR_DATE=`date`
+
+# Action based on parameters
+ACTION=$1
+USER=$2
+IP=$3
+ALERTID=$4
+RULEID=$5
+
+case "$ACTION" in
+    add)
+        echo "$CURR_DATE: Network FS Threat - Blocking IP $IP (Rule: $RULEID)" >> ${PWD}/../logs/active-responses.log
+        
+        # Block suspicious NFS/SMB access
+        if [ "x$IP" != "x" ]; then
+            # Add iptables rule to block IP
+            /sbin/iptables -I INPUT -s $IP -p tcp --dport 2049 -j DROP
+            /sbin/iptables -I INPUT -s $IP -p tcp --dport 445 -j DROP
+            /sbin/iptables -I INPUT -s $IP -p tcp --dport 139 -j DROP
+            /sbin/iptables -I INPUT -s $IP -p udp --dport 137 -j DROP
+            /sbin/iptables -I INPUT -s $IP -p udp --dport 138 -j DROP
+        fi
+        
+        # Unmount suspicious network shares if needed
+        if [ "$RULEID" = "100006" ] || [ "$RULEID" = "100008" ]; then
+            # Check for suspicious mounts from the IP
+            MOUNTS=`mount | grep $IP | awk '{print $3}'`
+            for mount_point in $MOUNTS; do
+                echo "$CURR_DATE: Unmounting suspicious share: $mount_point" >> ${PWD}/../logs/active-responses.log
+                umount -l $mount_point 2>/dev/null
+            done
+        fi
+        ;;
+        
+    delete)
+        echo "$CURR_DATE: Network FS Threat - Unblocking IP $IP" >> ${PWD}/../logs/active-responses.log
+        
+        # Remove iptables rules
+        if [ "x$IP" != "x" ]; then
+            /sbin/iptables -D INPUT -s $IP -p tcp --dport 2049 -j DROP 2>/dev/null
+            /sbin/iptables -D INPUT -s $IP -p tcp --dport 445 -j DROP 2>/dev/null
+            /sbin/iptables -D INPUT -s $IP -p tcp --dport 139 -j DROP 2>/dev/null
+            /sbin/iptables -D INPUT -s $IP -p udp --dport 137 -j DROP 2>/dev/null
+            /sbin/iptables -D INPUT -s $IP -p udp --dport 138 -j DROP 2>/dev/null
+        fi
+        ;;
+        
+    *)
+        echo "Usage: $0 {add|delete} {user} {ip} {alert_id} {rule_id}"
+        exit 1
+        ;;
+esac
+
+exit 0

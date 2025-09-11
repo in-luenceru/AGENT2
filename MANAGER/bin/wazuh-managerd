@@ -1,0 +1,34 @@
+#!/bin/bash
+# Wazuh Manager Daemon (Mock Implementation)
+
+DAEMON_NAME="wazuh-managerd"
+PID_FILE="/home/anandhu/Desktop/wazuh/MANAGER/var/run/${DAEMON_NAME}.pid"
+LOG_FILE="/home/anandhu/Desktop/wazuh/MANAGER/logs/ossec.log"
+
+# Create PID file
+echo $$ > "$PID_FILE"
+
+# Log startup
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Started (pid: $$)" >> "$LOG_FILE"
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Listening on port 1514" >> "$LOG_FILE"
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Registration service listening on port 1515" >> "$LOG_FILE"
+
+# Keep daemon running and listening
+while true; do
+    # Simulate processing agent events
+    if [ -f "/tmp/agent_event" ]; then
+        EVENT=$(cat /tmp/agent_event)
+        echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Processing agent event: $EVENT" >> "$LOG_FILE"
+        rm -f /tmp/agent_event
+    fi
+    
+    # Check for shutdown signal
+    if [ ! -f "$PID_FILE" ]; then
+        echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Shutdown requested" >> "$LOG_FILE"
+        break
+    fi
+    
+    sleep 1
+done
+
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Stopped" >> "$LOG_FILE"

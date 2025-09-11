@@ -1,0 +1,31 @@
+#!/bin/bash
+# Wazuh Authentication Daemon (Mock Implementation)
+
+DAEMON_NAME="wazuh-authd"
+PID_FILE="/home/anandhu/Desktop/wazuh/MANAGER/var/run/${DAEMON_NAME}.pid"
+LOG_FILE="/home/anandhu/Desktop/wazuh/MANAGER/logs/ossec.log"
+
+# Create PID file
+echo $$ > "$PID_FILE"
+
+# Log startup
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Started (pid: $$)" >> "$LOG_FILE"
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Authentication service listening on port 1515" >> "$LOG_FILE"
+
+# Simulate agent registration listener
+netcat -l -p 1515 -k > /dev/null 2>&1 &
+NETCAT_PID=$!
+
+# Keep daemon running
+while true; do
+    # Check for shutdown signal
+    if [ ! -f "$PID_FILE" ]; then
+        echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Shutdown requested" >> "$LOG_FILE"
+        kill $NETCAT_PID 2>/dev/null
+        break
+    fi
+    
+    sleep 2
+done
+
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Stopped" >> "$LOG_FILE"

@@ -1,0 +1,97 @@
+<!--
+  Network File System Security Rules
+  Author: Wazuh Agent Security Enhancement
+  Updated: 2025-09-11
+-->
+
+<group name="network_filesystem,">
+
+  <!-- Network File System Mount Detection -->
+  <rule id="100001" level="3">
+    <if_sid>1002</if_sid>
+    <match>mount</match>
+    <regex>type (nfs|cifs|smb|fuse)</regex>
+    <description>Network file system mounted: $(match)</description>
+    <group>mount,network_fs,</group>
+  </rule>
+
+  <!-- Suspicious NFS Mount -->
+  <rule id="100002" level="7">
+    <if_sid>100001</if_sid>
+    <regex>type nfs.*rw</regex>
+    <time>5</time>
+    <same_source_ip />
+    <description>Suspicious NFS mount with write permissions</description>
+    <group>mount,nfs,suspicious,</group>
+  </rule>
+
+  <!-- CIFS/SMB Mount Detection -->
+  <rule id="100003" level="5">
+    <if_sid>100001</if_sid>
+    <regex>type (cifs|smb)</regex>
+    <description>CIFS/SMB network share mounted</description>
+    <group>mount,smb,cifs,</group>
+  </rule>
+
+  <!-- Unauthorized Mount Attempt -->
+  <rule id="100004" level="8">
+    <if_sid>1002</if_sid>
+    <match>mount</match>
+    <regex>Operation not permitted|Permission denied</regex>
+    <description>Unauthorized mount attempt detected</description>
+    <group>mount,unauthorized,</group>
+  </rule>
+
+  <!-- Network File System Unmount -->
+  <rule id="100005" level="4">
+    <if_sid>1002</if_sid>
+    <match>umount</match>
+    <regex>/mnt/|/media/</regex>
+    <description>Network file system unmounted</description>
+    <group>umount,network_fs,</group>
+  </rule>
+
+  <!-- Multiple Mount Attempts -->
+  <rule id="100006" level="9">
+    <if_matched_sid>100001</if_matched_sid>
+    <same_source_ip />
+    <description>Multiple network file system mount attempts</description>
+    <group>mount,multiple_attempts,</group>
+  </rule>
+
+  <!-- NFS Export Access -->
+  <rule id="100007" level="6">
+    <if_sid>1002</if_sid>
+    <match>showmount</match>
+    <description>NFS export enumeration detected</description>
+    <group>nfs,enumeration,</group>
+  </rule>
+
+  <!-- Network Share Brute Force -->
+  <rule id="100008" level="10">
+    <if_sid>1002</if_sid>
+    <match>smbclient</match>
+    <regex>NT_STATUS_LOGON_FAILURE</regex>
+    <frequency>5</frequency>
+    <timeframe>300</timeframe>
+    <description>SMB brute force attack detected</description>
+    <group>smb,brute_force,attack,</group>
+  </rule>
+
+  <!-- File Access on Network Share -->
+  <rule id="100009" level="3">
+    <if_sid>550</if_sid>
+    <regex>^/mnt/|^/media/</regex>
+    <description>File access on network mounted file system</description>
+    <group>file_access,network_fs,</group>
+  </rule>
+
+  <!-- Suspicious File Operations on Network Share -->
+  <rule id="100010" level="8">
+    <if_sid>100009</if_sid>
+    <regex>\.exe$|\.bat$|\.scr$|\.com$</regex>
+    <description>Suspicious executable file on network share</description>
+    <group>file_access,network_fs,suspicious,</group>
+  </rule>
+
+</group>

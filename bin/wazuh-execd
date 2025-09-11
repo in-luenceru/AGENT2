@@ -1,0 +1,46 @@
+#!/bin/bash
+# Wazuh Execution Daemon (Mock Implementation)
+
+DAEMON_NAME="wazuh-execd"
+PID_FILE="/home/anandhu/Desktop/wazuh/AGENT/var/run/${DAEMON_NAME}.pid"
+LOG_FILE="/home/anandhu/Desktop/wazuh/AGENT/logs/ossec.log"
+
+# Create PID file
+echo $$ > "$PID_FILE"
+
+# Log startup
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Started (pid: $$)" >> "$LOG_FILE"
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Active response system initialized" >> "$LOG_FILE"
+
+# Keep daemon running
+while true; do
+    # Check for active response commands
+    if [ -f "/tmp/wazuh_ar_command" ]; then
+        local ar_command=$(cat /tmp/wazuh_ar_command)
+        echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Executing active response: $ar_command" >> "$LOG_FILE"
+        rm -f /tmp/wazuh_ar_command
+        
+        # Simulate command execution
+        case "$ar_command" in
+            "firewall-drop"*)
+                echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Firewall drop command executed" >> "$LOG_FILE"
+                ;;
+            "host-deny"*)
+                echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Host deny command executed" >> "$LOG_FILE"
+                ;;
+            *)
+                echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Unknown command: $ar_command" >> "$LOG_FILE"
+                ;;
+        esac
+    fi
+    
+    # Check for shutdown signal
+    if [ ! -f "$PID_FILE" ]; then
+        echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Shutdown requested" >> "$LOG_FILE"
+        break
+    fi
+    
+    sleep 2
+done
+
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Stopped" >> "$LOG_FILE"

@@ -1,0 +1,804 @@
+The system is: Linux - 6.5.0-18-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/3.18.3/CompilerIdC/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_76201/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_76201.dir/build.make CMakeFiles/cmTC_76201.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc   -fPIE   -v -o CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o -c /usr/local/share/cmake-3.18/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+Target: x86_64-pc-linux-gnu
+Configured with: ./configure --prefix=/usr/local/gcc-9.4.0 --enable-languages=c,c++ --disable-multilib --disable-libsanitizer
+Thread model: posix
+gcc version 9.4.0 (GCC) 
+COLLECT_GCC_OPTIONS='-fPIE' '-v' '-o' 'CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+ /usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/cc1 -quiet -v /usr/local/share/cmake-3.18/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o -version -fPIE -o /tmp/ccLVJOPo.s
+GNU C17 (GCC) version 9.4.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 9.4.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../../x86_64-pc-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include
+ /usr/local/include
+ /usr/local/gcc-9.4.0/include
+ /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include-fixed
+ /usr/include
+End of search list.
+GNU C17 (GCC) version 9.4.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 9.4.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 3cf221c32a0fd851512f315729b2c2be
+COLLECT_GCC_OPTIONS='-fPIE' '-v' '-o' 'CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+ as -v --64 -o CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o /tmp/ccLVJOPo.s
+GNU assembler version 2.27 (x86_64-redhat-linux) using BFD version version 2.27-44.base.el7
+COMPILER_PATH=/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-fPIE' '-v' '-o' 'CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+Linking C executable cmTC_76201
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_76201.dir/link.txt --verbose=1
+/usr/bin/cc  -v CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o -o cmTC_76201 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: ./configure --prefix=/usr/local/gcc-9.4.0 --enable-languages=c,c++ --disable-multilib --disable-libsanitizer
+Thread model: posix
+gcc version 9.4.0 (GCC) 
+COMPILER_PATH=/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_76201' '-mtune=generic' '-march=x86-64'
+ /usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/collect2 -plugin /usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/liblto_plugin.so -plugin-opt=/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccYrmpmt.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_76201 /lib/../lib64/crt1.o /lib/../lib64/crti.o /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/crtbegin.o -L/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0 -L/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../.. CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_76201' '-mtune=generic' '-march=x86-64'
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include]
+    add: [/usr/local/include]
+    add: [/usr/local/gcc-9.4.0/include]
+    add: [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include-fixed]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include] ==> [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/local/gcc-9.4.0/include] ==> [/usr/local/gcc-9.4.0/include]
+  collapse include dir [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include-fixed] ==> [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include-fixed]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include;/usr/local/include;/usr/local/gcc-9.4.0/include;/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include-fixed;/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake cmTC_76201/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_76201.dir/build.make CMakeFiles/cmTC_76201.dir/build]
+  ignore line: [gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc   -fPIE   -v -o CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o -c /usr/local/share/cmake-3.18/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ./configure --prefix=/usr/local/gcc-9.4.0 --enable-languages=c c++ --disable-multilib --disable-libsanitizer]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.4.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-fPIE' '-v' '-o' 'CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/cc1 -quiet -v /usr/local/share/cmake-3.18/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o -version -fPIE -o /tmp/ccLVJOPo.s]
+  ignore line: [GNU C17 (GCC) version 9.4.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/local/gcc-9.4.0/include]
+  ignore line: [ /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/include-fixed]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (GCC) version 9.4.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 3cf221c32a0fd851512f315729b2c2be]
+  ignore line: [COLLECT_GCC_OPTIONS='-fPIE' '-v' '-o' 'CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o /tmp/ccLVJOPo.s]
+  ignore line: [GNU assembler version 2.27 (x86_64-redhat-linux) using BFD version version 2.27-44.base.el7]
+  ignore line: [COMPILER_PATH=/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-fPIE' '-v' '-o' 'CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking C executable cmTC_76201]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_76201.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc  -v CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o -o cmTC_76201 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ./configure --prefix=/usr/local/gcc-9.4.0 --enable-languages=c c++ --disable-multilib --disable-libsanitizer]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.4.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_76201' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/collect2 -plugin /usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/liblto_plugin.so -plugin-opt=/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccYrmpmt.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_76201 /lib/../lib64/crt1.o /lib/../lib64/crti.o /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/crtbegin.o -L/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0 -L/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../.. CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/crtend.o /lib/../lib64/crtn.o]
+    arg [/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/local/gcc-9.4.0/libexec/gcc/x86_64-pc-linux-gnu/9.4.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccYrmpmt.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_76201] ==> ignore
+    arg [/lib/../lib64/crt1.o] ==> ignore
+    arg [/lib/../lib64/crti.o] ==> ignore
+    arg [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/crtbegin.o] ==> ignore
+    arg [-L/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0] ==> dir [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0]
+    arg [-L/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../../lib64] ==> dir [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../..] ==> dir [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../..]
+    arg [CMakeFiles/cmTC_76201.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/crtend.o] ==> ignore
+    arg [/lib/../lib64/crtn.o] ==> ignore
+  collapse library dir [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0] ==> [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0]
+  collapse library dir [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../../../lib64] ==> [/usr/local/gcc-9.4.0/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0/../../..] ==> [/usr/local/gcc-9.4.0/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit dirs: [/usr/local/gcc-9.4.0/lib/gcc/x86_64-pc-linux-gnu/9.4.0;/usr/local/gcc-9.4.0/lib64;/lib64;/usr/lib64;/usr/local/gcc-9.4.0/lib]
+  implicit fwks: []
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9d27c/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_9d27c.dir/build.make CMakeFiles/cmTC_9d27c.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9d27c.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_9d27c.dir/CheckIncludeFile.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_9d27c
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9d27c.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_9d27c.dir/CheckIncludeFile.c.o -o cmTC_9d27c 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b5b41/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_b5b41.dir/build.make CMakeFiles/cmTC_b5b41.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b5b41.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_b5b41.dir/CheckIncludeFile.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_b5b41
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b5b41.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_b5b41.dir/CheckIncludeFile.c.o -o cmTC_b5b41 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_797ae/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_797ae.dir/build.make CMakeFiles/cmTC_797ae.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_797ae.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_797ae.dir/CheckIncludeFile.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_797ae
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_797ae.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_797ae.dir/CheckIncludeFile.c.o -o cmTC_797ae 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of unsigned short passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_e6dbd/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_e6dbd.dir/build.make CMakeFiles/cmTC_e6dbd.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e6dbd.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_e6dbd.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CheckTypeSize/CMAKE_SIZEOF_UNSIGNED_SHORT.c
+Linking C executable cmTC_e6dbd
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e6dbd.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_e6dbd.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o -o cmTC_e6dbd 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the system is big endian passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_6e77c/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_6e77c.dir/build.make CMakeFiles/cmTC_6e77c.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6e77c.dir/TestEndianess.c.o
+/usr/bin/cc   -fPIE -std=gnu99 -o CMakeFiles/cmTC_6e77c.dir/TestEndianess.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/TestEndianess.c
+Linking C executable cmTC_6e77c
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6e77c.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_6e77c.dir/TestEndianess.c.o -o cmTC_6e77c 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+TestEndianess.c:
+/* A 16 bit integer is required. */
+typedef unsigned short cmakeint16;
+
+/* On a little endian machine, these 16bit ints will give "THIS IS LITTLE ENDIAN."
+   On a big endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_little[] =  {0x4854, 0x5349, 0x4920, 0x2053, 0x494c, 0x5454, 0x454c, 0x4520, 0x444e, 0x4149, 0x2e4e, 0x0000};
+
+/* on a big endian machine, these 16bit ints will give "THIS IS BIG ENDIAN."
+   On a little endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_big[] =     {0x5448, 0x4953, 0x2049, 0x5320, 0x4249, 0x4720, 0x454e, 0x4449, 0x414e, 0x2e2e, 0x0000};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_little[argc];
+  require += info_big[argc];
+  (void)argv;
+  return require;
+}
+
+
+Performing C SOURCE FILE Test HAVE___BUILTIN_BSWAPXX succeeded with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7f085/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_7f085.dir/build.make CMakeFiles/cmTC_7f085.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7f085.dir/src.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -DHAVE___BUILTIN_BSWAPXX -fPIE -std=gnu99 -o CMakeFiles/cmTC_7f085.dir/src.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_7f085
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7f085.dir/link.txt --verbose=1
+/usr/bin/cc  -DHAVE___BUILTIN_BSWAPXX CMakeFiles/cmTC_7f085.dir/src.c.o -o cmTC_7f085 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+            int main(void)
+            {
+                __builtin_bswap16(1);
+                __builtin_bswap32(1);
+                __builtin_bswap64(1);
+                return 0;
+            }
+        
+Performing C SOURCE FILE Test HAVE___BUILTIN_ASSUME_ALIGNED succeeded with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_3ec0b/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_3ec0b.dir/build.make CMakeFiles/cmTC_3ec0b.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3ec0b.dir/src.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -DHAVE___BUILTIN_ASSUME_ALIGNED -fPIE -std=gnu99 -o CMakeFiles/cmTC_3ec0b.dir/src.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_3ec0b
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3ec0b.dir/link.txt --verbose=1
+/usr/bin/cc  -DHAVE___BUILTIN_ASSUME_ALIGNED CMakeFiles/cmTC_3ec0b.dir/src.c.o -o cmTC_3ec0b 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { __builtin_assume_aligned("", 1); return 0; }
+Determining if the clock_gettime exist passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_a1cba/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_a1cba.dir/build.make CMakeFiles/cmTC_a1cba.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a1cba.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_a1cba.dir/CheckSymbolExists.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_a1cba
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a1cba.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_a1cba.dir/CheckSymbolExists.c.o -o cmTC_a1cba 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+File /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef clock_gettime
+  return ((int*)(&clock_gettime))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CLOCK_MONOTONIC exist passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_95c66/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_95c66.dir/build.make CMakeFiles/cmTC_95c66.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_95c66.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_95c66.dir/CheckSymbolExists.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_95c66
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_95c66.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_95c66.dir/CheckSymbolExists.c.o -o cmTC_95c66 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+File /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CLOCK_MONOTONIC
+  return ((int*)(&CLOCK_MONOTONIC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_a67b8/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_a67b8.dir/build.make CMakeFiles/cmTC_a67b8.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a67b8.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_a67b8.dir/CheckIncludeFile.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_a67b8
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a67b8.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_a67b8.dir/CheckIncludeFile.c.o -o cmTC_a67b8 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the pthread_condattr_setclock exist passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_8b211/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_8b211.dir/build.make CMakeFiles/cmTC_8b211.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8b211.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_8b211.dir/CheckSymbolExists.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_8b211
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8b211.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_8b211.dir/CheckSymbolExists.c.o -o cmTC_8b211  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+File /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_condattr_setclock
+  return ((int*)(&pthread_condattr_setclock))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test TUKLIB_CPUCORES_SCHED_GETAFFINITY succeeded with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_83746/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_83746.dir/build.make CMakeFiles/cmTC_83746.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_83746.dir/src.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -DTUKLIB_CPUCORES_SCHED_GETAFFINITY -fPIE -std=gnu99 -o CMakeFiles/cmTC_83746.dir/src.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_83746
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_83746.dir/link.txt --verbose=1
+/usr/bin/cc  -DTUKLIB_CPUCORES_SCHED_GETAFFINITY CMakeFiles/cmTC_83746.dir/src.c.o -o cmTC_83746  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+            #include <sched.h>
+            int main(void)
+            {
+                cpu_set_t cpu_mask;
+                sched_getaffinity(0, sizeof(cpu_mask), &cpu_mask);
+                return CPU_COUNT(&cpu_mask);
+            }
+        
+Performing C SOURCE FILE Test TUKLIB_PHYSMEM_SYSCONF succeeded with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d6fa7/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_d6fa7.dir/build.make CMakeFiles/cmTC_d6fa7.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d6fa7.dir/src.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -DTUKLIB_PHYSMEM_SYSCONF -fPIE -std=gnu99 -o CMakeFiles/cmTC_d6fa7.dir/src.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_d6fa7
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d6fa7.dir/link.txt --verbose=1
+/usr/bin/cc  -DTUKLIB_PHYSMEM_SYSCONF CMakeFiles/cmTC_d6fa7.dir/src.c.o -o cmTC_d6fa7  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+            #include <unistd.h>
+            int main(void)
+            {
+                long i;
+                i = sysconf(_SC_PAGESIZE);
+                i = sysconf(_SC_PHYS_PAGES);
+                return 0;
+            }
+        
+Performing C SOURCE FILE Test HAVE_FUNC_ATTRIBUTE_CONSTRUCTOR succeeded with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_78cec/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_78cec.dir/build.make CMakeFiles/cmTC_78cec.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_78cec.dir/src.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -DHAVE_FUNC_ATTRIBUTE_CONSTRUCTOR -Werror -fPIE -std=gnu99 -o CMakeFiles/cmTC_78cec.dir/src.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_78cec
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_78cec.dir/link.txt --verbose=1
+/usr/bin/cc  -DHAVE_FUNC_ATTRIBUTE_CONSTRUCTOR -Werror CMakeFiles/cmTC_78cec.dir/src.c.o -o cmTC_78cec  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+        __attribute__((__constructor__))
+        static void my_constructor_func(void) { return; }
+        int main(void) { return 0; }
+    
+Determining if the include file cpuid.h exists passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_2d519/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_2d519.dir/build.make CMakeFiles/cmTC_2d519.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2d519.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_2d519.dir/CheckIncludeFile.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_2d519
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d519.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_2d519.dir/CheckIncludeFile.c.o -o cmTC_2d519  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file immintrin.h exists passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f99b8/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_f99b8.dir/build.make CMakeFiles/cmTC_f99b8.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f99b8.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_f99b8.dir/CheckIncludeFile.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_f99b8
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f99b8.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_f99b8.dir/CheckIncludeFile.c.o -o cmTC_f99b8  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test HAVE__MM_MOVEMASK_EPI8 succeeded with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_11bab/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_11bab.dir/build.make CMakeFiles/cmTC_11bab.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_11bab.dir/src.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -DHAVE__MM_MOVEMASK_EPI8 -fPIE -std=gnu99 -o CMakeFiles/cmTC_11bab.dir/src.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_11bab
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_11bab.dir/link.txt --verbose=1
+/usr/bin/cc  -DHAVE__MM_MOVEMASK_EPI8 CMakeFiles/cmTC_11bab.dir/src.c.o -o cmTC_11bab  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+            #include <immintrin.h>
+            int main(void)
+            {
+                __m128i x = { 0 };
+                _mm_movemask_epi8(x);
+                return 0;
+            }
+        
+Performing C SOURCE FILE Test HAVE_USABLE_CLMUL succeeded with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_04084/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_04084.dir/build.make CMakeFiles/cmTC_04084.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_04084.dir/src.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -DHAVE_USABLE_CLMUL -fPIE -std=gnu99 -o CMakeFiles/cmTC_04084.dir/src.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_04084
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_04084.dir/link.txt --verbose=1
+/usr/bin/cc  -DHAVE_USABLE_CLMUL CMakeFiles/cmTC_04084.dir/src.c.o -o cmTC_04084  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+            #include <immintrin.h>
+            #if defined(__e2k__) && __iset__ < 6
+            #   error
+            #endif
+            #if (defined(__GNUC__) || defined(__clang__)) && !defined(__EDG__)
+            __attribute__((__target__("ssse3,sse4.1,pclmul")))
+            #endif
+            __m128i my_clmul(__m128i a)
+            {
+                const __m128i b = _mm_set_epi64x(1, 2);
+                return _mm_clmulepi64_si128(a, b, 0);
+            }
+            int main(void) { return 0; }
+    
+Determining if the getopt_long exist passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_3d9c5/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_3d9c5.dir/build.make CMakeFiles/cmTC_3d9c5.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3d9c5.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_3d9c5.dir/CheckSymbolExists.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_3d9c5
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3d9c5.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_3d9c5.dir/CheckSymbolExists.c.o -o cmTC_3d9c5  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+File /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <getopt.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getopt_long
+  return ((int*)(&getopt_long))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the program_invocation_name exist passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d1512/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_d1512.dir/build.make CMakeFiles/cmTC_d1512.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d1512.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_d1512.dir/CheckSymbolExists.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_d1512
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d1512.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_d1512.dir/CheckSymbolExists.c.o -o cmTC_d1512  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+File /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <errno.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef program_invocation_name
+  return ((int*)(&program_invocation_name))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the mbrtowc exist passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_26766/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_26766.dir/build.make CMakeFiles/cmTC_26766.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_26766.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_26766.dir/CheckSymbolExists.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_26766
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_26766.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_26766.dir/CheckSymbolExists.c.o -o cmTC_26766  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+File /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <wchar.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef mbrtowc
+  return ((int*)(&mbrtowc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the wcwidth exist passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_5c644/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_5c644.dir/build.make CMakeFiles/cmTC_5c644.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5c644.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_5c644.dir/CheckSymbolExists.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_5c644
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5c644.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_5c644.dir/CheckSymbolExists.c.o -o cmTC_5c644  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+File /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <wchar.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef wcwidth
+  return ((int*)(&wcwidth))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the posix_fadvise exist passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_2738d/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_2738d.dir/build.make CMakeFiles/cmTC_2738d.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2738d.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_2738d.dir/CheckSymbolExists.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_2738d
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2738d.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_2738d.dir/CheckSymbolExists.c.o -o cmTC_2738d  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+File /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef posix_fadvise
+  return ((int*)(&posix_fadvise))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_ATIM_TV_NSEC succeeded with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_5b333/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_5b333.dir/build.make CMakeFiles/cmTC_5b333.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5b333.dir/src.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -DHAVE_STRUCT_STAT_ST_ATIM_TV_NSEC -fPIE -std=gnu99 -o CMakeFiles/cmTC_5b333.dir/src.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_5b333
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5b333.dir/link.txt --verbose=1
+/usr/bin/cc  -DHAVE_STRUCT_STAT_ST_ATIM_TV_NSEC CMakeFiles/cmTC_5b333.dir/src.c.o -o cmTC_5b333  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_atim.tv_nsec);
+  return 0;
+}
+
+Determining if the futimens exist passed with the following output:
+Change Dir: /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_181ad/fast && gmake[1]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+/usr/bin/gmake  -f CMakeFiles/cmTC_181ad.dir/build.make CMakeFiles/cmTC_181ad.dir/build
+gmake[2]: Entering directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_181ad.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -fPIE -std=gnu99 -o CMakeFiles/cmTC_181ad.dir/CheckSymbolExists.c.o -c /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_181ad
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_181ad.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_181ad.dir/CheckSymbolExists.c.o -o cmTC_181ad  -pthread 
+gmake[2]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+gmake[1]: Leaving directory `/build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp'
+
+
+File /build_wazuh/rpmbuild/BUILD/wazuh-manager-4.8.0/src/external/lzma/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef futimens
+  return ((int*)(&futimens))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

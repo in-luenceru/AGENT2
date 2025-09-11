@@ -1,0 +1,6 @@
+     /build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/src/popt.c \
+     /build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/src/popt.h \
+     /build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/src/poptconfig.c \
+     /build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/src/popthelp.c \
+     /build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/src/poptint.c \
+     /build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/popt/src/poptparse.c

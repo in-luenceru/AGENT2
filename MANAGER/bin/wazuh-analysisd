@@ -1,0 +1,33 @@
+#!/bin/bash
+# Wazuh Analysis Daemon (Mock Implementation)
+
+DAEMON_NAME="wazuh-analysisd"
+PID_FILE="/home/anandhu/Desktop/wazuh/MANAGER/var/run/${DAEMON_NAME}.pid"
+LOG_FILE="/home/anandhu/Desktop/wazuh/MANAGER/logs/ossec.log"
+
+# Create PID file
+echo $$ > "$PID_FILE"
+
+# Log startup
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Started (pid: $$)" >> "$LOG_FILE"
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Analysis daemon initialized" >> "$LOG_FILE"
+
+# Keep daemon running and analyzing
+COUNTER=0
+while true; do
+    # Simulate log analysis
+    if [ $((COUNTER % 30)) -eq 0 ]; then
+        echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Analyzed $COUNTER events" >> "$LOG_FILE"
+    fi
+    
+    # Check for shutdown signal
+    if [ ! -f "$PID_FILE" ]; then
+        echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Shutdown requested" >> "$LOG_FILE"
+        break
+    fi
+    
+    COUNTER=$((COUNTER + 1))
+    sleep 3
+done
+
+echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Stopped" >> "$LOG_FILE"

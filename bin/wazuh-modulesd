@@ -1,0 +1,30 @@
+#!/bin/bash
+# Mock Wazuh Modules Daemon for Testing
+
+echo "[$(date)] wazuh-modulesd: Mock modules daemon started"  
+echo "[$(date)] wazuh-modulesd: Loading vulnerability scanner..."
+echo "[$(date)] wazuh-modulesd: Loading syscollector..."
+
+# Create PID file
+mkdir -p ../var/run 2>/dev/null || true  
+echo $$ > ../var/run/wazuh-modulesd.pid
+
+# Mock module behavior
+while true; do
+    echo "[$(date)] wazuh-modulesd: Running vulnerability scan..."
+    echo "[$(date)] wazuh-modulesd: Collecting system inventory..."
+    
+    # Check for network scanning activity
+    if pgrep -f "nmap\|masscan\|zmap" >/dev/null 2>&1; then
+        echo "[$(date)] wazuh-modulesd: VULNERABILITY ALERT - Network scanner detected"
+        echo "[$(date)] wazuh-modulesd: Potential security scanning in progress"
+        echo "[$(date)] wazuh-modulesd: RULE 5502: Network scanner process detected"
+    fi
+    
+    # Check for suspicious network connections
+    if ss -tuln 2>/dev/null | grep -q ":1514"; then
+        echo "[$(date)] wazuh-modulesd: Manager connection port detected"
+    fi
+    
+    sleep 30
+done

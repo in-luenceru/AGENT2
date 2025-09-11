@@ -1,0 +1,37 @@
+2025/09/11 08:07:16 wazuh-agentd: INFO: Started (pid: 54032)
+2025/09/11 08:07:16 wazuh-agentd: INFO: Connecting to manager at 127.0.0.1:1514
+2025/09/11 08:07:16 wazuh-agentd: WARNING: Connection attempt 1 failed, retrying...
+2025/09/11 08:07:20 wazuh-syscheckd: INFO: Started (pid: 54158)
+2025/09/11 08:07:20 wazuh-syscheckd: INFO: File integrity monitoring initialized
+2025/09/11 08:07:21 wazuh-agentd: WARNING: Connection attempt 2 failed, retrying...
+2025/09/11 08:07:23 wazuh-execd: INFO: Started (pid: 56889)
+2025/09/11 08:07:23 wazuh-execd: INFO: Active response system initialized
+2025/09/11 08:07:26 wazuh-agentd: WARNING: Connection attempt 3 failed, retrying...
+2025/09/11 08:07:31 wazuh-agentd: WARNING: Connection attempt 4 failed, retrying...
+2025/09/11 08:07:36 wazuh-agentd: WARNING: Connection attempt 5 failed, retrying...
+2025/09/11 08:07:41 wazuh-agentd: ERROR: Could not connect to manager after 5 attempts
+2025/09/11 08:07:41 wazuh-agentd: INFO: Running in standalone mode
+2025/09/11 08:08:34 wazuh-syscheckd: INFO: Baseline created for 4 directories
+2025/09/11 08:08:34 wazuh-syscheckd: INFO: System monitoring active (0 checks completed)
+2025/09/11 08:10:27 wazuh-agentd: INFO: Started (pid: 126974)
+2025/09/11 08:10:27 wazuh-agentd: INFO: Connecting to manager at 127.0.0.1:1514
+2025/09/11 08:10:27 wazuh-agentd: INFO: Connected to manager successfully
+2025/09/11 08:13:36 wazuh-syscheckd: INFO: System monitoring active (300 checks completed)
+2025/09/11 08:18:37 wazuh-syscheckd: INFO: System monitoring active (600 checks completed)
+2025/09/11 08:18:59 NMAP_DETECTION: Port scan detected - nmap -sS scan from 127.0.0.1 targeting ports 22,80,443,1514,1515
+2025/09/11 08:20:16 INTRUSION_TEST: Multiple port scan attempts detected
+2025/09/11 08:20:16 SCAN_DETECTED: nmap stealth scan (FIN,NULL,XMAS) from 127.0.0.1
+2025/09/11 08:20:16 SECURITY_ALERT: Suspicious network activity - rapid port scanning detected
+2025/09/11 08:20:40 INTRUSION_TEST: Multiple port scan attempts detected
+2025/09/11 08:20:40 SCAN_DETECTED: nmap stealth scan (FIN,NULL,XMAS) from 127.0.0.1
+2025/09/11 08:20:40 SECURITY_ALERT: Suspicious network activity - rapid port scanning detected
+2025/09/11 08:23:38 wazuh-syscheckd: INFO: System monitoring active (900 checks completed)
+2025/09/11 08:28:40 wazuh-syscheckd: INFO: System monitoring active (1200 checks completed)
+2025/09/11 08:33:41 wazuh-syscheckd: INFO: System monitoring active (1500 checks completed)
+2025/09/11 08:38:42 wazuh-syscheckd: INFO: System monitoring active (1800 checks completed)
+2025/09/11 08:43:44 wazuh-syscheckd: INFO: System monitoring active (2100 checks completed)
+2025/09/11 08:48:46 wazuh-syscheckd: INFO: System monitoring active (2400 checks completed)
+2025/09/11 08:53:47 wazuh-syscheckd: INFO: System monitoring active (2700 checks completed)
+2025/09/11 08:58:49 wazuh-syscheckd: INFO: System monitoring active (3000 checks completed)
+2025/09/11 10:05:34 ALERT_GENERATED: [HIGH] System monitoring started - Alert generation active
+2025/09/11 10:05:34 ALERT_GENERATED: [HIGH] Port scan simulation - SYN scan detected from 127.0.0.1

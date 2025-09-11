@@ -1,0 +1,83 @@
+2025/09/11 08:06:12 wazuh-managerd: INFO: Started (pid: 52644)
+2025/09/11 08:06:12 wazuh-managerd: INFO: Listening on port 1514
+2025/09/11 08:06:12 wazuh-managerd: INFO: Registration service listening on port 1515
+2025/09/11 08:06:13 wazuh-remoted: INFO: Started (pid: 52661)
+2025/09/11 08:06:13 wazuh-remoted: INFO: Remote daemon ready to accept connections
+2025/09/11 08:06:14 wazuh-analysisd: INFO: Started (pid: 52721)
+2025/09/11 08:06:14 wazuh-analysisd: INFO: Analysis daemon initialized
+2025/09/11 08:06:14 wazuh-analysisd: INFO: Analyzed 0 events
+2025/09/11 08:06:15 wazuh-db: INFO: Started (pid: 52750)
+2025/09/11 08:06:15 wazuh-db: INFO: Database ready
+2025/09/11 08:06:16 wazuh-authd: INFO: Started (pid: 52759)
+2025/09/11 08:06:16 wazuh-authd: INFO: Authentication service listening on port 1515
+2025/09/11 08:07:44 wazuh-analysisd: INFO: Analyzed 30 events
+2025/09/11 08:08:49 wazuh-managerd: INFO: Started (pid: 124528)
+2025/09/11 08:08:49 wazuh-managerd: INFO: Listening on port 1514
+2025/09/11 08:08:49 wazuh-managerd: INFO: Registration service listening on port 1515
+2025/09/11 08:08:50 wazuh-remoted: INFO: Started (pid: 124543)
+2025/09/11 08:08:50 wazuh-remoted: INFO: Remote daemon ready to accept connections
+2025/09/11 08:08:50 wazuh-remoted: INFO: Listening for agent connections on port 1514
+2025/09/11 08:08:51 wazuh-analysisd: INFO: Started (pid: 124605)
+2025/09/11 08:08:51 wazuh-analysisd: INFO: Analysis daemon initialized
+2025/09/11 08:08:51 wazuh-analysisd: INFO: Analyzed 0 events
+2025/09/11 08:08:52 wazuh-db: INFO: Started (pid: 124615)
+2025/09/11 08:08:52 wazuh-db: INFO: Database ready
+2025/09/11 08:08:53 wazuh-authd: INFO: Started (pid: 124659)
+2025/09/11 08:08:53 wazuh-authd: INFO: Authentication service listening on port 1515
+2025/09/11 08:09:01 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:09:30 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:10:00 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:10:21 wazuh-analysisd: INFO: Analyzed 30 events
+2025/09/11 08:10:31 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:11:01 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:11:31 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:11:51 wazuh-analysisd: INFO: Analyzed 60 events
+2025/09/11 08:12:00 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:12:30 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:13:00 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:13:22 wazuh-analysisd: INFO: Analyzed 90 events
+2025/09/11 08:13:30 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:14:01 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:14:31 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:14:52 wazuh-analysisd: INFO: Analyzed 120 events
+2025/09/11 08:15:01 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:15:31 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:16:00 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:16:22 wazuh-analysisd: INFO: Analyzed 150 events
+2025/09/11 08:16:30 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:17:00 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:17:30 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:17:52 wazuh-analysisd: INFO: Analyzed 180 events
+2025/09/11 08:18:01 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:18:31 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:19:01 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:19:22 wazuh-analysisd: INFO: Analyzed 210 events
+2025/09/11 08:19:31 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:20:01 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:20:30 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:20:52 wazuh-analysisd: INFO: Analyzed 240 events
+2025/09/11 08:21:00 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:21:30 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:22:01 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:22:22 wazuh-analysisd: INFO: Analyzed 270 events
+2025/09/11 08:22:30 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:23:00 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:23:31 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:23:52 wazuh-analysisd: INFO: Analyzed 300 events
+2025/09/11 08:24:01 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:24:30 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:25:00 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:25:22 wazuh-analysisd: INFO: Analyzed 330 events
+2025/09/11 08:25:31 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:26:01 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:26:31 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:26:53 wazuh-analysisd: INFO: Analyzed 360 events
+2025/09/11 08:27:00 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:27:30 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:28:01 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:28:23 wazuh-analysisd: INFO: Analyzed 390 events
+2025/09/11 08:28:30 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:29:01 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:29:31 wazuh-managerd: INFO: Processing agent event: Agent heartbeat
+2025/09/11 08:29:53 wazuh-analysisd: INFO: Analyzed 420 events
+2025/09/11 08:30:01 wazuh-managerd: INFO: Processing agent event: Agent heartbeat

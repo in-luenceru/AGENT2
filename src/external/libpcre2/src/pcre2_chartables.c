@@ -1,0 +1,1 @@
+/build_wazuh/rpmbuild/BUILD/wazuh-agent-4.8.0/src/external/libpcre2/src/pcre2_chartables.c.dist
