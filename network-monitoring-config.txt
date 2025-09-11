@@ -1,0 +1,42 @@
+# Network Security Monitoring Configuration Addition
+
+# Add these to ossec.conf within the <ossec_config> tags
+
+# Monitor system logs for network events
+<localfile>
+  <log_format>syslog</log_format>
+  <location>/var/log/syslog</location>
+</localfile>
+
+# Monitor kernel logs for network events  
+<localfile>
+  <log_format>syslog</log_format>
+  <location>/var/log/kern.log</location>
+</localfile>
+
+# Monitor auth logs for security events
+<localfile>
+  <log_format>syslog</log_format>
+  <location>/var/log/auth.log</location>
+</localfile>
+
+# Monitor for security scanning tools (process-based detection)
+<localfile>
+  <log_format>command</log_format>
+  <command>ps aux | grep -E "(nmap|masscan|zmap|unicornscan)" | grep -v grep</command>
+  <frequency>30</frequency>
+</localfile>
+
+# Monitor network connections more frequently
+<localfile>
+  <log_format>command</log_format>
+  <command>netstat -tulpn | head -20</command>
+  <frequency>60</frequency>
+</localfile>
+
+# Monitor for new network connections
+<localfile>
+  <log_format>command</log_format>
+  <command>ss -tuln | head -20</command>
+  <frequency>60</frequency>
+</localfile>

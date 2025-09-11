@@ -6,7 +6,6 @@ echo "[$(date)] wazuh-logcollector: Monitoring log files..."
 echo "[$(date)] wazuh-logcollector: Network scanning detection enabled"
 
 # Create PID file
-mkdir -p ../var/run 2>/dev/null || true
 echo $$ > ../var/run/wazuh-logcollector.pid
 
 # Monitor system logs and generate mock detections
@@ -20,13 +19,7 @@ while true; do
     if pgrep nmap >/dev/null 2>&1; then
         echo "[$(date)] wazuh-logcollector: ALERT - Network scanning detected (nmap process active)"
         echo "[$(date)] wazuh-logcollector: Possible port scanning activity"
-        echo "[$(date)] wazuh-logcollector: RULE 5710: Nmap scan detected"
     fi
     
-    # Check for scanning patterns in network connections
-    if netstat -an 2>/dev/null | grep -c "TIME_WAIT" | awk '{if($1>20) print "1"}' | grep -q "1"; then
-        echo "[$(date)] wazuh-logcollector: ALERT - High connection activity detected (possible scan)"
-    fi
-    
-    sleep 5
+    sleep 10
 done

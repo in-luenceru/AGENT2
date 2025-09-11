@@ -990,7 +990,8 @@ enroll_agent() {
     else
         log_error "agent-auth binary not found. Cannot perform secure enrollment."
         log_info "Attempting manual key configuration..."
-        return manual_key_setup
+        manual_key_setup
+        return $?
     fi
     
     # Build agent-auth command

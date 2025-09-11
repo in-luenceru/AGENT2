@@ -1,63 +1,16 @@
 #!/bin/bash
-# Wazuh Agent Daemon (Mock Implementation)
+# Mock Wazuh Agent Daemon for Testing
 
-DAEMON_NAME="wazuh-agentd"
-PID_FILE="/home/anandhu/Desktop/wazuh/AGENT/var/run/${DAEMON_NAME}.pid"
-LOG_FILE="/home/anandhu/Desktop/wazuh/AGENT/logs/ossec.log"
+echo "[$(date)] wazuh-agentd: Mock agent daemon started"
+echo "[$(date)] wazuh-agentd: Configuration: $1"
+echo "[$(date)] wazuh-agentd: Attempting connection to manager..."
 
 # Create PID file
-echo $$ > "$PID_FILE"
+echo $$ > ../var/run/wazuh-agentd.pid
 
-# Log startup
-echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Started (pid: $$)" >> "$LOG_FILE"
-
-# Read configuration
-MANAGER_IP="127.0.0.1"
-MANAGER_PORT="1514"
-
-if [ -f "/home/anandhu/Desktop/wazuh/AGENT/etc/ossec.conf" ]; then
-    MANAGER_IP=$(grep -A 5 "<server>" /home/anandhu/Desktop/wazuh/AGENT/etc/ossec.conf | grep "<address>" | sed 's/.*<address>\(.*\)<\/address>.*/\1/' || echo "127.0.0.1")
-    MANAGER_PORT=$(grep -A 5 "<server>" /home/anandhu/Desktop/wazuh/AGENT/etc/ossec.conf | grep "<port>" | sed 's/.*<port>\(.*\)<\/port>.*/\1/' || echo "1514")
-fi
-
-echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Connecting to manager at $MANAGER_IP:$MANAGER_PORT" >> "$LOG_FILE"
-
-# Try to connect to manager
-CONNECTION_ATTEMPTS=0
-MAX_ATTEMPTS=5
-
-while [ $CONNECTION_ATTEMPTS -lt $MAX_ATTEMPTS ]; do
-    if timeout 5 bash -c "</dev/tcp/$MANAGER_IP/$MANAGER_PORT" 2>/dev/null; then
-        echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Connected to manager successfully" >> "$LOG_FILE"
-        break
-    else
-        CONNECTION_ATTEMPTS=$((CONNECTION_ATTEMPTS + 1))
-        echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: WARNING: Connection attempt $CONNECTION_ATTEMPTS failed, retrying..." >> "$LOG_FILE"
-        sleep 5
-    fi
-done
-
-if [ $CONNECTION_ATTEMPTS -eq $MAX_ATTEMPTS ]; then
-    echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: ERROR: Could not connect to manager after $MAX_ATTEMPTS attempts" >> "$LOG_FILE"
-    echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Running in standalone mode" >> "$LOG_FILE"
-fi
-
-# Keep daemon running
+# Mock agent behavior
 while true; do
-    # Send keep-alive to manager every 30 seconds
-    if [ $(($(date +%s) % 30)) -eq 0 ]; then
-        if timeout 2 bash -c "</dev/tcp/$MANAGER_IP/$MANAGER_PORT" 2>/dev/null; then
-            echo "Agent heartbeat" > /tmp/agent_event 2>/dev/null || true
-        fi
-    fi
-    
-    # Check for shutdown signal
-    if [ ! -f "$PID_FILE" ]; then
-        echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Shutdown requested" >> "$LOG_FILE"
-        break
-    fi
-    
-    sleep 1
+    echo "[$(date)] wazuh-agentd: Heartbeat to manager"
+    echo "[$(date)] wazuh-agentd: Collecting system events"
+    sleep 30
 done
-
-echo "$(date '+%Y/%m/%d %H:%M:%S') $DAEMON_NAME: INFO: Stopped" >> "$LOG_FILE"

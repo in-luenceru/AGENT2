@@ -2,8 +2,8 @@
 # Wazuh Database Daemon (Mock Implementation)
 
 DAEMON_NAME="wazuh-db"
-PID_FILE="/home/anandhu/Desktop/wazuh/MANAGER/var/run/${DAEMON_NAME}.pid"
-LOG_FILE="/home/anandhu/Desktop/wazuh/MANAGER/logs/ossec.log"
+PID_FILE="/home/anandhu/AGENT/MANAGER/var/run/${DAEMON_NAME}.pid"
+LOG_FILE="/home/anandhu/AGENT/MANAGER/logs/ossec.log"
 
 # Create PID file
 echo $$ > "$PID_FILE"

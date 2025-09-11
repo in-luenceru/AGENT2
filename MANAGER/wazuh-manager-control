@@ -5,8 +5,8 @@
 set -e
 
 # Configuration
-MANAGER_DIR="/home/anandhu/Desktop/AGENT/MANAGER"
-AGENT_DIR="/home/anandhu/Desktop/AGENT"
+MANAGER_DIR="/home/anandhu/AGENT/MANAGER"
+AGENT_DIR="/home/anandhu/AGENT"
 
 # Colors
 RED='\033[0;31m'

@@ -1,0 +1,1 @@
+$(cat /home/anandhu/AGENT/wazuh_cheat_sheet.sh)

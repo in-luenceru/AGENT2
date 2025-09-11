@@ -1,0 +1,141 @@
+#!/bin/bash
+
+# Simplified Wazuh Control Script for Testing
+# Uses mock binaries for isolated agent testing
+
+AGENT_DIR="$(dirname "$(realpath "$0")")"
+BIN_DIR="$AGENT_DIR/bin"
+VAR_DIR="$AGENT_DIR/var/run"
+LOG_DIR="$AGENT_DIR/logs"
+CONFIG_FILE="$AGENT_DIR/etc/ossec.conf"
+
+# Colors
+GREEN='\033[0;32m'
+RED='\033[0;31m'  
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+# Ensure directories exist
+mkdir -p "$VAR_DIR" "$LOG_DIR"
+
+print_status() {
+    echo -e "${BLUE}ℹ️  $1${NC}"
+}
+
+print_success() {
+    echo -e "${GREEN}✅ $1${NC}"
+}
+
+print_error() {
+    echo -e "${RED}❌ $1${NC}"
+}
+
+print_warning() {
+    echo -e "${YELLOW}⚠️  $1${NC}"
+}
+
+start_agent() {
+    echo "Starting isolated Wazuh agent..."
+    
+    cd "$AGENT_DIR"
+    
+    # Start each component in background
+    if [[ -x "$BIN_DIR/wazuh-agentd" ]]; then
+        nohup "$BIN_DIR/wazuh-agentd" "$CONFIG_FILE" >> "$LOG_DIR/ossec.log" 2>&1 &
+        print_success "wazuh-agentd started"
+    fi
+    
+    if [[ -x "$BIN_DIR/wazuh-logcollector" ]]; then
+        nohup "$BIN_DIR/wazuh-logcollector" >> "$LOG_DIR/ossec.log" 2>&1 &
+        print_success "wazuh-logcollector started"
+    fi
+    
+    if [[ -x "$BIN_DIR/wazuh-syscheckd" ]]; then
+        nohup "$BIN_DIR/wazuh-syscheckd" >> "$LOG_DIR/ossec.log" 2>&1 &
+        print_success "wazuh-syscheckd started"  
+    fi
+    
+    if [[ -x "$BIN_DIR/wazuh-execd" ]]; then
+        nohup "$BIN_DIR/wazuh-execd" >> "$LOG_DIR/ossec.log" 2>&1 &
+        print_success "wazuh-execd started"
+    fi
+    
+    if [[ -x "$BIN_DIR/wazuh-modulesd" ]]; then
+        nohup "$BIN_DIR/wazuh-modulesd" >> "$LOG_DIR/ossec.log" 2>&1 &
+        print_success "wazuh-modulesd started"
+    fi
+    
+    sleep 3
+    print_success "Isolated Wazuh agent started successfully"
+}
+
+stop_agent() {
+    echo "Stopping isolated Wazuh agent..."
+    
+    # Kill all mock processes
+    pkill -f "$BIN_DIR/wazuh-" 2>/dev/null || true
+    
+    # Remove PID files
+    rm -f "$VAR_DIR"/*.pid
+    
+    print_success "Isolated Wazuh agent stopped"
+}
+
+status_agent() {
+    echo "Checking isolated Wazuh agent status..."
+    
+    local processes=(
+        "wazuh-agentd"
+        "wazuh-logcollector"
+        "wazuh-syscheckd" 
+        "wazuh-execd"
+        "wazuh-modulesd"
+    )
+    
+    local running=0
+    
+    for proc in "${processes[@]}"; do
+        if pgrep -f "$BIN_DIR/$proc" >/dev/null; then
+            print_success "$proc is running"
+            running=$((running + 1))
+        else
+            print_error "$proc is not running"
+        fi
+    done
+    
+    echo "Status: $running/5 processes running"
+}
+
+scan_agent() {
+    echo "Triggering network scan detection..."
+    
+    # Trigger a scan detection
+    touch "$LOG_DIR/execute_response"
+    
+    print_success "Network scan detection triggered"
+}
+
+case "$1" in
+    start)
+        start_agent
+        ;;
+    stop)
+        stop_agent  
+        ;;
+    status)
+        status_agent
+        ;;
+    restart)
+        stop_agent
+        sleep 2
+        start_agent
+        ;;
+    scan)
+        scan_agent
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|status|restart|scan}"
+        exit 1
+        ;;
+esac

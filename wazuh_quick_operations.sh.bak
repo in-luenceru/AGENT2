@@ -1,0 +1,1 @@
+$(cat /home/anandhu/AGENT/wazuh_quick_operations.sh)
