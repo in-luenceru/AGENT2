@@ -1,18 +1,21 @@
 #!/bin/bash
-# Mock Monitoring Agent System Check Daemon for Testing
+# Mock File Integrity Monitor Daemon for Testing
+
+# Ensure PID directory exists
+WAZUH_HOME="${WAZUH_HOME:-$(dirname $(dirname $(realpath $0)))}"
+PID_DIR="$WAZUH_HOME/var/run"
+mkdir -p "$PID_DIR"
 
 echo "[$(date)] monitor-syscheckd: Mock file integrity monitor started"
 echo "[$(date)] monitor-syscheckd: Scanning directories for changes..."
 
 # Create PID file
-echo $$ > ../var/run/monitor-syscheckd.pid
+echo $$ > "$PID_DIR/monitor-syscheckd.pid"
 
-# Monitor file changes
+# Mock syscheck behavior
 while true; do
-    # Check for new files in /tmp
-    if find /tmp -name "*monitor*test*" -newer ../var/run/monitor-syscheckd.pid 2>/dev/null | grep -q .; then
-        echo "[$(date)] monitor-syscheckd: ALERT - File integrity change detected in /tmp"
-    fi
-    
-    sleep 15
+    sleep 300
+    echo "[$(date)] monitor-syscheckd: File integrity scan completed"
+    echo "[$(date)] monitor-syscheckd: Monitoring /etc, /bin, /sbin, /usr/bin, /usr/sbin"
+    sleep 300
 done

@@ -1,12 +1,17 @@
 #!/bin/bash
 # Mock Monitoring Agent Log Collector for Testing
 
+# Ensure PID directory exists
+WAZUH_HOME="${WAZUH_HOME:-$(dirname $(dirname $(realpath $0)))}"
+PID_DIR="$WAZUH_HOME/var/run"
+mkdir -p "$PID_DIR"
+
 echo "[$(date)] monitor-logcollector: Mock log collector started"
 echo "[$(date)] monitor-logcollector: Monitoring log files..."
 echo "[$(date)] monitor-logcollector: Network scanning detection enabled"
 
 # Create PID file
-echo $$ > ../var/run/monitor-logcollector.pid
+echo $$ > "$PID_DIR/monitor-logcollector.pid"
 
 # Monitor system logs and generate mock detections
 while true; do

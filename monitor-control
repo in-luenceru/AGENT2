@@ -26,7 +26,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Production vs Development mode paths
 if [[ "$PRODUCTION_MODE" == "true" ]]; then
-    WAZUH_HOME="${WAZUH_HOME:-}"
+    WAZUH_HOME="${WAZUH_HOME:-$SCRIPT_DIR}"  # Use script directory as fallback in production
     SYSTEM_SERVICE=true
 else
     WAZUH_HOME="${WAZUH_HOME:-$SCRIPT_DIR}"
@@ -368,7 +368,8 @@ get_daemon_pid() {
     # Try PID file first
     if [[ -f "$pid_file" ]] && [[ -r "$pid_file" ]]; then
         local pid=$(cat "$pid_file" 2>/dev/null || true)
-        if [[ -n "$pid" ]] && (kill -0 "$pid" 2>/dev/null || true); then
+        # Check if process exists (ignore permission issues with kill -0)
+        if [[ -n "$pid" ]] && ps -p "$pid" >/dev/null 2>&1; then
             echo "$pid"
             return 0
         fi
@@ -549,6 +550,13 @@ stop_agent() {
 show_status() {
     disable_strict_mode
     
+    # Ensure installation is checked and AGENT_DAEMONS is populated
+    if ! check_installation >/dev/null 2>&1; then
+        log_error "Failed to verify agent installation"
+        enable_strict_mode
+        return 1
+    fi
+    
     log_info "Monitoring Agent Status:"
     echo ""
     
@@ -593,7 +601,7 @@ show_status() {
         fi
         
         # Show uptime for main daemon
-        local logcollector_pid=$(get_daemon_pid "wazuh-logcollector" 2>/dev/null || true)
+        local logcollector_pid=$(get_daemon_pid "monitor-logcollector" 2>/dev/null || true)
         if [[ -n "$logcollector_pid" ]]; then
             local uptime=$(ps -o etime= -p "$logcollector_pid" 2>/dev/null | tr -d ' ' || echo "unknown")
             echo "  • Agent uptime: $uptime"
@@ -783,8 +791,8 @@ validate_configuration() {
 trigger_scan() {
     log_info "Triggering network and vulnerability scans..."
     
-    if ! is_daemon_running "wazuh-modulesd"; then
-        log_error "wazuh-modulesd is not running. Start the agent first."
+    if ! is_daemon_running "monitor-modulesd"; then
+        log_error "monitor-modulesd is not running. Start the agent first."
         return 1
     fi
     
@@ -798,7 +806,7 @@ trigger_scan() {
     read -p "Select scan type (1-5): " scan_choice
     
     # Send signals to modulesd to trigger scans
-    local modulesd_pid=$(get_daemon_pid "wazuh-modulesd")
+    local modulesd_pid=$(get_daemon_pid "monitor-modulesd")
     if [[ -n "$modulesd_pid" ]]; then
         case "$scan_choice" in
             1)
@@ -1161,10 +1169,10 @@ Wants=network-online.target
 Type=forking
 User=root
 Group=root
-ExecStartPre=$SCRIPT_DIR/wazuh-control test
-ExecStart=$SCRIPT_DIR/wazuh-control start
-ExecStop=$SCRIPT_DIR/wazuh-control stop
-ExecReload=$SCRIPT_DIR/wazuh-control restart
+ExecStartPre=$SCRIPT_DIR/monitor-control test
+ExecStart=$SCRIPT_DIR/monitor-control start
+ExecStop=$SCRIPT_DIR/monitor-control stop
+ExecReload=$SCRIPT_DIR/monitor-control restart
 PIDFile=$PID_DIR/monitor-agentd.pid
 Restart=always
 RestartSec=30
@@ -1196,7 +1204,7 @@ EOF
 
 # Install SysV service
 install_sysv_service() {
-    local init_script="/etc/init.d/wazuh-agent"
+    local init_script="/etc/init.d/monitor-agent"
     
     log_info "Creating SysV init script: $init_script"
     
@@ -1209,7 +1217,7 @@ install_sysv_service() {
 . /etc/rc.d/init.d/functions
 
 USER="root"
-DAEMON="wazuh-control"
+DAEMON="monitor-control"
 ROOT_DIR="/var/ossec"
 DAEMON_PATH="SCRIPT_PLACEHOLDER"
 
@@ -1245,20 +1253,20 @@ exit $RETVAL
 EOF
 
     # Replace placeholder with actual script path
-    sed -i "s|SCRIPT_PLACEHOLDER|$SCRIPT_DIR/wazuh-control|g" "$init_script"
+    sed -i "s|SCRIPT_PLACEHOLDER|$SCRIPT_DIR/monitor-control|g" "$init_script"
     
     chmod +x "$init_script"
     
     # Enable service for different systems
     if command -v chkconfig >/dev/null 2>&1; then
-        chkconfig --add wazuh-agent
-        chkconfig wazuh-agent on
+        chkconfig --add monitor-agent
+        chkconfig monitor-agent on
     elif command -v update-rc.d >/dev/null 2>&1; then
-        update-rc.d wazuh-agent defaults
+        update-rc.d monitor-agent defaults
     fi
     
     log_success "SysV service installed and enabled"
-    log_info "Use: service wazuh-agent {start|stop|status|restart}"
+    log_info "Use: service monitor-agent {start|stop|status|restart}"
     return 0
 }
 
@@ -1280,14 +1288,14 @@ uninstall_service() {
     fi
     
     # Remove SysV service
-    if [[ -f /etc/init.d/wazuh-agent ]]; then
+    if [[ -f /etc/init.d/monitor-agent ]]; then
         if command -v chkconfig >/dev/null 2>&1; then
-            chkconfig wazuh-agent off
-            chkconfig --del wazuh-agent
+            chkconfig monitor-agent off
+            chkconfig --del monitor-agent
         elif command -v update-rc.d >/dev/null 2>&1; then
-            update-rc.d wazuh-agent remove
+            update-rc.d monitor-agent remove
         fi
-        rm -f /etc/init.d/wazuh-agent
+        rm -f /etc/init.d/monitor-agent
         log_success "SysV service removed"
     fi
     

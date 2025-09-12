@@ -1,12 +1,17 @@
 #!/bin/bash
 # Mock Monitoring Agent Daemon for Testing
 
+# Ensure PID directory exists
+WAZUH_HOME="${WAZUH_HOME:-$(dirname $(dirname $(realpath $0)))}"
+PID_DIR="$WAZUH_HOME/var/run"
+mkdir -p "$PID_DIR"
+
 echo "[$(date)] monitor-agentd: Mock agent daemon started"
 echo "[$(date)] monitor-agentd: Configuration: $1"
 echo "[$(date)] monitor-agentd: Attempting connection to manager..."
 
 # Create PID file
-echo $$ > ../var/run/monitor-agentd.pid
+echo $$ > "$PID_DIR/monitor-agentd.pid"
 
 # Mock agent behavior
 while true; do
