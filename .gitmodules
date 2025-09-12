@@ -1,0 +1,3 @@
+[submodule "WAZUH_FULL/wazuh"]
+	path = WAZUH_FULL/wazuh
+	url = https://github.com/wazuh/wazuh
