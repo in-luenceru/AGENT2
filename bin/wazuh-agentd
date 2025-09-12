@@ -1,0 +1,16 @@
+#!/bin/bash
+# Mock Wazuh Agent Daemon for Testing
+
+echo "[$(date)] wazuh-agentd: Mock agent daemon started"
+echo "[$(date)] wazuh-agentd: Configuration: $1"
+echo "[$(date)] wazuh-agentd: Attempting connection to manager..."
+
+# Create PID file
+echo $$ > ../var/run/wazuh-agentd.pid
+
+# Mock agent behavior
+while true; do
+    echo "[$(date)] wazuh-agentd: Heartbeat to manager"
+    echo "[$(date)] wazuh-agentd: Collecting system events"
+    sleep 30
+done

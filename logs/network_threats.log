@@ -71,3 +71,12 @@
 2025/09/11 12:56:00 [AUTO-DETECTED] SSH_BRUTE_FORCE: Failed SSH login attempts detected from 127.0.0.1
 2025/09/11 12:56:08 [AUTO-DETECTED] SSH_BRUTE_FORCE: Failed SSH login attempts detected from 127.0.0.1
 2025/09/11 12:56:16 [AUTO-DETECTED] SSH_BRUTE_FORCE: Failed SSH login attempts detected from 127.0.0.1
+Test SSH brute force simulation
+Fri Sep 12 09:27:05 UTC 2025: THREAT DETECTED: Multiple failed SSH attempts from 192.168.1.100
+Fri Sep 12 09:27:17 UTC 2025: MALWARE DETECTED: Suspicious file activity in /tmp/malicious_script.sh
+Fri Sep 12 09:31:51 UTC 2025: [LIVE_TEST] Agent communication validation - Custom agent sending data to manager
+Fri Sep 12 09:36:54 UTC 2025: TEST MESSAGE: Custom agent validation test from PID 44310
+Fri Sep 12 09:38:14 UTC 2025: DOCKER_MANAGER_TEST: Validating communication with Docker Wazuh Manager (Container: wazuh-manager, IP: 172.17.0.2)
+Fri Sep 12 09:44:19 UTC 2025: VERIFICATION_TEST: Custom agent sending test data to Docker manager
+Fri Sep 12 09:55:19 UTC 2025: SECURITY_ALERT: Network scan detected from external source 203.0.113.1
+Fri Sep 12 09:58:11 UTC 2025: CRITICAL_ALERT: Port scan detected from 192.168.1.200 targeting ports 1-1000

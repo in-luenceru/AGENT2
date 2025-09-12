@@ -1,22 +1,30 @@
 #!/bin/bash
-# Mock Monitoring Agent Daemon for Testing
+# Real Monitoring Agent Daemon - Wrapper for wazuh-agentd
 
-# Ensure PID directory exists
 WAZUH_HOME="${WAZUH_HOME:-$(dirname $(dirname $(realpath $0)))}"
 PID_DIR="$WAZUH_HOME/var/run"
 mkdir -p "$PID_DIR"
 
-echo "[$(date)] monitor-agentd: Mock agent daemon started"
-echo "[$(date)] monitor-agentd: Configuration: $1"
-echo "[$(date)] monitor-agentd: Attempting connection to manager..."
+# Use the system wazuh-agentd first (it's working), then fallback to local compiled
+if [[ -f "/var/ossec/bin/wazuh-agentd" ]]; then
+    AGENTD_BIN="/var/ossec/bin/wazuh-agentd"
+elif [[ -f "$WAZUH_HOME/src/wazuh-agentd" ]]; then
+    AGENTD_BIN="$WAZUH_HOME/src/wazuh-agentd"
+else
+    echo "[$(date)] ERROR: No wazuh-agentd binary found"
+    exit 1
+fi
 
-# Create PID file
-echo $$ > "$PID_DIR/monitor-agentd.pid"
+echo "[$(date)] monitor-agentd: Starting real agent daemon"
+echo "[$(date)] monitor-agentd: Using binary: $AGENTD_BIN"
+echo "[$(date)] monitor-agentd: Configuration: $WAZUH_HOME/etc/ossec.conf"
 
-# Mock agent behavior
-while true; do
-    sleep 10
-    echo "[$(date)] monitor-agentd: Heartbeat to manager"
-    echo "[$(date)] monitor-agentd: Collecting system events"
-    sleep 50
-done
+# Set environment for Wazuh agent
+export WAZUH_HOME="$WAZUH_HOME"
+export LD_LIBRARY_PATH="$WAZUH_HOME/src:$WAZUH_HOME/src/syscheckd/build/lib:$WAZUH_HOME/src/shared_modules/sync_protocol/build/lib:$WAZUH_HOME/src/wazuh_modules/sca/build/lib:$WAZUH_HOME/src/wazuh_modules/syscollector/build/lib:$WAZUH_HOME/src/shared_modules/dbsync/build/lib:$WAZUH_HOME/src/data_provider/build/lib:$WAZUH_HOME/src/external/libdb/build_unix/.libs:$LD_LIBRARY_PATH"
+
+# Change to WAZUH_HOME directory so relative paths work
+cd "$WAZUH_HOME"
+
+# Start the real agent daemon with proper configuration (use absolute path)
+exec "$AGENTD_BIN" -c "$WAZUH_HOME/etc/ossec.conf" "$@"
