@@ -107,24 +107,24 @@ docker exec -it wazuh-manager bash -c "
 echo -e 'E\n002\nQ' | /var/ossec/bin/manage_agents"
 
 # Add key to agent (replace with actual key)
-echo "002 parrot any YOUR_AGENT_KEY_HERE" | sudo tee /var/ossec/etc/client.keys
+echo "002 parrot any YOUR_AGENT_KEY_HERE" | sudo tee /etc/client.keys
 ```
 
 ### Step 4: Configure Agent
 
 ```bash
 # Configure manager IP
-sudo sed -i 's/<address>MANAGER_IP<\/address>/<address>127.0.0.1<\/address>/g' /var/ossec/etc/ossec.conf
+sudo sed -i 's/<address>MANAGER_IP<\/address>/<address>127.0.0.1<\/address>/g' /etc/ossec.conf
 
 # Start agent
-sudo /var/ossec/bin/wazuh-control start
+sudo ./monitor-control start
 ```
 
 ---
 
 ## ⚙️ Configuration Guide
 
-### Main Configuration File: `/var/ossec/etc/ossec.conf`
+### Main Configuration File: `/etc/ossec.conf`
 
 #### Basic Agent Configuration
 
@@ -202,15 +202,15 @@ sudo /var/ossec/bin/wazuh-control start
 
 ```bash
 # Start/Stop/Restart agent
-sudo /var/ossec/bin/wazuh-control start
-sudo /var/ossec/bin/wazuh-control stop
-sudo /var/ossec/bin/wazuh-control restart
+sudo ./monitor-control start
+sudo ./montior-control stop
+sudo ./monitor-control restart
 
 # Check agent status
-sudo /var/ossec/bin/wazuh-control status
+sudo ./monitor-control status
 
 # View agent information
-sudo /var/ossec/bin/wazuh-control info
+sudo ./monitor-control info
 ```
 
 ### Manager Control Commands
@@ -246,7 +246,7 @@ docker exec -it wazuh-manager bash -c "echo -e 'R\nAGENT_ID\ny\nQ' | /var/ossec/
 
 ```bash
 # View agent logs
-sudo tail -f /var/ossec/logs/ossec.log
+sudo tail -f /logs/ossec.log
 
 # View alerts on manager
 docker exec wazuh-manager tail -f /var/ossec/logs/alerts/alerts.log
@@ -272,7 +272,7 @@ echo "Starting Wazuh Real-time Monitor..."
 
 # Terminal 1: Agent logs
 gnome-terminal --tab --title="Agent Logs" -- bash -c "
-sudo tail -f /var/ossec/logs/ossec.log; exec bash"
+sudo tail -f /logs/ossec.log; exec bash"
 
 # Terminal 2: Manager alerts
 gnome-terminal --tab --title="Manager Alerts" -- bash -c "

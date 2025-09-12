@@ -401,13 +401,11 @@ main() {
     print_success "Simple agent build completed!"
     echo ""
     echo "🎯 Test the isolated agent:"
-    echo "   ./wazuh-control-simple start"
-    echo "   ./wazuh-control-simple status"  
-    echo "   ./wazuh-control-simple scan"
-    echo "   ./wazuh-control-simple stop"
+    echo "   ./monitor-control start"
+    echo "   ./monitor-control status"  
+    echo "   ./monitor-control scan"
+    echo "   ./monitor-control stop"
     echo ""
-    echo "🔍 Then run the comprehensive tests:"
-    echo "   ./manager_communication_nmap_test.sh"
 }
 
 # Execute main function
