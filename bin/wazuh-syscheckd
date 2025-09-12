@@ -1,18 +1,12 @@
 #!/bin/bash
-# Mock Wazuh System Check Daemon for Testing
+# Wazuh wazuh-syscheckd wrapper script
+# Automatically sets library path and configuration
 
-echo "[$(date)] wazuh-syscheckd: Mock file integrity monitor started"
-echo "[$(date)] wazuh-syscheckd: Scanning directories for changes..."
+AGENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export LD_LIBRARY_PATH="$AGENT_DIR/lib:$LD_LIBRARY_PATH"
 
-# Create PID file
-echo $$ > ../var/run/wazuh-syscheckd.pid
+# Set proper working directory
+cd "$AGENT_DIR"
 
-# Monitor file changes
-while true; do
-    # Check for new files in /tmp
-    if find /tmp -name "*wazuh*test*" -newer ../var/run/wazuh-syscheckd.pid 2>/dev/null | grep -q .; then
-        echo "[$(date)] wazuh-syscheckd: ALERT - File integrity change detected in /tmp"
-    fi
-    
-    sleep 15
-done
+# Execute real binary with proper paths
+exec "$AGENT_DIR/bin/wazuh-syscheckd.real" "$@"

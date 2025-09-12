@@ -1,23 +1,12 @@
 #!/bin/bash
-# Mock Wazuh Modules Daemon for Testing
+# Wazuh wazuh-modulesd wrapper script
+# Automatically sets library path and configuration
 
-echo "[$(date)] wazuh-modulesd: Mock modules daemon started"  
-echo "[$(date)] wazuh-modulesd: Loading vulnerability scanner..."
-echo "[$(date)] wazuh-modulesd: Loading syscollector..."
+AGENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export LD_LIBRARY_PATH="$AGENT_DIR/lib:$LD_LIBRARY_PATH"
 
-# Create PID file
-echo $$ > ../var/run/wazuh-modulesd.pid
+# Set proper working directory
+cd "$AGENT_DIR"
 
-# Mock module behavior
-while true; do
-    echo "[$(date)] wazuh-modulesd: Running vulnerability scan..."
-    echo "[$(date)] wazuh-modulesd: Collecting system inventory..."
-    
-    # Check for network scanning activity
-    if pgrep -f "nmap\|masscan\|zmap" >/dev/null 2>&1; then
-        echo "[$(date)] wazuh-modulesd: VULNERABILITY ALERT - Network scanner detected"
-        echo "[$(date)] wazuh-modulesd: Potential security scanning in progress"
-    fi
-    
-    sleep 60
-done
+# Execute real binary with proper paths
+exec "$AGENT_DIR/bin/wazuh-modulesd.real" "$@"

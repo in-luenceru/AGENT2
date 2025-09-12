@@ -1,17 +1,196 @@
 #!/bin/bash
-# Mock Wazuh Execution Daemon for Testing
+# Wazuh wazuh-execd wrapper script with active response management
+# Automatically sets library path and configuration
 
-echo "[$(date)] wazuh-execd: Mock active response daemon started"
-echo "[$(date)] wazuh-execd: Ready to execute active responses"
+AGENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export LD_LIBRARY_PATH="$AGENT_DIR/lib:$LD_LIBRARY_PATH"
 
-# Create PID file  
-echo $$ > ../var/run/wazuh-execd.pid
+DAEMON_NAME="wazuh-execd"
+LOCK_FILE="$AGENT_DIR/var/run/${DAEMON_NAME}.pid"
+LOG_FILE="$AGENT_DIR/logs/execd.log"
+CONFIG_FILE="$AGENT_DIR/etc/ossec.conf"
 
-# Mock active response
-while true; do
-    if [[ -f ../logs/execute_response ]]; then
-        echo "[$(date)] wazuh-execd: Executing active response..."
-        rm -f ../logs/execute_response
+# Ensure directories exist
+mkdir -p "$AGENT_DIR/var/run"
+mkdir -p "$AGENT_DIR/logs"
+mkdir -p "$AGENT_DIR/queue/ar"
+
+# Set proper working directory
+cd "$AGENT_DIR"
+
+# Daemon functions for active response management
+start_active_response_manager() {
+    if [ -f "$LOCK_FILE" ] && kill -0 $(cat "$LOCK_FILE") 2>/dev/null; then
+        echo "$(date '+%Y/%m/%d %H:%M:%S') [INFO] $DAEMON_NAME already running" >> $LOG_FILE
+        return 1
     fi
-    sleep 20
-done
+    
+    echo $$ > "$LOCK_FILE"
+    echo "$(date '+%Y/%m/%d %H:%M:%S') [INFO] Starting $DAEMON_NAME with AR management" >> $LOG_FILE
+    
+    # Start active response monitoring in background
+    (
+        while true; do
+            # Check for active response requests
+            check_response_queue
+            
+            # Monitor active timeouts
+            check_active_timeouts
+            
+            # Clean up expired entries
+            cleanup_expired_entries
+            
+            sleep 5
+        done
+    ) &
+    
+    AR_PID=$!
+    echo $AR_PID > "${LOCK_FILE}.ar"
+    
+    # Execute real binary with proper paths
+    exec "$AGENT_DIR/bin/wazuh-execd.real" "$@"
+}
+
+stop_daemon() {
+    if [ -f "$LOCK_FILE" ]; then
+        PID=$(cat "$LOCK_FILE")
+        if kill -0 $PID 2>/dev/null; then
+            kill $PID
+            rm -f "$LOCK_FILE"
+            echo "$(date '+%Y/%m/%d %H:%M:%S') [INFO] Stopped $DAEMON_NAME" >> $LOG_FILE
+        fi
+    fi
+    
+    if [ -f "${LOCK_FILE}.ar" ]; then
+        AR_PID=$(cat "${LOCK_FILE}.ar")
+        if kill -0 $AR_PID 2>/dev/null; then
+            kill $AR_PID
+            rm -f "${LOCK_FILE}.ar"
+        fi
+    fi
+}
+
+# Active response queue processing
+check_response_queue() {
+    QUEUE_DIR="$AGENT_DIR/queue/ar"
+    
+    for request_file in "$QUEUE_DIR"/*.req 2>/dev/null; do
+        if [ -f "$request_file" ]; then
+            process_response_request "$request_file"
+            rm -f "$request_file"
+        fi
+    done
+}
+
+# Process active response request
+process_response_request() {
+    local request_file="$1"
+    local command=""
+    local srcip=""
+    local user=""
+    local timeout=""
+    
+    # Parse request file
+    while IFS= read -r line; do
+        case "$line" in
+            COMMAND:*) command="${line#COMMAND:}" ;;
+            SRCIP:*) srcip="${line#SRCIP:}" ;;
+            USER:*) user="${line#USER:}" ;;
+            TIMEOUT:*) timeout="${line#TIMEOUT:}" ;;
+        esac
+    done < "$request_file"
+    
+    echo "$(date '+%Y/%m/%d %H:%M:%S') [INFO] Processing AR request: $command for $srcip" >> $LOG_FILE
+    
+    # Execute command
+    execute_active_response "$command" "$srcip" "$user" "$timeout"
+}
+
+# Execute active response
+execute_active_response() {
+    local command="$1"
+    local srcip="$2"
+    local user="$3"
+    local timeout="$4"
+    
+    local script_path="$AGENT_DIR/active-response/bin/$command"
+    
+    if [ -x "$script_path" ]; then
+        echo "$(date '+%Y/%m/%d %H:%M:%S') [EXEC] Running: $script_path add $srcip $timeout" >> $LOG_FILE
+        
+        # Run in background
+        (
+            "$script_path" add "$srcip" "$timeout" 2>&1 | while read line; do
+                echo "$(date '+%Y/%m/%d %H:%M:%S') [AR:$command] $line" >> $LOG_FILE
+            done
+        ) &
+        
+        # Store execution info
+        echo "$command:$srcip:$user:$(date +%s):$timeout" >> /tmp/wazuh_active_responses.txt
+        
+    else
+        echo "$(date '+%Y/%m/%d %H:%M:%S') [ERROR] Active response script not found: $script_path" >> $LOG_FILE
+    fi
+}
+
+# Check active timeouts
+check_active_timeouts() {
+    if [ -f /tmp/wazuh_active_responses.txt ]; then
+        current_time=$(date +%s)
+        
+        while IFS=: read -r command srcip user start_time timeout; do
+            if [ -n "$timeout" ] && [ "$timeout" -gt 0 ]; then
+                end_time=$((start_time + timeout))
+                
+                if [ $current_time -ge $end_time ]; then
+                    echo "$(date '+%Y/%m/%d %H:%M:%S') [TIMEOUT] Removing expired AR: $command for $srcip" >> $LOG_FILE
+                    
+                    # Execute removal
+                    script_path="$AGENT_DIR/active-response/bin/$command"
+                    if [ -x "$script_path" ]; then
+                        "$script_path" delete "$srcip" &
+                    fi
+                    
+                    # Remove from active list
+                    grep -v "^$command:$srcip:$user:$start_time:$timeout$" /tmp/wazuh_active_responses.txt > /tmp/wazuh_active_responses.tmp 2>/dev/null
+                    mv /tmp/wazuh_active_responses.tmp /tmp/wazuh_active_responses.txt 2>/dev/null
+                fi
+            fi
+        done < /tmp/wazuh_active_responses.txt
+    fi
+}
+
+# Cleanup expired entries
+cleanup_expired_entries() {
+    # Clean up tracking files older than 24 hours
+    find /tmp -name "wazuh_*" -type f -mtime +1 -delete 2>/dev/null
+}
+
+# Signal handlers
+trap 'stop_daemon; exit 0' TERM INT
+
+# Main execution
+case "$1" in
+    start|"")
+        start_active_response_manager "$@"
+        ;;
+    stop)
+        stop_daemon
+        ;;
+    restart)
+        stop_daemon
+        sleep 2
+        start_active_response_manager
+        ;;
+    status)
+        if [ -f "$LOCK_FILE" ] && kill -0 $(cat "$LOCK_FILE") 2>/dev/null; then
+            echo "$DAEMON_NAME is running (PID: $(cat "$LOCK_FILE"))"
+        else
+            echo "$DAEMON_NAME is not running"
+        fi
+        ;;
+    *)
+        # Pass through to real binary for other commands
+        exec "$AGENT_DIR/bin/wazuh-execd.real" "$@"
+        ;;
+esac

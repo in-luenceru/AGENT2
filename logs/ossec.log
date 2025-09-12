@@ -1,3 +1,180 @@
 Fri Sep 12 05:36:46 UTC 2025 wazuh-agent: Isolated Wazuh agent initialized
 Fri Sep 12 05:36:46 UTC 2025 wazuh-agent: Configuration loaded from etc/ossec.conf
 Fri Sep 12 05:36:46 UTC 2025 wazuh-agent: Ready for manager connection
+2025/09/12 12:07:01 wazuh-agentd: ERROR: (1103): Could not open file 'etc/internal_options.conf' due to [(2)-(No such file or directory)].
+2025/09/12 12:07:01 wazuh-agentd: CRITICAL: (2301): Definition not found for: 'agent.debug'.
+2025/09/12 12:07:01 wazuh-agentd: ERROR: (1103): Could not open file 'etc/internal_options.conf' due to [(2)-(No such file or directory)].
+2025/09/12 12:07:01 wazuh-agentd: CRITICAL: (2301): Definition not found for: 'agent.debug'.
+2025/09/12 12:07:01 wazuh-logcollector: ERROR: (1103): Could not open file 'etc/internal_options.conf' due to [(2)-(No such file or directory)].
+2025/09/12 12:07:01 wazuh-logcollector: CRITICAL: (2301): Definition not found for: 'logcollector.debug'.
+2025/09/12 12:07:01 wazuh-logcollector: ERROR: (1103): Could not open file 'etc/internal_options.conf' due to [(2)-(No such file or directory)].
+2025/09/12 12:07:01 wazuh-logcollector: CRITICAL: (2301): Definition not found for: 'logcollector.debug'.
+2025/09/12 12:07:01 wazuh-modulesd: ERROR: (1103): Could not open file 'etc/internal_options.conf' due to [(2)-(No such file or directory)].
+2025/09/12 12:07:01 wazuh-modulesd: CRITICAL: (2301): Definition not found for: 'wazuh_modules.debug'.
+2025/09/12 12:07:01 wazuh-modulesd: ERROR: (1103): Could not open file 'etc/internal_options.conf' due to [(2)-(No such file or directory)].
+2025/09/12 12:07:01 wazuh-modulesd: CRITICAL: (2301): Definition not found for: 'wazuh_modules.debug'.
+2025/09/12 12:07:20 wazuh-agentd: ERROR: (1103): Could not open file 'etc/internal_options.conf' due to [(2)-(No such file or directory)].
+2025/09/12 12:07:20 wazuh-agentd: CRITICAL: (2301): Definition not found for: 'agent.debug'.
+2025/09/12 12:07:58 wazuh-agentd: WARNING: Deprecated option 'protocol' is no longer available. Method TCP is the only one allowed.
+2025/09/12 12:07:58 wazuh-agentd: WARNING: Deprecated option 'crypto_method' is no longer available. Method AES is the only one allowed.
+2025/09/12 12:08:07 wazuh-logcollector: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 12:11:45 wazuh-syscheckd: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 12:11:56 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 12:11:56 wazuh-modulesd: WARNING: Deprecated module 'cis-cat' is no longer available.
+2025/09/12 12:11:56 wazuh-modulesd: WARNING: Deprecated module 'osquery' is no longer available.
+2025/09/12 12:11:56 wazuh-modulesd: WARNING: The 'hotfixes' option is only available on Windows systems. Ignoring it.
+2025/09/12 12:11:56 wazuh-modulesd:sca: WARNING: Detected a deprecated configuration for SCA: 'skip_nfs' is no longer available.
+2025/09/12 12:12:41 wazuh-agentd: WARNING: Deprecated option 'protocol' is no longer available. Method TCP is the only one allowed.
+2025/09/12 12:12:41 wazuh-agentd: WARNING: Deprecated option 'crypto_method' is no longer available. Method AES is the only one allowed.
+2025/09/12 12:12:41 wazuh-logcollector: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 12:12:41 wazuh-syscheckd: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 12:12:41 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 12:12:41 wazuh-modulesd: WARNING: Deprecated module 'cis-cat' is no longer available.
+2025/09/12 12:12:41 wazuh-modulesd: WARNING: Deprecated module 'osquery' is no longer available.
+2025/09/12 12:12:41 wazuh-modulesd: WARNING: The 'hotfixes' option is only available on Windows systems. Ignoring it.
+2025/09/12 12:12:41 wazuh-modulesd:sca: WARNING: Detected a deprecated configuration for SCA: 'skip_nfs' is no longer available.
+2025/09/12 12:12:41 wazuh-execd: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 12:12:41 wazuh-agentd: WARNING: Deprecated option 'protocol' is no longer available. Method TCP is the only one allowed.
+2025/09/12 12:12:41 wazuh-agentd: WARNING: Deprecated option 'crypto_method' is no longer available. Method AES is the only one allowed.
+2025/09/12 12:12:41 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 12:12:41 wazuh-modulesd: WARNING: Deprecated module 'cis-cat' is no longer available.
+2025/09/12 12:12:41 wazuh-modulesd: WARNING: Deprecated module 'osquery' is no longer available.
+2025/09/12 12:12:41 wazuh-modulesd: WARNING: The 'hotfixes' option is only available on Windows systems. Ignoring it.
+2025/09/12 12:12:41 wazuh-modulesd:sca: WARNING: Detected a deprecated configuration for SCA: 'skip_nfs' is no longer available.
+2025/09/12 12:17:36 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 12:17:36 wazuh-modulesd: WARNING: Deprecated module 'cis-cat' is no longer available.
+2025/09/12 12:17:36 wazuh-modulesd: WARNING: Deprecated module 'osquery' is no longer available.
+2025/09/12 12:17:36 wazuh-modulesd: WARNING: The 'hotfixes' option is only available on Windows systems. Ignoring it.
+2025/09/12 12:17:36 wazuh-modulesd:sca: WARNING: Detected a deprecated configuration for SCA: 'skip_nfs' is no longer available.
+2025/09/12 12:20:11 wazuh-logcollector: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 12:20:11 wazuh-logcollector: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 12:21:18 wazuh-logcollector: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 12:22:54 wazuh-syscheckd: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 12:23:42 wazuh-syscheckd: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 12:23:42 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 12:23:42 wazuh-modulesd: WARNING: Deprecated module 'cis-cat' is no longer available.
+2025/09/12 12:23:42 wazuh-modulesd: WARNING: Deprecated module 'osquery' is no longer available.
+2025/09/12 12:23:42 wazuh-modulesd: WARNING: The 'hotfixes' option is only available on Windows systems. Ignoring it.
+2025/09/12 12:23:42 wazuh-modulesd:sca: WARNING: Detected a deprecated configuration for SCA: 'skip_nfs' is no longer available.
+2025/09/12 12:24:19 wazuh-syscheckd: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 12:25:01 wazuh-syscheckd: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 12:32:37 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 12:32:37 wazuh-modulesd: WARNING: Deprecated module 'cis-cat' is no longer available.
+2025/09/12 12:32:37 wazuh-modulesd: WARNING: Deprecated module 'osquery' is no longer available.
+2025/09/12 12:32:37 wazuh-modulesd: WARNING: The 'hotfixes' option is only available on Windows systems. Ignoring it.
+2025/09/12 12:32:37 wazuh-modulesd:sca: WARNING: Detected a deprecated configuration for SCA: 'skip_nfs' is no longer available.
+2025/09/12 12:34:26 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 12:34:26 wazuh-modulesd: WARNING: Deprecated module 'cis-cat' is no longer available.
+2025/09/12 12:34:26 wazuh-modulesd: WARNING: Deprecated module 'osquery' is no longer available.
+2025/09/12 12:34:26 wazuh-modulesd: WARNING: The 'hotfixes' option is only available on Windows systems. Ignoring it.
+2025/09/12 12:34:26 wazuh-modulesd:sca: WARNING: Detected a deprecated configuration for SCA: 'skip_nfs' is no longer available.
+2025/09/12 12:43:45 wazuh-logcollector: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 12:43:54 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 12:43:54 wazuh-modulesd: WARNING: Deprecated module 'cis-cat' is no longer available.
+2025/09/12 12:43:54 wazuh-modulesd: WARNING: Deprecated module 'osquery' is no longer available.
+2025/09/12 12:43:54 wazuh-modulesd: WARNING: The 'hotfixes' option is only available on Windows systems. Ignoring it.
+2025/09/12 12:43:54 wazuh-modulesd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 12:43:54 wazuh-modulesd: WARNING: The 'vulnerability-detector' module only works for the manager
+2025/09/12 12:43:54 wazuh-modulesd:sca: WARNING: Detected a deprecated configuration for SCA: 'skip_nfs' is no longer available.
+2025/09/12 12:45:05 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 12:45:05 wazuh-modulesd: WARNING: Deprecated module 'cis-cat' is no longer available.
+2025/09/12 12:45:05 wazuh-modulesd: WARNING: Deprecated module 'osquery' is no longer available.
+2025/09/12 12:45:05 wazuh-modulesd: WARNING: The 'hotfixes' option is only available on Windows systems. Ignoring it.
+2025/09/12 12:45:05 wazuh-modulesd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 12:45:05 wazuh-modulesd: WARNING: The 'vulnerability-detector' module only works for the manager
+2025/09/12 12:45:05 wazuh-modulesd:sca: WARNING: Detected a deprecated configuration for SCA: 'skip_nfs' is no longer available.
+2025/09/12 12:55:03 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 12:55:03 wazuh-modulesd:aws-s3: ERROR: Invalid bucket type 'vpcflowlogs'. Valid ones are 'cloudtrail', 'config', 'guardduty', 'vpcflow', 'waf', 'cisco_umbrella', custom', alb', clb', nlb' or 'server_access'
+2025/09/12 12:55:03 wazuh-modulesd: ERROR: (1202): Configuration error at 'etc/ossec.conf'.
+2025/09/12 12:55:23 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 12:55:23 wazuh-modulesd:aws-s3: ERROR: Invalid service type 'config'. Valid ones are 'inspector' or 'cloudwatchlogs'
+2025/09/12 12:55:23 wazuh-modulesd: ERROR: (1202): Configuration error at 'etc/ossec.conf'.
+2025/09/12 12:55:44 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 12:55:44 wazuh-modulesd: ERROR: No such child tag 'log_group_name' of service at module 'aws-s3'.
+2025/09/12 12:55:44 wazuh-modulesd: ERROR: (1202): Configuration error at 'etc/ossec.conf'.
+2025/09/12 12:56:04 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 12:56:04 wazuh-modulesd: WARNING: Deprecated tag <application_id> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/12 12:56:04 wazuh-modulesd: WARNING: Deprecated tag <application_key> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/12 12:56:04 wazuh-modulesd: ERROR: (1230): Invalid element in the configuration: 'tenants'.
+2025/09/12 12:56:04 wazuh-modulesd: WARNING: Deprecated tag <account_name> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/12 12:56:04 wazuh-modulesd: ERROR: (1230): Invalid element in the configuration: 'container_name'.
+2025/09/12 12:56:04 wazuh-modulesd: ERROR: Unknown module 'gcp-pubsub'
+2025/09/12 12:56:04 wazuh-modulesd: ERROR: Unknown module 'gcp-bucket'
+2025/09/12 12:56:04 wazuh-modulesd: WARNING: Deprecated module 'cis-cat' is no longer available.
+2025/09/12 12:56:04 wazuh-modulesd: WARNING: Deprecated module 'osquery' is no longer available.
+2025/09/12 12:56:04 wazuh-modulesd: WARNING: The 'hotfixes' option is only available on Windows systems. Ignoring it.
+2025/09/12 12:56:04 wazuh-modulesd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 12:56:04 wazuh-modulesd: WARNING: The 'vulnerability-detector' module only works for the manager
+2025/09/12 12:56:04 wazuh-modulesd:sca: WARNING: Detected a deprecated configuration for SCA: 'skip_nfs' is no longer available.
+2025/09/12 12:57:12 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 12:57:12 wazuh-modulesd: WARNING: Deprecated tag <application_id> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/12 12:57:12 wazuh-modulesd: WARNING: Deprecated tag <application_key> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/12 12:57:12 wazuh-modulesd: ERROR: (1230): Invalid element in the configuration: 'tenants'.
+2025/09/12 12:57:12 wazuh-modulesd: WARNING: Deprecated tag <account_name> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/12 12:57:12 wazuh-modulesd: ERROR: (1230): Invalid element in the configuration: 'container_name'.
+2025/09/12 12:57:12 wazuh-modulesd: ERROR: Unknown module 'gcp-pubsub'
+2025/09/12 12:57:12 wazuh-modulesd: ERROR: Unknown module 'gcp-bucket'
+2025/09/12 12:57:12 wazuh-modulesd: WARNING: Deprecated module 'cis-cat' is no longer available.
+2025/09/12 12:57:12 wazuh-modulesd: WARNING: Deprecated module 'osquery' is no longer available.
+2025/09/12 12:57:12 wazuh-modulesd: WARNING: The 'hotfixes' option is only available on Windows systems. Ignoring it.
+2025/09/12 12:57:12 wazuh-modulesd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 12:57:12 wazuh-modulesd: WARNING: The 'vulnerability-detector' module only works for the manager
+2025/09/12 12:57:12 wazuh-modulesd:sca: WARNING: Detected a deprecated configuration for SCA: 'skip_nfs' is no longer available.
+2025/09/12 13:18:48 wazuh-agentd: WARNING: Deprecated option 'protocol' is no longer available. Method TCP is the only one allowed.
+2025/09/12 13:18:48 wazuh-agentd: WARNING: Deprecated option 'crypto_method' is no longer available. Method AES is the only one allowed.
+2025/09/12 13:18:48 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 13:18:48 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 13:18:48 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 13:21:01 wazuh-agentd: WARNING: Deprecated option 'protocol' is no longer available. Method TCP is the only one allowed.
+2025/09/12 13:21:01 wazuh-agentd: WARNING: Deprecated option 'crypto_method' is no longer available. Method AES is the only one allowed.
+2025/09/12 13:21:01 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 13:21:01 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 13:21:01 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 13:21:57 wazuh-agentd: WARNING: Deprecated option 'protocol' is no longer available. Method TCP is the only one allowed.
+2025/09/12 13:21:57 wazuh-agentd: WARNING: Deprecated option 'crypto_method' is no longer available. Method AES is the only one allowed.
+2025/09/12 13:21:57 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 13:21:57 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 13:21:57 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 13:23:09 wazuh-agentd: WARNING: Deprecated option 'protocol' is no longer available. Method TCP is the only one allowed.
+2025/09/12 13:23:09 wazuh-agentd: WARNING: Deprecated option 'crypto_method' is no longer available. Method AES is the only one allowed.
+2025/09/12 13:23:09 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 13:23:09 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 13:23:09 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 15:07:35 wazuh-syscheckd: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 15:07:59 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 15:07:59 wazuh-modulesd: WARNING: Deprecated tag <application_id> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/12 15:07:59 wazuh-modulesd: WARNING: Deprecated tag <application_key> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/12 15:07:59 wazuh-modulesd: ERROR: (1230): Invalid element in the configuration: 'tenants'.
+2025/09/12 15:07:59 wazuh-modulesd: WARNING: Deprecated tag <account_name> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/12 15:07:59 wazuh-modulesd: ERROR: (1230): Invalid element in the configuration: 'container_name'.
+2025/09/12 15:07:59 wazuh-modulesd: ERROR: Unknown module 'gcp-pubsub'
+2025/09/12 15:07:59 wazuh-modulesd: ERROR: Unknown module 'gcp-bucket'
+2025/09/12 15:07:59 wazuh-modulesd: WARNING: Deprecated module 'cis-cat' is no longer available.
+2025/09/12 15:07:59 wazuh-modulesd: WARNING: Deprecated module 'osquery' is no longer available.
+2025/09/12 15:07:59 wazuh-modulesd: WARNING: The 'hotfixes' option is only available on Windows systems. Ignoring it.
+2025/09/12 15:07:59 wazuh-modulesd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 15:07:59 wazuh-modulesd: WARNING: The 'vulnerability-detector' module only works for the manager
+2025/09/12 15:07:59 wazuh-modulesd:sca: WARNING: Detected a deprecated configuration for SCA: 'skip_nfs' is no longer available.
+2025/09/12 15:07:59 wazuh-modulesd:sca: WARNING: File 'cis_ubuntu_linux.yml' not found.
+2025/09/12 15:07:59 wazuh-modulesd:sca: WARNING: File 'system_security.yml' not found.
+2025/09/12 15:07:59 wazuh-modulesd:sca: WARNING: File 'network_hardening.yml' not found.
+2025/09/12 15:08:08 wazuh-logcollector: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+2025/09/12 15:08:08 wazuh-logcollector: CRITICAL: (1130): Unable to switch to group 'wazuh' due to [(1)-(Operation not permitted)].
+Fri Sep 12 15:43:40 UTC 2025: WAZUH_E2E_TEST: Custom security event for validation
+2025/09/12 15:46:48 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/12 15:46:48 wazuh-modulesd: WARNING: Deprecated tag <application_id> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/12 15:46:48 wazuh-modulesd: WARNING: Deprecated tag <application_key> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/12 15:46:48 wazuh-modulesd: ERROR: (1230): Invalid element in the configuration: 'tenants'.
+2025/09/12 15:46:48 wazuh-modulesd: WARNING: Deprecated tag <account_name> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/12 15:46:48 wazuh-modulesd: ERROR: (1230): Invalid element in the configuration: 'container_name'.
+2025/09/12 15:46:48 wazuh-modulesd: ERROR: Unknown module 'gcp-pubsub'
+2025/09/12 15:46:48 wazuh-modulesd: ERROR: Unknown module 'gcp-bucket'
+2025/09/12 15:46:48 wazuh-modulesd: WARNING: Deprecated module 'cis-cat' is no longer available.
+2025/09/12 15:46:48 wazuh-modulesd: WARNING: Deprecated module 'osquery' is no longer available.
+2025/09/12 15:46:48 wazuh-modulesd: WARNING: The 'hotfixes' option is only available on Windows systems. Ignoring it.
+2025/09/12 15:46:48 wazuh-modulesd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/12 15:46:48 wazuh-modulesd: WARNING: The 'vulnerability-detector' module only works for the manager
+2025/09/12 15:46:48 wazuh-modulesd:sca: WARNING: Detected a deprecated configuration for SCA: 'skip_nfs' is no longer available.
+2025/09/12 15:46:48 wazuh-modulesd:sca: WARNING: File 'cis_ubuntu_linux.yml' not found.
+2025/09/12 15:46:48 wazuh-modulesd:sca: WARNING: File 'system_security.yml' not found.
+2025/09/12 15:46:48 wazuh-modulesd:sca: WARNING: File 'network_hardening.yml' not found.
