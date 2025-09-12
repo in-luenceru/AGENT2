@@ -117,6 +117,7 @@ echo "002 parrot any YOUR_AGENT_KEY_HERE" | sudo tee /etc/client.keys
 sudo sed -i 's/<address>MANAGER_IP<\/address>/<address>127.0.0.1<\/address>/g' /etc/ossec.conf
 
 # Start agent
+sudo ./monitor-control enroll-
 sudo ./monitor-control start
 ```
 
@@ -202,6 +203,7 @@ sudo ./monitor-control start
 
 ```bash
 # Start/Stop/Restart agent
+sudo ./monitor-control enroll
 sudo ./monitor-control start
 sudo ./montior-control stop
 sudo ./monitor-control restart
