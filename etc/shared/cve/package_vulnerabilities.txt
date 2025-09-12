@@ -1,0 +1,58 @@
+# Package Vulnerability Correlation Rules
+# Format: PACKAGE_PATTERN|CVE_LIST|RISK_LEVEL|RECOMMENDATION
+
+# Critical Infrastructure Packages
+^openssh.*|CVE-2024-6387,CVE-2023-51385,CVE-2023-48795,CVE-2023-38408|CRITICAL|Immediate update required - SSH vulnerabilities
+^apache2.*|CVE-2024-38780,CVE-2024-38476,CVE-2023-25690,CVE-2023-44487|HIGH|Update Apache HTTP Server immediately
+^httpd.*|CVE-2024-38780,CVE-2024-38476,CVE-2023-25690,CVE-2023-44487|HIGH|Update Apache HTTP Server immediately
+^nginx.*|CVE-2024-28182,CVE-2023-44487|HIGH|Update nginx to latest version
+^cups.*|CVE-2024-47176,CVE-2024-47177,CVE-2024-35235|HIGH|Update CUPS printing system
+^xz-utils.*|CVE-2024-3094|CRITICAL|URGENT: Backdoor detected - immediate replacement required
+^liblzma.*|CVE-2024-3094|CRITICAL|URGENT: Backdoor detected - immediate replacement required
+
+# Kernel and System Components
+^linux.*|CVE-2024-42460,CVE-2024-41073,CVE-2024-41009,CVE-2023-46813,CVE-2023-42753,CVE-2023-32233|CRITICAL|Kernel privilege escalation - reboot required
+^kernel.*|CVE-2024-42460,CVE-2024-41073,CVE-2024-41009,CVE-2023-46813,CVE-2023-42753,CVE-2023-32233|CRITICAL|Kernel privilege escalation - reboot required
+
+# Security and Authentication
+^sudo.*|CVE-2023-37327|HIGH|Privilege escalation vulnerability - update immediately
+^dbus.*|CVE-2024-34064|HIGH|D-Bus privilege escalation - update required
+^pam.*|CVE-2024-22365|MEDIUM|PAM configuration bypass - review and update
+^kerberos.*|CVE-2024-26462,CVE-2024-26458,CVE-2024-26461|MEDIUM|Kerberos vulnerabilities - update recommended
+^krb5.*|CVE-2024-26462,CVE-2024-26458,CVE-2024-26461|MEDIUM|Kerberos vulnerabilities - update recommended
+
+# Core Libraries
+^glibc.*|CVE-2024-33599,CVE-2024-33600,CVE-2024-33601,CVE-2024-33602|MEDIUM|Core library vulnerabilities - update required
+^openssl.*|CVE-2024-20918,CVE-2024-0727|MEDIUM|OpenSSL vulnerabilities - update recommended
+^libxml2.*|CVE-2024-25062,CVE-2023-28484|HIGH|XML processing vulnerabilities - update immediately
+^curl.*|CVE-2024-0853|HIGH|HSTS bypass vulnerability - update required
+
+# Container and Virtualization
+^docker.*|CVE-2024-21626,CVE-2023-27561|HIGH|Container escape vulnerabilities - update immediately  
+^runc.*|CVE-2024-21626,CVE-2023-27561|HIGH|Container runtime vulnerabilities - update immediately
+
+# Development Tools and Utilities
+^git.*|CVE-2023-25652|HIGH|Git credential helper vulnerability - update required
+^vim.*|CVE-2023-32215|MEDIUM|Vim use-after-free - update recommended
+^python3.*|CVE-2024-0450|MEDIUM|Python zipfile vulnerability - update recommended
+^wget.*|CVE-2024-21611|MEDIUM|HTTP header injection - update recommended
+
+# Database Systems  
+^postgresql.*|CVE-2023-39417|HIGH|PostgreSQL privilege escalation - update immediately
+^mysql.*|CVE-2023-22112,CVE-2023-22084|MEDIUM|MySQL vulnerabilities - review and update
+^mariadb.*|CVE-2023-22112,CVE-2023-22084|MEDIUM|MariaDB vulnerabilities - review and update
+
+# Mail and Communication
+^postfix.*|CVE-2023-51764|HIGH|SMTP smuggling vulnerability - update required
+^squid.*|CVE-2023-46724|HIGH|Cache poisoning vulnerability - update required
+
+# Image Processing and Media
+^libtiff.*|CVE-2024-24806|MEDIUM|TIFF buffer overflow - update recommended
+^expat.*|CVE-2023-52425,CVE-2023-52424|HIGH|XML parser vulnerabilities - update required
+^ncurses.*|CVE-2023-29491|HIGH|Buffer overflow in terminfo - update required
+
+# System Utilities
+^util-linux.*|CVE-2024-28085|HIGH|Wall command privilege escalation - update required
+
+# Message Queuing
+^activemq.*|CVE-2023-46604|CRITICAL|URGENT: Remote code execution - immediate action required

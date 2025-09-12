@@ -1,0 +1,96 @@
+# Wazuh System Audit Configuration
+# Security policy checks and compliance validation
+
+# System files integrity
+[System - Check if SSH is running] [any] [https://www.cisecurity.org/benchmark/debian_linux]
+f:/etc/ssh/sshd_config -> !r:^# && r:Protocol && !r:Protocol\.+2;
+f:/etc/ssh/sshd_config -> !r:^# && r:LogLevel && !r:LogLevel\.+INFO;
+f:/etc/ssh/sshd_config -> !r:^# && r:X11Forwarding && !r:X11Forwarding\.+no;
+f:/etc/ssh/sshd_config -> !r:^# && r:MaxAuthTries && !r:MaxAuthTries\.+4;
+f:/etc/ssh/sshd_config -> !r:^# && r:IgnoreRhosts && !r:IgnoreRhosts\.+yes;
+f:/etc/ssh/sshd_config -> !r:^# && r:HostbasedAuthentication && !r:HostbasedAuthentication\.+no;
+f:/etc/ssh/sshd_config -> !r:^# && r:PermitRootLogin && !r:PermitRootLogin\.+no;
+f:/etc/ssh/sshd_config -> !r:^# && r:PermitEmptyPasswords && !r:PermitEmptyPasswords\.+no;
+f:/etc/ssh/sshd_config -> !r:^# && r:PermitUserEnvironment && !r:PermitUserEnvironment\.+no;
+
+# Network configuration checks
+[System - Check for open ports] [any] [https://www.cisecurity.org/]
+c:netstat -an | grep ":22 " -> !r:\.+:22\.+LISTEN;
+c:netstat -an | grep ":80 " -> r:\.+:80\.+LISTEN;
+c:netstat -an | grep ":443 " -> r:\.+:443\.+LISTEN;
+
+# File permission checks  
+[System - Check for world writable files] [any] [https://www.cisecurity.org/]
+c:find /tmp -perm -002 -type f -> r:\.;
+c:find /var/tmp -perm -002 -type f -> r:\.;
+
+# User and group checks
+[System - Check for accounts with empty passwords] [any] [https://www.cisecurity.org/]
+f:/etc/shadow -> r:^\w+::;
+
+[System - Check for accounts with UID 0] [any] [https://www.cisecurity.org/]
+f:/etc/passwd -> !r:^# && !r:^root: && r:^\w+:\w*:0:;
+
+# Process checks
+[System - Check for suspicious processes] [any] [https://www.cisecurity.org/]
+p:nc;
+p:netcat;
+p:nmap;
+p:tcpdump;
+p:wireshark;
+
+# System configuration
+[System - Check if system is updated] [any] [https://www.cisecurity.org/]
+c:which apt-get && apt list --upgradable 2>/dev/null -> r:upgradable;
+
+# Log file checks
+[System - Check for log file permissions] [any] [https://www.cisecurity.org/]
+f:/var/log -> !r:^d\w\w\w------\s+\w+\s+\w+\s+\w+\s+\w+\s+\w+\s+.;
+f:/var/log/syslog -> !r:^-\w\w-------\s+\w+\s+\w+\s+\w+\s+\w+\s+\w+\s+.;
+f:/var/log/auth.log -> !r:^-\w\w-------\s+\w+\s+\w+\s+\w+\s+\w+\s+\w+\s+.;
+
+# Cron job security
+[System - Check for suspicious cron jobs] [any] [https://www.cisecurity.org/]
+f:/etc/crontab -> r:\* \* \* \* \* root;
+f:/etc/cron.d -> r:\* \* \* \* \*;
+f:/var/spool/cron -> r:\* \* \* \* \*;
+
+# Mount point security
+[System - Check for insecure mount options] [any] [https://www.cisecurity.org/]
+c:mount | grep -E "(nosuid|noexec|nodev)" -> !r:nosuid && !r:noexec && !r:nodev;
+
+# Kernel parameter checks
+[System - Check kernel parameters] [any] [https://www.cisecurity.org/]
+f:/proc/sys/net/ipv4/ip_forward -> !r:^0$;
+f:/proc/sys/net/ipv4/conf/all/send_redirects -> !r:^0$;
+f:/proc/sys/net/ipv4/conf/default/send_redirects -> !r:^0$;
+f:/proc/sys/net/ipv4/conf/all/accept_source_route -> !r:^0$;
+f:/proc/sys/net/ipv4/conf/all/accept_redirects -> !r:^0$;
+f:/proc/sys/net/ipv4/conf/all/secure_redirects -> !r:^0$;
+f:/proc/sys/net/ipv4/conf/all/log_martians -> !r:^1$;
+f:/proc/sys/net/ipv4/icmp_echo_ignore_broadcasts -> !r:^1$;
+f:/proc/sys/net/ipv4/icmp_ignore_bogus_error_responses -> !r:^1$;
+
+# Service checks
+[System - Check for unnecessary services] [any] [https://www.cisecurity.org/]
+c:systemctl is-enabled telnet 2>/dev/null -> r:enabled;
+c:systemctl is-enabled rsh 2>/dev/null -> r:enabled;
+c:systemctl is-enabled rlogin 2>/dev/null -> r:enabled;
+c:systemctl is-enabled ftp 2>/dev/null -> r:enabled;
+
+# File system checks
+[System - Check for suspicious SUID files] [any] [https://www.cisecurity.org/]
+c:find /usr/bin -perm -4000 -type f -> r:/usr/bin/nmap;
+c:find /usr/bin -perm -4000 -type f -> r:/usr/bin/tcpdump;
+
+# Network file system checks
+[System - Check for NFS security] [any] [https://www.cisecurity.org/]
+f:/etc/exports -> r:insecure;
+f:/etc/exports -> r:no_root_squash;
+c:showmount -e localhost 2>/dev/null -> r:\.;
+
+# Password policy checks
+[System - Check password policies] [any] [https://www.cisecurity.org/]
+f:/etc/login.defs -> !r:^PASS_MAX_DAYS\s+90;
+f:/etc/login.defs -> !r:^PASS_MIN_DAYS\s+7;
+f:/etc/login.defs -> !r:^PASS_WARN_AGE\s+7;

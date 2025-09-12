@@ -1,0 +1,95 @@
+#!/bin/bash
+# Container quarantine for security violations
+# Usage: container-quarantine <action> <container_id> <timeout>
+
+LOCAL=$(dirname $0)
+cd $LOCAL
+cd ../
+
+# Log configuration
+LOG_FILE="/workspaces/AGENT2/logs/active-response.log"
+
+ACTION="$1"
+CONTAINER_ID="$2"
+TIMEOUT="$3"
+
+# Validate container ID
+if [ -z "$CONTAINER_ID" ]; then
+    echo "$(date '+%Y/%m/%d %H:%M:%S') [ERROR] No container ID provided" >> $LOG_FILE
+    exit 1
+fi
+
+# Quarantine function
+quarantine_container() {
+    echo "$(date '+%Y/%m/%d %H:%M:%S') [INFO] Quarantining container: $CONTAINER_ID" >> $LOG_FILE
+    
+    # Create isolated network if not exists
+    docker network ls | grep -q wazuh-quarantine || docker network create --driver bridge wazuh-quarantine --subnet=172.30.0.0/24
+    
+    # Disconnect from all networks except quarantine
+    NETWORKS=$(docker inspect $CONTAINER_ID --format='{{range $net, $conf := .NetworkSettings.Networks}}{{$net}} {{end}}' 2>/dev/null)
+    
+    for NET in $NETWORKS; do
+        if [ "$NET" != "wazuh-quarantine" ]; then
+            docker network disconnect $NET $CONTAINER_ID 2>/dev/null
+            echo "$(date '+%Y/%m/%d %H:%M:%S') [INFO] Disconnected $CONTAINER_ID from $NET" >> $LOG_FILE
+        fi
+    done
+    
+    # Connect to quarantine network
+    docker network connect wazuh-quarantine $CONTAINER_ID 2>/dev/null
+    
+    # Add quarantine label
+    docker update --label wazuh.quarantine=true $CONTAINER_ID 2>/dev/null
+    
+    # Store quarantine info
+    echo "$CONTAINER_ID:$(date +%s):$TIMEOUT" >> /tmp/wazuh_quarantined_containers.txt
+    
+    echo "$(date '+%Y/%m/%d %H:%M:%S') [SUCCESS] Container $CONTAINER_ID quarantined" >> $LOG_FILE
+}
+
+# Release function
+release_container() {
+    echo "$(date '+%Y/%m/%d %H:%M:%S') [INFO] Releasing container: $CONTAINER_ID" >> $LOG_FILE
+    
+    # Remove quarantine label
+    docker update --label wazuh.quarantine=false $CONTAINER_ID 2>/dev/null
+    
+    # Disconnect from quarantine network
+    docker network disconnect wazuh-quarantine $CONTAINER_ID 2>/dev/null
+    
+    # Reconnect to default bridge network
+    docker network connect bridge $CONTAINER_ID 2>/dev/null
+    
+    # Remove from tracking file
+    grep -v "^$CONTAINER_ID:" /tmp/wazuh_quarantined_containers.txt > /tmp/wazuh_quarantined_containers.tmp 2>/dev/null
+    mv /tmp/wazuh_quarantined_containers.tmp /tmp/wazuh_quarantined_containers.txt 2>/dev/null
+    
+    echo "$(date '+%Y/%m/%d %H:%M:%S') [SUCCESS] Container $CONTAINER_ID released" >> $LOG_FILE
+}
+
+# Main logic
+case "$ACTION" in
+    add)
+        # Check if container exists
+        if docker inspect $CONTAINER_ID >/dev/null 2>&1; then
+            quarantine_container
+            
+            # Schedule automatic release if timeout specified
+            if [ -n "$TIMEOUT" ] && [ "$TIMEOUT" -gt 0 ]; then
+                (sleep $TIMEOUT && $0 delete $CONTAINER_ID) &
+            fi
+        else
+            echo "$(date '+%Y/%m/%d %H:%M:%S') [ERROR] Container $CONTAINER_ID not found" >> $LOG_FILE
+        fi
+        ;;
+    delete)
+        release_container
+        ;;
+    *)
+        echo "$(date '+%Y/%m/%d %H:%M:%S') [ERROR] Invalid action: $ACTION" >> $LOG_FILE
+        exit 1
+        ;;
+esac
+
+exit 0

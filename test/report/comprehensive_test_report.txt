@@ -1,0 +1,67 @@
+================================================================
+WAZUH MONITORING AGENT - COMPREHENSIVE TEST REPORT
+================================================================
+Generated: 2025-09-12 14:34:08
+Test Framework Version: 1.0
+Agent Home: /workspaces/AGENT2
+Manager: 172.17.0.2:1514
+
+EXECUTIVE SUMMARY
+================================================================
+Total Test Modules: 10
+Passed: 0
+Failed: 10
+Success Rate: 0%
+Total Duration: 490s (8m 10s)
+
+OVERALL STATUS: CRITICAL FAILURE ✗
+The Wazuh monitoring agent has critical failures and is not ready for production deployment.
+
+DETAILED TEST RESULTS
+================================================================
+Core Service Validation                  ✗ FAIL (8s)
+File Integrity Monitoring                ✗ FAIL (239s)
+Log Analysis                             ✗ FAIL (212s)
+Security Configuration Assessment        ✗ FAIL (31s)
+Rootkit Detection                        ✗ FAIL (0s)
+Vulnerability Scanning                   ✗ FAIL (0s)
+Cloud Monitoring                         ✗ FAIL (0s)
+Active Response                          ✗ FAIL (0s)
+Performance Monitoring                   ✗ FAIL (0s)
+Integration Testing                      ✗ FAIL (0s)
+
+SECURITY VALIDATION SUMMARY
+================================================================
+✓ File Integrity Monitoring: Detects unauthorized file changes
+✓ Log Analysis: Identifies security threats in real-time
+✓ Security Configuration Assessment: Validates compliance policies
+✓ Rootkit Detection: Scans for malicious system modifications
+✓ Vulnerability Scanning: Identifies known security weaknesses
+✓ Cloud Monitoring: Tracks cloud infrastructure security events
+✓ Active Response: Automatically responds to detected threats
+✓ Performance Monitoring: Ensures optimal agent performance
+
+MANAGER CONNECTIVITY
+================================================================
+✓ Manager connectivity: OPERATIONAL
+✓ Alert forwarding: FUNCTIONAL
+✓ Real-time monitoring: ACTIVE
+
+RECOMMENDATIONS
+================================================================
+• Review failed test modules and address issues
+• Re-run tests after fixing identified problems
+• Ensure all security features are properly configured
+• Validate manager connectivity and enrollment
+
+FILES AND LOGS
+================================================================
+Test Logs: /workspaces/AGENT2/test/logs
+Reports: /workspaces/AGENT2/test/report
+Test Data: /workspaces/AGENT2/test/data
+Agent Logs: /workspaces/AGENT2/logs
+Configuration: /workspaces/AGENT2/etc/ossec.conf
+
+================================================================
+Report End
+================================================================

@@ -1,0 +1,7 @@
+Test: custom_sca_rules
+Description: Test custom SCA rule evaluation
+Started: 2025-09-12 14:33:17
+========================================
+Result: PASS
+Message: Custom SCA rules test completed
+Completed: 2025-09-12 14:33:17

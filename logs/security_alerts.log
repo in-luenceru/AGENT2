@@ -1,0 +1,9 @@
+2025/09/12 13:09:44 [crit] [CRITICAL] Security Event Detected | Rule: test_rule DESC | Level: 12 | Source IP: 192.168.1.100 | Description: Test security alert SRCIP | Timestamp: 2025-09-12 13:09:44
+2025/09/12 13:10:09 [crit] [CRITICAL] Security Event Detected | Rule: test_rule DESC | Level: 12 | Source IP: 192.168.1.100 | Description: Test security alert SRCIP | Timestamp: 2025-09-12 13:10:09
+2025/09/12 13:10:51 [crit] [CRITICAL] Security Event Detected | Rule: test_rule DESC | Level: 12 | Source IP: 192.168.1.100 | Description: Test security alert SRCIP | Timestamp: 2025-09-12 13:10:51
+2025/09/12 13:11:47 [crit] [CRITICAL] Security Event Detected | Rule: test_rule DESC | Level: 12 | Source IP: 192.168.1.100 | Description: Test security alert SRCIP | Timestamp: 2025-09-12 13:11:47
+2025/09/12 13:11:54 [crit] [CRITICAL] Security Event Detected | Rule: test_rule DESC | Level: 12 | Source IP: 192.168.1.100 | Description: Test security alert SRCIP | Timestamp: 2025-09-12 13:11:54
+2025/09/12 13:13:13 [crit] [CRITICAL] Security Event Detected | Rule: privilege_escalation DESC | Level: 13 | Source IP: 192.168.1.100 | Description: Root access attempt detected SRCIP | Timestamp: 2025-09-12 13:13:13
+2025/09/12 13:14:34 [crit] [CRITICAL] Security Event Detected | Rule: privilege_escalation DESC | Level: 13 | Source IP: 192.168.1.100 | Description: Root access attempt detected SRCIP | Timestamp: 2025-09-12 13:14:34
+2025/09/12 13:14:44 [warning] [HIGH] Security Event Detected | Rule: test_rule DESC | Level: 10 | Source IP: 192.168.1.200 | Description: Integration test alert SRCIP | Timestamp: 2025-09-12 13:14:44
+2025/09/12 13:15:23 [warning] [HIGH] Security Event Detected | Rule: test_rule DESC | Level: 10 | Source IP: 192.168.1.200 | Description: Integration test alert SRCIP | Timestamp: 2025-09-12 13:15:23

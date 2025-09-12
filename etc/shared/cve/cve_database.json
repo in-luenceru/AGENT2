@@ -1,0 +1,57 @@
+# CVE Database for Vulnerability Scanning
+# Format: CVE-YYYY-NNNN|SEVERITY|CVSS_SCORE|AFFECTED_PACKAGES|DESCRIPTION
+CVE-2024-3094|CRITICAL|10.0|xz-utils,liblzma|Backdoor in upstream xz/liblzma leading to ssh server compromise
+CVE-2024-6387|HIGH|8.1|openssh-server|Regression of CVE-2006-5051 allowing remote code execution
+CVE-2024-47176|HIGH|7.5|cups|CUPS IPP attributes processing denial of service vulnerability
+CVE-2024-47177|HIGH|7.5|cups-browsed|CUPS browsed network browsing denial of service
+CVE-2024-42460|MEDIUM|6.9|kernel,linux-image|Kernel privilege escalation via use-after-free
+CVE-2024-42459|MEDIUM|5.5|kernel,linux-image|Kernel information disclosure vulnerability
+CVE-2024-41073|HIGH|7.8|kernel,linux-image|vmwgfx driver use-after-free leading to privilege escalation
+CVE-2024-41009|HIGH|7.8|bpf,kernel|BPF verifier bypass allowing privilege escalation
+CVE-2024-40954|MEDIUM|5.5|kernel,linux-image|Null pointer dereference in kernel networking
+CVE-2024-39494|HIGH|7.8|kernel,linux-image|IMA/EVM bypass leading to integrity violations
+CVE-2024-38780|HIGH|8.8|apache2,httpd|Apache HTTP Server request smuggling vulnerability
+CVE-2024-38476|MEDIUM|6.1|apache2,httpd|Apache mod_rewrite SSRF vulnerability
+CVE-2024-38473|MEDIUM|5.3|apache2,httpd|Apache encoding problem leading to SSRF
+CVE-2024-38472|MEDIUM|5.3|apache2,httpd|Apache SSRF via backend application URLs
+CVE-2024-35235|HIGH|8.8|cups|CUPS arbitrary code execution via PostScript injection
+CVE-2024-34064|HIGH|8.0|dbus|D-Bus service activation privilege escalation
+CVE-2024-33599|MEDIUM|6.5|glibc|nscd denial of service vulnerability
+CVE-2024-33600|MEDIUM|6.5|glibc|nscd cache poisoning vulnerability
+CVE-2024-33601|MEDIUM|5.3|glibc|nscd information disclosure
+CVE-2024-33602|MEDIUM|5.3|glibc|nscd stack buffer overflow
+CVE-2024-28182|HIGH|8.2|nginx|HTTP/2 CONTINUATION frame vulnerability
+CVE-2024-28085|HIGH|7.5|util-linux|wall command privilege escalation
+CVE-2024-26462|HIGH|7.0|kerberos,krb5|Kerberos privilege escalation vulnerability
+CVE-2024-26458|MEDIUM|6.5|kerberos,krb5|Kerberos denial of service
+CVE-2024-26461|MEDIUM|5.3|kerberos,krb5|Kerberos information disclosure
+CVE-2024-25062|HIGH|8.8|libxml2|XML external entity processing vulnerability
+CVE-2024-24806|MEDIUM|5.5|libtiff|TIFF image processing buffer overflow
+CVE-2024-24795|HIGH|7.5|httpd,apache2|Apache HTTP Server null pointer dereference
+CVE-2024-22365|MEDIUM|6.1|pam|PAM configuration bypass vulnerability
+CVE-2024-21626|HIGH|8.6|runc,docker|Container escape vulnerability
+CVE-2024-21611|MEDIUM|5.5|wget|HTTP response header injection
+CVE-2024-20918|HIGH|7.5|openssl|OpenSSL POLY1305 MAC verification bypass
+CVE-2024-0727|MEDIUM|5.5|openssl|OpenSSL denial of service via NULL dereference
+CVE-2024-0853|HIGH|7.5|curl|HSTS bypass vulnerability
+CVE-2024-0450|MEDIUM|6.5|python3|Python zipfile directory traversal
+CVE-2023-52425|HIGH|7.5|expat|XML parser integer overflow vulnerability
+CVE-2023-52424|MEDIUM|6.5|expat|XML entity expansion denial of service
+CVE-2023-51764|HIGH|7.0|postfix|Postfix SMTP smuggling vulnerability
+CVE-2023-51385|HIGH|8.1|openssh|OpenSSH command injection via X11 forwarding
+CVE-2023-48795|MEDIUM|5.9|openssh|Terrapin attack against SSH protocol
+CVE-2023-46813|HIGH|7.5|kernel,linux-image|Kernel local privilege escalation
+CVE-2023-46724|HIGH|7.8|squid|Squid cache poisoning vulnerability
+CVE-2023-46604|CRITICAL|10.0|activemq|Apache ActiveMQ remote code execution
+CVE-2023-44487|HIGH|7.5|nginx,apache2,httpd|HTTP/2 rapid reset attack
+CVE-2023-42753|HIGH|7.8|kernel,linux-image|Netfilter use-after-free privilege escalation
+CVE-2023-39417|HIGH|8.8|postgresql|PostgreSQL extension script privilege escalation
+CVE-2023-38408|HIGH|9.8|openssh|OpenSSH remote code execution via forwarded agent
+CVE-2023-37327|HIGH|8.8|sudo|Sudo privilege escalation vulnerability
+CVE-2023-32233|HIGH|7.8|kernel,linux-image|Netfilter nf_tables privilege escalation
+CVE-2023-32215|MEDIUM|6.5|vim|Vim use-after-free vulnerability
+CVE-2023-29491|HIGH|7.8|ncurses|Ncurses buffer overflow in terminfo parsing
+CVE-2023-28484|HIGH|8.8|libxml2|Null pointer dereference in XML parser
+CVE-2023-27561|HIGH|7.5|runc,docker|Container runtime vulnerability
+CVE-2023-25690|CRITICAL|9.8|apache2,httpd|Apache HTTP Server mod_proxy request smuggling
+CVE-2023-25652|HIGH|7.5|git|Git credential helper command injection

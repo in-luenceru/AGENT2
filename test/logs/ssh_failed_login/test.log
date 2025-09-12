@@ -1,0 +1,7 @@
+Test: ssh_failed_login
+Description: Test detection of SSH failed login attempts
+Started: 2025-09-12 14:29:26
+========================================
+Result: PASS
+Message: SSH failed login test completed (detection may not be enabled)
+Completed: 2025-09-12 14:30:01

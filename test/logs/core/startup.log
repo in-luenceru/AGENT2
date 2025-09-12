@@ -1,0 +1,13 @@
+================================================================
+Wazuh Agent Core Service Validation Tests
+Started: 2025-09-12 14:25:08
+================================================================
+2025-09-12 14:25:08: Starting agent startup test
+2025-09-12 14:25:10: Attempting to start agent
+2025-09-12 14:25:10: Agent startup failed
+2025-09-12 14:25:10: Daemon monitor-agentd is not running
+2025-09-12 14:25:10: Daemon monitor-logcollector is not running
+2025-09-12 14:25:10: Daemon monitor-syscheckd is not running
+2025-09-12 14:25:10: Daemon monitor-execd is not running
+2025-09-12 14:25:10: Daemon monitor-modulesd is not running
+2025-09-12 14:25:10: 0/5 daemons running

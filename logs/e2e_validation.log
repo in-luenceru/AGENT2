@@ -1,0 +1,27 @@
+2025/09/12 15:23:42 [INFO] Starting End-to-End Alert Validation
+2025/09/12 15:24:18 [MISSING] File creation detection
+2025/09/12 15:24:57 [MISSING] File modification detection
+2025/09/12 15:25:28 [MISSING] File deletion detection
+2025/09/12 15:26:01 [MISSING] Suspicious file creation
+2025/09/12 15:26:35 [MISSING] SSH failed login attempt
+2025/09/12 15:27:07 [MISSING] Multiple authentication failures
+2025/09/12 15:27:41 [MISSING] Privilege escalation attempt
+2025/09/12 15:28:12 [MISSING] System error message
+2025/09/12 15:28:43 [MISSING] Suspicious process execution
+2025/09/12 15:29:21 [MISSING] Root process execution
+2025/09/12 15:29:52 [MISSING] Suspicious binary detection
+2025/09/12 15:30:23 [MISSING] Hidden file detection
+2025/09/12 15:31:01 [MISSING] Package vulnerability scan
+2025/09/12 15:31:36 [MISSING] CVE correlation test
+2025/09/12 15:32:07 [MISSING] Suspicious network connection
+2025/09/12 15:32:40 [MISSING] Port scan detection
+2025/09/12 15:33:11 [MISSING] AWS CloudTrail event
+2025/09/12 15:33:43 [MISSING] Azure activity log
+2025/09/12 15:34:15 [MISSING] GCP audit log
+2025/09/12 15:34:52 [MISSING] Docker container monitoring
+2025/09/12 15:35:23 [MISSING] Container privilege escalation
+2025/09/12 15:35:55 [MISSING] IP blocking trigger
+2025/09/12 15:36:26 [MISSING] File quarantine trigger
+2025/09/12 15:36:57 [MISSING] System file modification
+2025/09/12 15:37:28 [MISSING] Security policy violation
+2025/09/12 15:37:38 [REVIEW] 25 triggers need investigation

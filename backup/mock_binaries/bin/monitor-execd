@@ -1,0 +1,29 @@
+#!/bin/bash
+# Real Active Response Daemon - Wrapper for wazuh-execd
+
+WAZUH_HOME="${WAZUH_HOME:-$(dirname $(dirname $(realpath $0)))}"
+PID_DIR="$WAZUH_HOME/var/run"
+mkdir -p "$PID_DIR"
+
+# Use the system wazuh-execd first (it's working), then fallback to local compiled
+if [[ -f "/var/ossec/bin/wazuh-execd" ]]; then
+    EXECD_BIN="/var/ossec/bin/wazuh-execd"
+elif [[ -f "$WAZUH_HOME/src/wazuh-execd" ]]; then
+    EXECD_BIN="$WAZUH_HOME/src/wazuh-execd"
+else
+    echo "[$(date)] ERROR: No wazuh-execd binary found"
+    exit 1
+fi
+
+echo "[$(date)] monitor-execd: Starting real active response daemon"
+echo "[$(date)] monitor-execd: Using binary: $EXECD_BIN"
+
+# Set environment
+export WAZUH_HOME="$WAZUH_HOME"
+export LD_LIBRARY_PATH="$WAZUH_HOME/src:$WAZUH_HOME/src/syscheckd/build/lib:$WAZUH_HOME/src/shared_modules/sync_protocol/build/lib:$WAZUH_HOME/src/wazuh_modules/sca/build/lib:$WAZUH_HOME/src/wazuh_modules/syscollector/build/lib:$WAZUH_HOME/src/shared_modules/dbsync/build/lib:$WAZUH_HOME/src/data_provider/build/lib:$WAZUH_HOME/src/external/libdb/build_unix/.libs:$LD_LIBRARY_PATH"
+
+# Change to WAZUH_HOME directory so relative paths work
+cd "$WAZUH_HOME"
+
+# Start the real execd daemon (use absolute path)
+exec "$EXECD_BIN" -c "$WAZUH_HOME/etc/ossec.conf" "$@"

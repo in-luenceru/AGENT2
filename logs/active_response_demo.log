@@ -1,0 +1,9 @@
+2025/09/12 13:14:09 [INFO] Starting Active Response Demonstration
+2025/09/12 13:14:09 [ATTACK] SSH brute force from 203.0.113.5
+2025/09/12 13:14:11 [ATTACK] Malware detected: /tmp/suspicious_malware.exe
+2025/09/12 13:14:13 [ATTACK] Suspicious process detected: PID 85048
+2025/09/12 13:14:18 [ATTACK] Container violation: malicious-container
+2025/09/12 13:14:20 [ATTACK] Critical vulnerability: CVE-2023-CRITICAL
+2025/09/12 13:14:34 [ATTACK] Privilege escalation: 192.168.1.100
+2025/09/12 13:14:36 [ATTACK] Cloud compromise: AWS S3 bucket
+2025/09/12 13:14:38 [SUCCESS] Active Response Demonstration completed

@@ -1,0 +1,840 @@
+{
+  "timestamp": "2025-09-12T12:51:15+00:00",
+  "operationId": "",
+  "operationName": "Microsoft.Network/networkSecurityGroups/write",
+  "category": "Administrative",
+  "resultType": "Failed",
+  "resultSignature": "Forbidden",
+  "durationMs": 3065,
+  "callerIpAddress": "18.125.122.94",
+  "correlationId": "",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Network/networkSecurityGroups/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "",
+        "roleDefinitionId": "",
+        "principalId": "",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "admin@company.onmicrosoft.com",
+      "upn": "admin@company.onmicrosoft.com"
+    }
+  },
+  "level": "Error",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "403"
+  }
+}
+{
+  "timestamp": "2025-09-12T12:51:15+00:00",
+  "operationId": "",
+  "operationName": "Microsoft.Network/networkSecurityGroups/write",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 649,
+  "callerIpAddress": "222.182.47.186",
+  "correlationId": "",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Network/networkSecurityGroups/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "",
+        "roleDefinitionId": "",
+        "principalId": "",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "service@company.onmicrosoft.com",
+      "upn": "service@company.onmicrosoft.com"
+    }
+  },
+  "level": "Warning",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T12:51:15+00:00",
+  "operationId": "",
+  "operationName": "Microsoft.Storage/storageAccounts/delete",
+  "category": "Administrative",
+  "resultType": "Failed",
+  "resultSignature": "Forbidden",
+  "durationMs": 4773,
+  "callerIpAddress": "81.248.107.227",
+  "correlationId": "",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Storage/storageAccounts/delete",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "",
+        "roleDefinitionId": "",
+        "principalId": "",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "service@company.onmicrosoft.com",
+      "upn": "service@company.onmicrosoft.com"
+    }
+  },
+  "level": "Error",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "403"
+  }
+}
+{
+  "timestamp": "2025-09-12T12:51:41+00:00",
+  "operationId": "3d3b10d1-74fa-76f0-e12f-2a7c95c13af7",
+  "operationName": "Microsoft.Compute/virtualMachines/start/action",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 2393,
+  "callerIpAddress": "212.13.187.37",
+  "correlationId": "",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Compute/virtualMachines/start/action",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "",
+        "roleDefinitionId": "",
+        "principalId": "",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "admin@company.onmicrosoft.com",
+      "upn": "admin@company.onmicrosoft.com"
+    }
+  },
+  "level": "Warning",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T12:51:41+00:00",
+  "operationId": "239f342c-4c2c-d063-fc02-2b4faa3a50c8",
+  "operationName": "Microsoft.Compute/virtualMachines/start/action",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 3704,
+  "callerIpAddress": "7.105.144.138",
+  "correlationId": "",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Compute/virtualMachines/start/action",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "",
+        "roleDefinitionId": "",
+        "principalId": "",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "admin@company.onmicrosoft.com",
+      "upn": "admin@company.onmicrosoft.com"
+    }
+  },
+  "level": "Informational",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T12:51:41+00:00",
+  "operationId": "656021ad-3ffe-5a62-b68f-902020da2e3d",
+  "operationName": "Microsoft.Network/networkSecurityGroups/write",
+  "category": "Administrative",
+  "resultType": "Failed",
+  "resultSignature": "Forbidden",
+  "durationMs": 548,
+  "callerIpAddress": "183.114.135.196",
+  "correlationId": "",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Network/networkSecurityGroups/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "",
+        "roleDefinitionId": "",
+        "principalId": "",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "admin@company.onmicrosoft.com",
+      "upn": "admin@company.onmicrosoft.com"
+    }
+  },
+  "level": "Error",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "403"
+  }
+}
+{
+  "timestamp": "2025-09-12T12:52:17+00:00",
+  "operationId": "9d695aa0-4565-62ec-b747-183d76b93ead",
+  "operationName": "Microsoft.Network/networkSecurityGroups/write",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 4313,
+  "callerIpAddress": "30.236.13.33",
+  "correlationId": "68277401-f28d-6287-8039-6445b7919e26",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Network/networkSecurityGroups/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "d360ed05-18d0-500e-a870-9697b08c1f09",
+        "roleDefinitionId": "eab73eb3-15d9-6fd7-8941-fa896664bb40",
+        "principalId": "eec114b9-cb15-ce71-b72d-caec41ea7026",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "service@company.onmicrosoft.com",
+      "upn": "service@company.onmicrosoft.com"
+    }
+  },
+  "level": "Informational",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T12:52:17+00:00",
+  "operationId": "ed3722be-1b10-ce4f-a5eb-0402a3d20f31",
+  "operationName": "Microsoft.Storage/storageAccounts/delete",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 2738,
+  "callerIpAddress": "57.111.113.165",
+  "correlationId": "9e5275c1-45a7-fe5d-8631-7f3479008f66",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Storage/storageAccounts/delete",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "e9495cfe-0cc5-5e05-a82e-91f86515fe75",
+        "roleDefinitionId": "4a023bfe-16f5-e50b-9281-9056ef1285e5",
+        "principalId": "9e7a0523-086e-c6ef-d7b2-f20bbbe8ded3",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "service@company.onmicrosoft.com",
+      "upn": "service@company.onmicrosoft.com"
+    }
+  },
+  "level": "Critical",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T12:52:17+00:00",
+  "operationId": "901590d3-903e-5db2-9dc4-101f49c66a1c",
+  "operationName": "Microsoft.Compute/virtualMachines/start/action",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 3136,
+  "callerIpAddress": "217.180.158.17",
+  "correlationId": "cdf46ff4-57a5-e728-fe59-46779d8fae62",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Compute/virtualMachines/start/action",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "f6f78b0b-4c66-f60c-af9d-a897e217f69f",
+        "roleDefinitionId": "8a683458-5061-f49d-dc4f-5f314f4e0d1f",
+        "principalId": "29987f65-b7d7-f7f8-b153-e9c7fc985b7d",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "service@company.onmicrosoft.com",
+      "upn": "service@company.onmicrosoft.com"
+    }
+  },
+  "level": "Informational",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T12:57:24+00:00",
+  "operationId": "525f9357-3577-4343-d1a2-ed30b061da81",
+  "operationName": "Microsoft.Network/networkSecurityGroups/write",
+  "category": "Administrative",
+  "resultType": "Failed",
+  "resultSignature": "Forbidden",
+  "durationMs": 494,
+  "callerIpAddress": "238.150.24.59",
+  "correlationId": "f38d512a-611e-fd24-e526-4c8bf6f27db2",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Network/networkSecurityGroups/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "e377b5bf-63b3-db98-d3db-84f92b8a02d8",
+        "roleDefinitionId": "34b1de6b-f429-f787-d014-5aef9fe699e7",
+        "principalId": "11643ce5-cd1c-c360-edf8-add17d6c8bbf",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "service@company.onmicrosoft.com",
+      "upn": "service@company.onmicrosoft.com"
+    }
+  },
+  "level": "Error",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "403"
+  }
+}
+{
+  "timestamp": "2025-09-12T12:57:24+00:00",
+  "operationId": "76edad61-2f6f-6e13-9b49-9c1b6ebf4e60",
+  "operationName": "Microsoft.Compute/virtualMachines/start/action",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 4150,
+  "callerIpAddress": "133.53.125.95",
+  "correlationId": "65c73383-0e29-4540-ea1c-c50746315e68",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Compute/virtualMachines/start/action",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "ac52618a-d068-cc05-9d10-c8c8511d3a05",
+        "roleDefinitionId": "9e13d38c-ec6f-fd7a-e539-6985ea1600f7",
+        "principalId": "0ceb0595-259f-ca9a-d26a-5da24360567a",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "developer@company.onmicrosoft.com",
+      "upn": "developer@company.onmicrosoft.com"
+    }
+  },
+  "level": "Critical",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T12:57:24+00:00",
+  "operationId": "5a442609-981f-5fc5-89aa-853cacc17283",
+  "operationName": "Microsoft.Compute/virtualMachines/start/action",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 3057,
+  "callerIpAddress": "208.55.101.132",
+  "correlationId": "ba4213b4-2de8-6f65-8834-615b0837203f",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Compute/virtualMachines/start/action",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "8fa51fbe-c521-c8eb-832e-95f0a277b2fe",
+        "roleDefinitionId": "e940d8dc-43a4-ff1e-ec1d-f915df111d01",
+        "principalId": "4cb51bd3-c2bc-fdc9-990e-9fc93d90466d",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "admin@company.onmicrosoft.com",
+      "upn": "admin@company.onmicrosoft.com"
+    }
+  },
+  "level": "Critical",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T15:32:40+00:00",
+  "operationId": "8c003d48-7ce8-618e-c5ee-3a02b78ec20b",
+  "operationName": "Microsoft.Authorization/roleAssignments/write",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 3263,
+  "callerIpAddress": "220.202.21.65",
+  "correlationId": "4b861829-7862-f6b7-cbe0-6b3413bb96da",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Authorization/roleAssignments/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "b3e80679-e7c6-c690-9195-e2e7378835d3",
+        "roleDefinitionId": "87f63d4c-368f-e065-f21b-38206d96be1c",
+        "principalId": "960d238c-d07e-5935-e67b-d8b841aa7376",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "service@company.onmicrosoft.com",
+      "upn": "service@company.onmicrosoft.com"
+    }
+  },
+  "level": "Warning",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T15:32:40+00:00",
+  "operationId": "9b06b290-6629-cfaa-86b0-8f957a1b2d08",
+  "operationName": "Microsoft.Compute/virtualMachines/start/action",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 1161,
+  "callerIpAddress": "115.143.215.199",
+  "correlationId": "d73312df-8f95-45d3-80b8-1328da42005b",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Compute/virtualMachines/start/action",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "85e16c35-4043-69c6-e57a-34fd75d20782",
+        "roleDefinitionId": "65990400-414c-53f7-9579-adbec2d77005",
+        "principalId": "d771fa93-08d0-563b-8c4b-04fc6c866ea3",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "service@company.onmicrosoft.com",
+      "upn": "service@company.onmicrosoft.com"
+    }
+  },
+  "level": "Critical",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T15:32:40+00:00",
+  "operationId": "c7c5a353-030a-c7b2-ec74-e58757f19c57",
+  "operationName": "Microsoft.Authorization/roleAssignments/write",
+  "category": "Administrative",
+  "resultType": "Failed",
+  "resultSignature": "Forbidden",
+  "durationMs": 2898,
+  "callerIpAddress": "74.0.174.66",
+  "correlationId": "00e853d0-2afe-d9d1-f227-2dbf78400a6f",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Authorization/roleAssignments/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "b7c96188-2d2b-feb1-a1e2-a683c7aa4004",
+        "roleDefinitionId": "f9d824d5-6cb1-752f-fd66-b7b5305f6107",
+        "principalId": "d2c683ab-8780-6c08-ac55-57c29500e7a6",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "developer@company.onmicrosoft.com",
+      "upn": "developer@company.onmicrosoft.com"
+    }
+  },
+  "level": "Error",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "403"
+  }
+}
+{
+  "timestamp": "2025-09-12T15:33:11+00:00",
+  "operationId": "2b17a281-f462-5917-b7d7-1ac19a4c5105",
+  "operationName": "Microsoft.Network/networkSecurityGroups/write",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 3382,
+  "callerIpAddress": "34.41.119.169",
+  "correlationId": "c70e2117-7477-531d-c583-d622de3a14db",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Network/networkSecurityGroups/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "5f06cd24-99a5-404b-bf3f-b2f13357c546",
+        "roleDefinitionId": "357bfe3e-b1d8-741e-c51c-dace401163e4",
+        "principalId": "4baed126-938a-c64f-dff1-c6fd5585a3d3",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "admin@company.onmicrosoft.com",
+      "upn": "admin@company.onmicrosoft.com"
+    }
+  },
+  "level": "Informational",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T15:33:11+00:00",
+  "operationId": "b46cdbd4-2fa1-e99a-c038-59598b6c180a",
+  "operationName": "Microsoft.Network/networkSecurityGroups/write",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 4607,
+  "callerIpAddress": "16.215.2.112",
+  "correlationId": "91ddcccd-c3c6-7582-8556-9bf656eed59a",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Network/networkSecurityGroups/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "765851be-9ac3-6656-97ce-2c4ad8304214",
+        "roleDefinitionId": "5f3b49ee-530e-700d-94be-5286e7015131",
+        "principalId": "b821c835-6fbe-f971-b3d1-493d88fe7492",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "service@company.onmicrosoft.com",
+      "upn": "service@company.onmicrosoft.com"
+    }
+  },
+  "level": "Critical",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T15:33:11+00:00",
+  "operationId": "78824aa6-72b0-5bb6-80fd-1eb540b6ab84",
+  "operationName": "Microsoft.Authorization/roleAssignments/write",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 1875,
+  "callerIpAddress": "127.207.2.160",
+  "correlationId": "f4070813-c71e-4766-df51-3cf3d096b97f",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Authorization/roleAssignments/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "f607a778-bfc1-ce76-fc87-766d4e4ae471",
+        "roleDefinitionId": "2ff482af-c4ee-eea9-b3a2-d706c0c9f194",
+        "principalId": "7e99ac26-6831-df5f-e6c6-cb3fcbb322fd",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "developer@company.onmicrosoft.com",
+      "upn": "developer@company.onmicrosoft.com"
+    }
+  },
+  "level": "Informational",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T15:33:43+00:00",
+  "operationId": "42920544-b156-486c-a194-d0c96165098d",
+  "operationName": "Microsoft.Authorization/roleAssignments/write",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 5021,
+  "callerIpAddress": "82.84.248.141",
+  "correlationId": "d03338c1-9e93-f403-d7f2-7a38c58a66ec",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Authorization/roleAssignments/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "36d207df-7800-d918-f51e-91e16f254d7b",
+        "roleDefinitionId": "12ece181-a58f-6025-accc-d9584606ea89",
+        "principalId": "15b9f023-2264-5694-8239-f70840e1f9bd",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "service@company.onmicrosoft.com",
+      "upn": "service@company.onmicrosoft.com"
+    }
+  },
+  "level": "Critical",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T15:33:43+00:00",
+  "operationId": "6d09e199-8648-5af8-ab53-49993c0b7735",
+  "operationName": "Microsoft.Network/networkSecurityGroups/write",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 2508,
+  "callerIpAddress": "146.173.194.22",
+  "correlationId": "c080ff93-5cf4-7a48-8697-2c0f14736548",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Network/networkSecurityGroups/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "ebc66640-c603-f1d0-818d-9ace1867e36a",
+        "roleDefinitionId": "69808624-217a-e55b-cdff-43d34dc70dac",
+        "principalId": "f767bfa5-6cc4-77fa-c451-0bf44d698b3e",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "admin@company.onmicrosoft.com",
+      "upn": "admin@company.onmicrosoft.com"
+    }
+  },
+  "level": "Informational",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T15:33:43+00:00",
+  "operationId": "7f436ce5-970c-5a27-884f-4c31e47aab46",
+  "operationName": "Microsoft.Network/networkSecurityGroups/write",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 493,
+  "callerIpAddress": "0.141.240.48",
+  "correlationId": "fe612534-64bf-ce20-db26-36e738f23ab3",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Network/networkSecurityGroups/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "9bd31011-27d0-7147-ac5f-2b9b6a6f352d",
+        "roleDefinitionId": "bbd40670-263c-43dd-c566-382d9d2147a5",
+        "principalId": "b5cdc9eb-9ad9-7c7c-922c-d70186a9a4fb",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "developer@company.onmicrosoft.com",
+      "upn": "developer@company.onmicrosoft.com"
+    }
+  },
+  "level": "Warning",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T15:42:40+00:00",
+  "operationId": "7339c9dc-7b34-7d0a-90b7-d81cc30dc876",
+  "operationName": "Microsoft.Storage/storageAccounts/delete",
+  "category": "Administrative",
+  "resultType": "Failed",
+  "resultSignature": "Forbidden",
+  "durationMs": 693,
+  "callerIpAddress": "97.174.133.130",
+  "correlationId": "d1c154e4-d8ce-cb70-ba8c-706ebbebcbcd",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Storage/storageAccounts/delete",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "ccc379a8-d964-714d-e5d8-6894de947464",
+        "roleDefinitionId": "37d52215-b16e-eef8-cab6-fce2c28b119c",
+        "principalId": "ebfa0667-e92c-c4c1-9080-c9dcf6b611ec",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "service@company.onmicrosoft.com",
+      "upn": "service@company.onmicrosoft.com"
+    }
+  },
+  "level": "Error",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "403"
+  }
+}
+{
+  "timestamp": "2025-09-12T15:42:40+00:00",
+  "operationId": "be59b303-a849-e27a-9c65-ee62a31f7950",
+  "operationName": "Microsoft.Storage/storageAccounts/delete",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 4886,
+  "callerIpAddress": "216.177.184.251",
+  "correlationId": "c2db73d9-f65d-e2f0-e665-6cfd64d5006c",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Storage/storageAccounts/delete",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "e5c10dea-8ba6-5853-c7f3-adac9b7dac33",
+        "roleDefinitionId": "93b2bc2c-3833-ef6d-f8a6-33e240c2d059",
+        "principalId": "d8bd20eb-838e-7cd4-a895-dad167ba76e8",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "service@company.onmicrosoft.com",
+      "upn": "service@company.onmicrosoft.com"
+    }
+  },
+  "level": "Informational",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-12T15:42:40+00:00",
+  "operationId": "0246a6eb-af5a-e058-a77c-ad6d6e9d277c",
+  "operationName": "Microsoft.Network/networkSecurityGroups/write",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 2438,
+  "callerIpAddress": "150.84.188.43",
+  "correlationId": "d080afd4-f68c-703d-8ffa-79928f43eebb",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Network/networkSecurityGroups/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "b5fd8599-2145-d604-80e8-2279dc64dc56",
+        "roleDefinitionId": "7ee595e3-16e2-cd21-8e34-ee8a50af78c7",
+        "principalId": "2c268108-a19e-cec5-e97d-53cc442d338a",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "admin@company.onmicrosoft.com",
+      "upn": "admin@company.onmicrosoft.com"
+    }
+  },
+  "level": "Informational",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}

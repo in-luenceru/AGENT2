@@ -1,0 +1,65 @@
+# Ubuntu Network File System Security
+# Author: Wazuh Agent Security Enhancement
+# Updated: 2025-09-11
+
+policy:
+  id: "ubuntu_network_fs"
+  file: "ubuntu_network_fs.yml"  
+  name: "Ubuntu Network File System Security"
+  description: "Ubuntu-specific network file system security checks"
+
+requirements:
+  title: "Ubuntu Network File System Security Requirements"
+  description: "Security requirements for Ubuntu network file systems"
+  condition: all
+
+checks:
+  - id: 2001
+    title: "Ensure NFS server is not installed"
+    description: "Check that NFS server packages are not installed"
+    rationale: "NFS server increases attack surface if not needed"
+    remediation: "Remove nfs-kernel-server package"
+    compliance:
+      - cis: "2.2.7"
+    condition: none
+    rules:
+      - 'd:dpkg -l nfs-kernel-server'
+
+  - id: 2002
+    title: "Check UFW firewall rules for NFS"
+    description: "Ensure firewall properly controls NFS access"
+    rationale: "Firewall rules prevent unauthorized NFS access"
+    remediation: "Configure UFW rules for NFS services"
+    condition: any
+    rules:
+      - 'c:ufw status | grep -i nfs'
+      - 'c:ufw status | grep 2049'
+
+  - id: 2003
+    title: "Ensure autofs is properly configured"
+    description: "Check autofs configuration for security"
+    rationale: "Autofs misconfigurations can lead to security issues"
+    remediation: "Review autofs configuration files"
+    condition: all
+    rules:
+      - 'f:/etc/auto.master -> !r:^#.*'
+      - 'f:/etc/auto.master -> r:--timeout='
+
+  - id: 2004
+    title: "Check for CIFS utilities"
+    description: "Verify CIFS utilities installation"
+    rationale: "Monitor CIFS utility presence"
+    remediation: "Review CIFS utility necessity"
+    condition: any
+    rules:
+      - 'd:dpkg -l cifs-utils'
+
+  - id: 2005
+    title: "Ensure AppArmor profiles for network services"
+    description: "Check AppArmor profiles for network file services"
+    rationale: "AppArmor provides mandatory access control"
+    remediation: "Enable AppArmor profiles for network services"
+    condition: all
+    rules:
+      - 'c:aa-status | grep nfsd'
+      - 'c:aa-status | grep smbd'

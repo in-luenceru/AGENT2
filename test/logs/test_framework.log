@@ -1,0 +1,25 @@
+================================================================
+Wazuh Monitoring Agent Test Framework - Version 1.0
+Test Session Started: 2025-09-12 14:34:03
+Agent Home: /workspaces/AGENT2
+Manager: 172.17.0.2:1514
+================================================================
+[2025-09-12 14:34:03] [SUCCESS] [INIT] Test framework initialized successfully
+[2025-09-12 14:34:03] [INFO] [INTEGRATION] Initializing Integration tests
+[2025-09-12 14:34:03] [ERROR] [MASTER] Test module failed: Integration Testing (exit code: 1)
+[2025-09-12 14:34:03] [INFO] [MASTER] Test module duration: 0s
+[2025-09-12 14:34:03] [ERROR] [MASTER] Module failed: Integration Testing
+[2025-09-12 14:34:08] [INFO] [MASTER] Test execution completed: 0/10 modules passed
+[2025-09-12 14:34:08] [ERROR] [MASTER] Some test modules failed
+[2025-09-12 14:34:08] [INFO] [MASTER] Generating comprehensive test alerts...
+[2025-09-12 14:34:08] [SUCCESS] [MASTER] Test alerts generated: /workspaces/AGENT2/test/report/test_alerts.log
+[2025-09-12 14:34:08] [INFO] [MANAGER] Testing manager connectivity: 172.17.0.2:1514
+[2025-09-12 14:34:08] [SUCCESS] [MANAGER] Manager is reachable
+[2025-09-12 14:34:08] [INFO] [MASTER] Forwarding test alerts to manager...
+[2025-09-12 14:34:08] [INFO] [MASTER] Generating comprehensive test report...
+[2025-09-12 14:34:08] [INFO] [MANAGER] Testing manager connectivity: 172.17.0.2:1514
+[2025-09-12 14:34:08] [SUCCESS] [MANAGER] Manager is reachable
+[2025-09-12 14:34:08] [SUCCESS] [MASTER] Comprehensive report generated:
+[2025-09-12 14:34:08] [ERROR] [MASTER] Test execution completed with failures
+[2025-09-12 14:34:08] [INFO] [MASTER] Performing post-test cleanup...
+[2025-09-12 14:34:08] [SUCCESS] [MASTER] Test environment cleanup completed

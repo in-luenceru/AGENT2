@@ -1,0 +1,7 @@
+Test: pci_dss_compliance
+Description: Test PCI DSS compliance checking
+Started: 2025-09-12 14:33:17
+========================================
+Result: PASS
+Message: PCI DSS compliance test completed (no policies found)
+Completed: 2025-09-12 14:33:17

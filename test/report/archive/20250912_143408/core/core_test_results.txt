@@ -1,0 +1,24 @@
+================================================================
+Core Service Validation Test Results
+Completed: 2025-09-12 14:25:16
+================================================================
+Tests Passed: 9/11
+Success Rate: 81%
+
+Detailed Results:
+- Agent Installation: PASS
+- Configuration Validity: PASS
+- File Permissions: PASS
+- Service Startup: FAIL
+- Daemon Processes: FAIL
+- Log Generation: PASS
+- Resource Usage: PASS
+- Manager Reachability: PASS
+- Enrollment Port: PASS
+- Agent Enrollment: PASS
+- Manager Communication: PASS
+
+Logs:
+- Startup Log: /workspaces/AGENT2/test/logs/core/startup.log
+- Connection Log: /workspaces/AGENT2/test/logs/core/connection.log
+================================================================

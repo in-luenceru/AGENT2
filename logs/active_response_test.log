@@ -1,0 +1,18 @@
+2025/09/12 13:11:52 [INFO] Starting Active Response System Test
+2025/09/12 13:11:52 [PASS] AR configuration present
+2025/09/12 13:11:52 [PASS] iptables-block script ready
+2025/09/12 13:11:52 [PASS] container-quarantine script ready
+2025/09/12 13:11:52 [PASS] kill-process script ready
+2025/09/12 13:11:52 [PASS] file-quarantine script ready
+2025/09/12 13:11:52 [PASS] cloud-isolate script ready
+2025/09/12 13:11:52 [PASS] vuln-mitigation script ready
+2025/09/12 13:11:52 [PASS] alert-notify script ready
+2025/09/12 13:11:52 [PASS] IP blocking functional
+2025/09/12 13:11:52 [PASS] File quarantine functional
+2025/09/12 13:11:54 [PASS] Process kill functional
+2025/09/12 13:11:54 [PARTIAL] Container quarantine partial
+2025/09/12 13:11:54 [PASS] Vulnerability mitigation functional
+2025/09/12 13:11:54 [PASS] Alert notification functional
+2025/09/12 13:11:54 [PASS] execd daemon ready
+2025/09/12 13:11:54 [PASS] AR queue directory ready
+2025/09/12 13:11:54 [SUCCESS] Active Response System fully functional

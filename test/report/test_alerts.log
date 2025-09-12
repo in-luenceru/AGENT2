@@ -1,0 +1,19 @@
+================================================================
+Wazuh Agent Comprehensive Test Alerts
+Generated: 2025-09-12 14:34:08
+================================================================
+
+2025-09-12 14:34:08 [ALERT] [SYSTEM] Wazuh Agent testing initiated - comprehensive validation in progress
+2025-09-12 14:34:08 [ALERT] [SECURITY] Simulated SSH brute force attack detected from 192.168.1.100
+2025-09-12 14:34:08 [ALERT] [SECURITY] File integrity violation - critical system file modified
+2025-09-12 14:34:08 [ALERT] [SECURITY] Privilege escalation attempt detected - sudo access violation
+2025-09-12 14:34:08 [ALERT] [SECURITY] Malware pattern detected in log analysis
+2025-09-12 14:34:08 [ALERT] [SECURITY] Web application attack - SQL injection attempt blocked
+2025-09-12 14:34:08 [ALERT] [SECURITY] Rootkit signature detected in system files
+2025-09-12 14:34:08 [ALERT] [SECURITY] Vulnerability scanner detected critical CVE
+2025-09-12 14:34:08 [ALERT] [SECURITY] Configuration compliance violation - CIS benchmark failed
+2025-09-12 14:34:08 [ALERT] [PERFORMANCE] High memory usage detected - agent resource monitoring
+2025-09-12 14:34:08 [ALERT] [PERFORMANCE] Log processing rate exceeded threshold
+2025-09-12 14:34:08 [ALERT] [INTEGRATION] Cloud security event - suspicious API activity
+2025-09-12 14:34:08 [ALERT] [INTEGRATION] Active response triggered - threat mitigation activated
+2025-09-12 14:34:08 [ALERT] [SYSTEM] Wazuh Agent testing completed - validation results available

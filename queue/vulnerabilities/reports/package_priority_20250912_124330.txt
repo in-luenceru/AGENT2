@@ -1,0 +1,28 @@
+Package Vulnerability Priority Report
+Generated: 2025-09-12 12:43:30
+
+CRITICAL PACKAGES (requiring immediate attention):
+      1 xz-utils
+      1 liblzma5
+      1 liblzma-dev
+
+HIGH PRIORITY PACKAGES:
+      5 linux-libc-dev
+      3 openssh-sftp-server
+      3 openssh-server
+      3 openssh-client
+      2 libxml2-dev
+      2 libxml2
+      1 util-linux
+      1 sudo
+      1 openssl
+      1 ncurses-bin
+      1 ncurses-base
+      1 git-man
+      1 git
+      1 dbus-system-bus-common
+      1 dbus-session-bus-common
+      1 dbus-daemon
+      1 dbus-bin
+      1 dbus
+      1 curl

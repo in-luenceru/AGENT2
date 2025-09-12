@@ -1,0 +1,201 @@
+# Wazuh Agent Rootkit Files Database
+# Common rootkit files and signatures for detection
+
+# Common Linux rootkits
+/tmp/.ICE-unix/1
+/tmp/.X11-unix/.X1
+/tmp/.font-unix/.font1
+/dev/... 
+/dev/rd/cdb
+/dev/rd/c
+/dev/sd/.c
+/dev/ptyp/.c
+/dev/ptyq/.c
+/dev/ptyr/.c
+/dev/ptys/.c
+/dev/ttyp/.c
+/dev/ttyq/.c
+/dev/ttyr/.c
+/dev/ttys/.c
+/dev/dsx/.c
+/dev/dsp/.c
+/dev/misc/.c
+/dev/hda06
+/dev/hda07
+/dev/hda08
+/dev/sda06
+/dev/sda07  
+/dev/sda08
+/dev/hdb06
+/dev/hdb07
+/dev/hdb08
+/lib/.libs.a
+/lib/.libh.a
+/lib/s/.libs.a
+/lib/security/.1
+/lib/security/.config
+/lib/modules/.1
+/lib/modules/.libs.a
+/proc/1/exe
+/proc/version
+/bin/ps
+/bin/netstat
+/bin/top
+/bin/w
+/bin/ls
+/bin/du
+/bin/who
+/bin/last
+/bin/lastlog
+/sbin/ifconfig
+/usr/bin/cut
+/usr/bin/env
+/usr/bin/find
+/usr/bin/id
+/usr/bin/killall
+/usr/bin/lsof
+/usr/bin/md5sum
+/usr/bin/pstree
+/usr/bin/strings
+/usr/bin/users
+/usr/bin/vmstat
+/usr/bin/w
+/usr/bin/whoami
+/usr/sbin/adduser
+/usr/sbin/rpcinfo
+
+# Hidden directories and files
+/tmp/...
+/tmp/.. 
+/tmp/. 
+/var/tmp/...
+/var/tmp/..
+/var/tmp/.
+/usr/lib/...
+/usr/lib/..
+/usr/lib/.
+/etc/...
+/etc/..
+/etc/.
+
+# Suspicious binary names
+/tmp/install
+/tmp/install.sh
+/tmp/klogd
+/tmp/sens
+/tmp/sense
+/tmp/sniffer
+/tmp/sniff
+/tmp/bnc
+/tmp/psybnc
+/tmp/lsattr
+/tmp/lsof
+/var/tmp/install
+/var/tmp/klogd
+/var/tmp/sens
+/usr/bin/.wh
+/usr/bin/.ps
+/usr/bin/.top
+/usr/bin/.netstat
+/usr/bin/.w
+/usr/bin/.ps2
+/usr/lib/.ldd
+/usr/lib/.ssh
+/usr/lib/.rhosts
+
+# Known rootkit directories
+/dev/rd/s
+/dev/.kit
+/dev/.vfm
+/dev/.random
+/lib/.x
+/lib/.n
+/lib/kit
+/opt/bin
+/opt/lib
+/opt/kit
+/etc/kit
+/var/log/.k
+/var/log/.1
+/var/log/.2
+/usr/info/.1
+/usr/info/.2
+/usr/info/.wh
+/usr/.wh
+/usr/.h
+
+# Adore rootkit
+/usr/lib/libt
+/usr/bin/adore
+/usr/sbin/adore
+
+# t0rn rootkit  
+/usr/src/.puta
+/usr/info/t0rn
+/lib/ldx
+/etc/ttyhash
+
+# LRK rootkit
+/dev/ida/.inet
+/usr/inc/a
+/usr/bin/lrk3
+/usr/bin/lrk4
+/usr/bin/lrk5
+
+# Ramen rootkit
+/usr/lib/.session.dat
+/var/log/.ldb
+/tmp/.scsi
+
+# Lion rootkit
+/dev/.lib
+/usr/include/rpc/ ../kit
+/usr/bin/.ps
+/usr/bin/.netstat
+/usr/bin/.ls
+/usr/bin/.lsof
+
+# RSHA rootkit
+/bin/kr4p
+/usr/bin/kr4p
+/usr/bin/n3tstat  
+/usr/bin/r3m
+/usr/bin/r4p
+
+# ShKit rootkit
+/lib/security/.config
+/etc/ld.so.hash
+/usr/include/rpc/kit
+
+# TC2 Worm
+/usr/info/.tc2k
+/usr/bin/.ps
+/usr/bin/.netstat
+/tmp/.t
+
+# Omega Worm  
+/dev/.proc
+
+# Sadmind/IIS Worm
+/dev/cuc
+
+# MonKit
+/lib/defs
+
+# Optickit
+/usr/bin/xchk
+/usr/bin/xsf
+
+# T.R.K rootkit
+/usr/bin/ps
+/usr/bin/netstat
+/usr/bin/w
+
+# Volc rootkit
+/usr/bin/volc
+/usr/bin/xvolc
+
+# Gold2 rootkit
+/usr/bin/.g  
+/usr/bin/.ps2
+/usr/bin/.n2

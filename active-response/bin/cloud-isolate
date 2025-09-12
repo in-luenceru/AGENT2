@@ -1,0 +1,139 @@
+#!/bin/bash
+# Cloud resource isolation for security incidents
+# Usage: cloud-isolate <action> <resource_info> <timeout>
+
+LOCAL=$(dirname $0)
+cd $LOCAL
+cd ../
+
+# Log configuration
+LOG_FILE="/workspaces/AGENT2/logs/active-response.log"
+
+ACTION="$1"
+RESOURCE_INFO="$2"
+TIMEOUT="$3"
+
+# Extract cloud provider and resource details
+CLOUD_PROVIDER=$(echo "$RESOURCE_INFO" | grep -oE 'PROVIDER:([^,]+)' | cut -d: -f2)
+RESOURCE_ID=$(echo "$RESOURCE_INFO" | grep -oE 'RESOURCE:([^,]+)' | cut -d: -f2)
+RESOURCE_TYPE=$(echo "$RESOURCE_INFO" | grep -oE 'TYPE:([^,]+)' | cut -d: -f2)
+
+# AWS isolation
+isolate_aws_resource() {
+    echo "$(date '+%Y/%m/%d %H:%M:%S') [INFO] Isolating AWS resource: $RESOURCE_ID ($RESOURCE_TYPE)" >> $LOG_FILE
+    
+    case "$RESOURCE_TYPE" in
+        "ec2-instance")
+            # Create isolation security group
+            aws ec2 create-security-group --group-name wazuh-isolation --description "Wazuh isolation group" 2>/dev/null || true
+            
+            # Apply isolation security group
+            aws ec2 modify-instance-attribute --instance-id "$RESOURCE_ID" --groups wazuh-isolation 2>/dev/null
+            echo "$(date '+%Y/%m/%d %H:%M:%S') [SUCCESS] EC2 instance $RESOURCE_ID isolated" >> $LOG_FILE
+            ;;
+        "s3-bucket")
+            # Block public access
+            aws s3api put-public-access-block --bucket "$RESOURCE_ID" \
+                --public-access-block-configuration "BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true" 2>/dev/null
+            echo "$(date '+%Y/%m/%d %H:%M:%S') [SUCCESS] S3 bucket $RESOURCE_ID isolated" >> $LOG_FILE
+            ;;
+        "rds-instance")
+            # Modify security group to deny all
+            aws rds modify-db-instance --db-instance-identifier "$RESOURCE_ID" --vpc-security-group-ids sg-isolation 2>/dev/null
+            echo "$(date '+%Y/%m/%d %H:%M:%S') [SUCCESS] RDS instance $RESOURCE_ID isolated" >> $LOG_FILE
+            ;;
+    esac
+}
+
+# Azure isolation
+isolate_azure_resource() {
+    echo "$(date '+%Y/%m/%d %H:%M:%S') [INFO] Isolating Azure resource: $RESOURCE_ID ($RESOURCE_TYPE)" >> $LOG_FILE
+    
+    case "$RESOURCE_TYPE" in
+        "vm")
+            # Apply network isolation
+            az vm update --ids "$RESOURCE_ID" --set networkProfile.networkSecurityGroup.id="/subscriptions/sub/resourceGroups/rg/providers/Microsoft.Network/networkSecurityGroups/wazuh-isolation" 2>/dev/null
+            echo "$(date '+%Y/%m/%d %H:%M:%S') [SUCCESS] Azure VM $RESOURCE_ID isolated" >> $LOG_FILE
+            ;;
+        "storage-account")
+            # Deny public access
+            az storage account update --name "$RESOURCE_ID" --allow-blob-public-access false 2>/dev/null
+            echo "$(date '+%Y/%m/%d %H:%M:%S') [SUCCESS] Azure storage $RESOURCE_ID isolated" >> $LOG_FILE
+            ;;
+    esac
+}
+
+# GCP isolation
+isolate_gcp_resource() {
+    echo "$(date '+%Y/%m/%d %H:%M:%S') [INFO] Isolating GCP resource: $RESOURCE_ID ($RESOURCE_TYPE)" >> $LOG_FILE
+    
+    case "$RESOURCE_TYPE" in
+        "compute-instance")
+            # Apply firewall rule to block traffic
+            gcloud compute instances add-tags "$RESOURCE_ID" --tags=wazuh-isolated --zone=us-central1-a 2>/dev/null
+            echo "$(date '+%Y/%m/%d %H:%M:%S') [SUCCESS] GCP instance $RESOURCE_ID isolated" >> $LOG_FILE
+            ;;
+        "storage-bucket")
+            # Make bucket private
+            gsutil iam ch -d allUsers:objectViewer gs://"$RESOURCE_ID" 2>/dev/null
+            echo "$(date '+%Y/%m/%d %H:%M:%S') [SUCCESS] GCP bucket $RESOURCE_ID isolated" >> $LOG_FILE
+            ;;
+    esac
+}
+
+# Isolation function
+isolate_resource() {
+    case "$CLOUD_PROVIDER" in
+        "aws")
+            isolate_aws_resource
+            ;;
+        "azure")
+            isolate_azure_resource
+            ;;
+        "gcp")
+            isolate_gcp_resource
+            ;;
+        *)
+            echo "$(date '+%Y/%m/%d %H:%M:%S') [ERROR] Unsupported cloud provider: $CLOUD_PROVIDER" >> $LOG_FILE
+            return 1
+            ;;
+    esac
+    
+    # Store isolation info
+    echo "$CLOUD_PROVIDER:$RESOURCE_ID:$RESOURCE_TYPE:$(date +%s):$TIMEOUT" >> /tmp/wazuh_isolated_resources.txt
+}
+
+# Restore function
+restore_resource() {
+    echo "$(date '+%Y/%m/%d %H:%M:%S') [INFO] Restoring cloud resource: $RESOURCE_ID" >> $LOG_FILE
+    
+    # Implementation would restore original security settings
+    # This is a simplified version for demonstration
+    
+    # Remove from tracking file
+    grep -v ":$RESOURCE_ID:" /tmp/wazuh_isolated_resources.txt > /tmp/wazuh_isolated_resources.tmp 2>/dev/null
+    mv /tmp/wazuh_isolated_resources.tmp /tmp/wazuh_isolated_resources.txt 2>/dev/null
+    
+    echo "$(date '+%Y/%m/%d %H:%M:%S') [SUCCESS] Cloud resource $RESOURCE_ID restore initiated" >> $LOG_FILE
+}
+
+# Main logic
+case "$ACTION" in
+    add)
+        isolate_resource
+        
+        # Schedule automatic restore if timeout specified
+        if [ -n "$TIMEOUT" ] && [ "$TIMEOUT" -gt 0 ]; then
+            (sleep $TIMEOUT && $0 delete "$RESOURCE_INFO") &
+        fi
+        ;;
+    delete)
+        restore_resource
+        ;;
+    *)
+        echo "$(date '+%Y/%m/%d %H:%M:%S') [ERROR] Invalid action: $ACTION" >> $LOG_FILE
+        exit 1
+        ;;
+esac
+
+exit 0

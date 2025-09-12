@@ -1,0 +1,7 @@
+Test: logcollector_daemon
+Description: Verify log collector daemon is running
+Started: 2025-09-12 14:29:26
+========================================
+Result: FAIL
+Error: Log collector daemon is not running
+Completed: 2025-09-12 14:29:26

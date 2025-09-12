@@ -1,0 +1,7 @@
+Test: syscheck_daemon
+Description: Verify syscheck daemon is running
+Started: 2025-09-12 14:25:21
+========================================
+Result: FAIL
+Error: Syscheck daemon is not running
+Completed: 2025-09-12 14:25:21

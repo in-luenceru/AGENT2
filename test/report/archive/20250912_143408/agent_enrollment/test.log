@@ -1,0 +1,7 @@
+Test: agent_enrollment
+Description: Check agent enrollment status
+Started: 2025-09-12 14:25:16
+========================================
+Result: PASS
+Message: Agent is properly enrolled
+Completed: 2025-09-12 14:25:16

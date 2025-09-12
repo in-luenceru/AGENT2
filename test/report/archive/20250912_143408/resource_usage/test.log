@@ -1,0 +1,7 @@
+Test: resource_usage
+Description: Monitor agent resource usage
+Started: 2025-09-12 14:25:16
+========================================
+Result: PASS
+Message: Resource usage acceptable (0MB, 0 processes)
+Completed: 2025-09-12 14:25:16

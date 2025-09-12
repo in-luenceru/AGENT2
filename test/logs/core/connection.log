@@ -1,0 +1,14 @@
+================================================================
+Wazuh Agent Core Service Validation Tests
+Started: 2025-09-12 14:25:08
+================================================================
+2025-09-12 14:25:16: Testing manager connectivity
+Manager: 172.17.0.2:1514
+2025-09-12 14:25:16: Manager connectivity successful
+2025-09-12 14:25:16: Testing enrollment port connectivity
+Enrollment port: 172.17.0.2:1515
+2025-09-12 14:25:16: Enrollment port connectivity successful
+2025-09-12 14:25:16: Checking agent enrollment status
+2025-09-12 14:25:16: Agent enrolled - ID: 002, Name: codespaces-672813
+2025-09-12 14:25:16: Testing agent-manager communication
+2025-09-12 14:25:16: No manager communication found in logs

@@ -1,0 +1,235 @@
+2025/09/12 13:09:33 [INFO] Blocking IP: 203.0.113.1 for 30s
+2025/09/12 13:09:33 [SUCCESS] IP 203.0.113.1 blocked successfully
+2025/09/12 13:09:33 [INFO] Unblocking IP: 203.0.113.1
+2025/09/12 13:09:33 [SUCCESS] IP 203.0.113.1 unblocked successfully
+2025/09/12 13:09:33 [INFO] Quarantining file: /tmp/test_malware_sample.txt
+2025/09/12 13:09:33 [SUCCESS] File quarantined: /tmp/test_malware_sample.txt -> /workspaces/AGENT2/quarantine/test_malware_sample.txt_20250912_130933
+2025/09/12 13:09:33 [INFO] Restoring file: /tmp/test_malware_sample.txt
+2025/09/12 13:09:33 [SUCCESS] File restored: /tmp/test_malware_sample.txt
+2025/09/12 13:09:33 [INFO] Terminating suspicious process: PID=79296 NAME=sleep
+2025/09/12 13:09:33 [INFO] Process details:     PID    PPID USER     COMMAND         COMMAND
+  79296   79230 codespa+ sleep           sleep 300
+2025/09/12 13:09:35 [SUCCESS] Gracefully terminated process PID=79296
+2025/09/12 13:09:42 [INFO] Quarantining container: wazuh-test-container
+2025/09/12 13:09:43 [INFO] Disconnected wazuh-test-container from bridge
+2025/09/12 13:09:43 [SUCCESS] Container wazuh-test-container quarantined
+2025/09/12 13:09:43 [INFO] Mitigating vulnerability:  in test-package SEVERITY (Severity: HIGH)
+2025/09/12 13:09:43 [CRITICAL] Immediate mitigation required for 
+2025/09/12 13:09:43 [ACTION] Stopped service: test-package SEVERITY
+2025/09/12 13:09:43 [INFO] Applying hardening for test-package SEVERITY
+2025/09/12 13:09:43 [SUCCESS] Mitigation actions completed for 
+2025/09/12 13:09:44 [INFO] Processing alert: Level 12 - test_rule DESC
+2025/09/12 13:09:44 [CRITICAL] Immediate response required for level 12 alert
+2025/09/12 13:09:44 [SUCCESS] Alert processed and notifications sent
+2025/09/12 13:10:03 [INFO] Unblocking IP: 203.0.113.1
+2025/09/12 13:10:03 [SUCCESS] IP 203.0.113.1 unblocked successfully
+2025/09/12 13:10:06 [INFO] Blocking IP: 203.0.113.1 for 30s
+2025/09/12 13:10:06 [SUCCESS] IP 203.0.113.1 blocked successfully
+2025/09/12 13:10:06 [INFO] Unblocking IP: 203.0.113.1
+2025/09/12 13:10:06 [SUCCESS] IP 203.0.113.1 unblocked successfully
+2025/09/12 13:10:06 [INFO] Quarantining file: /tmp/test_malware_sample.txt
+2025/09/12 13:10:06 [SUCCESS] File quarantined: /tmp/test_malware_sample.txt -> /workspaces/AGENT2/quarantine/test_malware_sample.txt_20250912_131006
+2025/09/12 13:10:06 [INFO] Restoring file: /tmp/test_malware_sample.txt
+2025/09/12 13:10:06 [SUCCESS] File restored: /tmp/test_malware_sample.txt
+2025/09/12 13:10:06 [INFO] Terminating suspicious process: PID=80136 NAME=sleep
+2025/09/12 13:10:06 [INFO] Process details:     PID    PPID USER     COMMAND         COMMAND
+  80136   80058 codespa+ sleep           sleep 300
+2025/09/12 13:10:08 [SUCCESS] Gracefully terminated process PID=80136
+2025/09/12 13:10:09 [INFO] Quarantining container: wazuh-test-container
+2025/09/12 13:10:09 [INFO] Disconnected wazuh-test-container from bridge
+2025/09/12 13:10:09 [SUCCESS] Container wazuh-test-container quarantined
+2025/09/12 13:10:09 [INFO] Mitigating vulnerability:  in test-package SEVERITY (Severity: HIGH)
+2025/09/12 13:10:09 [CRITICAL] Immediate mitigation required for 
+2025/09/12 13:10:09 [ACTION] Stopped service: test-package SEVERITY (via service command)
+2025/09/12 13:10:09 [INFO] Applying hardening for test-package SEVERITY
+2025/09/12 13:10:09 [SUCCESS] Mitigation actions completed for 
+2025/09/12 13:10:09 [INFO] Processing alert: Level 12 - test_rule DESC
+2025/09/12 13:10:09 [CRITICAL] Immediate response required for level 12 alert
+2025/09/12 13:10:09 [SUCCESS] Alert processed and notifications sent
+2025/09/12 13:10:13 [INFO] Releasing container: wazuh-test-container
+2025/09/12 13:10:13 [SUCCESS] Container wazuh-test-container released
+2025/09/12 13:10:36 [INFO] Unblocking IP: 203.0.113.1
+2025/09/12 13:10:36 [SUCCESS] IP 203.0.113.1 unblocked successfully
+2025/09/12 13:10:39 [INFO] Releasing container: wazuh-test-container
+2025/09/12 13:10:39 [SUCCESS] Container wazuh-test-container released
+2025/09/12 13:10:40 [INFO] Mitigating vulnerability:  in test-package SEVERITY (Severity: HIGH)
+2025/09/12 13:10:40 [CRITICAL] Immediate mitigation required for 
+2025/09/12 13:10:40 [ACTION] Stopped service: test-package SEVERITY (via service command)
+2025/09/12 13:10:40 [INFO] Applying hardening for test-package SEVERITY
+2025/09/12 13:10:40 [SUCCESS] Mitigation actions completed for 
+2025/09/12 13:10:48 [INFO] Blocking IP: 203.0.113.1 for 30s
+2025/09/12 13:10:48 [SUCCESS] IP 203.0.113.1 blocked successfully
+2025/09/12 13:10:48 [INFO] Unblocking IP: 203.0.113.1
+2025/09/12 13:10:48 [SUCCESS] IP 203.0.113.1 unblocked successfully
+2025/09/12 13:10:48 [INFO] Quarantining file: /tmp/test_malware_sample.txt
+2025/09/12 13:10:48 [SUCCESS] File quarantined: /tmp/test_malware_sample.txt -> /workspaces/AGENT2/quarantine/test_malware_sample.txt_20250912_131048
+2025/09/12 13:10:48 [INFO] Restoring file: /tmp/test_malware_sample.txt
+2025/09/12 13:10:48 [SUCCESS] File restored: /tmp/test_malware_sample.txt
+2025/09/12 13:10:48 [INFO] Terminating suspicious process: PID=81113 NAME=sleep
+2025/09/12 13:10:48 [INFO] Process details:     PID    PPID USER     COMMAND         COMMAND
+  81113   81047 codespa+ sleep           sleep 300
+2025/09/12 13:10:50 [SUCCESS] Gracefully terminated process PID=81113
+2025/09/12 13:10:50 [INFO] Quarantining container: wazuh-test-container
+2025/09/12 13:10:51 [INFO] Disconnected wazuh-test-container from bridge
+2025/09/12 13:10:51 [SUCCESS] Container wazuh-test-container quarantined
+2025/09/12 13:10:51 [INFO] Mitigating vulnerability: CVE-UNKNOWN in test-package (Severity: HIGH)
+2025/09/12 13:10:51 [CRITICAL] Immediate mitigation required for CVE-UNKNOWN
+2025/09/12 13:10:51 [ACTION] Stopped service: test-package (via service command)
+2025/09/12 13:10:51 [INFO] Applying hardening for test-package
+2025/09/12 13:10:51 [SUCCESS] Mitigation actions completed for CVE-UNKNOWN
+2025/09/12 13:10:51 [INFO] Processing alert: Level 12 - test_rule DESC
+2025/09/12 13:10:51 [CRITICAL] Immediate response required for level 12 alert
+2025/09/12 13:10:51 [SUCCESS] Alert processed and notifications sent
+2025/09/12 13:11:00 [INFO] Mitigating vulnerability: CVE-UNKNOWN in test-package (Severity: HIGH)
+2025/09/12 13:11:00 [CRITICAL] Immediate mitigation required for CVE-UNKNOWN
+2025/09/12 13:11:00 [ACTION] Stopped service: test-package (via service command)
+2025/09/12 13:11:00 [INFO] Applying hardening for test-package
+2025/09/12 13:11:00 [SUCCESS] Mitigation actions completed for CVE-UNKNOWN
+2025/09/12 13:11:18 [INFO] Unblocking IP: 203.0.113.1
+2025/09/12 13:11:18 [SUCCESS] IP 203.0.113.1 unblocked successfully
+2025/09/12 13:11:21 [INFO] Releasing container: wazuh-test-container
+2025/09/12 13:11:21 [SUCCESS] Container wazuh-test-container released
+2025/09/12 13:11:37 [INFO] Mitigating vulnerability: CVE-2023-TEST in test-package (Severity: HIGH)
+2025/09/12 13:11:37 [CRITICAL] Immediate mitigation required for CVE-2023-TEST
+2025/09/12 13:11:37 [ACTION] Stopped service: test-package (via service command)
+2025/09/12 13:11:37 [INFO] Applying hardening for test-package
+2025/09/12 13:11:37 [SUCCESS] Mitigation actions completed for CVE-2023-TEST
+2025/09/12 13:11:45 [INFO] Blocking IP: 203.0.113.1 for 30s
+2025/09/12 13:11:45 [SUCCESS] IP 203.0.113.1 blocked successfully
+2025/09/12 13:11:45 [INFO] Unblocking IP: 203.0.113.1
+2025/09/12 13:11:45 [SUCCESS] IP 203.0.113.1 unblocked successfully
+2025/09/12 13:11:45 [INFO] Quarantining file: /tmp/test_malware_sample.txt
+2025/09/12 13:11:45 [SUCCESS] File quarantined: /tmp/test_malware_sample.txt -> /workspaces/AGENT2/quarantine/test_malware_sample.txt_20250912_131145
+2025/09/12 13:11:45 [INFO] Restoring file: /tmp/test_malware_sample.txt
+2025/09/12 13:11:45 [SUCCESS] File restored: /tmp/test_malware_sample.txt
+2025/09/12 13:11:45 [INFO] Terminating suspicious process: PID=82266 NAME=sleep
+2025/09/12 13:11:45 [INFO] Process details:     PID    PPID USER     COMMAND         COMMAND
+  82266   82200 codespa+ sleep           sleep 300
+2025/09/12 13:11:47 [SUCCESS] Gracefully terminated process PID=82266
+2025/09/12 13:11:47 [INFO] Quarantining container: wazuh-test-container
+2025/09/12 13:11:47 [INFO] Disconnected wazuh-test-container from bridge
+2025/09/12 13:11:47 [SUCCESS] Container wazuh-test-container quarantined
+2025/09/12 13:11:47 [INFO] Mitigating vulnerability: CVE-2023-TEST in test-package (Severity: HIGH)
+2025/09/12 13:11:47 [CRITICAL] Immediate mitigation required for CVE-2023-TEST
+2025/09/12 13:11:47 [ACTION] Stopped service: test-package (via service command)
+2025/09/12 13:11:47 [INFO] Applying hardening for test-package
+2025/09/12 13:11:47 [SUCCESS] Mitigation actions completed for CVE-2023-TEST
+2025/09/12 13:11:47 [INFO] Processing alert: Level 12 - test_rule DESC
+2025/09/12 13:11:47 [CRITICAL] Immediate response required for level 12 alert
+2025/09/12 13:11:47 [SUCCESS] Alert processed and notifications sent
+2025/09/12 13:11:52 [INFO] Blocking IP: 203.0.113.1 for 30s
+2025/09/12 13:11:52 [SUCCESS] IP 203.0.113.1 blocked successfully
+2025/09/12 13:11:52 [INFO] Unblocking IP: 203.0.113.1
+2025/09/12 13:11:52 [SUCCESS] IP 203.0.113.1 unblocked successfully
+2025/09/12 13:11:52 [INFO] Quarantining file: /tmp/test_malware_sample.txt
+2025/09/12 13:11:52 [SUCCESS] File quarantined: /tmp/test_malware_sample.txt -> /workspaces/AGENT2/quarantine/test_malware_sample.txt_20250912_131152
+2025/09/12 13:11:52 [INFO] Restoring file: /tmp/test_malware_sample.txt
+2025/09/12 13:11:52 [SUCCESS] File restored: /tmp/test_malware_sample.txt
+2025/09/12 13:11:52 [INFO] Terminating suspicious process: PID=82752 NAME=sleep
+2025/09/12 13:11:52 [INFO] Process details:     PID    PPID USER     COMMAND         COMMAND
+  82752   82685 codespa+ sleep           sleep 300
+2025/09/12 13:11:54 [SUCCESS] Gracefully terminated process PID=82752
+2025/09/12 13:11:54 [INFO] Quarantining container: wazuh-test-container
+2025/09/12 13:11:54 [INFO] Disconnected wazuh-test-container from bridge
+2025/09/12 13:11:54 [SUCCESS] Container wazuh-test-container quarantined
+2025/09/12 13:11:54 [INFO] Mitigating vulnerability: CVE-2023-TEST in test-package (Severity: HIGH)
+2025/09/12 13:11:54 [CRITICAL] Immediate mitigation required for CVE-2023-TEST
+2025/09/12 13:11:54 [ACTION] Stopped service: test-package (via service command)
+2025/09/12 13:11:54 [INFO] Applying hardening for test-package
+2025/09/12 13:11:54 [SUCCESS] Mitigation actions completed for CVE-2023-TEST
+2025/09/12 13:11:54 [INFO] Processing alert: Level 12 - test_rule DESC
+2025/09/12 13:11:54 [CRITICAL] Immediate response required for level 12 alert
+2025/09/12 13:11:54 [SUCCESS] Alert processed and notifications sent
+2025/09/12 13:12:15 [INFO] Unblocking IP: 203.0.113.1
+2025/09/12 13:12:15 [SUCCESS] IP 203.0.113.1 unblocked successfully
+2025/09/12 13:12:17 [INFO] Releasing container: wazuh-test-container
+2025/09/12 13:12:17 [SUCCESS] Container wazuh-test-container released
+2025/09/12 13:12:22 [INFO] Unblocking IP: 203.0.113.1
+2025/09/12 13:12:22 [SUCCESS] IP 203.0.113.1 unblocked successfully
+2025/09/12 13:12:24 [INFO] Releasing container: wazuh-test-container
+2025/09/12 13:12:24 [SUCCESS] Container wazuh-test-container released
+2025/09/12 13:13:00 [INFO] Blocking IP: 203.0.113.5 for 60s
+2025/09/12 13:13:00 [SUCCESS] IP 203.0.113.5 blocked successfully
+2025/09/12 13:13:02 [INFO] Quarantining file: /tmp/suspicious_malware.exe
+2025/09/12 13:13:02 [SUCCESS] File quarantined: /tmp/suspicious_malware.exe -> /workspaces/AGENT2/quarantine/suspicious_malware.exe_20250912_131302
+2025/09/12 13:13:04 [INFO] Terminating suspicious process: PID=83915 NAME=cryptominer
+2025/09/12 13:13:04 [INFO] Process details:     PID    PPID USER     COMMAND         COMMAND
+  83915   83804 codespa+ sleep           sleep 120
+2025/09/12 13:13:06 [SUCCESS] Gracefully terminated process PID=83915
+2025/09/12 13:13:08 [INFO] Quarantining container: malicious-container
+2025/09/12 13:13:08 [INFO] Disconnected malicious-container from bridge
+2025/09/12 13:13:08 [SUCCESS] Container malicious-container quarantined
+2025/09/12 13:13:10 [INFO] Mitigating vulnerability: CVE-2023-CRITICAL in openssh-server (Severity: CRITICAL)
+2025/09/12 13:13:10 [CRITICAL] Immediate mitigation required for CVE-2023-CRITICAL
+2025/09/12 13:13:10 [ACTION] Stopped service: openssh-server (via service command)
+2025/09/12 13:13:11 [INFO] Applying hardening for openssh-server
+2025/09/12 13:13:11 [HARDENING] SSH configuration hardened
+2025/09/12 13:13:11 [SUCCESS] Mitigation actions completed for CVE-2023-CRITICAL
+2025/09/12 13:13:13 [INFO] Processing alert: Level 13 - privilege_escalation DESC
+2025/09/12 13:13:13 [CRITICAL] Immediate response required for level 13 alert
+2025/09/12 13:13:13 [SUCCESS] Alert processed and notifications sent
+2025/09/12 13:13:15 [ERROR] Unsupported cloud provider: aws RESOURCE
+2025/09/12 13:13:38 [INFO] Releasing container: malicious-container
+2025/09/12 13:13:38 [SUCCESS] Container malicious-container released
+2025/09/12 13:14:00 [INFO] Unblocking IP: 203.0.113.5
+2025/09/12 13:14:00 [SUCCESS] IP 203.0.113.5 unblocked successfully
+2025/09/12 13:14:09 [INFO] Blocking IP: 203.0.113.5 for 60s
+2025/09/12 13:14:09 [SUCCESS] IP 203.0.113.5 blocked successfully
+2025/09/12 13:14:11 [INFO] Quarantining file: /tmp/suspicious_malware.exe
+2025/09/12 13:14:11 [SUCCESS] File quarantined: /tmp/suspicious_malware.exe -> /workspaces/AGENT2/quarantine/suspicious_malware.exe_20250912_131411
+2025/09/12 13:14:13 [INFO] Terminating suspicious process: PID=85048 NAME=cryptominer
+2025/09/12 13:14:13 [INFO] Process details:     PID    PPID USER     COMMAND         COMMAND
+  85048   84923 root     sleep           sleep 120
+2025/09/12 13:14:15 [SUCCESS] Gracefully terminated process PID=85048
+2025/09/12 13:14:18 [INFO] Quarantining container: malicious-container
+2025/09/12 13:14:18 [INFO] Disconnected malicious-container from bridge
+2025/09/12 13:14:18 [SUCCESS] Container malicious-container quarantined
+2025/09/12 13:14:20 [INFO] Mitigating vulnerability: CVE-2023-CRITICAL in openssh-server (Severity: CRITICAL)
+2025/09/12 13:14:20 [CRITICAL] Immediate mitigation required for CVE-2023-CRITICAL
+2025/09/12 13:14:20 [ACTION] Stopped service: openssh-server (via service command)
+2025/09/12 13:14:32 [SUCCESS] Updated package: openssh-server
+2025/09/12 13:14:32 [INFO] Applying hardening for openssh-server
+2025/09/12 13:14:32 [HARDENING] SSH configuration hardened
+2025/09/12 13:14:32 [SUCCESS] Mitigation actions completed for CVE-2023-CRITICAL
+2025/09/12 13:14:34 [INFO] Processing alert: Level 13 - privilege_escalation DESC
+2025/09/12 13:14:34 [CRITICAL] Immediate response required for level 13 alert
+2025/09/12 13:14:34 [SUCCESS] Alert processed and notifications sent
+2025/09/12 13:14:36 [ERROR] Unsupported cloud provider: aws RESOURCE
+2025/09/12 13:14:42 [INFO] Quarantining file: /tmp/ar_test_file.txt
+2025/09/12 13:14:42 [SUCCESS] File quarantined: /tmp/ar_test_file.txt -> /workspaces/AGENT2/quarantine/ar_test_file.txt_20250912_131442
+2025/09/12 13:14:42 [INFO] Restoring file: /tmp/ar_test_file.txt
+2025/09/12 13:14:42 [SUCCESS] File restored: /tmp/ar_test_file.txt
+2025/09/12 13:14:42 [INFO] Terminating suspicious process: PID=86169 NAME=sleep
+2025/09/12 13:14:42 [INFO] Process details:     PID    PPID USER     COMMAND         COMMAND
+  86169   86079 codespa+ sleep           sleep 60
+2025/09/12 13:14:44 [SUCCESS] Gracefully terminated process PID=86169
+2025/09/12 13:14:44 [INFO] Mitigating vulnerability: CVE-2024-TEST in test-service (Severity: HIGH)
+2025/09/12 13:14:44 [CRITICAL] Immediate mitigation required for CVE-2024-TEST
+2025/09/12 13:14:44 [ACTION] Stopped service: test-service (via service command)
+2025/09/12 13:14:44 [INFO] Applying hardening for test-service
+2025/09/12 13:14:44 [SUCCESS] Mitigation actions completed for CVE-2024-TEST
+2025/09/12 13:14:44 [INFO] Processing alert: Level 10 - test_rule DESC
+2025/09/12 13:14:44 [HIGH] Security team notification for level 10 alert
+2025/09/12 13:14:44 [SUCCESS] Alert processed and notifications sent
+2025/09/12 13:14:48 [INFO] Releasing container: malicious-container
+2025/09/12 13:14:48 [SUCCESS] Container malicious-container released
+2025/09/12 13:15:09 [INFO] Unblocking IP: 203.0.113.5
+2025/09/12 13:15:09 [SUCCESS] IP 203.0.113.5 unblocked successfully
+2025/09/12 13:15:21 [INFO] Quarantining file: /tmp/ar_test_file.txt
+2025/09/12 13:15:21 [SUCCESS] File quarantined: /tmp/ar_test_file.txt -> /workspaces/AGENT2/quarantine/ar_test_file.txt_20250912_131521
+2025/09/12 13:15:21 [INFO] Restoring file: /tmp/ar_test_file.txt
+2025/09/12 13:15:21 [SUCCESS] File restored: /tmp/ar_test_file.txt
+2025/09/12 13:15:21 [INFO] Terminating suspicious process: PID=86955 NAME=sleep
+2025/09/12 13:15:21 [INFO] Process details:     PID    PPID USER     COMMAND         COMMAND
+  86955   86866 codespa+ sleep           sleep 60
+2025/09/12 13:15:23 [SUCCESS] Gracefully terminated process PID=86955
+2025/09/12 13:15:23 [INFO] Mitigating vulnerability: CVE-2024-TEST in test-service (Severity: HIGH)
+2025/09/12 13:15:23 [CRITICAL] Immediate mitigation required for CVE-2024-TEST
+2025/09/12 13:15:23 [ACTION] Stopped service: test-service (via service command)
+2025/09/12 13:15:23 [INFO] Applying hardening for test-service
+2025/09/12 13:15:23 [SUCCESS] Mitigation actions completed for CVE-2024-TEST
+2025/09/12 13:15:23 [INFO] Processing alert: Level 10 - test_rule DESC
+2025/09/12 13:15:23 [HIGH] Security team notification for level 10 alert
+2025/09/12 13:15:23 [SUCCESS] Alert processed and notifications sent
+2025/09/12 15:35:55 [INFO] Quarantining file: /tmp/malware_test.exe
+2025/09/12 15:35:55 [SUCCESS] File quarantined: /tmp/malware_test.exe -> /workspaces/AGENT2/quarantine/malware_test.exe_20250912_153555

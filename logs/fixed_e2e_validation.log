@@ -1,0 +1,4 @@
+Fixed E2E Validation Results - Fri Sep 12 15:47:47 UTC 2025
+Tests: 8, Verified: 2, Success Rate: 25%
+Baseline: 38668, Final: 42588, New: 3920
+Agent alerts: 1794

@@ -1,0 +1,27 @@
+2025/09/12 13:15:21 [INFO] Starting Feature 8 Integration Test
+2025/09/12 13:15:21 [PASS] Active response enabled - Configuration block present
+2025/09/12 13:15:21 [PASS] Command definitions - 30 commands configured
+2025/09/12 13:15:21 [PASS] Active response rules - Multiple AR rules configured
+2025/09/12 13:15:21 [PASS] iptables-block script - IP blocking functionality ready
+2025/09/12 13:15:21 [PASS] container-quarantine script - Container isolation ready
+2025/09/12 13:15:21 [PASS] kill-process script - Process termination ready
+2025/09/12 13:15:21 [PASS] file-quarantine script - File isolation ready
+2025/09/12 13:15:21 [PASS] cloud-isolate script - Cloud resource isolation ready
+2025/09/12 13:15:21 [PASS] vuln-mitigation script - Vulnerability mitigation ready
+2025/09/12 13:15:21 [PASS] alert-notify script - Alert notifications ready
+2025/09/12 13:15:21 [PASS] wazuh-execd daemon - Daemon executable present
+2025/09/12 13:15:21 [PASS] Active response queue - Queue directory ready
+2025/09/12 13:15:21 [PASS] File quarantine - Files successfully quarantined
+2025/09/12 13:15:23 [PASS] Process termination - Processes successfully terminated
+2025/09/12 13:15:23 [PASS] Vulnerability mitigation - Vulnerabilities tracked and mitigated
+2025/09/12 13:15:23 [PASS] Alert notifications - Alerts properly logged and processed
+2025/09/12 13:15:23 [PASS] FIM integration - Active response can trigger on FIM events
+2025/09/12 13:15:23 [PASS] Vulnerability scanner integration - AR can respond to vulnerability findings
+2025/09/12 13:15:23 [PASS] Cloud monitoring integration - AR can respond to cloud threats
+2025/09/12 13:15:23 [PASS] Script security - All scripts have secure permissions
+2025/09/12 13:15:23 [PASS] Logging capability - All AR actions are logged
+2025/09/12 13:15:23 [PASS] Timeout handling - Scripts support automatic cleanup
+2025/09/12 13:15:23 [PASS] Validation tools - Testing tools available
+2025/09/12 13:15:23 [PASS] Demonstration tools - Demo tools available
+2025/09/12 13:15:23 [PASS] Audit trail - Comprehensive logging in place
+2025/09/12 13:15:23 [SUCCESS] Feature 8 Active Response System completed

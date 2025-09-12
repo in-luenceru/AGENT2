@@ -1,0 +1,7 @@
+Test: manager_reachability
+Description: Test basic network connectivity to manager
+Started: 2025-09-12 14:25:16
+========================================
+Result: PASS
+Message: Manager is reachable at 172.17.0.2:1514
+Completed: 2025-09-12 14:25:16

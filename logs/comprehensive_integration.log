@@ -1,0 +1,47 @@
+2025/09/12 13:23:08 [INFO] Starting Comprehensive Integration Test
+2025/09/12 13:23:08 [PASS] CORE: wazuh-agentd binary - Real C binary implemented
+2025/09/12 13:23:08 [PASS] CORE: wazuh-logcollector binary - Real C binary implemented
+2025/09/12 13:23:08 [PASS] CORE: wazuh-syscheckd binary - Real C binary implemented
+2025/09/12 13:23:08 [PASS] CORE: wazuh-modulesd binary - Real C binary implemented
+2025/09/12 13:23:08 [PASS] CORE: wazuh-execd binary - Real C binary implemented
+2025/09/12 13:23:08 [PASS] SCA: Policy ruleset - 77 policies available
+2025/09/12 13:23:08 [PASS] SCA: cis_ubuntu_linux.yml - Critical policy present
+2025/09/12 13:23:08 [PASS] SCA: system_security.yml - Critical policy present
+2025/09/12 13:23:08 [PASS] SCA: network_hardening.yml - Critical policy present
+2025/09/12 13:23:08 [PASS] LOG: Log monitoring config - 40 log sources configured
+2025/09/12 13:23:08 [PASS] LOG: Analysis engine - Log analysis engine available
+2025/09/12 13:23:08 [PASS] LOG: Log processing - Successfully processes log entries
+2025/09/12 13:23:08 [PASS] FIM: FIM configuration - Syscheck configured in ossec.conf
+2025/09/12 13:23:08 [PASS] FIM: Realtime monitoring - Real-time FIM enabled
+2025/09/12 13:23:08 [PASS] FIM: Whodata monitoring - Advanced whodata enabled
+2025/09/12 13:23:09 [PASS] FIM: File change detection - FIM functional test completed
+2025/09/12 13:23:09 [PASS] ROOTKIT: Rootcheck config - Rootcheck configured
+2025/09/12 13:23:09 [PASS] ROOTKIT: Rootkit database - 2 detection files found
+2025/09/12 13:23:09 [PASS] VULN: Scanner binary - Vulnerability scanner available
+2025/09/12 13:23:09 [PASS] VULN: CVE database - 2 CVE entries available
+2025/09/12 13:23:09 [PASS] VULN: Package correlation - Package vulnerability mapping available
+2025/09/12 13:23:09 [PASS] CLOUD: Wodles directory - Cloud integration directory exists
+2025/09/12 13:23:09 [PASS] CLOUD: AWS integration - 43 AWS modules available
+2025/09/12 13:23:09 [PASS] CLOUD: Azure integration - 18 Azure modules available
+2025/09/12 13:23:09 [PASS] CLOUD: GCP integration - 12 GCP modules available
+2025/09/12 13:23:09 [PASS] CLOUD: Docker integration - Container monitoring available
+2025/09/12 13:23:09 [PASS] CLOUD: Cloud monitor - Cloud monitoring daemon available
+2025/09/12 13:23:09 [PASS] ACTIVE_RESPONSE: AR configuration - 30 commands configured
+2025/09/12 13:23:09 [PASS] ACTIVE_RESPONSE: AR scripts - 16 response scripts available
+2025/09/12 13:23:09 [PASS] ACTIVE_RESPONSE: iptables-block capability - Response script available
+2025/09/12 13:23:09 [PASS] ACTIVE_RESPONSE: file-quarantine capability - Response script available
+2025/09/12 13:23:09 [PASS] ACTIVE_RESPONSE: kill-process capability - Response script available
+2025/09/12 13:23:09 [PASS] ACTIVE_RESPONSE: container-quarantine capability - Response script available
+2025/09/12 13:23:09 [PASS] INTEGRATION: FIM + AR integration - FIM can trigger active responses
+2025/09/12 13:23:09 [PASS] INTEGRATION: Vuln + AR integration - Vulnerability scanning triggers AR
+2025/09/12 13:23:09 [PASS] INTEGRATION: Cloud + AR integration - Cloud monitoring triggers AR
+2025/09/12 13:23:09 [PASS] INTEGRATION: Log analysis integration - Log analysis connects all features
+2025/09/12 13:23:09 [PASS] PERFORMANCE: Configuration syntax - Configuration is valid
+2025/09/12 13:23:09 [PASS] PERFORMANCE: Configuration size - Configuration is optimized (21691 bytes)
+2025/09/12 13:23:09 [PASS] PERFORMANCE: Logging system - Comprehensive logging available
+2025/09/12 13:23:09 [PASS] PERFORMANCE: Directory structure - All required directories present
+2025/09/12 13:23:09 [PASS] DOCUMENTATION: test_active_response.sh - Active response testing available
+2025/09/12 13:23:09 [PASS] DOCUMENTATION: test_feature8_integration.sh - Feature integration testing available
+2025/09/12 13:23:09 [PASS] DOCUMENTATION: demo_active_response.sh - Active response demonstration available
+2025/09/12 13:23:09 [PASS] DOCUMENTATION: Log files - 21 log files for troubleshooting
+2025/09/12 13:23:09 [SUCCESS] Comprehensive integration test PASSED

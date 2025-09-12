@@ -1,0 +1,7 @@
+Test: daemon_processes
+Description: Verify all agent daemons are running
+Started: 2025-09-12 14:25:10
+========================================
+Result: FAIL
+Error: No agent daemons are running
+Completed: 2025-09-12 14:25:10

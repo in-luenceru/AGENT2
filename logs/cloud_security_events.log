@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-09-12T12:57:24+00:00",
+  "event_type": "SUSPICIOUS_LOGIN",
+  "severity": "LOW",
+  "cloud_provider": "GCP",
+  "source_ip": "204.53.34.133",
+  "user_agent": "Mozilla/5.0 (compatible)",
+  "description": "Detected SUSPICIOUS_LOGIN activity from suspicious source",
+  "affected_resource": "projects/demo-project/instances/web-server",
+  "risk_score": 66,
+  "tags": ["security", "cloud", "suspicious_login"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}
+{
+  "timestamp": "2025-09-12T15:42:40+00:00",
+  "event_type": "PRIVILEGE_ESCALATION",
+  "severity": "HIGH",
+  "cloud_provider": "Azure",
+  "source_ip": "207.166.45.69",
+  "user_agent": "Suspicious-Scanner/1.0",
+  "description": "Detected PRIVILEGE_ESCALATION activity from suspicious source",
+  "affected_resource": "/subscriptions/demo/resourceGroups/prod",
+  "risk_score": 56,
+  "tags": ["security", "cloud", "privilege_escalation"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}

@@ -1,0 +1,37 @@
+{
+  "timestamp": "2025-09-12T12:54:53+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "CRITICAL",
+  "cve": "CVE-2024-5678",
+  "package": "curl",
+  "container_id": "46f91d21e5df",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-5678 detected in container package curl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 56
+}
+{
+  "timestamp": "2025-09-12T12:54:53+00:00",
+  "event_type": "DNS_TUNNELING",
+  "severity": "HIGH",
+  "container_id": "ff89dcd188c6",
+  "source_ip": "172.17.0.67",
+  "destination_ip": "123.129.28.223",
+  "port": 19156,
+  "protocol": "TCP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 87
+}
+{
+  "timestamp": "2025-09-12T15:34:21+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "CRITICAL",
+  "cve": "CVE-2024-5678",
+  "package": "openssl",
+  "container_id": "185adce8f7e6",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-5678 detected in container package openssl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 17
+}

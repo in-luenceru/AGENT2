@@ -1,0 +1,104 @@
+# Security Configuration Assessment - Network File Systems
+# Author: Wazuh Agent Security Enhancement
+# Updated: 2025-09-11
+
+policy:
+  id: "network_filesystem_security"
+  file: "network_filesystem_security.yml"
+  name: "Network File System Security"
+  description: "Security checks for network file systems (NFS, CIFS, SMB)"
+
+requirements:
+  title: "Check that network file systems are securely configured"
+  description: "Requirements for secure network file system configuration"
+  condition: all
+
+checks:
+  - id: 1001
+    title: "Ensure NFS is not exported with dangerous options"
+    description: "Check that NFS exports do not use insecure options"
+    rationale: "Insecure NFS export options can lead to unauthorized access"
+    remediation: "Review /etc/exports and remove insecure options"
+    compliance:
+      - cis: "2.2.7"
+      - pci_dss: "2.2"
+    condition: none
+    rules:
+      - 'f:/etc/exports -> r:rw,no_root_squash'
+      - 'f:/etc/exports -> r:insecure'
+
+  - id: 1002
+    title: "Ensure rpcbind is not installed"
+    description: "Check that rpcbind service is not running"
+    rationale: "rpcbind can be exploited for DDoS attacks"
+    remediation: "Disable rpcbind service if not needed"
+    compliance:
+      - cis: "2.2.7"
+    condition: none
+    rules:
+      - 'p:rpcbind'
+
+  - id: 1003
+    title: "Ensure NFS utils are not installed unless needed"
+    description: "Check for unnecessary NFS utilities"
+    rationale: "Unnecessary network services increase attack surface"
+    remediation: "Remove NFS utilities if not needed"
+    condition: none
+    rules:
+      - 'p:nfs-utils'
+      - 'p:nfs-common'
+
+  - id: 1004
+    title: "Check for mounted network file systems"
+    description: "Identify mounted network file systems"
+    rationale: "Monitor network file system usage"
+    remediation: "Review mounted network file systems"
+    compliance:
+      - cis_csc: "1.4"
+    condition: any
+    rules:
+      - 'c:mount -> r:type nfs'
+      - 'c:mount -> r:type cifs'
+      - 'c:mount -> r:type smb'
+
+  - id: 1005
+    title: "Ensure SMB signing is enforced"
+    description: "Check SMB signing configuration"
+    rationale: "SMB signing prevents man-in-the-middle attacks"
+    remediation: "Enable SMB signing in configuration"
+    compliance:
+      - cis: "2.2.1"
+    condition: all
+    rules:
+      - 'f:/etc/samba/smb.conf -> r:client signing = mandatory'
+      - 'f:/etc/samba/smb.conf -> r:server signing = mandatory'
+
+  - id: 1006
+    title: "Check for world-writable network mounts"
+    description: "Ensure network mounts are not world-writable"
+    rationale: "World-writable mounts pose security risks"
+    remediation: "Restrict permissions on network mounts"
+    condition: none
+    rules:
+      - 'c:find /mnt -type d -perm -002 2>/dev/null'
+      - 'c:find /media -type d -perm -002 2>/dev/null'
+
+  - id: 1007
+    title: "Ensure NFS uses secure ports"
+    description: "Check that NFS uses secure port ranges"
+    rationale: "Secure ports limit unauthorized access"
+    remediation: "Configure NFS to use secure ports"
+    condition: all
+    rules:
+      - 'f:/etc/sysconfig/nfs -> r:LOCKD_TCPPORT=32803'
+      - 'f:/etc/sysconfig/nfs -> r:LOCKD_UDPPORT=32769'
+
+  - id: 1008
+    title: "Check for anonymous NFS access"
+    description: "Ensure NFS does not allow anonymous access"
+    rationale: "Anonymous access bypasses authentication"
+    remediation: "Configure proper NFS authentication"
+    condition: none
+    rules:
+      - 'f:/etc/exports -> r:anonuid=0'
+      - 'f:/etc/exports -> r:anongid=0'
