@@ -112,7 +112,7 @@ sudo cmake --install .
 
 1. **Edit the main configuration file**:
    ```bash
-   sudo nano /var/ossec/etc/ossec.conf
+   sudo nano /etc/ossec.conf
    ```
 
 2. **Configure manager connection**:

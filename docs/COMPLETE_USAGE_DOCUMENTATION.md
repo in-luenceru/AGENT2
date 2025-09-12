@@ -334,7 +334,7 @@ sudo systemctl restart ssh
 
 ```bash
 # Create network monitoring configuration
-sudo tee -a /var/ossec/etc/ossec.conf << 'EOF'
+sudo tee -a /etc/ossec.conf << 'EOF'
 <!-- Network Security Monitoring -->
 <localfile>
   <log_format>syslog</log_format>
@@ -447,7 +447,7 @@ docker ps | grep wazuh-manager
 telnet 127.0.0.1 1514
 
 # Check agent configuration
-grep -A 5 "<server>" /var/ossec/etc/ossec.conf
+grep -A 5 "<server>" /etc/ossec.conf
 
 # Verify client keys match
 cat /var/ossec/etc/client.keys
@@ -484,10 +484,10 @@ docker exec wazuh-manager tail -f /var/ossec/logs/ossec.log
 **Solutions:**
 ```bash
 # Reduce monitoring frequency
-sudo sed -i 's/<frequency>30<\/frequency>/<frequency>300<\/frequency>/g' /var/ossec/etc/ossec.conf
+sudo sed -i 's/<frequency>30<\/frequency>/<frequency>300<\/frequency>/g' /etc/ossec.conf
 
 # Limit file monitoring
-sudo sed -i 's/<scan_on_start>yes<\/scan_on_start>/<scan_on_start>no<\/scan_on_start>/g' /var/ossec/etc/ossec.conf
+sudo sed -i 's/<scan_on_start>yes<\/scan_on_start>/<scan_on_start>no<\/scan_on_start>/g' /etc/ossec.conf
 
 # Check for resource-intensive rules
 docker exec wazuh-manager grep -i "frequency" /var/ossec/ruleset/rules/*.xml
@@ -544,7 +544,7 @@ echo "5. Recent Alerts:"
 docker exec wazuh-manager tail -10 /var/ossec/logs/alerts/alerts.log
 
 echo "6. Agent Configuration:"
-grep -A 5 "<server>" /var/ossec/etc/ossec.conf
+grep -A 5 "<server>" /etc/ossec.conf
 
 echo "7. Client Keys:"
 wc -l /var/ossec/etc/client.keys
@@ -676,7 +676,7 @@ sudo find /var/ossec/logs -name "ossec.log.*" -mtime +7 -delete
 docker exec wazuh-manager /var/ossec/bin/wazuh-logtest-legacy -v | grep -c "Rule.*matched" > /var/log/weekly-wazuh-stats.log
 
 # Backup configuration
-sudo cp /var/ossec/etc/ossec.conf /var/ossec/etc/ossec.conf.backup.$(date +%Y%m%d)
+sudo cp /etc/ossec.conf /etc/ossec.conf.backup.$(date +%Y%m%d)
 ```
 
 ### Update Procedures
@@ -693,7 +693,7 @@ sudo /var/ossec/bin/wazuh-control stop
 sudo apt update && sudo apt upgrade wazuh-agent
 
 # 4. Restore configuration if needed
-sudo diff /var/ossec/etc/ossec.conf /var/ossec/etc.backup/ossec.conf
+sudo diff /etc/ossec.conf /var/ossec/etc.backup/ossec.conf
 
 # 5. Start agent
 sudo /var/ossec/bin/wazuh-control start

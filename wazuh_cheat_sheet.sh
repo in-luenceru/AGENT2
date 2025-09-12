@@ -61,14 +61,14 @@ Recent Errors:        sudo grep -i "error\|fail" /var/ossec/logs/ossec.log | tai
 │ 🔧 CONFIGURATION                                                            │
 └─────────────────────────────────────────────────────────────────────────────┘
 
-Main Config:          /var/ossec/etc/ossec.conf
+Main Config:          /etc/ossec.conf
 Client Keys:          /var/ossec/etc/client.keys
 Local Rules:          /var/ossec/etc/local_rules.xml
 Agent Logs Dir:       /var/ossec/logs/
-Manager Config:       docker exec wazuh-manager cat /var/ossec/etc/ossec.conf
+Manager Config:       docker exec wazuh-manager cat /etc/ossec.conf
 
-Edit Config:          sudo nano /var/ossec/etc/ossec.conf
-Backup Config:        sudo cp /var/ossec/etc/ossec.conf /var/ossec/etc/ossec.conf.backup
+Edit Config:          sudo nano /etc/ossec.conf
+Backup Config:        sudo cp /etc/ossec.conf /etc/ossec.conf.backup
 Validate Config:      sudo /var/ossec/bin/verify-agent-conf
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -92,7 +92,7 @@ Process Detection:    ps aux | grep nmap | grep -v grep
 Connection Issues:
   1. Check manager:   docker ps | grep wazuh
   2. Test port:      telnet 127.0.0.1 1514
-  3. Check config:   grep -A 5 "<server>" /var/ossec/etc/ossec.conf
+  3. Check config:   grep -A 5 "<server>" /etc/ossec.conf
   4. Verify keys:    cat /var/ossec/etc/client.keys
 
 No Alerts:
@@ -102,7 +102,7 @@ No Alerts:
   4. View raw logs:  sudo tail -50 /var/ossec/logs/ossec.log
 
 High CPU:
-  1. Check frequency: grep -i frequency /var/ossec/etc/ossec.conf
+  1. Check frequency: grep -i frequency /etc/ossec.conf
   2. Reduce scans:   Edit frequency values in ossec.conf
   3. Check processes: top -p $(pgrep -f wazuh)
 

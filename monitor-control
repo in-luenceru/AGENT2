@@ -26,7 +26,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Production vs Development mode paths
 if [[ "$PRODUCTION_MODE" == "true" ]]; then
-    WAZUH_HOME="${WAZUH_HOME:-/var/ossec}"
+    WAZUH_HOME="${WAZUH_HOME:-}"
     SYSTEM_SERVICE=true
 else
     WAZUH_HOME="${WAZUH_HOME:-$SCRIPT_DIR}"

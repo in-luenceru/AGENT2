@@ -38,7 +38,7 @@ echo
 print_info "STEP 2: Configuring enhanced Wazuh monitoring"
 
 # Add SSH and network monitoring to agent config
-sudo tee -a /var/ossec/etc/ossec.conf << 'EOF'
+sudo tee -a /etc/ossec.conf << 'EOF'
   <!-- Enhanced Network Security Monitoring -->
   <localfile>
     <log_format>syslog</log_format>

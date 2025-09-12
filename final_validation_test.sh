@@ -164,10 +164,10 @@ check_alerts_detailed() {
     
     echo
     echo -e "${CYAN}Enhanced Monitoring Status:${NC}"
-    echo "Auth.log monitoring: $(sudo grep -q '/var/log/auth.log' /var/ossec/etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
-    echo "Syslog monitoring: $(sudo grep -q '/var/log/syslog' /var/ossec/etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
-    echo "Process monitoring: $(sudo grep -q 'security relevant processes' /var/ossec/etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
-    echo "Network monitoring: $(sudo grep -q 'listening ports detailed' /var/ossec/etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
+    echo "Auth.log monitoring: $(sudo grep -q '/var/log/auth.log' /etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
+    echo "Syslog monitoring: $(sudo grep -q '/var/log/syslog' /etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
+    echo "Process monitoring: $(sudo grep -q 'security relevant processes' /etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
+    echo "Network monitoring: $(sudo grep -q 'listening ports detailed' /etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
 }
 
 generate_validation_report() {
@@ -193,14 +193,14 @@ generate_validation_report() {
         echo "2. ENHANCED CONFIGURATION"
         echo "------------------------"
         echo "Configuration files:"
-        echo "- Main config: /var/ossec/etc/ossec.conf"
+        echo "- Main config: /etc/ossec.conf"
         echo "- Local rules: $(ls -la /var/ossec/etc/local_rules.xml 2>/dev/null || echo 'Not found')"
         echo
         echo "Enhanced monitoring:"
-        echo "- Auth.log: $(sudo grep -q '/var/log/auth.log' /var/ossec/etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
-        echo "- Syslog: $(sudo grep -q '/var/log/syslog' /var/ossec/etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
-        echo "- Process monitoring: $(sudo grep -q 'security relevant processes' /var/ossec/etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
-        echo "- Network monitoring: $(sudo grep -q 'listening ports detailed' /var/ossec/etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
+        echo "- Auth.log: $(sudo grep -q '/var/log/auth.log' /etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
+        echo "- Syslog: $(sudo grep -q '/var/log/syslog' /etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
+        echo "- Process monitoring: $(sudo grep -q 'security relevant processes' /etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
+        echo "- Network monitoring: $(sudo grep -q 'listening ports detailed' /etc/ossec.conf && echo 'ENABLED' || echo 'DISABLED')"
         echo
         
         echo "3. ALERT SUMMARY"

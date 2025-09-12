@@ -272,7 +272,7 @@ generate_report() {
         
         echo "8. CONFIGURATION SUMMARY"
         echo "------------------------"
-        sudo grep -A 5 "<server>" /var/ossec/etc/ossec.conf 2>/dev/null || echo "Could not read configuration"
+        sudo grep -A 5 "<server>" /etc/ossec.conf 2>/dev/null || echo "Could not read configuration"
         
     } > "$REPORT_FILE"
     
@@ -317,7 +317,7 @@ troubleshoot() {
     
     # Check 4: Configuration
     echo -e "${CYAN}4. Checking Configuration:${NC}"
-    if sudo grep -q "127.0.0.1" /var/ossec/etc/ossec.conf; then
+    if sudo grep -q "127.0.0.1" /etc/ossec.conf; then
         echo -e "${SUCCESS} Manager IP configured correctly"
     else
         echo -e "${ERROR} Manager IP might not be configured"

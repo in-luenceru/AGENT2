@@ -25,7 +25,7 @@ print_header() {
 
 backup_config() {
     echo -e "${INFO} Creating backup of current configuration..."
-    sudo cp /var/ossec/etc/ossec.conf /var/ossec/etc/ossec.conf.backup_$(date +%Y%m%d_%H%M%S)
+    sudo cp /etc/ossec.conf /etc/ossec.conf.backup_$(date +%Y%m%d_%H%M%S)
     echo -e "${SUCCESS} Configuration backed up"
 }
 
@@ -37,12 +37,12 @@ add_auth_log_monitoring() {
         echo -e "${SUCCESS} Found /var/log/auth.log"
         
         # Add auth.log monitoring if not already present
-        if ! sudo grep -q "/var/log/auth.log" /var/ossec/etc/ossec.conf; then
+        if ! sudo grep -q "/var/log/auth.log" /etc/ossec.conf; then
             sudo sed -i '/<\/ossec_config>/i\
   <localfile>\
     <log_format>syslog</log_format>\
     <location>/var/log/auth.log</location>\
-  </localfile>' /var/ossec/etc/ossec.conf
+  </localfile>' /etc/ossec.conf
             echo -e "${SUCCESS} Added auth.log monitoring"
         else
             echo -e "${INFO} auth.log monitoring already configured"
@@ -56,12 +56,12 @@ add_secure_log_monitoring() {
     echo -e "${INFO} Adding secure log monitoring..."
     
     if [[ -f /var/log/secure ]]; then
-        if ! sudo grep -q "/var/log/secure" /var/ossec/etc/ossec.conf; then
+        if ! sudo grep -q "/var/log/secure" /etc/ossec.conf; then
             sudo sed -i '/<\/ossec_config>/i\
   <localfile>\
     <log_format>syslog</log_format>\
     <location>/var/log/secure</location>\
-  </localfile>' /var/ossec/etc/ossec.conf
+  </localfile>' /etc/ossec.conf
             echo -e "${SUCCESS} Added secure log monitoring"
         else
             echo -e "${INFO} secure log monitoring already configured"
@@ -75,12 +75,12 @@ add_syslog_monitoring() {
     echo -e "${INFO} Adding system log monitoring..."
     
     if [[ -f /var/log/syslog ]]; then
-        if ! sudo grep -q "/var/log/syslog" /var/ossec/etc/ossec.conf; then
+        if ! sudo grep -q "/var/log/syslog" /etc/ossec.conf; then
             sudo sed -i '/<\/ossec_config>/i\
   <localfile>\
     <log_format>syslog</log_format>\
     <location>/var/log/syslog</location>\
-  </localfile>' /var/ossec/etc/ossec.conf
+  </localfile>' /etc/ossec.conf
             echo -e "${SUCCESS} Added syslog monitoring"
         else
             echo -e "${INFO} syslog monitoring already configured"
@@ -92,26 +92,26 @@ add_network_monitoring() {
     echo -e "${INFO} Adding enhanced network monitoring..."
     
     # Add more frequent netstat monitoring
-    if ! sudo grep -q "netstat -an" /var/ossec/etc/ossec.conf; then
+    if ! sudo grep -q "netstat -an" /etc/ossec.conf; then
         sudo sed -i '/<\/ossec_config>/i\
   <localfile>\
     <log_format>full_command</log_format>\
     <command>netstat -an | grep LISTEN</command>\
     <alias>listening ports detailed</alias>\
     <frequency>180</frequency>\
-  </localfile>' /var/ossec/etc/ossec.conf
+  </localfile>' /etc/ossec.conf
         echo -e "${SUCCESS} Added detailed network monitoring"
     fi
     
     # Add process monitoring
-    if ! sudo grep -q "ps aux" /var/ossec/etc/ossec.conf; then
+    if ! sudo grep -q "ps aux" /etc/ossec.conf; then
         sudo sed -i '/<\/ossec_config>/i\
   <localfile>\
     <log_format>full_command</log_format>\
     <command>ps aux | grep -E "(ssh|nmap|nc|telnet|ftp)" | grep -v grep</command>\
     <alias>security relevant processes</alias>\
     <frequency>120</frequency>\
-  </localfile>' /var/ossec/etc/ossec.conf
+  </localfile>' /etc/ossec.conf
         echo -e "${SUCCESS} Added security process monitoring"
     fi
 }
@@ -224,10 +224,10 @@ increase_monitoring_frequency() {
     echo -e "${INFO} Increasing monitoring frequency for better detection..."
     
     # Increase rootcheck frequency (from 12 hours to 1 hour)
-    sudo sed -i 's/<frequency>43200<\/frequency>/<frequency>3600<\/frequency>/g' /var/ossec/etc/ossec.conf
+    sudo sed -i 's/<frequency>43200<\/frequency>/<frequency>3600<\/frequency>/g' /etc/ossec.conf
     
     # Increase syscheck frequency (from 12 hours to 30 minutes)
-    sudo sed -i 's/<frequency>43200<\/frequency>/<frequency>1800<\/frequency>/g' /var/ossec/etc/ossec.conf
+    sudo sed -i 's/<frequency>43200<\/frequency>/<frequency>1800<\/frequency>/g' /etc/ossec.conf
     
     echo -e "${SUCCESS} Increased monitoring frequencies"
 }
@@ -236,8 +236,8 @@ enable_debug_logging() {
     echo -e "${INFO} Enabling debug logging for better visibility..."
     
     # Enable debug level logging
-    if ! sudo grep -q "<debug>" /var/ossec/etc/ossec.conf; then
-        sudo sed -i '/<logging>/a\    <debug>2</debug>' /var/ossec/etc/ossec.conf
+    if ! sudo grep -q "<debug>" /etc/ossec.conf; then
+        sudo sed -i '/<logging>/a\    <debug>2</debug>' /etc/ossec.conf
         echo -e "${SUCCESS} Enabled debug logging"
     fi
 }
@@ -265,7 +265,7 @@ show_configuration_summary() {
     echo "========================"
     
     echo -e "${BLUE}Log Sources:${NC}"
-    sudo grep -A 2 "<localfile>" /var/ossec/etc/ossec.conf | grep -E "(location|command|alias)" || echo "No additional log sources"
+    sudo grep -A 2 "<localfile>" /etc/ossec.conf | grep -E "(location|command|alias)" || echo "No additional log sources"
     
     echo
     echo -e "${BLUE}Custom Rules:${NC}"
@@ -279,7 +279,7 @@ show_configuration_summary() {
     
     echo
     echo -e "${BLUE}Monitoring Frequencies:${NC}"
-    sudo grep -E "(frequency|interval)" /var/ossec/etc/ossec.conf | head -5
+    sudo grep -E "(frequency|interval)" /etc/ossec.conf | head -5
 }
 
 validate_configuration() {
@@ -345,9 +345,9 @@ main() {
         echo -e "${INFO} Restoring backup..."
         
         # Find latest backup
-        local latest_backup=$(ls -t /var/ossec/etc/ossec.conf.backup_* 2>/dev/null | head -1)
+        local latest_backup=$(ls -t /etc/ossec.conf.backup_* 2>/dev/null | head -1)
         if [[ -n "$latest_backup" ]]; then
-            sudo cp "$latest_backup" /var/ossec/etc/ossec.conf
+            sudo cp "$latest_backup" /etc/ossec.conf
             echo -e "${SUCCESS} Configuration restored from backup"
         else
             echo -e "${ERROR} No backup found!"
