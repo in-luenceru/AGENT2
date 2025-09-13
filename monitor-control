@@ -412,6 +412,7 @@ start_daemon() {
     
     # Set proper environment
     export WAZUH_HOME
+    export OSSEC_HOME="$WAZUH_HOME"
     
     # Start daemon with proper options
     case "$daemon_name" in

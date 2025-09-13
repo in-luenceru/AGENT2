@@ -1,0 +1,38 @@
+[0;34m[INFO][0m 2025-09-13 02:38:08 - Starting comprehensive SCA trigger testing
+[0;34m[INFO][0m 2025-09-13 02:38:08 - Initializing SCA test environment
+[0;32m[SUCCESS][0m 2025-09-13 02:38:08 - Test environment initialized at /tmp/sca_test_env
+[0;34m[INFO][0m 2025-09-13 02:38:08 - Running CIS Ubuntu Linux Policy Tests
+[0;36m[TEST][0m 2025-09-13 02:38:08 - Testing cramfs module detection (CIS Ubuntu 1.1.1.1)
+[0;32m[SUCCESS][0m 2025-09-13 02:38:08 - Test 'cramfs_module_loaded': PASSED - cramfs module is not loaded
+[0;31m[ERROR][0m 2025-09-13 02:38:08 - Test 'cramfs_module_disabled': FAILED - cramfs module is not disabled
+[0;36m[TEST][0m 2025-09-13 02:38:08 - Testing freevxfs module detection (CIS Ubuntu 1.1.1.2)
+[0;32m[SUCCESS][0m 2025-09-13 02:38:08 - Test 'freevxfs_module_loaded': PASSED - freevxfs module is not loaded
+[0;31m[ERROR][0m 2025-09-13 02:38:08 - Test 'freevxfs_module_disabled': FAILED - freevxfs module is not disabled
+[0;36m[TEST][0m 2025-09-13 02:38:08 - Testing critical file permissions
+[0;32m[SUCCESS][0m 2025-09-13 02:38:08 - Test 'passwd_permissions': PASSED - /etc/passwd has correct permissions (644)
+[0;32m[SUCCESS][0m 2025-09-13 02:38:08 - Test 'shadow_permissions': PASSED - /etc/shadow has secure permissions (640)
+[0;32m[SUCCESS][0m 2025-09-13 02:38:08 - Test 'group_permissions': PASSED - /etc/group has correct permissions (644)
+[0;36m[TEST][0m 2025-09-13 02:38:08 - Testing service configurations
+[0;31m[ERROR][0m 2025-09-13 02:38:08 - Test 'ssh_root_login_disabled': FAILED - SSH root login is not properly disabled
+[0;32m[SUCCESS][0m 2025-09-13 02:38:08 - Test 'ssh_protocol_secure': PASSED - SSH protocol 1 is not enabled
+[0;34m[INFO][0m 2025-09-13 02:38:09 - Running System Security Policy Tests
+[0;36m[TEST][0m 2025-09-13 02:38:09 - Testing password policies
+[0;31m[ERROR][0m 2025-09-13 02:38:09 - Test 'password_max_age': FAILED - Password max age is too high (99999 days)
+[0;31m[ERROR][0m 2025-09-13 02:38:09 - Test 'password_min_age': FAILED - Password min age is not set (0 days)
+[0;36m[TEST][0m 2025-09-13 02:38:09 - Testing user account configurations
+[0;32m[SUCCESS][0m 2025-09-13 02:38:09 - Test 'unique_root_uid': PASSED - Only root has UID 0
+[0;32m[SUCCESS][0m 2025-09-13 02:38:09 - Test 'no_empty_passwords': PASSED - No users with empty passwords
+[0;34m[INFO][0m 2025-09-13 02:38:09 - Running Network Hardening Policy Tests
+[0;36m[TEST][0m 2025-09-13 02:38:09 - Testing network service configurations
+[0;32m[SUCCESS][0m 2025-09-13 02:38:09 - Test 'nfs_server_installed': PASSED - NFS server is not installed
+[0;31m[ERROR][0m 2025-09-13 02:38:09 - Test 'firewall_available': FAILED - UFW firewall is not available
+[0;36m[TEST][0m 2025-09-13 02:38:09 - Testing network kernel parameters
+[0;31m[ERROR][0m 2025-09-13 02:38:09 - Test 'ip_forwarding_disabled': FAILED - IP forwarding is enabled
+[0;32m[SUCCESS][0m 2025-09-13 02:38:09 - Test 'icmp_redirects_disabled': PASSED - ICMP redirects are disabled
+[0;34m[INFO][0m 2025-09-13 02:38:09 - Running Violation Simulations
+[0;36m[TEST][0m 2025-09-13 02:38:09 - Simulating file permission violation
+[0;32m[SUCCESS][0m 2025-09-13 02:38:09 - Test 'permission_violation_simulated': PASSED - Created file with insecure permissions (777)
+[0;36m[TEST][0m 2025-09-13 02:38:09 - Simulating service misconfiguration
+[0;32m[SUCCESS][0m 2025-09-13 02:38:09 - Test 'ssh_misconfiguration_simulated': PASSED - Created SSH config with insecure settings
+[0;34m[INFO][0m 2025-09-13 02:38:09 - Generating test summary
+[0;32m[SUCCESS][0m 2025-09-13 02:38:09 - Test summary generated at /workspaces/AGENT2/test/features/sca/scripts/../results/summary.txt

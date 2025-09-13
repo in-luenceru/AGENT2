@@ -1,0 +1,18 @@
+# SCA Alert Validation Results
+# Generated: Sat Sep 13 02:38:37 UTC 2025
+# Format: TIMESTAMP | ALERT_TYPE | STATUS | DETAILS
+
+2025-09-13 02:38:37 | SCA_LOG_ENTRIES | FOUND | 23 entries in ossec.log
+2025-09-13 02:38:37 | MODULESD_LOG | NOT_FOUND | modulesd.log missing
+2025-09-13 02:38:37 | QUEUE_DB_DIR | NOT_FOUND | Directory missing
+2025-09-13 02:38:37 | ALERT_QUEUE_DIR | NOT_FOUND | Directory missing
+2025-09-13 02:38:37 | MANAGER_SCA_LOGS | NOT_FOUND | No SCA entries
+2025-09-13 02:38:37 | SCA_RESULTS | NOT_FOUND | No results in expected locations
+2025-09-13 02:38:37 | SCA_EXECUTION | FAILED | Module execution failed
+2025-09-13 02:38:37 | SIMULATED_REPORT | CREATED | Simulation report generated
+2025-09-13 02:38:37 | POLICY_FILE | FOUND | cis_ubuntu_linux.yml exists
+2025-09-13 02:38:38 | POLICY_YAML | VALID | cis_ubuntu_linux.yml structure OK
+2025-09-13 02:38:38 | POLICY_FILE | FOUND | system_security.yml exists
+2025-09-13 02:38:40 | POLICY_YAML | VALID | system_security.yml structure OK
+2025-09-13 02:38:40 | POLICY_FILE | FOUND | network_hardening.yml exists
+2025-09-13 02:38:40 | POLICY_YAML | VALID | network_hardening.yml structure OK

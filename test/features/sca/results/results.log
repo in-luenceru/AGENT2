@@ -1,0 +1,23 @@
+# SCA Trigger Test Results
+# Generated: Sat Sep 13 02:38:08 UTC 2025
+# Format: TIMESTAMP | TEST_NAME | RESULT | DETAILS
+
+2025-09-13 02:38:08 | cramfs_module_loaded | PASS | cramfs module is not loaded
+2025-09-13 02:38:08 | cramfs_module_disabled | FAIL | cramfs module is not disabled
+2025-09-13 02:38:08 | freevxfs_module_loaded | PASS | freevxfs module is not loaded
+2025-09-13 02:38:08 | freevxfs_module_disabled | FAIL | freevxfs module is not disabled
+2025-09-13 02:38:08 | passwd_permissions | PASS | /etc/passwd has correct permissions (644)
+2025-09-13 02:38:08 | shadow_permissions | PASS | /etc/shadow has secure permissions (640)
+2025-09-13 02:38:08 | group_permissions | PASS | /etc/group has correct permissions (644)
+2025-09-13 02:38:08 | ssh_root_login_disabled | FAIL | SSH root login is not properly disabled
+2025-09-13 02:38:09 | ssh_protocol_secure | PASS | SSH protocol 1 is not enabled
+2025-09-13 02:38:09 | password_max_age | FAIL | Password max age is too high (99999 days)
+2025-09-13 02:38:09 | password_min_age | FAIL | Password min age is not set (0 days)
+2025-09-13 02:38:09 | unique_root_uid | PASS | Only root has UID 0
+2025-09-13 02:38:09 | no_empty_passwords | PASS | No users with empty passwords
+2025-09-13 02:38:09 | nfs_server_installed | PASS | NFS server is not installed
+2025-09-13 02:38:09 | firewall_available | FAIL | UFW firewall is not available
+2025-09-13 02:38:09 | ip_forwarding_disabled | FAIL | IP forwarding is enabled
+2025-09-13 02:38:09 | icmp_redirects_disabled | PASS | ICMP redirects are disabled
+2025-09-13 02:38:09 | permission_violation_simulated | PASS | Created file with insecure permissions (777)
+2025-09-13 02:38:09 | ssh_misconfiguration_simulated | PASS | Created SSH config with insecure settings

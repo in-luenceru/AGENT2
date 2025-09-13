@@ -454,3 +454,291 @@
   "time": 1757691760,
   "timeNano": 1757691760689564618
 }
+{
+  "timestamp": "2025-09-13T02:57:15+00:00",
+  "status": "push",
+  "id": "869280010a05",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "c8ad272a55039c5eff4b3aedd1ffde2110ccf487b46f71063f24baa07a6776e6",
+    "Attributes": {
+      "container": "worker",
+      "image": "node:16-alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757732235,
+  "timeNano": 1757732235921228321
+}
+{
+  "timestamp": "2025-09-13T02:57:15+00:00",
+  "status": "stop",
+  "id": "a4bcd03306ee",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "98d5eb50a0b5307ea50d6f372196caf9cfcdcc401f6c83ac255af61a3c592890",
+    "Attributes": {
+      "container": "api-service",
+      "image": "python:3.9",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757732235,
+  "timeNano": 1757732235980592191
+}
+{
+  "timestamp": "2025-09-13T02:57:15+00:00",
+  "status": "push",
+  "id": "f4daba7a3799",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "7f35dc68521a5cbbe9332900e13da30f387ebd845c680819585054d19c4788a1",
+    "Attributes": {
+      "container": "api-service",
+      "image": "python:3.9",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757732236,
+  "timeNano": 1757732236043914597
+}
+{
+  "timestamp": "2025-09-13T03:07:14+00:00",
+  "status": "stop",
+  "id": "b7784cee5a88",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "0c93df0e11ea2e87f6b7afd7df422d60c1e7d5becfb3e6184db77f8fdf12fea8",
+    "Attributes": {
+      "container": "api-service",
+      "image": "node:16-alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757732834,
+  "timeNano": 1757732834028375629
+}
+{
+  "timestamp": "2025-09-13T03:07:14+00:00",
+  "status": "push",
+  "id": "7f1c6b651e54",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "76342d5d0ef9bf89663bda96dacc736c28cd58e993be80aee67db7c63ce30b82",
+    "Attributes": {
+      "container": "web-server",
+      "image": "nginx:latest",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757732834,
+  "timeNano": 1757732834044952134
+}
+{
+  "timestamp": "2025-09-13T03:07:14+00:00",
+  "status": "destroy",
+  "id": "e000f05dc296",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "dc3a3bc9925623ae747d1e0caf42424cb6ff7ba99b50e13680505c7f9f5d110e",
+    "Attributes": {
+      "container": "worker",
+      "image": "node:16-alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757732834,
+  "timeNano": 1757732834060995173
+}
+{
+  "timestamp": "2025-09-13T03:07:50+00:00",
+  "status": "push",
+  "id": "dfe3877b14fb",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "cce5ab9c0c8d74dd8d8bf28b48f777c9c8da74e7cea7b3f46aee9586074cc0c2",
+    "Attributes": {
+      "container": "web-server",
+      "image": "postgres:13",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757732870,
+  "timeNano": 1757732870114047649
+}
+{
+  "timestamp": "2025-09-13T03:07:50+00:00",
+  "status": "destroy",
+  "id": "8d5f2811555d",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "ded318c874950321f269004ad9f878e4a0f4fc273a5a6c91fdcf0591602d9b43",
+    "Attributes": {
+      "container": "worker",
+      "image": "postgres:13",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757732870,
+  "timeNano": 1757732870167729353
+}
+{
+  "timestamp": "2025-09-13T03:07:50+00:00",
+  "status": "stop",
+  "id": "f4c0031ddb35",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "f55acfa559915f9eefe21ef4585771030a6c1545252878bc0c5abfe3e0974b7a",
+    "Attributes": {
+      "container": "database",
+      "image": "redis:alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757732870,
+  "timeNano": 1757732870224520846
+}
+{
+  "timestamp": "2025-09-13T03:08:34+00:00",
+  "status": "pull",
+  "id": "60358455deb9",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "b2a07ba3a39c4ecc65eb01c2db1e079934d741ae5a4d38a50d4d8617e916bd1b",
+    "Attributes": {
+      "container": "web-server",
+      "image": "nginx:latest",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757732914,
+  "timeNano": 1757732914637998690
+}
+{
+  "timestamp": "2025-09-13T03:08:34+00:00",
+  "status": "create",
+  "id": "75e4056b53cc",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "fc77d0b007d487efb8638d9085b50cee305828a328cb2cb8197e131cf2c2c8d0",
+    "Attributes": {
+      "container": "web-server",
+      "image": "python:3.9",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757732914,
+  "timeNano": 1757732914686740464
+}
+{
+  "timestamp": "2025-09-13T03:08:34+00:00",
+  "status": "pull",
+  "id": "41aa75a4f2a0",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "257480ecaca37de8fc54b11663c6dc01adb458f43aecee49914fd3e9b9ea99a8",
+    "Attributes": {
+      "container": "database",
+      "image": "postgres:13",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757732914,
+  "timeNano": 1757732914725632155
+}
+{"status":"exec_create: bash -c  head -5000 /var/ossec/logs/alerts/alerts.log \n","id":"5455ef51984b17235069bd31c533a17eac4a2a227b16d6cc338081476f716be8","from":"wazuh/wazuh-manager:4.12.0","Type":"container","Action":"exec_create: bash -c  head -5000 /var/ossec/logs/alerts/alerts.log \n","Actor":{"ID":"5455ef51984b17235069bd31c533a17eac4a2a227b16d6cc338081476f716be8","Attributes":{"execID":"3ae0870c7ce686bc4c6d287d010f40c6d48a625ff6c32e3cca0e5b63b6264292","image":"wazuh/wazuh-manager:4.12.0","name":"wazuh-manager"}},"scope":"local","time":1757733215,"timeNano":1757733215023184774}
+{"status":"exec_start: bash -c  head -5000 /var/ossec/logs/alerts/alerts.log \n","id":"5455ef51984b17235069bd31c533a17eac4a2a227b16d6cc338081476f716be8","from":"wazuh/wazuh-manager:4.12.0","Type":"container","Action":"exec_start: bash -c  head -5000 /var/ossec/logs/alerts/alerts.log \n","Actor":{"ID":"5455ef51984b17235069bd31c533a17eac4a2a227b16d6cc338081476f716be8","Attributes":{"execID":"3ae0870c7ce686bc4c6d287d010f40c6d48a625ff6c32e3cca0e5b63b6264292","image":"wazuh/wazuh-manager:4.12.0","name":"wazuh-manager"}},"scope":"local","time":1757733215,"timeNano":1757733215023961720}
+{"status":"exec_die","id":"5455ef51984b17235069bd31c533a17eac4a2a227b16d6cc338081476f716be8","from":"wazuh/wazuh-manager:4.12.0","Type":"container","Action":"exec_die","Actor":{"ID":"5455ef51984b17235069bd31c533a17eac4a2a227b16d6cc338081476f716be8","Attributes":{"execID":"3ae0870c7ce686bc4c6d287d010f40c6d48a625ff6c32e3cca0e5b63b6264292","exitCode":"0","image":"wazuh/wazuh-manager:4.12.0","name":"wazuh-manager"}},"scope":"local","time":1757733215,"timeNano":1757733215346120920}
+{
+  "timestamp": "2025-09-13T03:18:33+00:00",
+  "status": "create",
+  "id": "7ac8bf673606",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "53acd89693c6b63b8a551821cb47e825921b34058c3f92d22326983bc3afdfe6",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "postgres:13",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757733513,
+  "timeNano": 1757733513438751687
+}
+{
+  "timestamp": "2025-09-13T03:18:33+00:00",
+  "status": "pull",
+  "id": "96ffe15a7f17",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "6c14571852be71cd23fc4506bcfd71fe5ba3137fffc0801ea7e730f275a69412",
+    "Attributes": {
+      "container": "worker",
+      "image": "python:3.9",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757733513,
+  "timeNano": 1757733513459687592
+}
+{
+  "timestamp": "2025-09-13T03:18:33+00:00",
+  "status": "create",
+  "id": "4b471bb30d06",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "ef6fa3b8b7747e1ed695c2b2f9390fccceca89a6a05914328317972f49f00677",
+    "Attributes": {
+      "container": "web-server",
+      "image": "redis:alpine",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757733513,
+  "timeNano": 1757733513478282520
+}

@@ -178,3 +178,28 @@ Fri Sep 12 15:43:40 UTC 2025: WAZUH_E2E_TEST: Custom security event for validati
 2025/09/12 15:46:48 wazuh-modulesd:sca: WARNING: File 'cis_ubuntu_linux.yml' not found.
 2025/09/12 15:46:48 wazuh-modulesd:sca: WARNING: File 'system_security.yml' not found.
 2025/09/12 15:46:48 wazuh-modulesd:sca: WARNING: File 'network_hardening.yml' not found.
+2025/09/13 02:30:36 wazuh-modulesd: INFO: WPK verification with CA is disabled.
+2025/09/13 02:30:36 wazuh-modulesd: WARNING: Deprecated tag <application_id> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/13 02:30:36 wazuh-modulesd: WARNING: Deprecated tag <application_key> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/13 02:30:36 wazuh-modulesd: ERROR: (1230): Invalid element in the configuration: 'tenants'.
+2025/09/13 02:30:36 wazuh-modulesd: WARNING: Deprecated tag <account_name> found at module 'azure-logs'. This tag was deprecated in 4.4; please use a different authentication method. Check https://documentation.wazuh.com/current/azure/activity-services/prerequisites/credentials.html for more information.
+2025/09/13 02:30:36 wazuh-modulesd: ERROR: (1230): Invalid element in the configuration: 'container_name'.
+2025/09/13 02:30:36 wazuh-modulesd: ERROR: Unknown module 'gcp-pubsub'
+2025/09/13 02:30:36 wazuh-modulesd: ERROR: Unknown module 'gcp-bucket'
+2025/09/13 02:30:36 wazuh-modulesd: WARNING: Deprecated module 'cis-cat' is no longer available.
+2025/09/13 02:30:36 wazuh-modulesd: WARNING: Deprecated module 'osquery' is no longer available.
+2025/09/13 02:30:36 wazuh-modulesd: WARNING: The 'hotfixes' option is only available on Windows systems. Ignoring it.
+2025/09/13 02:30:36 wazuh-modulesd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/13 02:30:36 wazuh-modulesd: WARNING: The 'vulnerability-detector' module only works for the manager
+2025/09/13 02:30:36 wazuh-modulesd:sca: WARNING: Detected a deprecated configuration for SCA: 'skip_nfs' is no longer available.
+2025/09/13 02:30:36 wazuh-modulesd:sca: WARNING: File 'cis_ubuntu_linux.yml' not found.
+2025/09/13 02:30:36 wazuh-modulesd:sca: WARNING: File 'system_security.yml' not found.
+2025/09/13 02:30:36 wazuh-modulesd:sca: WARNING: File 'network_hardening.yml' not found.
+2025/09/13 02:30:36 wazuh-modulesd: CRITICAL: (1203): Invalid user '' or group 'wazuh' given: Success (0)
+2025/09/13 02:45:53 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/13 02:45:53 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/13 02:45:53 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/13 02:45:53 wazuh-agentd: CRITICAL: (1203): Invalid user 'wazuh' or group 'wazuh' given: Success (0)
+2025/09/13 02:46:43 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/13 02:46:43 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.
+2025/09/13 02:46:43 wazuh-agentd: WARNING: vulnerability-detection configuration is only set in the manager.

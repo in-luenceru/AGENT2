@@ -1,0 +1,28 @@
+SCA Trigger Testing Summary
+Generated: Sat Sep 13 02:38:09 UTC 2025
+
+Test Statistics:
+- Total Tests Run: 19
+- Tests Passed: 12
+- Tests Failed: 7
+- Success Rate: 63%
+
+Test Categories:
+- CIS Ubuntu Linux Policy Tests
+- System Security Policy Tests  
+- Network Hardening Policy Tests
+- Violation Simulations
+
+Detailed Results: See /workspaces/AGENT2/test/features/sca/scripts/../results/results.log
+Test Logs: See /workspaces/AGENT2/test/features/sca/scripts/../logs/trigger_tests.log
+
+Recommendations:
+- Review failed tests and implement necessary security configurations
+- Address any identified security vulnerabilities
+- Re-run tests after implementing fixes
+
+Next Steps:
+1. Configure SCA policies in agent configuration
+2. Start SCA scanning with wazuh-modulesd
+3. Verify alerts are generated for simulated violations
+4. Test manager communication and alert forwarding

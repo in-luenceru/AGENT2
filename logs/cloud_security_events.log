@@ -24,3 +24,16 @@
   "tags": ["security", "cloud", "privilege_escalation"],
   "remediation": "Review access logs and revoke suspicious sessions"
 }
+{
+  "timestamp": "2025-09-13T03:07:14+00:00",
+  "event_type": "SUSPICIOUS_LOGIN",
+  "severity": "LOW",
+  "cloud_provider": "Azure",
+  "source_ip": "201.109.63.213",
+  "user_agent": "Suspicious-Scanner/1.0",
+  "description": "Detected SUSPICIOUS_LOGIN activity from suspicious source",
+  "affected_resource": "/subscriptions/demo/resourceGroups/prod",
+  "risk_score": 37,
+  "tags": ["security", "cloud", "suspicious_login"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}

@@ -1,0 +1,50 @@
+=== SCA TEST: Filesystem Partition Security ===
+Test ID: SCA_PART_001
+Date: Sat Sep 13 03:08:05 UTC 2025
+Target Policy Checks: 35510,35511,35512,35513,35514,35515,35516,35517,35518,35519
+
+=== TEST 1: /tmp Partition Configuration (Check 35510) ===
+Checking /tmp partition configuration:
+/dev/sdc1 on /tmp type ext4 (rw,relatime)
+SUCCESS: /tmp is mounted as separate partition
+[2025-09-13 03:08:05] CHECK_ID=35510 ACTION='Check /tmp separate partition' RESULT=COMPLIANT
+Mount options: (rw,relatime)
+[2025-09-13 03:08:05] CHECK_ID=35511 ACTION='Check /tmp nodev option' RESULT=NON_COMPLIANT
+[2025-09-13 03:08:05] CHECK_ID=35512 ACTION='Check /tmp nosuid option' RESULT=NON_COMPLIANT
+[2025-09-13 03:08:05] CHECK_ID=35513 ACTION='Check /tmp noexec option' RESULT=NON_COMPLIANT
+
+=== TEST 2: /dev/shm Partition Configuration (Checks 35514-35517) ===
+Checking /dev/shm partition configuration:
+shm on /dev/shm type tmpfs (rw,nosuid,nodev,noexec,relatime,size=65536k,inode64)
+INFO: /dev/shm is mounted
+Mount options: (rw,nosuid,nodev,noexec,relatime,size=65536k,inode64)
+[2025-09-13 03:08:05] CHECK_ID=35515 ACTION='Check /dev/shm nodev option' RESULT=COMPLIANT
+[2025-09-13 03:08:05] CHECK_ID=35516 ACTION='Check /dev/shm nosuid option' RESULT=COMPLIANT
+[2025-09-13 03:08:05] CHECK_ID=35517 ACTION='Check /dev/shm noexec option' RESULT=COMPLIANT
+
+=== TEST 3: /home Partition Configuration (Checks 35518-35519) ===
+Checking /home partition configuration:
+NON-COMPLIANT: /home is not a separate partition
+[2025-09-13 03:08:05] CHECK_ID=35518 ACTION='Check /home separate partition' RESULT=NON_COMPLIANT
+
+=== TEST 4: Filesystem Table Analysis ===
+Checking /etc/fstab for partition security configurations:
+Current fstab entries for secure partitions:
+No relevant entries found in /etc/fstab
+[2025-09-13 03:08:05] CHECK_ID=FSTAB ACTION='Analyze fstab configuration' RESULT=COMPLETED
+
+=== TRIGGERING SCA RESCAN ===
+Triggering SCA rescan...
+
+=== CHECKING MANAGER ALERTS ===
+Recent SCA alerts in manager:
+2025 Sep 13 03:07:42 (sca-test-agent) any->wazuh-remoted
+ossec: Agent stopped: 'sca-test-agent->any'.
+
+=== TEST SUMMARY ===
+Test completed: Filesystem Partition Security
+Results logged to: ../results/sca_test_results.log
+Recommendations:
+1. Check mount command output for current partition security
+2. Review /etc/fstab for persistent mount configurations
+3. Consider implementing separate partitions for /tmp and /home if not present

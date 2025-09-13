@@ -1,0 +1,56 @@
+=== SCA TEST: Filesystem Module Security ===
+Test ID: SCA_FS_001
+Date: Sat Sep 13 03:08:15 UTC 2025
+Target Policy Checks: 35500,35501,35502,35503,35504,35505,35506,35507,35508
+
+=== TEST 1: Cramfs Module Test (Check 35500) ===
+Current cramfs module status:
+./test_filesystem_modules.sh: line 43: lsmod: command not found
+cramfs module not loaded
+Checking modprobe configuration for cramfs:
+grep: /etc/modprobe.d/: No such file or directory
+No cramfs modprobe configuration found
+Attempting to load cramfs module...
+EXPECTED: cramfs module load blocked or not available
+[2025-09-13 03:08:15] CHECK_ID=35500 ACTION='Load cramfs module' RESULT=PROPERLY_BLOCKED
+
+=== TEST 2: USB Storage Module Test (Check 35508) ===
+Current usb-storage module status:
+./test_filesystem_modules.sh: line 76: lsmod: command not found
+usb-storage module not loaded
+Checking if usb-storage is configured to be blocked:
+grep: /etc/modprobe.d/: No such file or directory
+No usb-storage modprobe configuration found
+[2025-09-13 03:08:15] CHECK_ID=35508 ACTION='Check usb-storage configuration' RESULT=COMPLETED
+
+=== TEST 3: Overlayfs Module Test (Check 35505) ===
+Current overlayfs module status:
+./test_filesystem_modules.sh: line 89: lsmod: command not found
+overlay module not loaded
+grep: /etc/modprobe.d/: No such file or directory
+No overlay modprobe configuration found
+[2025-09-13 03:08:15] CHECK_ID=35505 ACTION='Check overlay configuration' RESULT=COMPLETED
+
+=== TRIGGERING FINAL SCA SCAN ===
+Triggering SCA rescan...
+
+Usage:
+ kill [options] <pid> [...]
+
+Options:
+ <pid> [...]            send signal to every <pid> listed
+ -<signal>, -s, --signal <signal>
+                        specify the <signal> to be sent
+ -q, --queue <value>    integer value to be sent with the signal
+ -l, --list=[<signal>]  list all signal names, or convert one to a name
+ -L, --table            list all signal names in a nice table
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+For more details see kill(1).
+
+=== TEST SUMMARY ===
+Test completed: Filesystem Module Security
+Results logged to: ../results/sca_test_results.log
+Check manager alerts at: docker exec wazuh-manager tail -f /var/ossec/logs/alerts/alerts.log

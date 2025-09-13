@@ -1,0 +1,43 @@
+{
+  "sca": {
+    "scan_id": "1757731117",
+    "timestamp": "2025-09-13T02:38:37Z",
+    "policy": "network_hardening.yml",
+    "description": "Ubuntu Network File System Security",
+    "policy_id": "ubuntu_network_fs",
+    "checks": {
+      "total": 4,
+      "passed": 2,
+      "failed": 2,
+      "invalid": 0
+    },
+    "results": [
+      {
+        "id": 2001,
+        "title": "Ensure NFS server is not installed",
+        "result": "passed",
+        "compliance": ["cis: 2.2.7"]
+      },
+      {
+        "id": 2002,
+        "title": "Check UFW firewall rules for NFS",
+        "result": "failed",
+        "reason": "No firewall rules found for NFS",
+        "compliance": ["network_security"]
+      },
+      {
+        "id": 2003,
+        "title": "Ensure autofs is properly configured",
+        "result": "passed",
+        "compliance": ["filesystem_security"]
+      },
+      {
+        "id": 2004,
+        "title": "Check for CIFS utilities",
+        "result": "failed",
+        "reason": "CIFS utilities not properly configured",
+        "compliance": ["network_filesystem"]
+      }
+    ]
+  }
+}

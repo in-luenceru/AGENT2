@@ -35,3 +35,64 @@
   "recommendation": "Update container image to latest patched version",
   "risk_score": 17
 }
+{
+  "timestamp": "2025-09-13T02:57:23+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2024-5678",
+  "package": "glibc",
+  "container_id": "a6e9f24b9127",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-5678 detected in container package glibc",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 56
+}
+{
+  "timestamp": "2025-09-13T03:13:38+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "MEDIUM",
+  "cve": "CVE-2023-9999",
+  "package": "curl",
+  "container_id": "77f38374d592",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2023-9999 detected in container package curl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 46
+}
+{
+  "timestamp": "2025-09-13T03:18:38+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2024-5678",
+  "package": "openssl",
+  "container_id": "5546e233d53f",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-5678 detected in container package openssl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 35
+}
+{
+  "timestamp": "2025-09-13T03:23:38+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2024-5678",
+  "package": "glibc",
+  "container_id": "471961c216d2",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-5678 detected in container package glibc",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 92
+}
+{
+  "timestamp": "2025-09-13T03:23:38+00:00",
+  "event_type": "DNS_TUNNELING",
+  "severity": "HIGH",
+  "container_id": "913fd802d36c",
+  "source_ip": "172.17.0.227",
+  "destination_ip": "133.240.52.156",
+  "port": 4101,
+  "protocol": "TCP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 100
+}

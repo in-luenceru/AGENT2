@@ -1,0 +1,29 @@
+[0;34m[INFO][0m 2025-09-13 02:38:37 - Starting SCA alert validation
+[0;34m[INFO][0m 2025-09-13 02:38:37 - Initializing SCA alert validation
+[0;32m[SUCCESS][0m 2025-09-13 02:38:37 - Alert validation environment initialized
+[0;36m[TEST][0m 2025-09-13 02:38:37 - Checking agent logs for SCA activity
+[0;32m[SUCCESS][0m 2025-09-13 02:38:37 - Found 23 SCA-related entries in ossec.log
+[1;33m[WARNING][0m 2025-09-13 02:38:37 - Modulesd log file not found: /workspaces/AGENT2/logs/wazuh-modulesd.log
+[0;36m[TEST][0m 2025-09-13 02:38:37 - Checking queue files for SCA messages
+[1;33m[WARNING][0m 2025-09-13 02:38:37 - Queue database directory not found: /workspaces/AGENT2/queue/db
+[1;33m[WARNING][0m 2025-09-13 02:38:37 - Alert queue directory not found: /workspaces/AGENT2/queue/alerts
+[0;36m[TEST][0m 2025-09-13 02:38:37 - Checking manager communication
+[1;33m[WARNING][0m 2025-09-13 02:38:37 - No SCA entries found in manager logs
+[0;36m[TEST][0m 2025-09-13 02:38:37 - Validating SCA report format
+[1;33m[WARNING][0m 2025-09-13 02:38:37 - No SCA scan results found in expected locations
+[0;36m[TEST][0m 2025-09-13 02:38:37 - Simulating SCA scan execution
+[0;34m[INFO][0m 2025-09-13 02:38:37 - Attempting to trigger SCA scan
+[1;33m[WARNING][0m 2025-09-13 02:38:37 - SCA module execution failed (expected in isolated environment)
+[0;34m[INFO][0m 2025-09-13 02:38:37 - Creating simulated SCA scan results for testing
+[0;32m[SUCCESS][0m 2025-09-13 02:38:37 - Created simulated SCA scan report: /workspaces/AGENT2/test/features/sca/scripts/../results/simulated/sca_scan_simulation.json
+[0;36m[TEST][0m 2025-09-13 02:38:37 - Checking SCA policy coverage
+[0;32m[SUCCESS][0m 2025-09-13 02:38:37 - Found configured policy: cis_ubuntu_linux.yml
+[0;32m[SUCCESS][0m 2025-09-13 02:38:38 - Policy has valid YAML structure: cis_ubuntu_linux.yml
+[0;32m[SUCCESS][0m 2025-09-13 02:38:38 - Found configured policy: system_security.yml
+[0;32m[SUCCESS][0m 2025-09-13 02:38:40 - Policy has valid YAML structure: system_security.yml
+[0;32m[SUCCESS][0m 2025-09-13 02:38:40 - Found configured policy: network_hardening.yml
+[0;32m[SUCCESS][0m 2025-09-13 02:38:40 - Policy has valid YAML structure: network_hardening.yml
+[0;34m[INFO][0m 2025-09-13 02:38:40 - Policy coverage: 3/3 configured policies found
+[0;34m[INFO][0m 2025-09-13 02:38:40 - Generating alert validation summary
+[0;32m[SUCCESS][0m 2025-09-13 02:38:40 - Alert validation summary generated at /workspaces/AGENT2/test/features/sca/scripts/../results/alert_summary.txt
+[0;34m[INFO][0m 2025-09-13 02:38:40 - SCA alert validation completed
