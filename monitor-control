@@ -7,7 +7,6 @@
 set -e
 
 # Production configuration
-PRODUCTION_MODE="${PRODUCTION_MODE:-true}"  # Default to production mode
 WAZUH_VERSION="4.8.0"
 AGENT_AUTH_TIMEOUT="${AGENT_AUTH_TIMEOUT:-60}"
 MANAGER_CONNECTION_TIMEOUT="${MANAGER_CONNECTION_TIMEOUT:-30}"
@@ -24,14 +23,9 @@ enable_strict_mode() {
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Production vs Development mode paths
-if [[ "$PRODUCTION_MODE" == "true" ]]; then
-    WAZUH_HOME="${WAZUH_HOME:-$SCRIPT_DIR}"  # Use script directory as fallback in production
-    SYSTEM_SERVICE=true
-else
-    WAZUH_HOME="${WAZUH_HOME:-$SCRIPT_DIR}"
-    SYSTEM_SERVICE=false
-fi
+# Production configuration
+WAZUH_HOME="${WAZUH_HOME:-$SCRIPT_DIR}"
+SYSTEM_SERVICE=true
 
 AGENT_CONF="${WAZUH_HOME}/etc/ossec.conf"
 AGENT_KEY_FILE="${WAZUH_HOME}/etc/client.keys"
@@ -47,7 +41,7 @@ MANAGER_IP="${MANAGER_IP:-}"
 MANAGER_PORT="${MANAGER_PORT:-1514}"
 ENROLLMENT_PORT="${ENROLLMENT_PORT:-1515}"
 MANAGER_PROTOCOL="${MANAGER_PROTOCOL:-tcp}"
-AGENT_NAME="${AGENT_NAME:-$(hostname -s)}"
+# AGENT_NAME will be initialized by initialize_agent_name() function
 AGENT_GROUPS="${AGENT_GROUPS:-default}"
 
 # Agent daemon processes for production
@@ -90,18 +84,70 @@ log_error() {
     echo -e "${RED}[ERROR]${NC} $1"
 }
 
-# Show usage information
-show_usage() {
-    local mode_str="Production"
-    if [[ "$PRODUCTION_MODE" != "true" ]]; then
-        mode_str="Development"
+# Load agent identity management library
+if [[ -f "$SCRIPT_DIR/lib/agent_identity.sh" ]]; then
+    source "$SCRIPT_DIR/lib/agent_identity.sh"
+else
+    log_error "Agent identity library not found: $SCRIPT_DIR/lib/agent_identity.sh"
+    exit 1
+fi
+
+# Read agent name from configuration file (legacy fallback)
+get_agent_name_from_config() {
+    if [[ -f "$AGENT_CONF" ]]; then
+        # Try to extract agent name from enrollment section
+        local config_agent_name=$(grep -A 10 "<enrollment>" "$AGENT_CONF" | grep "<agent_name>" | sed 's/.*<agent_name>\(.*\)<\/agent_name>.*/\1/' | tr -d '[:space:]')
+        if [[ -n "$config_agent_name" ]]; then
+            echo "$config_agent_name"
+            return 0
+        fi
     fi
     
-    echo "Unified Monitoring Agent Control Script - $mode_str Version"
+    # If no config name found, return empty
+    return 1
+}
+
+# Initialize agent name with proper precedence
+initialize_agent_name() {
+    # Priority 1: Environment variable (for override scenarios)
+    if [[ -n "$AGENT_NAME" ]]; then
+        log_info "Using agent name from environment: $AGENT_NAME"
+        return 0
+    fi
+    
+    # Priority 2: Persistent identity storage (NEW - primary method)
+    local identity_name
+    if identity_name=$(get_agent_name 2>/dev/null); then
+        AGENT_NAME="$identity_name"
+        log_info "Using agent name from identity storage: $AGENT_NAME"
+        return 0
+    fi
+    
+    # Priority 3: Configuration file (legacy fallback)
+    local config_name
+    if config_name=$(get_agent_name_from_config); then
+        AGENT_NAME="$config_name"
+        log_info "Using agent name from config file: $AGENT_NAME"
+        # Migrate to identity storage
+        if set_agent_name "$AGENT_NAME" 2>/dev/null; then
+            log_info "Migrated agent name to identity storage"
+        fi
+        return 0
+    fi
+    
+    # Priority 4: Hostname fallback (last resort - only if no name was ever set)
+    AGENT_NAME="$(hostname -s)"
+    log_warning "Using hostname as agent name (fallback): $AGENT_NAME"
+    log_warning "Consider setting a permanent agent name with: $0 enroll"
+}
+
+# Show usage information
+show_usage() {
+    echo "Unified Monitoring Agent Control Script - Production Version"
     echo "Configured for: $WAZUH_HOME"
     echo "Version: $WAZUH_VERSION"
     echo ""
-    echo "Usage: $0 {start|stop|restart|status|test|configure|enroll|scan|debug|install|uninstall|help}"
+    echo "Usage: $0 {start|stop|restart|status|test|configure|enroll|identity|scan|debug|install|uninstall|help}"
     echo ""
     echo "Commands:"
     echo "  start      Start all available agent daemons"
@@ -111,6 +157,7 @@ show_usage() {
     echo "  test       Test configuration and manager connectivity"
     echo "  configure  Interactive configuration wizard"
     echo "  enroll     Agent enrollment and authentication"
+    echo "  identity   Manage agent identity (name, ID, status)"
     echo "  scan       Trigger security scans"
     echo "  debug      Enable debug mode and show logs"
     echo "  install    Install agent as system service"
@@ -125,17 +172,12 @@ show_usage() {
     echo "  MANAGER_PROTOCOL     Protocol tcp/udp (default: tcp)"
     echo "  AGENT_NAME           Agent name (default: hostname)"
     echo "  AGENT_GROUPS         Agent groups (default: default)"
-    echo "  PRODUCTION_MODE      Enable production features (default: true)"
     echo ""
 }
 
 # Check if agent is properly installed/extracted
 check_installation() {
-    if [[ "$PRODUCTION_MODE" == "true" ]]; then
-        log_info "Checking Monitoring Agent production installation..."
-    else
-        log_info "Checking Monitoring Agent development environment..."
-    fi
+    log_info "Checking Monitoring Agent production installation..."
     
     local missing_components=()
     local critical_missing=false
@@ -181,7 +223,7 @@ check_installation() {
     AGENT_DAEMONS=("${available_required[@]}" "${available_optional[@]}")
     
     # Production mode requires critical daemons
-    if [[ "$PRODUCTION_MODE" == "true" ]] && [[ ${#missing_required[@]} -gt 0 ]]; then
+    if [[ ${#missing_required[@]} -gt 0 ]]; then
         log_error "Production mode requires all core daemons:"
         for daemon in "${missing_required[@]}"; do
             echo "  ✗ $daemon"
@@ -207,11 +249,7 @@ check_installation() {
     fi
     
     # Summary
-    if [[ "$PRODUCTION_MODE" == "true" ]]; then
-        log_success "Production agent verified"
-    else
-        log_success "Development environment verified"
-    fi
+    log_success "Production agent verified"
     
     log_info "Available daemons (${#AGENT_DAEMONS[@]}):"
     for daemon in "${AGENT_DAEMONS[@]}"; do
@@ -247,7 +285,7 @@ create_default_config() {
 <!--
   Monitoring Agent Configuration
   Generated by monitor-control script
-  Mode: $(if [[ "$PRODUCTION_MODE" == "true" ]]; then echo "Production"; else echo "Development"; fi)
+  Mode: Production
 -->
 
 <ossec_config>
@@ -262,6 +300,12 @@ create_default_config() {
     <time-reconnect>300</time-reconnect>
     <auto_restart>yes</auto_restart>
     <crypto_method>aes</crypto_method>
+    <enrollment>
+      <enabled>yes</enabled>
+      <manager_address>$MANAGER_IP</manager_address>
+      <agent_name>$AGENT_NAME</agent_name>
+      <groups>$AGENT_GROUPS</groups>
+    </enrollment>
   </client>
 
   <logging>
@@ -449,7 +493,7 @@ stop_daemon() {
     local pid
     
     disable_strict_mode
-    pid=$(get_daemon_pid "$daemon_name" 2>/dev/null || true)
+    pid=$(get_daemon_pid "$daemon_name" 2>/dev/null || echo "")
     enable_strict_mode
     
     if [[ -z "$pid" ]]; then
@@ -459,18 +503,38 @@ stop_daemon() {
     
     log_info "Stopping $daemon_name (PID: $pid)..."
     
+    # Check if we can access the process (permission check)
+    if ! kill -0 "$pid" 2>/dev/null; then
+        log_error "Cannot access process $pid (permission denied)"
+        return 1
+    fi
+    
     # Try graceful shutdown first
-    if kill -TERM "$pid" 2>/dev/null || true; then
+    if kill -TERM "$pid" 2>/dev/null; then
         local count=0
-        while (kill -0 "$pid" 2>/dev/null || true) && [[ $count -lt 10 ]]; do
+        while kill -0 "$pid" 2>/dev/null && [[ $count -lt 10 ]]; do
             sleep 1
             ((count++))
         done
         
-        if (kill -0 "$pid" 2>/dev/null || true); then
+        # Check if process is still running after graceful shutdown attempt
+        if kill -0 "$pid" 2>/dev/null; then
             log_warning "Graceful shutdown failed, forcing kill..."
-            kill -KILL "$pid" 2>/dev/null || true
+            if kill -KILL "$pid" 2>/dev/null; then
+                sleep 1
+                # Final check after force kill
+                if kill -0 "$pid" 2>/dev/null; then
+                    log_error "Failed to stop $daemon_name (PID: $pid)"
+                    return 1
+                fi
+            else
+                log_error "Failed to force-kill $daemon_name (PID: $pid)"
+                return 1
+            fi
         fi
+    else
+        log_error "Failed to send TERM signal to $daemon_name (PID: $pid). Permission denied?"
+        return 1
     fi
     
     # Clean up PID file
@@ -534,17 +598,42 @@ start_agent() {
 stop_agent() {
     log_info "Stopping Monitoring Agent..."
     
+    # Ensure installation is checked and AGENT_DAEMONS is populated
+    if ! check_installation >/dev/null 2>&1; then
+        log_error "Failed to verify agent installation for stop"
+        return 1
+    fi
+    
+    if [[ ${#AGENT_DAEMONS[@]} -eq 0 ]]; then
+        log_warning "No daemons found to stop"
+        return 0
+    fi
+    
+    log_info "Stopping ${#AGENT_DAEMONS[@]} daemons..."
+    
     # Stop in reverse order
-    local daemons_reversed
+    local daemons_reversed=()
     for ((i=${#AGENT_DAEMONS[@]}-1; i>=0; i--)); do
         daemons_reversed+=("${AGENT_DAEMONS[i]}")
     done
     
+    local stop_failures=0
+    disable_strict_mode  # Don't exit on individual daemon stop failures
+    
     for daemon in "${daemons_reversed[@]}"; do
-        stop_daemon "$daemon"
+        log_info "Attempting to stop: $daemon"
+        if ! stop_daemon "$daemon"; then
+            ((stop_failures++))
+        fi
     done
     
-    log_success "Monitoring Agent stopped"
+    enable_strict_mode
+    
+    if [[ $stop_failures -eq 0 ]]; then
+        log_success "Monitoring Agent stopped successfully"
+    else
+        log_warning "Monitoring Agent stopped with $stop_failures failures"
+    fi
 }
 
 # Show status of all daemons
@@ -983,8 +1072,16 @@ enroll_agent() {
     # Test connectivity first
     log_info "Testing manager connectivity..."
     if ! test_manager_connectivity "$MANAGER_IP" "$enroll_port"; then
-        log_error "Cannot connect to manager for enrollment"
-        return 1
+        log_error "Cannot connect to manager for enrollment on $MANAGER_IP:$enroll_port"
+        log_info "Please verify:"
+        echo "  • Manager IP address and port are correct"
+        echo "  • Manager is running and accessible"
+        echo "  • Network connectivity to manager"
+        echo "  • Firewall rules allow connection"
+        echo ""
+        log_info "If manager is not available, use manual key setup:"
+        manual_key_setup
+        return $?
     fi
     
     # Perform enrollment
@@ -1030,12 +1127,28 @@ enroll_agent() {
         # Update configuration with manager details
         update_manager_config "$MANAGER_IP" "$MANAGER_PORT" "$MANAGER_PROTOCOL"
         
+        # Update configuration with agent name (legacy)
+        update_agent_name_config "$agent_name"
+        
+        # Extract agent ID from key file
+        local agent_id=""
+        if [[ -f "$AGENT_KEY_FILE" ]] && [[ -s "$AGENT_KEY_FILE" ]]; then
+            agent_id=$(head -1 "$AGENT_KEY_FILE" | cut -d' ' -f1)
+        fi
+        
+        # Store complete agent identity in persistent storage (NEW)
+        if set_agent_identity "$agent_name" "$agent_id" "$agent_groups" "$MANAGER_IP"; then
+            log_success "Agent identity stored securely"
+        else
+            log_warning "Failed to store agent identity, enrollment may not persist"
+        fi
+        
         # Verify enrollment
         if [[ -f "$AGENT_KEY_FILE" ]] && [[ -s "$AGENT_KEY_FILE" ]]; then
-            local agent_id=$(head -1 "$AGENT_KEY_FILE" | cut -d' ' -f1)
             log_success "Agent ID: $agent_id"
             log_success "Agent Name: $agent_name"
             log_success "Manager: $MANAGER_IP:$MANAGER_PORT"
+            log_info "Agent identity will persist across restarts"
             log_info "You can now start the agent: $0 start"
             return 0
         else
@@ -1056,24 +1169,50 @@ enroll_agent() {
 manual_key_setup() {
     log_info "Manual agent key setup"
     echo ""
-    echo "Since agent-auth is not available, you need to:"
-    echo "1. Register the agent on the manager using:"
+    echo "For production deployment:"
+    echo "1. Register the agent on the Wazuh manager using:"
     echo "   /var/ossec/bin/manage_agents"
     echo "2. Extract the agent key from the manager"
-    echo "3. Import the key using this command:"
+    echo "3. Import the key below"
     echo ""
-    read -p "Paste the agent key here (or press Enter to skip): " manual_key
+    echo "Agent key format: ID NAME IP KEY"
+    echo "Example: 001 agent-server 192.168.1.100 abcd1234..."
+    echo ""
+    
+    read -p "Paste the agent key here: " manual_key
     
     if [[ -n "$manual_key" ]]; then
+        # Validate key format
+        local key_parts=$(echo "$manual_key" | wc -w)
+        if [[ $key_parts -ne 4 ]]; then
+            log_error "Invalid key format. Expected: ID NAME IP KEY"
+            return 1
+        fi
+        
         echo "$manual_key" > "$AGENT_KEY_FILE"
         chmod 640 "$AGENT_KEY_FILE"
-        log_success "Agent key imported manually"
+        log_success "Agent key imported successfully"
         
-        # Still need manager info for config
+        # Extract agent name and manager IP from key
+        local key_agent_name=$(echo "$manual_key" | awk '{print $2}')
+        local key_ip=$(echo "$manual_key" | awk '{print $3}')
+        
+        # Update agent name if provided in key
+        if [[ -n "$key_agent_name" ]]; then
+            update_agent_name_config "$key_agent_name"
+        fi
+        
+        # Extract manager IP from key if it's not 'any'
+        if [[ "$key_ip" != "any" ]] && [[ -n "$key_ip" ]]; then
+            MANAGER_IP="$key_ip"
+            log_info "Using manager IP from key: $MANAGER_IP"
+        fi
+        
+        # Update config with manager details
         update_manager_config "$MANAGER_IP" "$MANAGER_PORT" "$MANAGER_PROTOCOL"
         return 0
     else
-        log_warning "Agent key not configured. Manual setup required."
+        log_error "No agent key provided. Manual setup required."
         return 1
     fi
 }
@@ -1132,11 +1271,92 @@ update_manager_config() {
     return 0
 }
 
+# Update agent name in configuration
+update_agent_name_config() {
+    local agent_name="$1"
+    
+    if [[ -z "$agent_name" ]]; then
+        log_error "Agent name is required"
+        return 1
+    fi
+    
+    log_info "Updating agent name in configuration: $agent_name"
+    
+    if [[ ! -f "$AGENT_CONF" ]]; then
+        log_warning "Configuration file not found, creating default config"
+        create_default_config
+    fi
+    
+    # Update AGENT_NAME variable
+    AGENT_NAME="$agent_name"
+    export AGENT_NAME
+    
+    # Update configuration file
+    local temp_config="${AGENT_CONF}.tmp"
+    
+    if command -v xmlstarlet >/dev/null 2>&1; then
+        # Use xmlstarlet for proper XML manipulation
+        cp "$AGENT_CONF" "$temp_config"
+        
+        # Check if enrollment section exists, if not create it
+        if ! xmlstarlet sel -t -c "//client/enrollment" "$temp_config" >/dev/null 2>&1; then
+            # Add enrollment section if it doesn't exist
+            xmlstarlet ed -L \
+                -s "//client" -t elem -n "enrollment" \
+                -s "//client/enrollment" -t elem -n "enabled" -v "yes" \
+                -s "//client/enrollment" -t elem -n "agent_name" -v "$agent_name" \
+                "$temp_config"
+        else
+            # Update existing agent_name
+            xmlstarlet ed -L \
+                -u "//client/enrollment/agent_name" -v "$agent_name" \
+                "$temp_config"
+        fi
+        
+        if [[ $? -eq 0 ]]; then
+            mv "$temp_config" "$AGENT_CONF"
+            log_success "Agent name updated in configuration: $agent_name"
+        else
+            log_error "Failed to update agent name with xmlstarlet"
+            rm -f "$temp_config"
+            return 1
+        fi
+    else
+        # Fallback: check if agent_name exists and update or add it
+        if grep -q "<agent_name>" "$AGENT_CONF"; then
+            # Update existing agent_name
+            sed -i.bak "s/<agent_name>.*<\/agent_name>/<agent_name>$agent_name<\/agent_name>/" "$AGENT_CONF"
+        else
+            # Add agent_name to enrollment section or create enrollment section
+            if grep -q "<enrollment>" "$AGENT_CONF"; then
+                # Add to existing enrollment section
+                sed -i.bak "/^[[:space:]]*<\/enrollment>/i\\
+      <agent_name>$agent_name</agent_name>" "$AGENT_CONF"
+            else
+                # Add complete enrollment section after server section
+                sed -i.bak "/^[[:space:]]*<\/server>/a\\
+    <enrollment>\\
+      <enabled>yes</enabled>\\
+      <agent_name>$agent_name</agent_name>\\
+    </enrollment>" "$AGENT_CONF"
+            fi
+        fi
+        
+        if [[ $? -eq 0 ]]; then
+            log_success "Agent name updated in configuration: $agent_name (basic method)"
+        else
+            log_error "Failed to update agent name in configuration"
+            return 1
+        fi
+    fi
+    
+    return 0
+}
+
 # Install agent as system service
 install_service() {
     if [[ "$SYSTEM_SERVICE" == "false" ]]; then
         log_error "Service installation only available in production mode"
-        log_info "Set PRODUCTION_MODE=true to enable system service features"
         return 1
     fi
     
@@ -1302,6 +1522,99 @@ uninstall_service() {
     
     return 0
 }
+
+# Agent Identity Management
+manage_agent_identity() {
+    local action="$1"
+    local value="$2"
+    
+    case "$action" in
+        "show"|""|"status")
+            echo "=== Agent Identity Management ==="
+            echo ""
+            show_agent_identity
+            echo ""
+            echo "Commands:"
+            echo "  $0 identity show           - Display current identity"
+            echo "  $0 identity set NAME       - Set agent name"
+            echo "  $0 identity reset          - Reset identity (requires confirmation)"
+            echo "  $0 identity verify         - Verify identity file integrity"
+            echo "  $0 identity migrate        - Migrate from config to identity storage"
+            ;;
+        "set")
+            if [[ -z "$value" ]]; then
+                log_error "Agent name is required"
+                echo "Usage: $0 identity set NAME"
+                return 1
+            fi
+            
+            log_info "Setting agent name to: $value"
+            if set_agent_name "$value"; then
+                log_success "Agent name set successfully"
+                # Update the global variable
+                AGENT_NAME="$value"
+                # Also update configuration for compatibility
+                update_agent_name_config "$value"
+                log_info "Agent will use this name on next restart"
+            else
+                log_error "Failed to set agent name"
+                return 1
+            fi
+            ;;
+        "reset")
+            echo "WARNING: This will completely reset the agent identity!"
+            echo "This will remove:"
+            echo "  • Agent name"
+            echo "  • Agent ID" 
+            echo "  • Registration information"
+            echo "  • Enrollment status"
+            echo ""
+            read -p "Are you sure? Type 'CONFIRM' to proceed: " confirm
+            if [[ "$confirm" == "CONFIRM" ]]; then
+                if reset_agent_identity "CONFIRM"; then
+                    log_success "Agent identity reset successfully"
+                    log_info "Run '$0 enroll' to set up the agent again"
+                else
+                    log_error "Failed to reset agent identity"
+                    return 1
+                fi
+            else
+                log_info "Reset cancelled"
+            fi
+            ;;
+        "verify")
+            log_info "Verifying agent identity integrity..."
+            if verify_identity_integrity; then
+                log_success "Identity file integrity verified"
+            else
+                log_error "Identity file integrity check failed"
+                log_info "Consider running: $0 identity reset"
+                return 1
+            fi
+            ;;
+        "migrate")
+            log_info "Migrating agent name from config to identity storage..."
+            local config_name
+            if config_name=$(get_agent_name_from_config); then
+                if set_agent_name "$config_name"; then
+                    log_success "Successfully migrated agent name: $config_name"
+                else
+                    log_error "Failed to migrate agent name"
+                    return 1
+                fi
+            else
+                log_warning "No agent name found in configuration to migrate"
+                log_info "Use '$0 identity set NAME' to set an agent name"
+            fi
+            ;;
+        *)
+            log_error "Unknown identity command: $action"
+            echo "Usage: $0 identity {show|set|reset|verify|migrate}"
+            return 1
+            ;;
+    esac
+}
+
 main() {
     case "${1:-}" in
         "start")
@@ -1328,6 +1641,9 @@ main() {
         "enroll")
             enroll_agent
             ;;
+        "identity")
+            manage_agent_identity "${2:-}" "${3:-}"
+            ;;
         "scan")
             trigger_scan
             ;;
@@ -1345,7 +1661,7 @@ main() {
             ;;
         "version"|"--version"|"-v")
             echo "Wazuh Agent Control Script v$WAZUH_VERSION"
-            echo "Mode: $(if [[ "$PRODUCTION_MODE" == "true" ]]; then echo "Production"; else echo "Development"; fi)"
+            echo "Mode: Production"
             echo "Home: $WAZUH_HOME"
             ;;
         "")
@@ -1363,38 +1679,34 @@ main() {
     esac
 }
 
-# Check environment and warn about production readiness
+# Check environment and ensure production requirements are met
 check_production_readiness() {
-    if [[ "$PRODUCTION_MODE" == "true" ]]; then
-        # Check if running as root
-        if [[ $EUID -ne 0 ]] && [[ "$1" != "help" ]] && [[ "$1" != "--help" ]] && [[ "$1" != "-h" ]] && [[ "$1" != "status" ]] && [[ "$1" != "version" ]]; then
-            log_error "Production mode requires root privileges for most operations"
-            log_info "Run with: sudo $0 $*"
+    # Check if running as root for operations that require it
+    if [[ $EUID -ne 0 ]] && [[ "$1" != "help" ]] && [[ "$1" != "--help" ]] && [[ "$1" != "-h" ]] && [[ "$1" != "status" ]] && [[ "$1" != "version" ]]; then
+        log_error "Root privileges required for most operations"
+        log_info "Run with: sudo $0 $*"
+        exit 1
+    fi
+    
+    # Check critical requirements for start/restart operations
+    if [[ "$1" == "start" ]] || [[ "$1" == "restart" ]]; then
+        if [[ ! -f "$AGENT_KEY_FILE" ]] || [[ ! -s "$AGENT_KEY_FILE" ]]; then
+            log_error "Agent is not enrolled with a manager"
+            log_info "Run enrollment first: $0 enroll"
             exit 1
-        fi
-        
-        # Check critical requirements
-        if [[ "$1" == "start" ]] || [[ "$1" == "restart" ]]; then
-            if [[ ! -f "$AGENT_KEY_FILE" ]] || [[ ! -s "$AGENT_KEY_FILE" ]]; then
-                log_error "Agent is not enrolled with a manager"
-                log_info "Run enrollment first: $0 enroll"
-                exit 1
-            fi
-        fi
-    else
-        # Development mode warnings
-        if [[ $EUID -ne 0 ]] && [[ "$1" != "help" ]] && [[ "$1" != "--help" ]] && [[ "$1" != "-h" ]] && [[ "$1" != "status" ]] && [[ "$1" != "version" ]]; then
-            log_warning "Running in development mode without root privileges"
-            log_info "Some operations may fail if system resources are restricted"
         fi
     fi
 }
 
 # Initialize environment
 initialize_environment() {
+    # Initialize agent name with proper precedence
+    initialize_agent_name
+    
     # Set environment variables for daemons
     export WAZUH_HOME
     export WAZUH_VERSION
+    export AGENT_NAME
     
     # Create necessary directories
     for dir in "$LOG_DIR" "$PID_DIR" "$QUEUE_DIR" "$WAZUH_HOME/etc" "$WAZUH_HOME/var"; do

@@ -1,9 +1,50 @@
 #!/bin/bash
 # Real Monitoring Agent Daemon - Wrapper for wazuh-agentd
+# Enhanced with persistent agent name support
 
 WAZUH_HOME="${WAZUH_HOME:-$(dirname $(dirname $(realpath $0)))}"
 PID_DIR="$WAZUH_HOME/var/run"
 mkdir -p "$PID_DIR"
+
+# Load agent identity library for name resolution
+if [[ -f "$WAZUH_HOME/lib/agent_identity.sh" ]]; then
+    source "$WAZUH_HOME/lib/agent_identity.sh"
+    AGENT_IDENTITY_AVAILABLE=true
+else
+    echo "[$(date)] WARNING: Agent identity library not found, using fallback methods"
+    AGENT_IDENTITY_AVAILABLE=false
+fi
+
+# Get persistent agent name
+get_persistent_agent_name() {
+    local agent_name=""
+    
+    # Try to get from identity storage
+    if [[ "$AGENT_IDENTITY_AVAILABLE" == "true" ]]; then
+        agent_name=$(get_agent_name 2>/dev/null)
+        if [[ -n "$agent_name" ]]; then
+            echo "[$(date)] monitor-agentd: Using persistent agent name: $agent_name"
+            echo "$agent_name"
+            return 0
+        fi
+    fi
+    
+    # Fallback to config file
+    if [[ -f "$WAZUH_HOME/etc/ossec.conf" ]]; then
+        agent_name=$(grep -A 10 "<enrollment>" "$WAZUH_HOME/etc/ossec.conf" | grep "<agent_name>" | sed 's/.*<agent_name>\(.*\)<\/agent_name>.*/\1/' | tr -d '[:space:]')
+        if [[ -n "$agent_name" ]]; then
+            echo "[$(date)] monitor-agentd: Using agent name from config: $agent_name"
+            echo "$agent_name"
+            return 0
+        fi
+    fi
+    
+    # Last resort - hostname
+    agent_name="$(hostname -s)"
+    echo "[$(date)] monitor-agentd: WARNING - Using hostname as agent name: $agent_name"
+    echo "$agent_name"
+    return 0
+}
 
 # Use the system wazuh-agentd first (it's working), then fallback to local compiled
 if [[ -f "/var/ossec/bin/wazuh-agentd" ]]; then
@@ -18,6 +59,14 @@ fi
 echo "[$(date)] monitor-agentd: Starting real agent daemon"
 echo "[$(date)] monitor-agentd: Using binary: $AGENTD_BIN"
 echo "[$(date)] monitor-agentd: Configuration: $WAZUH_HOME/etc/ossec.conf"
+
+# Get and set persistent agent name
+PERSISTENT_AGENT_NAME=$(get_persistent_agent_name)
+if [[ -n "$PERSISTENT_AGENT_NAME" ]]; then
+    export WAZUH_AGENT_NAME="$PERSISTENT_AGENT_NAME"
+    export OSSEC_AGENT_NAME="$PERSISTENT_AGENT_NAME"
+    echo "[$(date)] monitor-agentd: Agent name environment set: $PERSISTENT_AGENT_NAME"
+fi
 
 # Set environment for Wazuh agent
 export WAZUH_HOME="$WAZUH_HOME"

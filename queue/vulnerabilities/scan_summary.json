@@ -1,5 +1,5 @@
 {
-  "scan_timestamp": "2025-09-13T03:08:41+00:00",
+  "scan_timestamp": "2025-09-13T16:24:11+00:00",
   "scan_type": "package_vulnerability_scan",
   "total_packages_scanned": 580,
   "total_vulnerabilities": 77,
@@ -12,6 +12,6 @@
   "risk_assessment": "CRITICAL
 HIGH
 MEDIUM",
-  "next_scan": "2025-09-14T03:08:41+00:00",
+  "next_scan": "2025-09-14T16:24:11+00:00",
   "scan_results_file": "/workspaces/AGENT2/queue/vulnerabilities/scan_results.json"
 }

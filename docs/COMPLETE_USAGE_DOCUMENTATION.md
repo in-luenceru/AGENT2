@@ -6,11 +6,12 @@
 3. [Installation & Setup](#installation--setup)
 4. [Configuration Guide](#configuration-guide)
 5. [Operation Commands](#operation-commands)
-6. [Monitoring & Alerts](#monitoring--alerts)
-7. [Network Security Detection](#network-security-detection)
-8. [Troubleshooting Guide](#troubleshooting-guide)
-9. [Production Deployment](#production-deployment)
-10. [Maintenance & Updates](#maintenance--updates)
+6. [Agent Identity Management](#agent-identity-management)
+7. [Monitoring & Alerts](#monitoring--alerts)
+8. [Network Security Detection](#network-security-detection)
+9. [Troubleshooting Guide](#troubleshooting-guide)
+10. [Production Deployment](#production-deployment)
+11. [Maintenance & Updates](#maintenance--updates)
 
 ---
 
@@ -39,16 +40,26 @@ This documentation covers a complete Wazuh Security Information and Event Manage
 ### 📁 Directory Structure
 
 ```
-/home/anandhu/AGENT/
+/workspaces/AGENT2/
 ├── bin/                    # Agent binaries and scripts
+│   ├── monitor-agentd      # Enhanced agent daemon wrapper
+│   └── wazuh-*            # Wazuh binary wrappers
 ├── etc/                    # Configuration files
 │   ├── ossec.conf         # Main agent configuration
-│   └── client.keys        # Authentication keys
+│   ├── client.keys        # Authentication keys
+│   └── agent.identity     # Persistent agent identity (NEW)
+├── lib/                    # Library files
+│   └── agent_identity.sh  # Identity management library (NEW)
 ├── logs/                   # Agent logs
 │   └── ossec.log          # Main log file
 ├── var/run/               # Runtime files and PIDs
 ├── scripts/               # Custom monitoring scripts
-└── documentation/         # This documentation
+│   └── proof_update_agent_name.sh  # Agent name update proof script (NEW)
+├── docs/                  # Documentation
+│   └── COMPLETE_USAGE_DOCUMENTATION.md
+├── monitor-control        # Main agent control script (ENHANCED)
+├── PROOF_AGENT_NAME.md    # Static proof of current naming (NEW)
+└── PROOF_AGENT_NAME_UPDATE.md  # Dynamic proof of name updates (NEW)
 ```
 
 ---
@@ -86,6 +97,14 @@ docker logs wazuh-manager
 
 ```bash
 # Install official Wazuh agent
+
+set -e
+sudo apt-get update -y
+sudo apt-get install -y curl gnupg apt-transport-https lsb-release
+curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | sudo gpg --dearmor -o /usr/share/keyrings/wazuh-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/wazuh-archive-keyring.gpg] https://packages.wazuh.com/4.x/apt/ stable main" | sudo tee /etc/apt/sources.list.d/wazuh.list
+sudo apt-get update -y
+sudo apt-get install -y wazuh-agent
 sudo apt update
 sudo apt install -y wazuh-agent
 
@@ -98,16 +117,29 @@ chmod +x build_simple_agent.sh
 ### Step 3: Register Agent with Manager
 
 ```bash
-# Register agent on manager
+# Method 1: Using monitor-control (Recommended)
+cd /workspaces/AGENT2
+sudo ./monitor-control enroll
+
+# Method 2: Manual registration with custom name
+AGENT_NAME="secure-agent-123"
 docker exec -it wazuh-manager bash -c "
-echo -e 'A\nparrot\n127.0.0.1\ny\nQ' | /var/ossec/bin/manage_agents"
+echo -e 'A\n$AGENT_NAME\n127.0.0.1\ny\nQ' | /var/ossec/bin/manage_agents"
 
 # Extract agent key
-docker exec -it wazuh-manager bash -c "
-echo -e 'E\n002\nQ' | /var/ossec/bin/manage_agents"
+AGENT_ID=$(docker exec wazuh-manager bash -c "echo -e 'L\nQ' | /var/ossec/bin/manage_agents" | grep "$AGENT_NAME" | awk '{print $2}' | tr -d ',')
+AGENT_KEY=$(docker exec wazuh-manager bash -c "echo -e 'E\n$AGENT_ID\nQ' | /var/ossec/bin/manage_agents" | grep "Agent key:")
+
+# Set up persistent agent identity
+source /workspaces/AGENT2/lib/agent_identity.sh
+set_agent_name "$AGENT_NAME" ""
 
 # Add key to agent (replace with actual key)
-echo "002 parrot any YOUR_AGENT_KEY_HERE" | sudo tee /etc/client.keys
+echo "$AGENT_ID $AGENT_NAME any YOUR_AGENT_KEY_HERE" | sudo tee /workspaces/AGENT2/etc/client.keys
+
+# Create symlinks for Wazuh compatibility
+sudo ln -sf /workspaces/AGENT2/etc/client.keys /var/ossec/etc/client.keys
+sudo ln -sf /workspaces/AGENT2/etc/ossec.conf /var/ossec/etc/ossec.conf
 ```
 
 ### Step 4: Configure Agent
@@ -212,6 +244,16 @@ sudo ./monitor-control status
 
 # View agent information
 sudo ./monitor-control info
+
+# Identity management
+source /workspaces/AGENT2/lib/agent_identity.sh
+show_agent_identity                    # Display current identity
+set_agent_name "new-name" ""          # Set persistent agent name
+get_agent_name                        # Get current agent name
+verify_identity_integrity             # Check identity file integrity
+
+# Generate proof of name change
+/workspaces/AGENT2/scripts/proof_update_agent_name.sh "new-agent-name"
 ```
 
 ### Manager Control Commands
@@ -257,6 +299,138 @@ docker exec wazuh-manager grep -i "nmap\|scan" /var/ossec/logs/alerts/alerts.log
 
 # View JSON alerts
 docker exec wazuh-manager tail -f /var/ossec/logs/alerts/alerts.json
+```
+
+---
+
+## 🏷️ Agent Identity Management
+
+### Persistent Agent Naming
+
+The agent now supports persistent, user-defined names that survive restarts and override the system hostname. This ensures consistent identification in alerts and manager communications.
+
+#### Setting Agent Name
+
+```bash
+# Set a persistent agent name using the identity library
+source /workspaces/AGENT2/lib/agent_identity.sh
+set_agent_name "my-custom-agent-name" ""
+
+# Or use the proof script to update and verify
+/workspaces/AGENT2/scripts/proof_update_agent_name.sh "new-agent-name"
+```
+
+#### Verifying Agent Identity
+
+```bash
+# Check current agent identity
+source /workspaces/AGENT2/lib/agent_identity.sh
+show_agent_identity
+
+# View identity file contents
+sudo cat /workspaces/AGENT2/etc/agent.identity
+
+# Check agent name in manager
+docker exec wazuh-manager /var/ossec/bin/agent_control -l
+```
+
+#### Agent Name Update Workflow
+
+1. **Update Local Identity**: The agent's persistent identity is stored in `/workspaces/AGENT2/etc/agent.identity`
+2. **Restart Agent**: Apply the new name by restarting the agent
+3. **Verify Manager**: Check that alerts use the new agent name
+4. **Generate Proof**: Use the proof script for documentation
+
+```bash
+#!/bin/bash
+# Complete agent name update workflow
+
+# Step 1: Set new agent name
+NEW_NAME="production-web-server-01"
+source /workspaces/AGENT2/lib/agent_identity.sh
+set_agent_name "$NEW_NAME" ""
+
+# Step 2: Restart agent to apply changes
+sudo ./monitor-control restart
+
+# Step 3: Verify on manager
+echo "Checking agent registration on manager..."
+docker exec wazuh-manager /var/ossec/bin/agent_control -l
+
+# Step 4: Check recent alerts for the new name
+echo "Checking recent alerts..."
+docker exec wazuh-manager tail -20 /var/ossec/logs/alerts/alerts.log | grep "($NEW_NAME)"
+```
+
+### Automated Proof Generation
+
+Use the proof script to document agent name changes:
+
+```bash
+# Generate proof of agent name update
+/workspaces/AGENT2/scripts/proof_update_agent_name.sh "new-secure-agent-name"
+
+# The script will:
+# 1. Update the agent's persistent identity
+# 2. Restart the agent 
+# 3. Collect evidence from manager
+# 4. Write proof document to PROOF_AGENT_NAME_UPDATE.md
+```
+
+#### Proof Script Features
+
+- **Validation**: Uses the identity library's built-in name validation
+- **Security**: Updates persistent storage with integrity checksums
+- **Verification**: Collects manager outputs and recent alerts
+- **Documentation**: Generates timestamped proof files
+
+#### Identity File Structure
+
+```bash
+# /workspaces/AGENT2/etc/agent.identity
+AGENT_NAME="secure-agent-123"
+AGENT_ID="003"
+AGENT_GROUP="default"
+REGISTRATION_DATE="2025-09-13 15:44:50"
+LAST_UPDATE="2025-09-13 16:23:20"
+MANAGER_IP="127.0.0.1"
+ENROLLMENT_STATUS="enrolled"
+CHECKSUM="b65977f2be014548a5c1457d589e93378a6317c68bbcc281816f1c161ed32326"
+```
+
+### Troubleshooting Agent Names
+
+#### Common Issues
+
+**Agent name not updating on manager:**
+- The manager's `client.keys` may still reference the old name
+- Consider re-enrolling the agent or updating manager keys manually
+
+**Identity file permission errors:**
+- Ensure proper file permissions: `sudo chmod 600 /workspaces/AGENT2/etc/agent.identity`
+- Check directory ownership: `sudo chown -R root:root /workspaces/AGENT2/etc/`
+
+**Name validation failures:**
+- Agent names must be 3-64 characters
+- Only alphanumeric, dash, underscore, and dot characters allowed
+- Cannot start or end with special characters
+- Reserved names (localhost, manager, server, admin, root, system, default) are not allowed
+
+#### Verification Commands
+
+```bash
+# Verify agent name is set correctly
+./monitor-control status
+
+# Check identity file integrity
+source /workspaces/AGENT2/lib/agent_identity.sh
+verify_identity_integrity
+
+# View agent environment variables
+sudo /workspaces/AGENT2/bin/monitor-agentd --test-name
+
+# Check symlinks are correct
+ls -la /var/ossec/etc/client.keys /var/ossec/etc/ossec.conf
 ```
 
 ---
