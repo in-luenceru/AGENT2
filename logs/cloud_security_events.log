@@ -37,3 +37,193 @@
   "tags": ["security", "cloud", "suspicious_login"],
   "remediation": "Review access logs and revoke suspicious sessions"
 }
+{
+  "timestamp": "2025-09-13T09:59:05+00:00",
+  "event_type": "PRIVILEGE_ESCALATION",
+  "severity": "MEDIUM",
+  "cloud_provider": "AWS",
+  "source_ip": "25.36.175.220",
+  "user_agent": "Suspicious-Scanner/1.0",
+  "description": "Detected PRIVILEGE_ESCALATION activity from suspicious source",
+  "affected_resource": "arn:aws:s3:::sensitive-data-bucket
+/subscriptions/demo/resourceGroups/prod",
+  "risk_score": 29,
+  "tags": ["security", "cloud", "privilege_escalation"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}
+{
+  "timestamp": "2025-09-13T10:49:04+00:00",
+  "event_type": "POLICY_VIOLATION",
+  "severity": "HIGH",
+  "cloud_provider": "GCP",
+  "source_ip": "187.44.223.210",
+  "user_agent": "Mozilla/5.0 (compatible)",
+  "description": "Detected POLICY_VIOLATION activity from suspicious source",
+  "affected_resource": "projects/demo-project/instances/web-server",
+  "risk_score": 72,
+  "tags": ["security", "cloud", "policy_violation"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}
+{
+  "timestamp": "2025-09-13T11:15:31+00:00",
+  "event_type": "PRIVILEGE_ESCALATION",
+  "severity": "MEDIUM",
+  "cloud_provider": "AWS",
+  "source_ip": "41.76.3.220",
+  "user_agent": "Mozilla/5.0 (compatible)",
+  "description": "Detected PRIVILEGE_ESCALATION activity from suspicious source",
+  "affected_resource": "arn:aws:s3:::sensitive-data-bucket
+/subscriptions/demo/resourceGroups/prod",
+  "risk_score": 20,
+  "tags": ["security", "cloud", "privilege_escalation"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}
+{
+  "timestamp": "2025-09-13T11:35:05+00:00",
+  "event_type": "MALWARE_DETECTED",
+  "severity": "MEDIUM",
+  "cloud_provider": "GCP",
+  "source_ip": "175.119.218.45",
+  "user_agent": "Mozilla/5.0 (compatible)",
+  "description": "Detected MALWARE_DETECTED activity from suspicious source",
+  "affected_resource": "projects/demo-project/instances/web-server",
+  "risk_score": 51,
+  "tags": ["security", "cloud", "malware_detected"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}
+{
+  "timestamp": "2025-09-13T11:55:05+00:00",
+  "event_type": "SUSPICIOUS_LOGIN",
+  "severity": "CRITICAL",
+  "cloud_provider": "Azure",
+  "source_ip": "175.203.226.50",
+  "user_agent": "Mozilla/5.0 (compatible)",
+  "description": "Detected SUSPICIOUS_LOGIN activity from suspicious source",
+  "affected_resource": "/subscriptions/demo/resourceGroups/prod",
+  "risk_score": 5,
+  "tags": ["security", "cloud", "suspicious_login"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}
+{
+  "timestamp": "2025-09-13T12:05:06+00:00",
+  "event_type": "DATA_EXFILTRATION",
+  "severity": "LOW",
+  "cloud_provider": "AWS",
+  "source_ip": "131.251.7.131",
+  "user_agent": "Mozilla/5.0 (compatible)",
+  "description": "Detected DATA_EXFILTRATION activity from suspicious source",
+  "affected_resource": "arn:aws:s3:::sensitive-data-bucket
+/subscriptions/demo/resourceGroups/prod",
+  "risk_score": 38,
+  "tags": ["security", "cloud", "data_exfiltration"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}
+{
+  "timestamp": "2025-09-13T12:30:59+00:00",
+  "event_type": "SUSPICIOUS_LOGIN",
+  "severity": "HIGH",
+  "cloud_provider": "Azure",
+  "source_ip": "123.150.225.50",
+  "user_agent": "Suspicious-Scanner/1.0",
+  "description": "Detected SUSPICIOUS_LOGIN activity from suspicious source",
+  "affected_resource": "/subscriptions/demo/resourceGroups/prod",
+  "risk_score": 32,
+  "tags": ["security", "cloud", "suspicious_login"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}
+{
+  "timestamp": "2025-09-13T12:45:08+00:00",
+  "event_type": "POLICY_VIOLATION",
+  "severity": "LOW",
+  "cloud_provider": "AWS",
+  "source_ip": "35.66.156.56",
+  "user_agent": "Mozilla/5.0 (compatible)",
+  "description": "Detected POLICY_VIOLATION activity from suspicious source",
+  "affected_resource": "arn:aws:s3:::sensitive-data-bucket
+/subscriptions/demo/resourceGroups/prod",
+  "risk_score": 87,
+  "tags": ["security", "cloud", "policy_violation"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}
+{
+  "timestamp": "2025-09-13T12:51:54+00:00",
+  "event_type": "MALWARE_DETECTED",
+  "severity": "LOW",
+  "cloud_provider": "AWS",
+  "source_ip": "54.230.73.92",
+  "user_agent": "Mozilla/5.0 (compatible)",
+  "description": "Detected MALWARE_DETECTED activity from suspicious source",
+  "affected_resource": "arn:aws:s3:::sensitive-data-bucket
+/subscriptions/demo/resourceGroups/prod",
+  "risk_score": 66,
+  "tags": ["security", "cloud", "malware_detected"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}
+{
+  "timestamp": "2025-09-13T14:17:07+00:00",
+  "event_type": "PRIVILEGE_ESCALATION",
+  "severity": "CRITICAL",
+  "cloud_provider": "Azure",
+  "source_ip": "147.150.164.156",
+  "user_agent": "Mozilla/5.0 (compatible)",
+  "description": "Detected PRIVILEGE_ESCALATION activity from suspicious source",
+  "affected_resource": "/subscriptions/demo/resourceGroups/prod",
+  "risk_score": 66,
+  "tags": ["security", "cloud", "privilege_escalation"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}
+{
+  "timestamp": "2025-09-13T14:35:16+00:00",
+  "event_type": "DATA_EXFILTRATION",
+  "severity": "CRITICAL",
+  "cloud_provider": "Azure",
+  "source_ip": "206.107.247.32",
+  "user_agent": "Suspicious-Scanner/1.0",
+  "description": "Detected DATA_EXFILTRATION activity from suspicious source",
+  "affected_resource": "/subscriptions/demo/resourceGroups/prod",
+  "risk_score": 10,
+  "tags": ["security", "cloud", "data_exfiltration"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}
+{
+  "timestamp": "2025-09-13T15:14:20+00:00",
+  "event_type": "DATA_EXFILTRATION",
+  "severity": "LOW",
+  "cloud_provider": "AWS",
+  "source_ip": "182.47.23.25",
+  "user_agent": "Suspicious-Scanner/1.0",
+  "description": "Detected DATA_EXFILTRATION activity from suspicious source",
+  "affected_resource": "arn:aws:s3:::sensitive-data-bucket
+/subscriptions/demo/resourceGroups/prod",
+  "risk_score": 64,
+  "tags": ["security", "cloud", "data_exfiltration"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}
+{
+  "timestamp": "2025-09-13T15:24:21+00:00",
+  "event_type": "MALWARE_DETECTED",
+  "severity": "MEDIUM",
+  "cloud_provider": "AWS",
+  "source_ip": "119.127.216.244",
+  "user_agent": "Suspicious-Scanner/1.0",
+  "description": "Detected MALWARE_DETECTED activity from suspicious source",
+  "affected_resource": "arn:aws:s3:::sensitive-data-bucket
+/subscriptions/demo/resourceGroups/prod",
+  "risk_score": 3,
+  "tags": ["security", "cloud", "malware_detected"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}
+{
+  "timestamp": "2025-09-13T15:35:55+00:00",
+  "event_type": "SUSPICIOUS_LOGIN",
+  "severity": "LOW",
+  "cloud_provider": "AWS",
+  "source_ip": "22.58.61.91",
+  "user_agent": "Mozilla/5.0 (compatible)",
+  "description": "Detected SUSPICIOUS_LOGIN activity from suspicious source",
+  "affected_resource": "arn:aws:s3:::sensitive-data-bucket
+/subscriptions/demo/resourceGroups/prod",
+  "risk_score": 4,
+  "tags": ["security", "cloud", "suspicious_login"],
+  "remediation": "Review access logs and revoke suspicious sessions"
+}

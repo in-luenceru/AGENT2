@@ -96,3 +96,520 @@
   "recommendation": "Review container network policies and firewall rules",
   "risk_score": 100
 }
+{
+  "timestamp": "2025-09-13T10:05:23+00:00",
+  "event_type": "UNAUTHORIZED_PORT",
+  "severity": "HIGH",
+  "container_id": "ef07cc0709bf",
+  "source_ip": "172.17.0.225",
+  "destination_ip": "152.56.128.149",
+  "port": 7010,
+  "protocol": "TCP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 65
+}
+{
+  "timestamp": "2025-09-13T10:09:10+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "MEDIUM",
+  "cve": "CVE-2023-9999",
+  "package": "openssl",
+  "container_id": "f9dbfea5017e",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2023-9999 detected in container package openssl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 23
+}
+{
+  "timestamp": "2025-09-13T10:10:23+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "MEDIUM",
+  "cve": "CVE-2023-9999",
+  "package": "openssl",
+  "container_id": "b15d7fe97e97",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2023-9999 detected in container package openssl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 39
+}
+{
+  "timestamp": "2025-09-13T10:24:09+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2024-1234",
+  "package": "nginx",
+  "container_id": "737b45a83f06",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-1234 detected in container package nginx",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 7
+}
+{
+  "timestamp": "2025-09-13T10:44:09+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "CRITICAL",
+  "cve": "CVE-2023-9999",
+  "package": "python",
+  "container_id": "49094ad6c7c4",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2023-9999 detected in container package python",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 83
+}
+{
+  "timestamp": "2025-09-13T11:15:37+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2024-5678",
+  "package": "glibc",
+  "container_id": "1af396a309bc",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-5678 detected in container package glibc",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 79
+}
+{
+  "timestamp": "2025-09-13T11:20:36+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2023-9999",
+  "package": "glibc",
+  "container_id": "495e491262a0",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2023-9999 detected in container package glibc",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 32
+}
+{
+  "timestamp": "2025-09-13T11:20:36+00:00",
+  "event_type": "DNS_TUNNELING",
+  "severity": "HIGH",
+  "container_id": "f005750e6532",
+  "source_ip": "172.17.0.104",
+  "destination_ip": "23.250.8.28",
+  "port": 869,
+  "protocol": "TCP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 17
+}
+{
+  "timestamp": "2025-09-13T11:25:08+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "MEDIUM",
+  "cve": "CVE-2023-9999",
+  "package": "glibc",
+  "container_id": "7ec269111739",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2023-9999 detected in container package glibc",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 52
+}
+{
+  "timestamp": "2025-09-13T11:30:08+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "CRITICAL",
+  "cve": "CVE-2024-5678",
+  "package": "openssl",
+  "container_id": "bd4b2b218669",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-5678 detected in container package openssl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 41
+}
+{
+  "timestamp": "2025-09-13T11:33:21+00:00",
+  "event_type": "UNAUTHORIZED_PORT",
+  "severity": "HIGH",
+  "container_id": "7cd2e1def035",
+  "source_ip": "172.17.0.178",
+  "destination_ip": "102.101.36.167",
+  "port": 3984,
+  "protocol": "UDP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 77
+}
+{
+  "timestamp": "2025-09-13T11:40:10+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "MEDIUM",
+  "cve": "CVE-2024-1234",
+  "package": "python",
+  "container_id": "22af7b5d5b35",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-1234 detected in container package python",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 97
+}
+{
+  "timestamp": "2025-09-13T11:45:10+00:00",
+  "event_type": "DNS_TUNNELING",
+  "severity": "HIGH",
+  "container_id": "39bdd8b33a76",
+  "source_ip": "172.17.0.95",
+  "destination_ip": "204.100.7.155",
+  "port": 16066,
+  "protocol": "UDP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 5
+}
+{
+  "timestamp": "2025-09-13T11:55:12+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "MEDIUM",
+  "cve": "CVE-2024-1234",
+  "package": "python",
+  "container_id": "35bfe8cf88eb",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-1234 detected in container package python",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 1
+}
+{
+  "timestamp": "2025-09-13T12:00:11+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2023-9999",
+  "package": "python",
+  "container_id": "e3e82e21f570",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2023-9999 detected in container package python",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 45
+}
+{
+  "timestamp": "2025-09-13T12:05:11+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "CRITICAL",
+  "cve": "CVE-2024-5678",
+  "package": "curl",
+  "container_id": "a2e531cda123",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-5678 detected in container package curl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 34
+}
+{
+  "timestamp": "2025-09-13T12:15:11+00:00",
+  "event_type": "DATA_EXFILTRATION",
+  "severity": "HIGH",
+  "container_id": "676249317abf",
+  "source_ip": "172.17.0.196",
+  "destination_ip": "152.143.121.254",
+  "port": 15567,
+  "protocol": "UDP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 34
+}
+{
+  "timestamp": "2025-09-13T12:38:00+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2024-1234",
+  "package": "curl",
+  "container_id": "5dc8409df310",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-1234 detected in container package curl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 71
+}
+{
+  "timestamp": "2025-09-13T12:45:39+00:00",
+  "event_type": "UNAUTHORIZED_PORT",
+  "severity": "HIGH",
+  "container_id": "06333343b5a0",
+  "source_ip": "172.17.0.223",
+  "destination_ip": "209.6.84.130",
+  "port": 3794,
+  "protocol": "UDP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 78
+}
+{
+  "timestamp": "2025-09-13T12:56:59+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "MEDIUM",
+  "cve": "CVE-2024-5678",
+  "package": "curl",
+  "container_id": "67659af0f713",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-5678 detected in container package curl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 76
+}
+{
+  "timestamp": "2025-09-13T13:36:33+00:00",
+  "event_type": "DNS_TUNNELING",
+  "severity": "HIGH",
+  "container_id": "fbd496948b8d",
+  "source_ip": "172.17.0.121",
+  "destination_ip": "2.252.255.110",
+  "port": 337,
+  "protocol": "UDP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 3
+}
+{
+  "timestamp": "2025-09-13T13:41:00+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "MEDIUM",
+  "cve": "CVE-2024-1234",
+  "package": "nginx",
+  "container_id": "c9320119df29",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-1234 detected in container package nginx",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 6
+}
+{
+  "timestamp": "2025-09-13T14:12:14+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2024-5678",
+  "package": "nginx",
+  "container_id": "3a5c3076b6e0",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-5678 detected in container package nginx",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 20
+}
+{
+  "timestamp": "2025-09-13T14:17:14+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2023-9999",
+  "package": "curl",
+  "container_id": "86bd20048ea5",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2023-9999 detected in container package curl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 37
+}
+{
+  "timestamp": "2025-09-13T14:22:14+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2023-9999",
+  "package": "curl",
+  "container_id": "828cb911447e",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2023-9999 detected in container package curl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 95
+}
+{
+  "timestamp": "2025-09-13T14:35:22+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2024-1234",
+  "package": "curl",
+  "container_id": "7aa9f0848950",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-1234 detected in container package curl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 98
+}
+{
+  "timestamp": "2025-09-13T14:40:23+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2024-1234",
+  "package": "curl",
+  "container_id": "0c5d252718bc",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-1234 detected in container package curl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 28
+}
+{
+  "timestamp": "2025-09-13T14:55:23+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2024-5678",
+  "package": "openssl",
+  "container_id": "95f07074e837",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-5678 detected in container package openssl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 42
+}
+{
+  "timestamp": "2025-09-13T15:05:25+00:00",
+  "event_type": "DATA_EXFILTRATION",
+  "severity": "HIGH",
+  "container_id": "9269708626ce",
+  "source_ip": "172.17.0.53",
+  "destination_ip": "76.39.242.195",
+  "port": 4199,
+  "protocol": "TCP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 21
+}
+{
+  "timestamp": "2025-09-13T15:14:24+00:00",
+  "event_type": "DNS_TUNNELING",
+  "severity": "HIGH",
+  "container_id": "f8884fc06551",
+  "source_ip": "172.17.0.134",
+  "destination_ip": "90.1.224.198",
+  "port": 23795,
+  "protocol": "TCP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 99
+}
+{
+  "timestamp": "2025-09-13T15:19:31+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "MEDIUM",
+  "cve": "CVE-2024-1234",
+  "package": "python",
+  "container_id": "1a5f1f14bec0",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-1234 detected in container package python",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 40
+}
+{
+  "timestamp": "2025-09-13T15:31:02+00:00",
+  "event_type": "DATA_EXFILTRATION",
+  "severity": "HIGH",
+  "container_id": "7709a730f662",
+  "source_ip": "172.17.0.88",
+  "destination_ip": "155.75.249.9",
+  "port": 32062,
+  "protocol": "TCP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 56
+}
+{
+  "timestamp": "2025-09-13T15:41:00+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "MEDIUM",
+  "cve": "CVE-2024-1234",
+  "package": "openssl",
+  "container_id": "8073e46b4d96",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-1234 detected in container package openssl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 27
+}
+{
+  "timestamp": "2025-09-13T15:41:00+00:00",
+  "event_type": "SUSPICIOUS_OUTBOUND",
+  "severity": "HIGH",
+  "container_id": "187924748c05",
+  "source_ip": "172.17.0.18",
+  "destination_ip": "186.184.21.38",
+  "port": 16364,
+  "protocol": "TCP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 43
+}
+{
+  "timestamp": "2025-09-13T15:46:01+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "MEDIUM",
+  "cve": "CVE-2024-1234",
+  "package": "openssl",
+  "container_id": "4ffd6d385835",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-1234 detected in container package openssl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 88
+}
+{
+  "timestamp": "2025-09-13T15:50:38+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "CRITICAL",
+  "cve": "CVE-2024-5678",
+  "package": "curl",
+  "container_id": "c7d0b9d49d0a",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-5678 detected in container package curl",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 60
+}
+{
+  "timestamp": "2025-09-13T15:58:47+00:00",
+  "event_type": "UNAUTHORIZED_PORT",
+  "severity": "HIGH",
+  "container_id": "ffbf0c582bf1",
+  "source_ip": "172.17.0.113",
+  "destination_ip": "143.35.173.150",
+  "port": 19171,
+  "protocol": "UDP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 34
+}
+{
+  "timestamp": "2025-09-13T16:08:02+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "CRITICAL",
+  "cve": "CVE-2023-9999",
+  "package": "python",
+  "container_id": "10db98e78cf3",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2023-9999 detected in container package python",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 65
+}
+{
+  "timestamp": "2025-09-13T16:14:17+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2024-1234",
+  "package": "nginx",
+  "container_id": "af0a1b6fd01b",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-1234 detected in container package nginx",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 46
+}
+{
+  "timestamp": "2025-09-13T16:19:18+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "MEDIUM",
+  "cve": "CVE-2024-1234",
+  "package": "glibc",
+  "container_id": "d920db1fad74",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-1234 detected in container package glibc",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 75
+}
+{
+  "timestamp": "2025-09-13T16:24:10+00:00",
+  "event_type": "CONTAINER_VULNERABILITY",
+  "severity": "HIGH",
+  "cve": "CVE-2024-1234",
+  "package": "nginx",
+  "container_id": "0a7588747c22",
+  "image": "nginx:1.20",
+  "description": "Vulnerability CVE-2024-1234 detected in container package nginx",
+  "recommendation": "Update container image to latest patched version",
+  "risk_score": 27
+}
+{
+  "timestamp": "2025-09-13T16:24:10+00:00",
+  "event_type": "DNS_TUNNELING",
+  "severity": "HIGH",
+  "container_id": "f01018f08a98",
+  "source_ip": "172.17.0.135",
+  "destination_ip": "217.113.129.75",
+  "port": 14114,
+  "protocol": "TCP",
+  "description": "Suspicious container network activity detected",
+  "recommendation": "Review container network policies and firewall rules",
+  "risk_score": 61
+}

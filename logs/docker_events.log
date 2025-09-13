@@ -742,3 +742,3141 @@
   "time": 1757733513,
   "timeNano": 1757733513478282520
 }
+{
+  "timestamp": "2025-09-13T09:58:43+00:00",
+  "status": "destroy",
+  "id": "15757e868ca8",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "033040eb423e80cd4fdf1642ad8fbb2ae77c882050639012118c6c30d602c0a0",
+    "Attributes": {
+      "container": "worker",
+      "image": "nginx:latest",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757757523,
+  "timeNano": 1757757523117441483
+}
+{
+  "timestamp": "2025-09-13T09:58:43+00:00",
+  "status": "destroy",
+  "id": "250ab238d04b",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "c2a6eff28cc85e862bb5bba79bcece7cc9f3b29c8d2e4046f4bf19b74609d8fe",
+    "Attributes": {
+      "container": "web-server",
+      "image": "node:16-alpine",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757757523,
+  "timeNano": 1757757523157532390
+}
+{
+  "timestamp": "2025-09-13T09:58:43+00:00",
+  "status": "push",
+  "id": "960e7f44ba90",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "825b9d79b4d06e934ea6be7a0454134e4231e099b1c570c9389b4b82c2ca5e58",
+    "Attributes": {
+      "container": "web-server",
+      "image": "python:3.9",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757757523,
+  "timeNano": 1757757523216212115
+}
+{
+  "timestamp": "2025-09-13T09:59:05+00:00",
+  "status": "create",
+  "id": "d33616e82f97",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "1eaf919e170c49b7488b180430ec700b606ae92acc77e3943094409b59317218",
+    "Attributes": {
+      "container": "worker",
+      "image": "node:16-alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757757545,
+  "timeNano": 1757757545112906757
+}
+{
+  "timestamp": "2025-09-13T09:59:05+00:00",
+  "status": "create",
+  "id": "e7ed94d16591",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "53989b658b4878498a556e147a119ce395088aa62de058c7f70c747f60dada06",
+    "Attributes": {
+      "container": "web-server",
+      "image": "nginx:latest",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757757545,
+  "timeNano": 1757757545156298507
+}
+{
+  "timestamp": "2025-09-13T09:59:05+00:00",
+  "status": "start",
+  "id": "ee86343d44c0",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "582be0a57011c9efc2093b7cf26176b43e48a13de8d9f41ed5998489332e8705",
+    "Attributes": {
+      "container": "database",
+      "image": "node:16-alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757757545,
+  "timeNano": 1757757545185097947
+}
+{
+  "timestamp": "2025-09-13T10:00:19+00:00",
+  "status": "pull",
+  "id": "310028af7a0a",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "cd7852e0609b01ee6d6f5f107d94e6a4388083e26ac266bb9c2b8cff8e5d21c8",
+    "Attributes": {
+      "container": "worker",
+      "image": "node:16-alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757757619,
+  "timeNano": 1757757619438661428
+}
+{
+  "timestamp": "2025-09-13T10:00:19+00:00",
+  "status": "stop",
+  "id": "a69135561efb",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "11f2d2b923ae902864413f040331ceeb355c9c3ff429b128edd43cf79b232dda",
+    "Attributes": {
+      "container": "web-server",
+      "image": "postgres:13",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757757619,
+  "timeNano": 1757757619458727000
+}
+{
+  "timestamp": "2025-09-13T10:00:19+00:00",
+  "status": "pull",
+  "id": "a0ec6a266f2d",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "7a54add2d41d7b157c7fa32fd686003c5c8538120201381b80d47e8ce36d1359",
+    "Attributes": {
+      "container": "database",
+      "image": "nginx:latest",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757757619,
+  "timeNano": 1757757619493647077
+}
+{
+  "timestamp": "2025-09-13T10:09:04+00:00",
+  "status": "push",
+  "id": "99972a042416",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "5f8edb1bc8155bb8980d0bf34da7f806d78a5c11645aeab1d9d5e92b31667fde",
+    "Attributes": {
+      "container": "api-service",
+      "image": "node:16-alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757758144,
+  "timeNano": 1757758144041509411
+}
+{
+  "timestamp": "2025-09-13T10:09:04+00:00",
+  "status": "stop",
+  "id": "7f558f526908",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "00f67f301f25061b43981d29eda05773aecb41f58b2dcae591b176552c44b071",
+    "Attributes": {
+      "container": "worker",
+      "image": "postgres:13",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757758144,
+  "timeNano": 1757758144054421962
+}
+{
+  "timestamp": "2025-09-13T10:09:04+00:00",
+  "status": "push",
+  "id": "bfd9ea2b3dfa",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "804c3e198b31eb0d0ee406fad00f8c422fa903d",
+    "Attributes": {
+      "container": "api-service",
+      "image": "redis:alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757758144,
+  "timeNano": 1757758144065839365
+}
+{
+  "timestamp": "2025-09-13T10:10:19+00:00",
+  "status": "pull",
+  "id": "021a16f4c109",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "e83db0081ee651a1707cc1b5dafd8e09840e4e4d9912464dad599631e496e9bf",
+    "Attributes": {
+      "container": "worker",
+      "image": "node:16-alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757758219,
+  "timeNano": 1757758219043546200
+}
+{
+  "timestamp": "2025-09-13T10:10:19+00:00",
+  "status": "pull",
+  "id": "8d1a7e0b7aa6",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "2fc424eec55866d2bfe174f4a8807ed299aee7e7943386278fbe7ece910a89ba",
+    "Attributes": {
+      "container": "web-server",
+      "image": "postgres:13",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757758219,
+  "timeNano": 1757758219054893793
+}
+{
+  "timestamp": "2025-09-13T10:10:19+00:00",
+  "status": "start",
+  "id": "208233ef8f40",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "dbbd0f0696ec2649518961536f7dfaccc3421170746a0e60597ef1f5f9e37ec7",
+    "Attributes": {
+      "container": "worker",
+      "image": "postgres:13",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757758219,
+  "timeNano": 1757758219066534909
+}
+{
+  "timestamp": "2025-09-13T10:19:03+00:00",
+  "status": "destroy",
+  "id": "814d0f12741d",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "d448702c2ce6c1854f0bc1a344f8698d7ff2fed205e3053c1ea5f6cd0ccd899b",
+    "Attributes": {
+      "container": "database",
+      "image": "nginx:latest",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757758743,
+  "timeNano": 1757758743498107462
+}
+{
+  "timestamp": "2025-09-13T10:19:03+00:00",
+  "status": "start",
+  "id": "6d295b5d08b4",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "d550fd52a176963aa34d876fa852d7b83f55b630e2e2a541dc2c4df92a2345bd",
+    "Attributes": {
+      "container": "worker",
+      "image": "nginx:latest",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757758743,
+  "timeNano": 1757758743512651590
+}
+{
+  "timestamp": "2025-09-13T10:19:03+00:00",
+  "status": "push",
+  "id": "ba130d01553c",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "24ef8965a2777306e83ee3fccdf7b792d8f8c3bcc7b8f622177f975bcde52135",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "nginx:latest",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757758743,
+  "timeNano": 1757758743535274119
+}
+{
+  "timestamp": "2025-09-13T10:29:04+00:00",
+  "status": "create",
+  "id": "58b4654ea643",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "1fa6634bd6fc21a526d1cefb53151aa20a27c770420030671d4edff6841629d3",
+    "Attributes": {
+      "container": "api-service",
+      "image": "redis:alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757759344,
+  "timeNano": 1757759344033365880
+}
+{
+  "timestamp": "2025-09-13T10:29:04+00:00",
+  "status": "push",
+  "id": "ed42095a32ed",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "43ef97249391271547409c165801d9d1c5dc5ef61ac5fd45839ecd9598137ea3",
+    "Attributes": {
+      "container": "worker",
+      "image": "nginx:latest",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757759344,
+  "timeNano": 1757759344044901904
+}
+{
+  "timestamp": "2025-09-13T10:29:04+00:00",
+  "status": "create",
+  "id": "c4e3d55625f7",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "51f5db4224860648e3e24310b093123e71b20bb9d34a767d6f8564633487fb04",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "python:3.9",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757759344,
+  "timeNano": 1757759344056521744
+}
+{
+  "timestamp": "2025-09-13T10:39:04+00:00",
+  "status": "start",
+  "id": "3fb7db41c286",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "9db256d5f560393f298229151811336d68244e383657575461b589a74999f42d",
+    "Attributes": {
+      "container": "web-server",
+      "image": "redis:alpine",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757759944,
+  "timeNano": 1757759944997086179
+}
+{
+  "timestamp": "2025-09-13T10:39:04+00:00",
+  "status": "destroy",
+  "id": "726b1f162205",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "2a700992d7a063544cafd47e230158fd7b4edc901ffd7ac1701d39692ebaa475",
+    "Attributes": {
+      "container": "web-server",
+      "image": "node:16-alpine",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757759945,
+  "timeNano": 1757759945010052090
+}
+{
+  "timestamp": "2025-09-13T10:39:04+00:00",
+  "status": "push",
+  "id": "f0b6b8b0dd3a",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "849710eb16ff11a832563d3bce13ce1020dd9aef8d5bbb86a9fa3f1bb7a6f511",
+    "Attributes": {
+      "container": "api-service",
+      "image": "python:3.9",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757759945,
+  "timeNano": 1757759945026652896
+}
+{
+  "timestamp": "2025-09-13T10:49:04+00:00",
+  "status": "start",
+  "id": "42255f1d6ca6",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "4871f262e0bffa7d36b95e74e85808a0e25edc7a06ebe8ef2a9a3fd91fd91feb",
+    "Attributes": {
+      "container": "web-server",
+      "image": "python:3.9",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757760544,
+  "timeNano": 1757760544539975636
+}
+{
+  "timestamp": "2025-09-13T10:49:04+00:00",
+  "status": "pull",
+  "id": "f6700c3c6c6d",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "ae896ba8c626a6115f9a32dfb63950a0d81bb6fab2abbae987a25d07585912eb",
+    "Attributes": {
+      "container": "worker",
+      "image": "redis:alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757760544,
+  "timeNano": 1757760544551408141
+}
+{
+  "timestamp": "2025-09-13T10:49:04+00:00",
+  "status": "start",
+  "id": "e7f852a956f5",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "47ec62cfa0ff84da5ce6516beb1f5e6908edf113caa48e0e4074564693abbb3c",
+    "Attributes": {
+      "container": "database",
+      "image": "postgres:13",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757760544,
+  "timeNano": 1757760544563027019
+}
+{
+  "timestamp": "2025-09-13T11:15:31+00:00",
+  "status": "start",
+  "id": "f0bd13d0c229",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "faad2301bdb0daf96e46f6880a5d71bab89ffc563890812b8a8395ff5591c87e",
+    "Attributes": {
+      "container": "database",
+      "image": "python:3.9",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757762131,
+  "timeNano": 1757762131759453431
+}
+{
+  "timestamp": "2025-09-13T11:15:31+00:00",
+  "status": "start",
+  "id": "025da487bf42",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "d51d85c72fbcc170463930a7bc99e036fb8f2acc6431d817d3a3de7bc6093260",
+    "Attributes": {
+      "container": "database",
+      "image": "node:16-alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757762131,
+  "timeNano": 1757762131787776934
+}
+{
+  "timestamp": "2025-09-13T11:15:31+00:00",
+  "status": "create",
+  "id": "dd1e48a8b225",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "1bb8674ee6aef4f75c3902a61630510f70f388d3688d5ce351caac91f61cfa54",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "python:3.9",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757762131,
+  "timeNano": 1757762131815643473
+}
+{
+  "timestamp": "2025-09-13T11:24:22+00:00",
+  "status": "destroy",
+  "id": "381f6a3370fb",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "c2d0b1693bacee8fd13c7ec3d791e0d0cc1063e2e108419dfc685f8b887910c9",
+    "Attributes": {
+      "container": "database",
+      "image": "node:16-alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757762662,
+  "timeNano": 1757762662967041534
+}
+{
+  "timestamp": "2025-09-13T11:24:22+00:00",
+  "status": "destroy",
+  "id": "6f94565d8a9a",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "094cca0e1d7af50c0390335b7712c64a76b206733328fd264f87c97084db0c9d",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "nginx:latest",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757762662,
+  "timeNano": 1757762663003710516
+}
+{
+  "timestamp": "2025-09-13T11:24:22+00:00",
+  "status": "create",
+  "id": "9c17dac158be",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "7c38dbfeb5970ad60abdc6927bda632ad97c4cf7073d41e11b365ac3794f5c67",
+    "Attributes": {
+      "container": "database",
+      "image": "node:16-alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757762663,
+  "timeNano": 1757762663040615236
+}
+{
+  "timestamp": "2025-09-13T11:25:04+00:00",
+  "status": "push",
+  "id": "44bac76b83a9",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "1fb496928f7e4788378584d4e07d657efaddaad7fe211abe453047432577f5fb",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "postgres:13",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757762704,
+  "timeNano": 1757762704686915736
+}
+{
+  "timestamp": "2025-09-13T11:25:04+00:00",
+  "status": "destroy",
+  "id": "3af8522a262a",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "517e03e4d263fcdeca4bcfca99f6ede657bd21827e56d9611c6d74eab7f80203",
+    "Attributes": {
+      "container": "worker",
+      "image": "python:3.9",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757762704,
+  "timeNano": 1757762704711193159
+}
+{
+  "timestamp": "2025-09-13T11:25:04+00:00",
+  "status": "push",
+  "id": "03f4cc3ae19d",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "d349c05422897e62ef9f5d4618b81993096bb2127cf8d5248df2703a567918ca",
+    "Attributes": {
+      "container": "api-service",
+      "image": "nginx:latest",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757762704,
+  "timeNano": 1757762704737817101
+}
+{
+  "timestamp": "2025-09-13T11:33:16+00:00",
+  "status": "pull",
+  "id": "f8abfed6b79f",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "35ac52d3bdb6516e1c7e77241144862c857432501e460084b4c2e4bcb1c90412",
+    "Attributes": {
+      "container": "api-service",
+      "image": "postgres:13",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757763196,
+  "timeNano": 1757763196726939877
+}
+{
+  "timestamp": "2025-09-13T11:33:16+00:00",
+  "status": "stop",
+  "id": "65ff7ddf4e50",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "74c064cd1685d0a47a5ce15510b9d7c64d78d07c0fa5d342ba1b65e11467fd06",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "nginx:latest",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757763196,
+  "timeNano": 1757763196776050111
+}
+{
+  "timestamp": "2025-09-13T11:33:16+00:00",
+  "status": "start",
+  "id": "3856d0af776a",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "0f965333e275a0df24972b978f7e04dbafd6fcd71154d1cb4a19f05fd73be957",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "python:3.9",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757763196,
+  "timeNano": 1757763196847242663
+}
+{
+  "timestamp": "2025-09-13T11:35:05+00:00",
+  "status": "destroy",
+  "id": "a4898440ccd4",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "43ac8082f8d82892ee251df3f1c609d9577a10423c084cad7a8c4e39a7fbd2ea",
+    "Attributes": {
+      "container": "database",
+      "image": "nginx:latest",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757763305,
+  "timeNano": 1757763305015729435
+}
+{
+  "timestamp": "2025-09-13T11:35:05+00:00",
+  "status": "pull",
+  "id": "00549ee4c499",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "4d791eed0689b67845a18c39be938a4a714e94f96cde3fab66f6daec8659113f",
+    "Attributes": {
+      "container": "api-service",
+      "image": "node:16-alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757763305,
+  "timeNano": 1757763305027237046
+}
+{
+  "timestamp": "2025-09-13T11:35:05+00:00",
+  "status": "stop",
+  "id": "fa016b399eeb",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "5a0f6290a2992cedbe8dcc226b9841abacafe2c345e2dc1c6f110b33959dc4dc",
+    "Attributes": {
+      "container": "database",
+      "image": "python:3.9",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757763305,
+  "timeNano": 1757763305041011443
+}
+{
+  "timestamp": "2025-09-13T11:43:16+00:00",
+  "status": "create",
+  "id": "c9dfb873ecac",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "da11c27b88d8699cf6a6b0fa05ccd28946f953e7a730c07110d9bd25fecbf17c",
+    "Attributes": {
+      "container": "worker",
+      "image": "node:16-alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757763796,
+  "timeNano": 1757763796647865187
+}
+{
+  "timestamp": "2025-09-13T11:43:16+00:00",
+  "status": "stop",
+  "id": "006cc5788f10",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "5b800f7a1b76f682999055bce10875adde9622ba9d3e7e86e2caac3721e40ab2",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "python:3.9",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757763796,
+  "timeNano": 1757763796659050677
+}
+{
+  "timestamp": "2025-09-13T11:43:16+00:00",
+  "status": "start",
+  "id": "ea4fc32dbc93",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "6eeb64a6e04c7ee264f30b4c5cdd745257a4bcbdc83de8ccb1b0b9b9e4f1fbb8",
+    "Attributes": {
+      "container": "web-server",
+      "image": "node:16-alpine",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757763796,
+  "timeNano": 1757763796670762948
+}
+{
+  "timestamp": "2025-09-13T11:45:05+00:00",
+  "status": "create",
+  "id": "9d886463693e",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "c5543c7c151803bbc528c16cc77900ccf5e96e83ee91738adaff638efc30f9c8",
+    "Attributes": {
+      "container": "web-server",
+      "image": "python:3.9",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757763905,
+  "timeNano": 1757763905469397421
+}
+{
+  "timestamp": "2025-09-13T11:45:05+00:00",
+  "status": "create",
+  "id": "81bd01da75d9",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "63b24898534c5bb81eb56f0e2f1e23f0a9e196e1ee945a67e607b106f25d82ca",
+    "Attributes": {
+      "container": "database",
+      "image": "nginx:latest",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757763905,
+  "timeNano": 1757763905484243449
+}
+{
+  "timestamp": "2025-09-13T11:45:05+00:00",
+  "status": "destroy",
+  "id": "92b06835906d",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "24f4161c32013a76315a96820154a2e04a2bcb7b613cf85ca331f132ee3d193a",
+    "Attributes": {
+      "container": "web-server",
+      "image": "postgres:13",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757763905,
+  "timeNano": 1757763905502978354
+}
+{
+  "timestamp": "2025-09-13T11:55:05+00:00",
+  "status": "destroy",
+  "id": "9f0fe9f1b5b5",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "39a96b425ebb56ce7c2496f1cab18317bf8d3f5104eaa949452e9c59ceb61b7c",
+    "Attributes": {
+      "container": "web-server",
+      "image": "postgres:13",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757764505,
+  "timeNano": 1757764505247655602
+}
+{
+  "timestamp": "2025-09-13T11:55:05+00:00",
+  "status": "start",
+  "id": "fc5553d07d7e",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "649cfbcdb736e5977f347ad51395078970e198fe0fc8eaa0a2995863e242b0c4",
+    "Attributes": {
+      "container": "worker",
+      "image": "redis:alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757764505,
+  "timeNano": 1757764505259025857
+}
+{
+  "timestamp": "2025-09-13T11:55:05+00:00",
+  "status": "destroy",
+  "id": "fa78dc642631",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "70aa3a02839e999be0974c8ecfb4595292799978f3e723eb8f3bc228622f2f9f",
+    "Attributes": {
+      "container": "web-server",
+      "image": "node:16-alpine",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757764505,
+  "timeNano": 1757764505270478462
+}
+{
+  "timestamp": "2025-09-13T12:05:06+00:00",
+  "status": "destroy",
+  "id": "b6f7c4bb45b4",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "0a4e4b4635843f6c5c78330a4043752af0324cbe4f53069069efd658a816555f",
+    "Attributes": {
+      "container": "web-server",
+      "image": "redis:alpine",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757765106,
+  "timeNano": 1757765106283783602
+}
+{
+  "timestamp": "2025-09-13T12:05:06+00:00",
+  "status": "destroy",
+  "id": "4c22234c1c8f",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "0a4167091f0f35fec8751a0a8b6aa26426c6a4f487ed6c59605054fe830cb966",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "node:16-alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757765106,
+  "timeNano": 1757765106295210008
+}
+{
+  "timestamp": "2025-09-13T12:05:06+00:00",
+  "status": "destroy",
+  "id": "54c848ec3c1a",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "dba4a7de24ed810790cda02ef68f02a96f7b68255f4cc67773606e13a34c07b6",
+    "Attributes": {
+      "container": "worker",
+      "image": "python:3.9",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757765106,
+  "timeNano": 1757765106306422308
+}
+{
+  "timestamp": "2025-09-13T12:15:06+00:00",
+  "status": "pull",
+  "id": "574d15f68189",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "0d0a54f4703234a1c67724551fdbf002b8e40e93ae52234dc411f7fcfb742aec",
+    "Attributes": {
+      "container": "api-service",
+      "image": "python:3.9",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757765706,
+  "timeNano": 1757765706238706440
+}
+{
+  "timestamp": "2025-09-13T12:15:06+00:00",
+  "status": "destroy",
+  "id": "f23f49cd8cb4",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "e2e3cc7368b2c6b455dcee6f5d8f8a3d6ae8a3fc5011b3ed6aad6c7006942e88",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "python:3.9",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757765706,
+  "timeNano": 1757765706250169738
+}
+{
+  "timestamp": "2025-09-13T12:15:06+00:00",
+  "status": "create",
+  "id": "586f0e8dab13",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "9f757a0b8c75c2c7d7557d30c2942fa0ffe7fd063cf1de1a1be9e89272b8c9db",
+    "Attributes": {
+      "container": "web-server",
+      "image": "nginx:latest",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757765706,
+  "timeNano": 1757765706261914360
+}
+{
+  "timestamp": "2025-09-13T12:25:07+00:00",
+  "status": "stop",
+  "id": "2b44ffead33b",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "64317ebefc4db126766dbbb47697208a53ab5f8114455555702f886fc1872397",
+    "Attributes": {
+      "container": "api-service",
+      "image": "node:16-alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757766307,
+  "timeNano": 1757766307575716027
+}
+{
+  "timestamp": "2025-09-13T12:25:07+00:00",
+  "status": "push",
+  "id": "2f68ae569e4e",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "a6b072b441271408777a406111a48158a6414993ab40c9f668ea86fbea972268",
+    "Attributes": {
+      "container": "api-service",
+      "image": "python:3.9",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757766307,
+  "timeNano": 1757766307615472488
+}
+{
+  "timestamp": "2025-09-13T12:25:07+00:00",
+  "status": "create",
+  "id": "2bd36f321030",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "58786509276a7e0293ae3f2e659eebfbe90651500520ae07c8f9cfb1d36ab185",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "nginx:latest",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757766307,
+  "timeNano": 1757766307641940671
+}
+{
+  "timestamp": "2025-09-13T12:30:59+00:00",
+  "status": "stop",
+  "id": "3a76397b8767",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "1f96685e449f7dd68dae560f5cbe2c0355293c098001a9927bef849584e4c1f5",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "postgres:13",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757766659,
+  "timeNano": 1757766659288885397
+}
+{
+  "timestamp": "2025-09-13T12:30:59+00:00",
+  "status": "destroy",
+  "id": "28e48ee2e14d",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "ee1e0cfcfef4755367721fdf5616cb0a71314a8d829f1bacc8a1553d94bac3e8",
+    "Attributes": {
+      "container": "database",
+      "image": "node:16-alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757766659,
+  "timeNano": 1757766659307581660
+}
+{
+  "timestamp": "2025-09-13T12:30:59+00:00",
+  "status": "create",
+  "id": "098f5e349877",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "cd495ac73f0cdbda7409bc76e6086241fa41f3bb23e9a367a6f3f42b9184bfbf",
+    "Attributes": {
+      "container": "database",
+      "image": "node:16-alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757766659,
+  "timeNano": 1757766659327868148
+}
+{
+  "timestamp": "2025-09-13T12:35:08+00:00",
+  "status": "pull",
+  "id": "46be7b1218d9",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "d614fbcfb48843e1e38d9ac30ad79ce55d5e55d1c0a965b6228af5713c2b4a0d",
+    "Attributes": {
+      "container": "database",
+      "image": "node:16-alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757766908,
+  "timeNano": 1757766908359573360
+}
+{
+  "timestamp": "2025-09-13T12:35:08+00:00",
+  "status": "stop",
+  "id": "1a85c3529112",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "a0ee9bb7a07e0ea313e29927c6072b69048d113837f5b94f9d6ab69dad837cbf",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "redis:alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757766908,
+  "timeNano": 1757766908370860628
+}
+{
+  "timestamp": "2025-09-13T12:35:08+00:00",
+  "status": "stop",
+  "id": "a0b8fe97259a",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "3c5b8cb1fa087a4dd191c7094b7b4bbb08a30070c57e499e5a4846caaf920349",
+    "Attributes": {
+      "container": "database",
+      "image": "postgres:13",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757766908,
+  "timeNano": 1757766908381991495
+}
+{
+  "timestamp": "2025-09-13T12:37:56+00:00",
+  "status": "start",
+  "id": "92704e6f1cc3",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "a47cec0bd26d5e95298ba5c9ffb9e0941875e9c2aa477bd5587fe7f0869d220f",
+    "Attributes": {
+      "container": "worker",
+      "image": "nginx:latest",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757767076,
+  "timeNano": 1757767076440595062
+}
+{
+  "timestamp": "2025-09-13T12:37:56+00:00",
+  "status": "create",
+  "id": "28cd3fd44ef4",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "de3d15657de0ac91a08eba8c93a30faf97457b79ffeb9d27c03396e815a4f3c6",
+    "Attributes": {
+      "container": "database",
+      "image": "node:16-alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757767076,
+  "timeNano": 1757767076456286846
+}
+{
+  "timestamp": "2025-09-13T12:37:56+00:00",
+  "status": "create",
+  "id": "1d217b8ed5b8",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "b15357fdb2b8e5beb7f20cae57a5fb6949bb694020910cf4be47e8adc18e8b6e",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "node:16-alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757767076,
+  "timeNano": 1757767076473981909
+}
+{
+  "timestamp": "2025-09-13T12:40:11+00:00",
+  "status": "destroy",
+  "id": "3562766fe1dd",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "cbdbb2659765020639b3cbee466c65f179b05a24cb3f91f513a0723172821e50",
+    "Attributes": {
+      "container": "api-service",
+      "image": "node:16-alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757767211,
+  "timeNano": 1757767211351371733
+}
+{
+  "timestamp": "2025-09-13T12:40:11+00:00",
+  "status": "create",
+  "id": "8cae50ceeeac",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "da022813fbb2cfd5372e85eedf89eaaadaf40cde3dff61977ff62fdbf51c4b60",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "python:3.9",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757767211,
+  "timeNano": 1757767211375758401
+}
+{
+  "timestamp": "2025-09-13T12:40:11+00:00",
+  "status": "push",
+  "id": "e13689b8de4e",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "b3ed5c231c725406a53582c67056c371ccaef6f3e3caf1d492b2c59d9e0d3a5c",
+    "Attributes": {
+      "container": "api-service",
+      "image": "node:16-alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757767211,
+  "timeNano": 1757767211394525286
+}
+{
+  "timestamp": "2025-09-13T12:42:24+00:00",
+  "status": "create",
+  "id": "f29c5638eff0",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "2e1db6d26ebb52561c3d14abfab16e61383914b1966c9e0040b96280f8500958",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "python:3.9",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757767344,
+  "timeNano": 1757767344910197965
+}
+{
+  "timestamp": "2025-09-13T12:42:24+00:00",
+  "status": "destroy",
+  "id": "185ee469a09f",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "5bf2342853d0e6899d4fa9b845f09e23f2101d14fada2513cf99e62f1298591a",
+    "Attributes": {
+      "container": "worker",
+      "image": "nginx:latest",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757767344,
+  "timeNano": 1757767344925584704
+}
+{
+  "timestamp": "2025-09-13T12:42:24+00:00",
+  "status": "destroy",
+  "id": "a6c42e4a31ad",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "9dcd332c8028b506891b888f833fe557e6856fcf875fa78f9618d8fd31b6c87e",
+    "Attributes": {
+      "container": "api-service",
+      "image": "redis:alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757767344,
+  "timeNano": 1757767344940891561
+}
+{
+  "timestamp": "2025-09-13T12:45:08+00:00",
+  "status": "destroy",
+  "id": "3645d1a0b1d4",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "122b4cd2fff4c34928519f82de34d158c6ba1651affda0365be5062dc7a14840",
+    "Attributes": {
+      "container": "api-service",
+      "image": "redis:alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757767508,
+  "timeNano": 1757767508366458815
+}
+{
+  "timestamp": "2025-09-13T12:45:08+00:00",
+  "status": "destroy",
+  "id": "8396dce6dd15",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "13a1d08cfc17d5f1ec6ec939cef724a56b49ee32ab29148cb5c8dab18621b61d",
+    "Attributes": {
+      "container": "database",
+      "image": "python:3.9",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757767508,
+  "timeNano": 1757767508416544848
+}
+{
+  "timestamp": "2025-09-13T12:45:08+00:00",
+  "status": "start",
+  "id": "205c49e20d7a",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "d68eeaf7f289e3ec87cdee9f661a9580ddf803b0090bc1e6dc5f48ca9de1bb9e",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "nginx:latest",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757767508,
+  "timeNano": 1757767508460362810
+}
+{
+  "timestamp": "2025-09-13T12:45:35+00:00",
+  "status": "push",
+  "id": "54a3f0e83265",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "d48ebb7e1e547ab7c640a8da68b4ccfd8ed06d9724d902657115682abfbb26fa",
+    "Attributes": {
+      "container": "api-service",
+      "image": "postgres:13",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757767535,
+  "timeNano": 1757767535071463992
+}
+{
+  "timestamp": "2025-09-13T12:45:35+00:00",
+  "status": "stop",
+  "id": "0a750c167d9c",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "57c5044be0f8b2a46bba31f7ec4a190bb6587fd08142f462d1abc410d9f4616c",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "redis:alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757767535,
+  "timeNano": 1757767535093707302
+}
+{
+  "timestamp": "2025-09-13T12:45:35+00:00",
+  "status": "stop",
+  "id": "306ae4a2c243",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "6e7c7210541c8a3e1a39edcaba46134f515fa66f88fc04fadf66f2695c8c2f7c",
+    "Attributes": {
+      "container": "web-server",
+      "image": "redis:alpine",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757767535,
+  "timeNano": 1757767535120872302
+}
+{
+  "timestamp": "2025-09-13T12:48:29+00:00",
+  "status": "pull",
+  "id": "c12acfe6e28a",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "49171e43a1615f3f8fea4661b0ffa617c9a74c328b4ff07aa37ef437e58e7e4a",
+    "Attributes": {
+      "container": "worker",
+      "image": "python:3.9",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757767709,
+  "timeNano": 1757767709167134798
+}
+{
+  "timestamp": "2025-09-13T12:48:29+00:00",
+  "status": "create",
+  "id": "16b8c00a77cf",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "92d449864db78c7e7b073d988a050eaacd4b9ef091dbc7f6db31e620b6a99ed8",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "nginx:latest",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757767709,
+  "timeNano": 1757767709193743914
+}
+{
+  "timestamp": "2025-09-13T12:48:29+00:00",
+  "status": "start",
+  "id": "f0c75a5a7ca9",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "306530552f57cce64c5cf18a899861174f283ab7447c89aeafbaa0355371b5ee",
+    "Attributes": {
+      "container": "web-server",
+      "image": "redis:alpine",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757767709,
+  "timeNano": 1757767709210209802
+}
+{
+  "timestamp": "2025-09-13T12:51:54+00:00",
+  "status": "start",
+  "id": "c11384028330",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "2de01732dea48e04487f0d62e46a96da13fea724e2ba4b93b64d8a05550b8f52",
+    "Attributes": {
+      "container": "api-service",
+      "image": "postgres:13",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757767914,
+  "timeNano": 1757767914056620848
+}
+{
+  "timestamp": "2025-09-13T12:51:54+00:00",
+  "status": "create",
+  "id": "b6f57adc92a9",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "9a73af56ca7ff74e7c271f52e6d81df11c1b544a0ca2dd4c92721e56a65c1ed2",
+    "Attributes": {
+      "container": "api-service",
+      "image": "redis:alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757767914,
+  "timeNano": 1757767914081650133
+}
+{
+  "timestamp": "2025-09-13T12:51:54+00:00",
+  "status": "pull",
+  "id": "2468cf516184",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "1c12e56d74ae5b7acf9e4dfb320debc8da2efc6f9e2f5fa5a9c83b0d94c3b757",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "redis:alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757767914,
+  "timeNano": 1757767914100385527
+}
+{
+  "timestamp": "2025-09-13T12:55:09+00:00",
+  "status": "create",
+  "id": "ef2687b13aa7",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "06cffd522c1bae4758287322f3f00ab4509a37cfa4e04d60405cdfb5eaef0c29",
+    "Attributes": {
+      "container": "web-server",
+      "image": "python:3.9",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757768109,
+  "timeNano": 1757768109266024963
+}
+{
+  "timestamp": "2025-09-13T12:55:09+00:00",
+  "status": "start",
+  "id": "0c2422fd8858",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "a636a6647a2bc96c55f7429fd80fdcce65f958526bbabb63a22a0ce92566809b",
+    "Attributes": {
+      "container": "web-server",
+      "image": "postgres:13",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757768109,
+  "timeNano": 1757768109277666272
+}
+{
+  "timestamp": "2025-09-13T12:55:09+00:00",
+  "status": "stop",
+  "id": "79ffb20b1344",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "6e24dc97f71475c4c5a7d0499e121dc3e7e6155ecef9043ce32a4e3ccf1eebfd",
+    "Attributes": {
+      "container": "database",
+      "image": "node:16-alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757768109,
+  "timeNano": 1757768109289451309
+}
+{
+  "timestamp": "2025-09-13T13:05:09+00:00",
+  "status": "push",
+  "id": "8e97fb78ec12",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "ad924f7c6561a41f77085f070f50b70fbe4e3476af52d2f6f89c07e8bb6221a3",
+    "Attributes": {
+      "container": "api-service",
+      "image": "python:3.9",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757768709,
+  "timeNano": 1757768709527344239
+}
+{
+  "timestamp": "2025-09-13T13:05:09+00:00",
+  "status": "start",
+  "id": "81a56c10b6b6",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "cc048e2e63d7f3b21d1fb6e091f09e16e8e6efca43d5a4c2ad7cb3e1db264594",
+    "Attributes": {
+      "container": "api-service",
+      "image": "nginx:latest",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757768709,
+  "timeNano": 1757768709539242686
+}
+{
+  "timestamp": "2025-09-13T13:05:09+00:00",
+  "status": "push",
+  "id": "8b85a76f906c",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "ff068559da10e49a291a0df8afad55709ea9e583139f8688da12c1fba9a6200d",
+    "Attributes": {
+      "container": "worker",
+      "image": "nginx:latest",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757768709,
+  "timeNano": 1757768709550839554
+}
+{
+  "timestamp": "2025-09-13T13:31:28+00:00",
+  "status": "create",
+  "id": "4fc232271339",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "49c07340457e5ee5aa5bf2ee9c13b143c2d33e5a72784d1dc474d78cdd6b867a",
+    "Attributes": {
+      "container": "web-server",
+      "image": "redis:alpine",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757770288,
+  "timeNano": 1757770288181912952
+}
+{
+  "timestamp": "2025-09-13T13:31:28+00:00",
+  "status": "create",
+  "id": "a6e8b1b54013",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "73253adc07dfcd228613a7a3682916c63eaf7e4662f0ffa78ebbddf399b9da5a",
+    "Attributes": {
+      "container": "worker",
+      "image": "python:3.9",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757770288,
+  "timeNano": 1757770288198935501
+}
+{
+  "timestamp": "2025-09-13T13:31:28+00:00",
+  "status": "stop",
+  "id": "5ecdd2c0e16f",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "e935f78e49c9bdc02be6a8d338874b4a914602a488cc2f34e58bf0e2de0e1348",
+    "Attributes": {
+      "container": "web-server",
+      "image": "postgres:13",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757770288,
+  "timeNano": 1757770288214846766
+}
+{"status":"exec_create: /var/ossec/bin/manage_agents ","id":"1537b1bb7838f5041cbd7b556dd1ebf4ca3ef5cce2ae366f9a3bd4330bd83d11","from":"wazuh/wazuh-manager:4.12.0","Type":"container","Action":"exec_create: /var/ossec/bin/manage_agents ","Actor":{"ID":"1537b1bb7838f5041cbd7b556dd1ebf4ca3ef5cce2ae366f9a3bd4330bd83d11","Attributes":{"execID":"f104eaa6201014455e6bb6c81f1738a51aa9d027d393688bdca3114a6248a772","image":"wazuh/wazuh-manager:4.12.0","name":"wazuh-manager"}},"scope":"local","time":1757770592,"timeNano":1757770592800588442}
+{"status":"exec_start: /var/ossec/bin/manage_agents ","id":"1537b1bb7838f5041cbd7b556dd1ebf4ca3ef5cce2ae366f9a3bd4330bd83d11","from":"wazuh/wazuh-manager:4.12.0","Type":"container","Action":"exec_start: /var/ossec/bin/manage_agents ","Actor":{"ID":"1537b1bb7838f5041cbd7b556dd1ebf4ca3ef5cce2ae366f9a3bd4330bd83d11","Attributes":{"execID":"f104eaa6201014455e6bb6c81f1738a51aa9d027d393688bdca3114a6248a772","image":"wazuh/wazuh-manager:4.12.0","name":"wazuh-manager"}},"scope":"local","time":1757770592,"timeNano":1757770592801110845}
+{"status":"exec_die","id":"1537b1bb7838f5041cbd7b556dd1ebf4ca3ef5cce2ae366f9a3bd4330bd83d11","from":"wazuh/wazuh-manager:4.12.0","Type":"container","Action":"exec_die","Actor":{"ID":"1537b1bb7838f5041cbd7b556dd1ebf4ca3ef5cce2ae366f9a3bd4330bd83d11","Attributes":{"execID":"f104eaa6201014455e6bb6c81f1738a51aa9d027d393688bdca3114a6248a772","exitCode":"0","image":"wazuh/wazuh-manager:4.12.0","name":"wazuh-manager"}},"scope":"local","time":1757770592,"timeNano":1757770592853475390}
+{
+  "timestamp": "2025-09-13T13:40:55+00:00",
+  "status": "push",
+  "id": "874b5a38c5f3",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "2e05444bc6bead87fff0f371bb85591be2720dae16a792abf4279507bd652644",
+    "Attributes": {
+      "container": "api-service",
+      "image": "nginx:latest",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757770855,
+  "timeNano": 1757770855607619072
+}
+{
+  "timestamp": "2025-09-13T13:40:55+00:00",
+  "status": "push",
+  "id": "cd1879afb1dd",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "5050a938eaa7716b6a564a7144c1bb3430d2759197f7e588ba75921fe75e2374",
+    "Attributes": {
+      "container": "worker",
+      "image": "postgres:13",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757770855,
+  "timeNano": 1757770855623437965
+}
+{
+  "timestamp": "2025-09-13T13:40:55+00:00",
+  "status": "create",
+  "id": "44e220bf0812",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "bf22e4114d2914e2584b8852ffd784b7854fd89572b3979605fc34b9bdc0ae0a",
+    "Attributes": {
+      "container": "worker",
+      "image": "node:16-alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757770855,
+  "timeNano": 1757770855639821223
+}
+{
+  "timestamp": "2025-09-13T13:47:08+00:00",
+  "status": "destroy",
+  "id": "f89995cc0777",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "fbd05d8ab36ce52366bceeb90436f53f046255814e3b80659a18200df7c15d03",
+    "Attributes": {
+      "container": "api-service",
+      "image": "nginx:latest",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757771228,
+  "timeNano": 1757771228858594124
+}
+{
+  "timestamp": "2025-09-13T13:47:08+00:00",
+  "status": "push",
+  "id": "26de06c02fff",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "5db83b4e4ef803efeeb0b7e76b8a923d89aa25679cc89c6bd9db7d12cd71584f",
+    "Attributes": {
+      "container": "api-service",
+      "image": "postgres:13",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757771228,
+  "timeNano": 1757771228874016026
+}
+{
+  "timestamp": "2025-09-13T13:47:08+00:00",
+  "status": "create",
+  "id": "cf9184a4544c",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "7b8ec860d4f9bfb95969860207efdc95879cb4e5c44e7b341e8a51c2e28ad763",
+    "Attributes": {
+      "container": "database",
+      "image": "python:3.9",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757771228,
+  "timeNano": 1757771228889773055
+}
+{
+  "timestamp": "2025-09-13T13:57:08+00:00",
+  "status": "destroy",
+  "id": "4cda3a8e6494",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "2cf07060bae5c4d25653308f4fa862c84652d8e0b393b894d3bac52ee85fad01",
+    "Attributes": {
+      "container": "database",
+      "image": "python:3.9",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757771828,
+  "timeNano": 1757771828351560785
+}
+{
+  "timestamp": "2025-09-13T13:57:08+00:00",
+  "status": "pull",
+  "id": "2a73406a3adc",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "22bb1002b4bd8675d3ccbe039fbeaac07970a9195e493ff8574135e11d0d9f40",
+    "Attributes": {
+      "container": "web-server",
+      "image": "python:3.9",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757771828,
+  "timeNano": 1757771828362924626
+}
+{
+  "timestamp": "2025-09-13T13:57:08+00:00",
+  "status": "destroy",
+  "id": "712106472475",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "fa9dae2d4bce54c1565d049d30ca8f7f44ccd0b586b2b4a6",
+    "Attributes": {
+      "container": "worker",
+      "image": "node:16-alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757771828,
+  "timeNano": 1757771828374361952
+}
+{
+  "timestamp": "2025-09-13T14:07:08+00:00",
+  "status": "create",
+  "id": "0d85ddfd63ca",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "9b105a12aaca45984bb87391e7004c4cf7eea07b8d4bcaceece3bd08d91d40cc",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "postgres:13",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757772428,
+  "timeNano": 1757772428852520430
+}
+{
+  "timestamp": "2025-09-13T14:07:08+00:00",
+  "status": "start",
+  "id": "88f29d3d42df",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "20436b60c1c904c59b2248780d54263e446f4dd5dc47de687c9e6f27b55ca12e",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "postgres:13",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757772428,
+  "timeNano": 1757772428941626453
+}
+{
+  "timestamp": "2025-09-13T14:07:08+00:00",
+  "status": "stop",
+  "id": "3150f80df3d8",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "05670a022d783ef02329b4822a14bd14befc5e14ba7243cc4b16c8e5de2d99de",
+    "Attributes": {
+      "container": "api-service",
+      "image": "node:16-alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757772428,
+  "timeNano": 1757772428958641327
+}
+{
+  "timestamp": "2025-09-13T14:17:07+00:00",
+  "status": "push",
+  "id": "c88243f447b5",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "8dd1f12f35bab6c303db02e00a8f055692557ceab4082d23c83df252ab00e491",
+    "Attributes": {
+      "container": "database",
+      "image": "redis:alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757773027,
+  "timeNano": 1757773027428352624
+}
+{
+  "timestamp": "2025-09-13T14:17:07+00:00",
+  "status": "destroy",
+  "id": "8de712b07c62",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "df26f8f9bce165725e4e510a63f901d143d4ba7526bae965664ca96d4f58587b",
+    "Attributes": {
+      "container": "web-server",
+      "image": "redis:alpine",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757773027,
+  "timeNano": 1757773027439855116
+}
+{
+  "timestamp": "2025-09-13T14:17:07+00:00",
+  "status": "create",
+  "id": "05c6fa4d429c",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "7e6d32b50991010ca3d54e9efb1fa73f0d79db2ede9afd2b7934a272141b0566",
+    "Attributes": {
+      "container": "worker",
+      "image": "redis:alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757773027,
+  "timeNano": 1757773027451393070
+}
+{
+  "timestamp": "2025-09-13T14:25:16+00:00",
+  "status": "destroy",
+  "id": "e57a756f6fc2",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "26462d052869ff171089f17834396c3d3bb6e9faa8aa321b6958c888ee591d30",
+    "Attributes": {
+      "container": "api-service",
+      "image": "postgres:13",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757773516,
+  "timeNano": 1757773516919706331
+}
+{
+  "timestamp": "2025-09-13T14:25:16+00:00",
+  "status": "push",
+  "id": "5c1b69ab15de",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "0a7d8d73dd308adcf2690726b6d844d2e9279bc2fbc4a14fd989640fc37b30b9",
+    "Attributes": {
+      "container": "worker",
+      "image": "python:3.9",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757773516,
+  "timeNano": 1757773516936512316
+}
+{
+  "timestamp": "2025-09-13T14:25:16+00:00",
+  "status": "create",
+  "id": "a2165e3fbe6c",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "eb3a3d01c652c7de27f7555c6c0adb7dcbeb1ff960a94e5e407ad711d8d844c7",
+    "Attributes": {
+      "container": "worker",
+      "image": "postgres:13",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757773516,
+  "timeNano": 1757773516953161067
+}
+{
+  "timestamp": "2025-09-13T14:35:16+00:00",
+  "status": "create",
+  "id": "29cb46fae562",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "6c8beffd76d55156660b14912426ca41efd3056b9292b755aa343134732386fc",
+    "Attributes": {
+      "container": "database",
+      "image": "node:16-alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757774116,
+  "timeNano": 1757774116873327995
+}
+{
+  "timestamp": "2025-09-13T14:35:16+00:00",
+  "status": "destroy",
+  "id": "8d201c803c11",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "58c2d544abe444befb03203b6f4c6d7bd2584d637d958f0b69d15cee133525dd",
+    "Attributes": {
+      "container": "api-service",
+      "image": "python:3.9",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757774116,
+  "timeNano": 1757774116884786291
+}
+{
+  "timestamp": "2025-09-13T14:35:16+00:00",
+  "status": "start",
+  "id": "89a42c435c9c",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "44f209e2ea87219d6c3edf58056249d5745096f940ae27c81148142327a402b0",
+    "Attributes": {
+      "container": "web-server",
+      "image": "nginx:latest",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757774116,
+  "timeNano": 1757774116895854983
+}
+{
+  "timestamp": "2025-09-13T14:45:16+00:00",
+  "status": "push",
+  "id": "1df8f8089efd",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "1b11f4974d9edb7cc3f7271016c62f2846631dd59ce39b7e9b77ebce8ded1aa6",
+    "Attributes": {
+      "container": "web-server",
+      "image": "postgres:13",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757774716,
+  "timeNano": 1757774716757548087
+}
+{
+  "timestamp": "2025-09-13T14:45:16+00:00",
+  "status": "destroy",
+  "id": "44cc61d059eb",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "5bf112b053ae18ae91ebd3b8725fcbfaf1c6d48aaeed6a07fe61d498eea3ba2e",
+    "Attributes": {
+      "container": "worker",
+      "image": "redis:alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757774716,
+  "timeNano": 1757774716769167859
+}
+{
+  "timestamp": "2025-09-13T14:45:16+00:00",
+  "status": "pull",
+  "id": "2cee49b837ca",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "57b9a6c512932e09c18a9edce058dfb3c0cf543a596c220f54639edc60b1ea87",
+    "Attributes": {
+      "container": "worker",
+      "image": "node:16-alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757774716,
+  "timeNano": 1757774716780800979
+}
+{
+  "timestamp": "2025-09-13T14:55:18+00:00",
+  "status": "pull",
+  "id": "3b1cb0b2597a",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "d866f412e855d09d1efe6cccb02191c221454fd7e8fba4f2813da807b7505d45",
+    "Attributes": {
+      "container": "api-service",
+      "image": "redis:alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757775318,
+  "timeNano": 1757775318111154770
+}
+{
+  "timestamp": "2025-09-13T14:55:18+00:00",
+  "status": "stop",
+  "id": "8ec405863304",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "b474832886be0ca2e79c9e9fd06aacd767086e4f53334d09a4893be023528f4a",
+    "Attributes": {
+      "container": "api-service",
+      "image": "redis:alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757775318,
+  "timeNano": 1757775318123387530
+}
+{
+  "timestamp": "2025-09-13T14:55:18+00:00",
+  "status": "pull",
+  "id": "c2cc1b7a7aed",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "89e9e5b3dcda93f5b047c08a16f8ac6bdc9ccd38c346ed680c686ff5f5673a91",
+    "Attributes": {
+      "container": "worker",
+      "image": "redis:alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757775318,
+  "timeNano": 1757775318138577492
+}
+{
+  "timestamp": "2025-09-13T15:05:18+00:00",
+  "status": "stop",
+  "id": "b909a574e3e6",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "1c15f0086e7ac86c43a6ab6a27419a5d883709a768e4488aa8006c6e25e5b46d",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "node:16-alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757775918,
+  "timeNano": 1757775918264793015
+}
+{
+  "timestamp": "2025-09-13T15:05:18+00:00",
+  "status": "create",
+  "id": "bf8c9bce8ee7",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "ff3855977d89f850dc76b2e594489cbd111a82d837ad4b9806b3d2ea94c2faa9",
+    "Attributes": {
+      "container": "api-service",
+      "image": "nginx:latest",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757775918,
+  "timeNano": 1757775918282127516
+}
+{
+  "timestamp": "2025-09-13T15:05:18+00:00",
+  "status": "pull",
+  "id": "715d350f5170",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "18215657d5d86d13ca9fa5e74c7f59f43e6f5463afd6692786230e50d96362c8",
+    "Attributes": {
+      "container": "worker",
+      "image": "python:3.9",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757775918,
+  "timeNano": 1757775918293620276
+}
+{
+  "timestamp": "2025-09-13T15:13:26+00:00",
+  "status": "start",
+  "id": "727cc65ef136",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "cc60000662e0969da13dcdf0c303f336fde077f798d2ce3662418bc4e061b9f4",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "redis:alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757776406,
+  "timeNano": 1757776406682492044
+}
+{
+  "timestamp": "2025-09-13T15:13:26+00:00",
+  "status": "pull",
+  "id": "c2e8c7332779",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "e86d220038db3ee9f560e5ff71128d64724bce6ad9a5a80837dfeb7c0a7aa9d0",
+    "Attributes": {
+      "container": "api-service",
+      "image": "nginx:latest",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757776406,
+  "timeNano": 1757776406708820805
+}
+{
+  "timestamp": "2025-09-13T15:13:26+00:00",
+  "status": "start",
+  "id": "c62c1868cc16",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "8a88fb3efd2c7fadb7b623ac05f568338f0f6191c446a66e3254fed9e69a3f7b",
+    "Attributes": {
+      "container": "api-service",
+      "image": "node:16-alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757776406,
+  "timeNano": 1757776406737427713
+}
+{
+  "timestamp": "2025-09-13T15:14:19+00:00",
+  "status": "create",
+  "id": "98c6701a9aa4",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "29c262992115982ed96da56e9c13a51fb44b4bd3afe85615b1d876731933f0a3",
+    "Attributes": {
+      "container": "api-service",
+      "image": "python:3.9",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757776459,
+  "timeNano": 1757776459975509357
+}
+{
+  "timestamp": "2025-09-13T15:14:19+00:00",
+  "status": "push",
+  "id": "a8a510a432f9",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "4ae104bf3d484d42db6be1b7d5548be8f3311c20b94ab41e6f27ea73e2301a81",
+    "Attributes": {
+      "container": "api-service",
+      "image": "redis:alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757776459,
+  "timeNano": 1757776459994559528
+}
+{
+  "timestamp": "2025-09-13T15:14:19+00:00",
+  "status": "create",
+  "id": "65bf4cbad4bf",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "f655dc24778e5d10edcaba310b18f4c9072b5aab60d528bbcd6b081b35e822c9",
+    "Attributes": {
+      "container": "database",
+      "image": "nginx:latest",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757776460,
+  "timeNano": 1757776460009606811
+}
+{
+  "timestamp": "2025-09-13T15:24:21+00:00",
+  "status": "pull",
+  "id": "feec9a47b24f",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "1ebf8466a77f5f3e706f9c3f0e992411d618254e063d9cdf127d77ea2dfaa7f4",
+    "Attributes": {
+      "container": "worker",
+      "image": "redis:alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757777061,
+  "timeNano": 1757777061818213738
+}
+{
+  "timestamp": "2025-09-13T15:24:21+00:00",
+  "status": "start",
+  "id": "7bfbb00c0357",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "5393452743c7030d896a8b5fc09036b89860d51e759b512ba79561931a8fa260",
+    "Attributes": {
+      "container": "api-service",
+      "image": "redis:alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757777061,
+  "timeNano": 1757777061845013798
+}
+{
+  "timestamp": "2025-09-13T15:24:21+00:00",
+  "status": "create",
+  "id": "3233ad4faaf8",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "6bbe0e577becc46fe59125aafa1ea7567bd665454e3dbde97dbd2bbc0eac0a07",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "redis:alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757777061,
+  "timeNano": 1757777061869666151
+}
+{
+  "timestamp": "2025-09-13T15:25:55+00:00",
+  "status": "stop",
+  "id": "40bdc91df8e8",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "91464bbf34e93a2a69bc325c36ff4bba71cc2c76eb6203681fa08fcb76efbbde",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "node:16-alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757777155,
+  "timeNano": 1757777155872106542
+}
+{
+  "timestamp": "2025-09-13T15:25:55+00:00",
+  "status": "destroy",
+  "id": "05fbe4d79551",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "08653f241a9e11a3b3092ff9903bfb052779f1ab0eaf85eef79606bb22b75554",
+    "Attributes": {
+      "container": "database",
+      "image": "redis:alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757777155,
+  "timeNano": 1757777155893244570
+}
+{
+  "timestamp": "2025-09-13T15:25:55+00:00",
+  "status": "destroy",
+  "id": "63f013c1bc78",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "66e5081d9422ec25d820f3d76519db9830a48eba7f5f2c938464dbd4f1a92577",
+    "Attributes": {
+      "container": "database",
+      "image": "redis:alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757777155,
+  "timeNano": 1757777155918553418
+}
+{
+  "timestamp": "2025-09-13T15:35:55+00:00",
+  "status": "push",
+  "id": "51f72f99626a",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "712dbe7e19f00eaf7295f47b4bf8e5d0ecc90948ee41900799a8378de72024b0",
+    "Attributes": {
+      "container": "database",
+      "image": "redis:alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757777755,
+  "timeNano": 1757777755920019813
+}
+{
+  "timestamp": "2025-09-13T15:35:55+00:00",
+  "status": "destroy",
+  "id": "2d6c4238c8ea",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "359af85a0bc24a623047480e3de56d64a57628d7618aa6436d03989892718fdc",
+    "Attributes": {
+      "container": "database",
+      "image": "redis:alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757777755,
+  "timeNano": 1757777755932959423
+}
+{
+  "timestamp": "2025-09-13T15:35:55+00:00",
+  "status": "start",
+  "id": "00791870b347",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "8272a2ada31730207ed52c4649fb69dfe839f1c98e46aa37611faaa9c865d26d",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "redis:alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757777755,
+  "timeNano": 1757777755949362866
+}
+{
+  "timestamp": "2025-09-13T15:45:55+00:00",
+  "status": "pull",
+  "id": "93ee789a33f6",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "5806875d6d579735a087fcbd6d5445d66c029c4854989e83f51c9bc72db11227",
+    "Attributes": {
+      "container": "worker",
+      "image": "node:16-alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757778355,
+  "timeNano": 1757778355650880015
+}
+{
+  "timestamp": "2025-09-13T15:45:55+00:00",
+  "status": "pull",
+  "id": "fbab2527f44e",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "4cdcfb86d5f6b71b1366aff6030a9fd241b681bc72f0d8387a4e121354425186",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "postgres:13",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757778355,
+  "timeNano": 1757778355669714765
+}
+{
+  "timestamp": "2025-09-13T15:45:55+00:00",
+  "status": "pull",
+  "id": "8121c5bc5572",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "93c92e893074a326dd0030c7c5096785ababbf707ebe206e20f658ccc7a7740d",
+    "Attributes": {
+      "container": "web-server",
+      "image": "node:16-alpine",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757778355,
+  "timeNano": 1757778355686981589
+}
+{
+  "timestamp": "2025-09-13T15:50:32+00:00",
+  "status": "start",
+  "id": "ee2463547072",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "1d5ad5e675ef94bba8f3f0a5892256c170a7b69309abc6be3ec5a9681b95428c",
+    "Attributes": {
+      "container": "api-service",
+      "image": "postgres:13",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757778632,
+  "timeNano": 1757778632094521740
+}
+{
+  "timestamp": "2025-09-13T15:50:32+00:00",
+  "status": "destroy",
+  "id": "7048c73e021e",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "d48687150148f4f366633818075baf36f31c8cb8e0bcf5a4599f1223319cc098",
+    "Attributes": {
+      "container": "web-server",
+      "image": "python:3.9",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757778632,
+  "timeNano": 1757778632127135707
+}
+{
+  "timestamp": "2025-09-13T15:50:32+00:00",
+  "status": "start",
+  "id": "2bcb51b74bea",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "7f81d9afb8322d36a18677e1e4524424ef02a5a7a91584a9a36682449873c881",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "redis:alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757778632,
+  "timeNano": 1757778632161535760
+}
+{
+  "timestamp": "2025-09-13T15:58:40+00:00",
+  "status": "push",
+  "id": "615279a91918",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "5e3cd767e612dfc3f790eb9374e598d1b3bcd061aa8e31cc7f6e91623eaea2e4",
+    "Attributes": {
+      "container": "database",
+      "image": "python:3.9",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757779120,
+  "timeNano": 1757779120102016902
+}
+{
+  "timestamp": "2025-09-13T15:58:40+00:00",
+  "status": "push",
+  "id": "97650936f509",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "84d0c6babf838196ab48578d6a53c0860723490636936954fc59127052881b60",
+    "Attributes": {
+      "container": "api-service",
+      "image": "python:3.9",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757779120,
+  "timeNano": 1757779120146941336
+}
+{
+  "timestamp": "2025-09-13T15:58:40+00:00",
+  "status": "pull",
+  "id": "7dbf76710053",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "c6e37fa750e14d89804b4809f8160404dae438fde2e5f451257297e6b0e00104",
+    "Attributes": {
+      "container": "database",
+      "image": "nginx:latest",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757779120,
+  "timeNano": 1757779120162853289
+}
+{
+  "timestamp": "2025-09-13T16:00:32+00:00",
+  "status": "push",
+  "id": "2f10682dee19",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "fc37c367eba7fffe2141b4967bf86daccf23f5ba147d62b3f874fb9846439b17",
+    "Attributes": {
+      "container": "database",
+      "image": "redis:alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757779232,
+  "timeNano": 1757779232356443230
+}
+{
+  "timestamp": "2025-09-13T16:00:32+00:00",
+  "status": "push",
+  "id": "b45e993976b8",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "0e09f9d132f9832c26333c4f5960146ce24d68ca6cf5280620d96fb4d9682d7b",
+    "Attributes": {
+      "container": "worker",
+      "image": "postgres:13",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757779232,
+  "timeNano": 1757779232378637350
+}
+{
+  "timestamp": "2025-09-13T16:00:32+00:00",
+  "status": "push",
+  "id": "ff0dee4b2910",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "a6b00bfd46f367c15a644b1aa55f3906506ce27e5da1c160293fe9a09e5847d6",
+    "Attributes": {
+      "container": "worker",
+      "image": "node:16-alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757779232,
+  "timeNano": 1757779232410714212
+}
+{
+  "timestamp": "2025-09-13T16:02:17+00:00",
+  "status": "destroy",
+  "id": "4f0e3e7d2615",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "57730a0a76c305841e12722d69488f83c2cf6881f5196ec202f0cee60fed2e58",
+    "Attributes": {
+      "container": "database",
+      "image": "python:3.9",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757779337,
+  "timeNano": 1757779337828028082
+}
+{
+  "timestamp": "2025-09-13T16:02:17+00:00",
+  "status": "push",
+  "id": "59f7e9c0563d",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "5b05652e33b56c8cbba049d5b89ecba21109c8f06d2d94c4b2ad34d418eb381f",
+    "Attributes": {
+      "container": "database",
+      "image": "redis:alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757779337,
+  "timeNano": 1757779337850870118
+}
+{
+  "timestamp": "2025-09-13T16:02:17+00:00",
+  "status": "stop",
+  "id": "3d3e08e62ade",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "232d3b546a5d12defc8bd1355c100d5d951ffc9e291f9380eada58f2d28975e6",
+    "Attributes": {
+      "container": "database",
+      "image": "postgres:13",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757779337,
+  "timeNano": 1757779337868662740
+}
+{
+  "timestamp": "2025-09-13T16:07:58+00:00",
+  "status": "destroy",
+  "id": "979e34d28afb",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "a9772c6983506ca6bce4bab0334756d9c044893e406fac0adb1cb3cf4888fb96",
+    "Attributes": {
+      "container": "worker",
+      "image": "node:16-alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757779678,
+  "timeNano": 1757779678215429231
+}
+{
+  "timestamp": "2025-09-13T16:07:58+00:00",
+  "status": "pull",
+  "id": "534869343ba2",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "41eae427853f49335fb6c04f68390586720ebe5014ab4ba2646e0f18fdca5b6f",
+    "Attributes": {
+      "container": "api-service",
+      "image": "python:3.9",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757779678,
+  "timeNano": 1757779678231216164
+}
+{
+  "timestamp": "2025-09-13T16:07:58+00:00",
+  "status": "start",
+  "id": "954a4a38df29",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "db906db44691b4e8263e71efdd260a75339f2cac50f53c637d92ee79e6d73563",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "node:16-alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757779678,
+  "timeNano": 1757779678248621379
+}
+{
+  "timestamp": "2025-09-13T16:14:12+00:00",
+  "status": "start",
+  "id": "60341a768a74",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "671a248e009f7f51911a8cfe33bc933e1359542c49e98c4d347dc3c0130ad63d",
+    "Attributes": {
+      "container": "database",
+      "image": "python:3.9",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757780052,
+  "timeNano": 1757780052500811323
+}
+{
+  "timestamp": "2025-09-13T16:14:12+00:00",
+  "status": "stop",
+  "id": "806afea30bbb",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "ac2b6397345a455d36682fd833acbb91ee959b532394bd868a9f9f296be8dabd",
+    "Attributes": {
+      "container": "database",
+      "image": "postgres:13",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757780052,
+  "timeNano": 1757780052527824207
+}
+{
+  "timestamp": "2025-09-13T16:14:12+00:00",
+  "status": "pull",
+  "id": "4de4ec6a33ce",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "fda16924cc2c5ce09b3537fc24f9422527b2241523b789f3a0dc8a53ed9ac017",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "postgres:13",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757780052,
+  "timeNano": 1757780052548081824
+}
+{
+  "timestamp": "2025-09-13T16:24:05+00:00",
+  "status": "destroy",
+  "id": "2b2e3855e698",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "76d6ff7eebd012b6cc3b0c2c9bf798dd1827fd2e6b30dfcb1de68627c6cc0acb",
+    "Attributes": {
+      "container": "web-server",
+      "image": "postgres:13",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757780645,
+  "timeNano": 1757780645795146864
+}
+{
+  "timestamp": "2025-09-13T16:24:05+00:00",
+  "status": "pull",
+  "id": "e1b5f530c951",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "97a18fec3ee2c98dd65cac79a3d355275c8252d3c02d20ad79f2c7fcaea85495",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "nginx:latest",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757780645,
+  "timeNano": 1757780645824026056
+}
+{
+  "timestamp": "2025-09-13T16:24:05+00:00",
+  "status": "create",
+  "id": "149dc448dc40",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "07bd0b1ded91aa9230c59a08a0475f4c069c8af16194d1201066c79e0314baba",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "python:3.9",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757780645,
+  "timeNano": 1757780645844647196
+}
