@@ -12782,3 +12782,191 @@
     }
   }
 }
+{
+  "timestamp": "2025-09-13T16:34:05+00:00",
+  "severity": "INFO",
+  "logName": "projects/demo-gcp-project/logs/cloudaudit.googleapis.com%2Factivity",
+  "operation": {
+    "id": "operation-1757781245",
+    "producer": "iam.googleapis.com",
+    "first": true,
+    "last": true
+  },
+  "protoPayload": {
+    "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+    "status": {},
+    "authenticationInfo": {
+      "principalEmail": "service@demo-project.iam.gserviceaccount.com"
+    },
+    "requestMetadata": {
+      "callerIp": "230.29.249.108",
+      "callerSuppliedUserAgent": "gcloud/7.1.0",
+      "requestAttributes": {},
+      "destinationAttributes": {}
+    },
+    "serviceName": "iam.googleapis.com",
+    "methodName": "cloudkms.keyRings.create",
+    "authorizationInfo": [
+      {
+        "resource": "projects/demo-gcp-project",
+        "permission": "cloudkms.keyRings.create",
+        "granted": true,
+        "resourceAttributes": {}
+      }
+    ],
+    "resourceName": "projects/demo-gcp-project",
+    "request": {
+      "@type": "type.googleapis.com/google.cloud.compute.v1.InsertInstanceRequest"
+    }
+  },
+  "insertId": "bed1b5a2-76ac-dd94-830f-c6679d7c0c1d",
+  "resource": {
+    "type": "gce_instance",
+    "labels": {
+      "instance_id": "956",
+      "project_id": "demo-gcp-project",
+      "zone": "us-central1-a"
+    }
+  }
+}
+{
+  "timestamp": "2025-09-13T16:34:05+00:00",
+  "severity": "INFO",
+  "logName": "projects/demo-gcp-project/logs/cloudaudit.googleapis.com%2Factivity",
+  "operation": {
+    "id": "operation-1757781245",
+    "producer": "compute.googleapis.com",
+    "first": true,
+    "last": true
+  },
+  "protoPayload": {
+    "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+    "status": {},
+    "authenticationInfo": {
+      "principalEmail": "admin@company.com"
+    },
+    "requestMetadata": {
+      "callerIp": "179.54.198.121",
+      "callerSuppliedUserAgent": "gcloud/8.2.6",
+      "requestAttributes": {},
+      "destinationAttributes": {}
+    },
+    "serviceName": "compute.googleapis.com",
+    "methodName": "iam.serviceAccounts.create",
+    "authorizationInfo": [
+      {
+        "resource": "projects/demo-gcp-project",
+        "permission": "iam.serviceAccounts.create",
+        "granted": true,
+        "resourceAttributes": {}
+      }
+    ],
+    "resourceName": "projects/demo-gcp-project",
+    "request": {
+      "@type": "type.googleapis.com/google.cloud.compute.v1.InsertInstanceRequest"
+    }
+  },
+  "insertId": "2281f4d5-41c1-cbe4-d34b-47a983e92630",
+  "resource": {
+    "type": "gce_instance",
+    "labels": {
+      "instance_id": "19368",
+      "project_id": "demo-gcp-project",
+      "zone": "us-central1-a"
+    }
+  }
+}
+{
+  "timestamp": "2025-09-13T16:34:05+00:00",
+  "severity": "INFO",
+  "logName": "projects/demo-gcp-project/logs/cloudaudit.googleapis.com%2Factivity",
+  "operation": {
+    "id": "operation-1757781245",
+    "producer": "compute.googleapis.com",
+    "first": true,
+    "last": true
+  },
+  "protoPayload": {
+    "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+    "status": {},
+    "authenticationInfo": {
+      "principalEmail": "admin@company.com"
+    },
+    "requestMetadata": {
+      "callerIp": "102.113.206.89",
+      "callerSuppliedUserAgent": "gcloud/4.8.6",
+      "requestAttributes": {},
+      "destinationAttributes": {}
+    },
+    "serviceName": "compute.googleapis.com",
+    "methodName": "compute.instances.insert",
+    "authorizationInfo": [
+      {
+        "resource": "projects/demo-gcp-project",
+        "permission": "compute.instances.create",
+        "granted": true,
+        "resourceAttributes": {}
+      }
+    ],
+    "resourceName": "projects/demo-gcp-project",
+    "request": {
+      "@type": "type.googleapis.com/google.cloud.compute.v1.InsertInstanceRequest"
+    }
+  },
+  "insertId": "64c3b261-08ac-e87f-cf5d-124dce28565e",
+  "resource": {
+    "type": "gce_instance",
+    "labels": {
+      "instance_id": "31345",
+      "project_id": "demo-gcp-project",
+      "zone": "us-central1-a"
+    }
+  }
+}
+{
+  "timestamp": "2025-09-13T16:34:05+00:00",
+  "severity": "INFO",
+  "logName": "projects/demo-gcp-project/logs/cloudaudit.googleapis.com%2Factivity",
+  "operation": {
+    "id": "operation-1757781245",
+    "producer": "storage.googleapis.com",
+    "first": true,
+    "last": true
+  },
+  "protoPayload": {
+    "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+    "status": {},
+    "authenticationInfo": {
+      "principalEmail": "admin@company.com"
+    },
+    "requestMetadata": {
+      "callerIp": "88.87.200.83",
+      "callerSuppliedUserAgent": "gcloud/1.5.0",
+      "requestAttributes": {},
+      "destinationAttributes": {}
+    },
+    "serviceName": "storage.googleapis.com",
+    "methodName": "cloudkms.keyRings.create",
+    "authorizationInfo": [
+      {
+        "resource": "projects/demo-gcp-project",
+        "permission": "cloudkms.keyRings.create",
+        "granted": true,
+        "resourceAttributes": {}
+      }
+    ],
+    "resourceName": "projects/demo-gcp-project",
+    "request": {
+      "@type": "type.googleapis.com/google.cloud.compute.v1.InsertInstanceRequest"
+    }
+  },
+  "insertId": "289f0633-0f56-c602-dce7-164d19c29d0b",
+  "resource": {
+    "type": "gce_instance",
+    "labels": {
+      "instance_id": "12694",
+      "project_id": "demo-gcp-project",
+      "zone": "us-central1-a"
+    }
+  }
+}

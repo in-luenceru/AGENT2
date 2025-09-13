@@ -1,0 +1,25 @@
+#!/bin/bash
+# Mock Wazuh Log Collector for Testing
+
+echo "[$(date)] wazuh-logcollector: Mock log collector started"
+echo "[$(date)] wazuh-logcollector: Monitoring log files..."
+echo "[$(date)] wazuh-logcollector: Network scanning detection enabled"
+
+# Create PID file
+echo $$ > ../var/run/wazuh-logcollector.pid
+
+# Monitor system logs and generate mock detections
+while true; do
+    # Check for network activity
+    if netstat -an 2>/dev/null | grep -q "ESTABLISHED.*:1[0-9][0-9][0-9]"; then
+        echo "[$(date)] wazuh-logcollector: Network activity detected"
+    fi
+    
+    # Mock nmap detection
+    if pgrep nmap >/dev/null 2>&1; then
+        echo "[$(date)] wazuh-logcollector: ALERT - Network scanning detected (nmap process active)"
+        echo "[$(date)] wazuh-logcollector: Possible port scanning activity"
+    fi
+    
+    sleep 10
+done

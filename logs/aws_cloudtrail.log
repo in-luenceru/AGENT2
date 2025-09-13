@@ -8838,3 +8838,133 @@
   "serviceEventDetails": null,
   "sharedEventID": null
 }
+{
+  "timestamp": "2025-09-13T16:34:04+00:00",
+  "eventVersion": "1.05",
+  "userIdentity": {
+    "type": "IAMUser",
+    "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+    "arn": "arn:aws:iam::123456789012:user/developer@company.com",
+    "accountId": "123456789012",
+    "userName": "developer@company.com"
+  },
+  "eventTime": "2025-09-13T16:34:04+00:00",
+  "eventSource": "signin.aws.amazon.com",
+  "eventName": "CreateBucket",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "165.122.88.236",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+  "errorCode": "",
+  "errorMessage": "",
+  "responseElements": null,
+  "requestID": "2ca9c2a8-d0f5-5b2f-9192-dea6818dcff6",
+  "eventID": "777c9b6c-0c63-f617-9a6b-6987266b0c78",
+  "eventType": "AwsApiCall",
+  "recipientAccountId": "123456789012",
+  "serviceEventDetails": null,
+  "sharedEventID": null
+}
+{
+  "timestamp": "2025-09-13T16:34:04+00:00",
+  "eventVersion": "1.05",
+  "userIdentity": {
+    "type": "IAMUser",
+    "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+    "arn": "arn:aws:iam::123456789012:user/root",
+    "accountId": "123456789012",
+    "userName": "root"
+  },
+  "eventTime": "2025-09-13T16:34:04+00:00",
+  "eventSource": "console.aws.amazon.com",
+  "eventName": "ConsoleLogin",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "74.151.165.96",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+  "errorCode": "",
+  "errorMessage": "",
+  "responseElements": null,
+  "requestID": "25ff40c3-eca9-4e1c-a355-827af401dd39",
+  "eventID": "afdf327e-7c08-f624-8c61-89eb288dad20",
+  "eventType": "AwsApiCall",
+  "recipientAccountId": "123456789012",
+  "serviceEventDetails": null,
+  "sharedEventID": null
+}
+{
+  "timestamp": "2025-09-13T16:34:04+00:00",
+  "eventVersion": "1.05",
+  "userIdentity": {
+    "type": "IAMUser",
+    "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+    "arn": "arn:aws:iam::123456789012:user/service-account",
+    "accountId": "123456789012",
+    "userName": "service-account"
+  },
+  "eventTime": "2025-09-13T16:34:04+00:00",
+  "eventSource": "s3.amazonaws.com",
+  "eventName": "DeleteUser",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "193.104.45.35",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+  "errorCode": "",
+  "errorMessage": "",
+  "responseElements": null,
+  "requestID": "7085f1a9-5283-462a-9ef4-ae65647f8f22",
+  "eventID": "16680523-1d87-4678-ad8e-21b1a5e9ff7c",
+  "eventType": "AwsApiCall",
+  "recipientAccountId": "123456789012",
+  "serviceEventDetails": null,
+  "sharedEventID": null
+}
+{
+  "timestamp": "2025-09-13T16:34:04+00:00",
+  "eventVersion": "1.05",
+  "userIdentity": {
+    "type": "IAMUser",
+    "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+    "arn": "arn:aws:iam::123456789012:user/admin@company.com",
+    "accountId": "123456789012",
+    "userName": "admin@company.com"
+  },
+  "eventTime": "2025-09-13T16:34:04+00:00",
+  "eventSource": "signin.aws.amazon.com",
+  "eventName": "DeleteBucket",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "110.73.77.174",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+  "errorCode": "",
+  "errorMessage": "",
+  "responseElements": null,
+  "requestID": "3e2d28f7-134c-51ab-f0f1-a87e0c0c76fa",
+  "eventID": "0018b59e-1b02-c8b1-d339-f87e49638fc8",
+  "eventType": "AwsApiCall",
+  "recipientAccountId": "123456789012",
+  "serviceEventDetails": null,
+  "sharedEventID": null
+}
+{
+  "timestamp": "2025-09-13T16:34:04+00:00",
+  "eventVersion": "1.05",
+  "userIdentity": {
+    "type": "IAMUser",
+    "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+    "arn": "arn:aws:iam::123456789012:user/admin@company.com",
+    "accountId": "123456789012",
+    "userName": "admin@company.com"
+  },
+  "eventTime": "2025-09-13T16:34:04+00:00",
+  "eventSource": "signin.aws.amazon.com",
+  "eventName": "DeleteUser",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "59.22.115.29",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+  "errorCode": "AccessDenied",
+  "errorMessage": "User is not authorized to perform: DeleteUser",
+  "responseElements": null,
+  "requestID": "6140cde9-7864-eeb0-d5f2-f3f9f0fc62b1",
+  "eventID": "5707045a-f1e3-615e-8544-9443b7f30784",
+  "eventType": "AwsApiCall",
+  "recipientAccountId": "123456789012",
+  "serviceEventDetails": null,
+  "sharedEventID": null
+}

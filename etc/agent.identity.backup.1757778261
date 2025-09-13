@@ -1,0 +1,19 @@
+# Wazuh Agent Identity File
+# This file contains the persistent agent identity information
+# WARNING: Do not edit manually unless you know what you're doing
+
+# Agent Identity
+AGENT_NAME=""
+AGENT_ID=""
+AGENT_GROUP=""
+
+# Registration Information  
+REGISTRATION_DATE=""
+LAST_UPDATE=""
+MANAGER_IP=""
+
+# Status
+ENROLLMENT_STATUS="not_enrolled"
+
+# Security Checksum (for tampering detection)
+CHECKSUM=""

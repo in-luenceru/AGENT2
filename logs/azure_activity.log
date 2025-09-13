@@ -7138,3 +7138,108 @@
     "statusCode": "403"
   }
 }
+{
+  "timestamp": "2025-09-13T16:34:04+00:00",
+  "operationId": "8dff34f2-4a9a-ff76-fdde-b6f388664503",
+  "operationName": "Microsoft.Authorization/roleAssignments/write",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 2171,
+  "callerIpAddress": "9.2.49.37",
+  "correlationId": "45391e1a-4584-f739-be63-32d3e9870154",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Authorization/roleAssignments/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "3702f709-53f2-5880-b0a4-b636d036316c",
+        "roleDefinitionId": "33b8ca27-013f-43e7-af1c-4e2a542a1834",
+        "principalId": "1f65ff4c-84d9-e5d9-cec9-4303b576d1b5",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "service@company.onmicrosoft.com",
+      "upn": "service@company.onmicrosoft.com"
+    }
+  },
+  "level": "Warning",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-13T16:34:04+00:00",
+  "operationId": "c1ea44e1-647a-ca3b-e4ce-ea66d47784ad",
+  "operationName": "Microsoft.Authorization/roleAssignments/write",
+  "category": "Administrative",
+  "resultType": "Success",
+  "resultSignature": "OK",
+  "durationMs": 3376,
+  "callerIpAddress": "199.139.38.140",
+  "correlationId": "37d43a52-8683-48b7-bf7b-b9a3c2988b8a",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Authorization/roleAssignments/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "b29bb1ec-cf9d-e377-a7da-e3da6efbe2d5",
+        "roleDefinitionId": "03533727-d1d9-5fe8-953a-d7fb0e05396b",
+        "principalId": "76eb2b02-313a-418a-80aa-75835aa9f474",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "admin@company.onmicrosoft.com",
+      "upn": "admin@company.onmicrosoft.com"
+    }
+  },
+  "level": "Informational",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "200"
+  }
+}
+{
+  "timestamp": "2025-09-13T16:34:04+00:00",
+  "operationId": "d8a7aae0-f3fc-6f41-872b-ad71339b8fb1",
+  "operationName": "Microsoft.Network/networkSecurityGroups/write",
+  "category": "Administrative",
+  "resultType": "Failed",
+  "resultSignature": "Forbidden",
+  "durationMs": 660,
+  "callerIpAddress": "8.72.197.85",
+  "correlationId": "73fc8f98-8fbd-d891-c152-343eef684943",
+  "identity": {
+    "authorization": {
+      "scope": "/subscriptions/demo-subscription-id/resourceGroups/demo-rg",
+      "action": "Microsoft.Network/networkSecurityGroups/write",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/demo-subscription-id",
+        "roleAssignmentId": "1919e6ad-4263-f304-e101-2ba52efd9bff",
+        "roleDefinitionId": "247e501f-76f9-79d9-a70d-85eb29254ec3",
+        "principalId": "8469cc77-ea65-f8dd-8fc0-25c1eb71541f",
+        "principalType": "User"
+      }
+    },
+    "claims": {
+      "name": "service@company.onmicrosoft.com",
+      "upn": "service@company.onmicrosoft.com"
+    }
+  },
+  "level": "Error",
+  "location": "East US",
+  "properties": {
+    "requestbody": "",
+    "statusCode": "403"
+  }
+}

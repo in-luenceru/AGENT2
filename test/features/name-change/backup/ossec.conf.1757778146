@@ -1,0 +1,721 @@
+<!--
+  Enhanced Wazuh Agent Configuration
+  Real implementation for production use
+-->
+
+<ossec_config>
+  <!-- Agent client configuration -->
+  <client>
+    <server>
+      <address>127.0.0.1</address>
+      <port>1514</port>
+    </server>
+    <enrollment>
+      <enabled>yes</enabled>
+      <agent_name>anandhu</agent_name>
+    </enrollment>
+    <config-profile>generic</config-profile>
+    <notify_time>60</notify_time>
+    <time-reconnect>300</time-reconnect>
+    <auto_restart>yes</auto_restart>
+  </client>
+
+  <!-- Logging configuration -->
+  <logging>
+    <log_format>plain</log_format>
+  </logging>
+
+  <!-- Enhanced File integrity monitoring -->
+  <syscheck>
+    <disabled>no</disabled>
+    <frequency>43200</frequency>
+    <scan_on_start>yes</scan_on_start>
+    <alert_new_files>yes</alert_new_files>
+    
+    <!-- Performance optimization -->
+    <max_eps>100</max_eps>
+    <process_priority>10</process_priority>
+    
+    <!-- Advanced monitoring features -->
+    <audit_key>wazuh_fim</audit_key>
+    <whodata>yes</whodata>
+    
+    <!-- Monitor critical system directories -->
+    <directories check_all="yes" realtime="yes" report_changes="yes" whodata="yes">/etc</directories>
+    <directories check_all="yes" realtime="yes" whodata="yes">/usr/bin,/usr/sbin</directories>
+    <directories check_all="yes" realtime="yes" whodata="yes">/bin,/sbin</directories>
+    <directories check_all="yes" realtime="yes" report_changes="yes">/home</directories>
+    <directories check_all="yes" realtime="yes">/root</directories>
+    <directories check_all="yes">/var/log</directories>
+    <directories check_all="yes">/tmp</directories>
+    
+    <!-- Monitor network file system mounts -->
+    <directories realtime="yes" report_changes="yes">/mnt,/media</directories>
+    
+    <!-- Monitor web directories if they exist -->
+    <directories check_all="yes" realtime="yes" report_changes="yes">/var/www</directories>
+    <directories check_all="yes" realtime="yes" report_changes="yes">/opt</directories>
+    
+    <!-- Ignore temporary files -->
+    <ignore>/etc/mtab</ignore>
+    <ignore>/etc/hosts.deny</ignore>
+    <ignore>/etc/adjtime</ignore>
+    <ignore>/etc/random-seed</ignore>
+    <ignore>/var/log/</ignore>
+    <ignore>/tmp/</ignore>
+    <ignore>/proc/</ignore>
+    <ignore>/sys/</ignore>
+    <ignore>/dev/</ignore>
+    
+    <!-- Monitor specific files for security -->
+    <directories check_all="yes" realtime="yes" whodata="yes">/etc/passwd</directories>
+    <directories check_all="yes" realtime="yes" whodata="yes">/etc/shadow</directories>
+    <directories check_all="yes" realtime="yes" whodata="yes">/etc/group</directories>
+    <directories check_all="yes" realtime="yes" whodata="yes">/etc/gshadow</directories>
+    <directories check_all="yes" realtime="yes" whodata="yes">/etc/ssh/sshd_config</directories>
+    
+    <!-- Advanced file monitoring -->
+    <directories check_all="yes" realtime="yes" report_changes="yes">/etc/crontab</directories>
+    <directories check_all="yes" realtime="yes">/etc/cron.d</directories>
+    <directories check_all="yes" realtime="yes">/var/spool/cron</directories>
+    
+    <!-- Database optimization -->
+    <synchronization>
+      <enabled>yes</enabled>
+      <interval>5m</interval>
+      <max_eps>10</max_eps>
+      <restart_time>30s</restart_time>
+    </synchronization>
+  </syscheck>
+
+  <!-- Enhanced Log analysis -->
+  <localfile>
+    <log_format>syslog</log_format>
+    <location>/var/log/messages</location>
+  </localfile>
+
+  <localfile>
+    <log_format>syslog</log_format>
+    <location>/var/log/auth.log</location>
+  </localfile>
+
+  <localfile>
+    <log_format>syslog</log_format>
+    <location>/var/log/syslog</location>
+  </localfile>
+
+  <localfile>
+    <log_format>syslog</log_format>
+    <location>/var/log/secure</location>
+  </localfile>
+
+  <!-- Enhanced kernel and network logs -->
+  <localfile>
+    <log_format>syslog</log_format>
+    <location>/var/log/kern.log</location>
+  </localfile>
+
+  <!-- Monitor for network file systems -->
+  <localfile>
+    <log_format>command</log_format>
+    <command>mount | grep -E "(nfs|cifs|smb|fuse|sshfs)"</command>
+    <frequency>60</frequency>
+  </localfile>
+
+  <!-- Monitor network connections for suspicious activity -->
+  <localfile>
+    <log_format>command</log_format>
+    <command>netstat -tulpn | grep -E ":(2049|445|139|111|22|80|443|1514|1515)"</command>
+    <frequency>30</frequency>
+  </localfile>
+
+  <!-- Monitor for suspicious processes and network scanning -->
+  <localfile>
+    <log_format>command</log_format>
+    <command>ps aux | grep -E "(nmap|masscan|nikto|sqlmap|metasploit|hydra|john|hashcat)" | grep -v grep</command>
+    <frequency>10</frequency>
+  </localfile>
+
+  <!-- Monitor for unauthorized mount attempts -->
+  <localfile>
+    <log_format>command</log_format>
+    <command>cat /proc/mounts | grep -E "(nfs|cifs|smb)" | awk '{print $1" "$2" "$3}'</command>
+    <frequency>30</frequency>
+  </localfile>
+
+  <!-- Monitor for failed login attempts -->
+  <localfile>
+    <log_format>command</log_format>
+    <command>grep "Failed password" /var/log/auth.log | tail -10</command>
+    <frequency>60</frequency>
+  </localfile>
+
+  <!-- Monitor for privilege escalation attempts -->
+  <localfile>
+    <log_format>command</log_format>
+    <command>grep -E "(sudo:|su:)" /var/log/auth.log | tail -10</command>
+    <frequency>60</frequency>
+  </localfile>
+
+  <!-- Custom threat monitoring logs -->
+  <localfile>
+    <log_format>syslog</log_format>
+    <location>/workspaces/AGENT2/logs/network_threats.log</location>
+  </localfile>
+
+  <localfile>
+    <log_format>syslog</log_format>
+    <location>/var/log/security_events.log</location>
+  </localfile>
+
+  <!-- Monitor for agent-specific logs -->
+  <localfile>
+    <log_format>syslog</log_format>
+    <location>/workspaces/AGENT2/logs/ossec.log</location>
+  </localfile>
+
+  <!-- JSON log monitoring -->
+  <localfile>
+    <log_format>json</log_format>
+    <location>/var/log/json_events.log</location>
+  </localfile>
+
+  <!-- Vulnerability Detection Logs -->
+  <localfile>
+    <log_format>syslog</log_format>
+    <location>/workspaces/AGENT2/logs/vulnerability_alert.log</location>
+    <alias>vulnerability-alerts</alias>
+  </localfile>
+
+  <localfile>
+    <log_format>json</log_format>
+    <location>/workspaces/AGENT2/queue/vulnerabilities/scan_results.json</location>
+    <alias>vulnerability-scan-results</alias>
+  </localfile>
+
+  <localfile>
+    <log_format>json</log_format>
+    <location>/workspaces/AGENT2/queue/vulnerabilities/scan_summary.json</location>
+    <alias>vulnerability-scan-summary</alias>
+  </localfile>
+
+  <!-- Automated Vulnerability Scanning -->
+  <localfile>
+    <log_format>command</log_format>
+    <command>/workspaces/AGENT2/bin/vulnerability_scanner.sh</command>
+    <frequency>3600</frequency>
+    <alias>vulnerability-scanner</alias>
+  </localfile>
+
+  <!-- Automated Cloud Monitoring -->
+  <localfile>
+    <log_format>command</log_format>
+    <command>/workspaces/AGENT2/bin/cloud_monitor.sh</command>
+    <frequency>600</frequency>
+    <alias>cloud-monitor</alias>
+  </localfile>
+
+  <!-- Cloud Integration Log Sources -->
+  
+  <!-- AWS CloudTrail Events -->
+  <localfile>
+    <log_format>json</log_format>
+    <location>/workspaces/AGENT2/logs/aws_cloudtrail.log</location>
+    <alias>aws-cloudtrail</alias>
+  </localfile>
+
+  <!-- AWS VPC Flow Logs -->
+  <localfile>
+    <log_format>json</log_format>
+    <location>/workspaces/AGENT2/logs/aws_vpc_flow.log</location>
+    <alias>aws-vpc-flow</alias>
+  </localfile>
+
+  <!-- AWS Config Service -->
+  <localfile>
+    <log_format>json</log_format>
+    <location>/workspaces/AGENT2/logs/aws_config.log</location>
+    <alias>aws-config</alias>
+  </localfile>
+
+  <!-- AWS WAF Logs -->
+  <localfile>
+    <log_format>json</log_format>
+    <location>/workspaces/AGENT2/logs/aws_waf.log</location>
+    <alias>aws-waf</alias>
+  </localfile>
+
+  <!-- Azure Activity Logs -->
+  <localfile>
+    <log_format>json</log_format>
+    <location>/workspaces/AGENT2/logs/azure_activity.log</location>
+    <alias>azure-activity</alias>
+  </localfile>
+
+  <!-- Azure Sign-in Logs -->
+  <localfile>
+    <log_format>json</log_format>
+    <location>/workspaces/AGENT2/logs/azure_signin.log</location>
+    <alias>azure-signin</alias>
+  </localfile>
+
+  <!-- Azure Storage Logs -->
+  <localfile>
+    <log_format>json</log_format>
+    <location>/workspaces/AGENT2/logs/azure_storage.log</location>
+    <alias>azure-storage</alias>
+  </localfile>
+
+  <!-- GCP Audit Logs -->
+  <localfile>
+    <log_format>json</log_format>
+    <location>/workspaces/AGENT2/logs/gcp_audit.log</location>
+    <alias>gcp-audit</alias>
+  </localfile>
+
+  <!-- GCP Pub/Sub Logs -->
+  <localfile>
+    <log_format>json</log_format>
+    <location>/workspaces/AGENT2/logs/gcp_pubsub.log</location>
+    <alias>gcp-pubsub</alias>
+  </localfile>
+
+  <!-- Docker Container Logs -->
+  <localfile>
+    <log_format>json</log_format>
+    <location>/workspaces/AGENT2/logs/docker_events.log</location>
+    <alias>docker-events</alias>
+  </localfile>
+
+  <!-- Cloud Security Events -->
+  <localfile>
+    <log_format>json</log_format>
+    <location>/workspaces/AGENT2/logs/cloud_security_events.log</location>
+    <alias>cloud-security</alias>
+  </localfile>
+
+  <!-- Container Security Monitoring -->
+  <localfile>
+    <log_format>json</log_format>
+    <location>/workspaces/AGENT2/logs/container_security.log</location>
+    <alias>container-security</alias>
+  </localfile>
+
+  <!-- Automated Container Security Scanning -->
+  <localfile>
+    <log_format>command</log_format>
+    <command>/workspaces/AGENT2/bin/container_security_monitor.sh</command>
+    <frequency>300</frequency>
+    <alias>container-security-monitor</alias>
+  </localfile>
+
+  <!-- Cloud Integration Wodles -->
+  
+  <!-- AWS CloudTrail and Services Monitoring -->
+  <wodle name="aws-s3">
+    <disabled>no</disabled>
+    <interval>10m</interval>
+    <run_on_start>yes</run_on_start>
+    <skip_on_error>yes</skip_on_error>
+    
+    <!-- CloudTrail Logs -->
+    <bucket type="cloudtrail">
+      <name>demo-cloudtrail-bucket</name>
+      <path>cloudtrail</path>
+      <only_logs_after>2025-01-01</only_logs_after>
+      <regions>us-east-1,us-west-2,eu-west-1</regions>
+    </bucket>
+    
+    <!-- VPC Flow Logs -->
+    <bucket type="vpcflow">
+      <name>demo-vpc-flow-logs</name>
+      <path>vpc-flow-logs</path>
+      <regions>us-east-1,us-west-2</regions>
+    </bucket>
+    
+    <!-- Inspector Findings -->
+    <service type="inspector">
+      <regions>us-east-1,us-west-2</regions>
+    </service>
+
+    <!-- CloudWatch Logs -->
+    <service type="cloudwatchlogs">
+      <regions>us-east-1,us-west-2</regions>
+    </service>
+  </wodle>
+
+  <!-- Azure Activity and Security Logs -->
+  <wodle name="azure-logs">
+    <disabled>no</disabled>
+    <interval>10m</interval>
+    <run_on_start>yes</run_on_start>
+    
+    <!-- Azure Log Analytics -->
+    <log_analytics>
+      <application_id>demo-app-id</application_id>
+      <application_key>demo-app-key</application_key>
+      <tenants>demo-tenant-id</tenants>
+      <request>
+        <tag>azure-activity</tag>
+        <query>AzureActivity | where TimeGenerated > ago(10m)</query>
+        <workspace>demo-workspace-id</workspace>
+        <time_offset>10m</time_offset>
+      </request>
+      <request>
+        <tag>azure-signin</tag>
+        <query>SigninLogs | where TimeGenerated > ago(10m)</query>
+        <workspace>demo-workspace-id</workspace>
+        <time_offset>10m</time_offset>
+      </request>
+    </log_analytics>
+    
+    <!-- Azure Storage Account Logs -->
+    <storage>
+      <auth_path>/workspaces/AGENT2/etc/shared/azure_auth.json</auth_path>
+      <account_name>demo-storage-account</account_name>
+      <container_name>insights-logs-audit</container_name>
+      <tag>azure-storage</tag>
+      <time_offset>10m</time_offset>
+    </storage>
+  </wodle>
+
+  <!-- Google Cloud Platform Monitoring -->
+  <wodle name="gcp-pubsub">
+    <disabled>no</disabled>
+    <pull_on_start>yes</pull_on_start>
+    <interval>10m</interval>
+    <project_id>demo-gcp-project</project_id>
+    <subscription_name>wazuh-subscription</subscription_name>
+    <credentials_file>/workspaces/AGENT2/etc/shared/gcp_credentials.json</credentials_file>
+    <max_messages>100</max_messages>
+    <num_threads>2</num_threads>
+  </wodle>
+
+  <!-- GCP Cloud Storage Audit Logs -->
+  <wodle name="gcp-bucket">
+    <disabled>no</disabled>
+    <interval>10m</interval>
+    <run_on_start>yes</run_on_start>
+    <project_id>demo-gcp-project</project_id>
+    <bucket_name>demo-audit-logs</bucket_name>
+    <credentials_file>/workspaces/AGENT2/etc/shared/gcp_credentials.json</credentials_file>
+    <prefix>audit-logs</prefix>
+    <only_logs_after>2025-01-01</only_logs_after>
+  </wodle>
+
+  <!-- Docker Container Monitoring -->
+  <wodle name="docker-listener">
+    <disabled>no</disabled>
+    <interval>10m</interval>
+    <attempts>5</attempts>
+    <run_on_start>yes</run_on_start>
+  </wodle>
+
+  <!-- Multi-line log support -->
+  <localfile>
+    <log_format>syslog</log_format>
+    <location>/var/log/application.log</location>
+    <target>agent</target>
+  </localfile>
+
+  <!-- Docker container logs (if Docker is available) -->
+  <localfile>
+    <log_format>json</log_format>
+    <location>/var/log/docker.log</location>
+  </localfile>
+
+  <!-- Apache/Nginx access logs -->
+  <localfile>
+    <log_format>apache</log_format>
+    <location>/var/log/apache2/access.log</location>
+  </localfile>
+
+  <localfile>
+    <log_format>apache</log_format>
+    <location>/var/log/nginx/access.log</location>
+  </localfile>
+
+  <!-- Database logs -->
+  <localfile>
+    <log_format>mysql_log</log_format>
+    <location>/var/log/mysql/error.log</location>
+  </localfile>
+
+  <!-- Real-time network monitoring -->
+  <localfile>
+    <log_format>command</log_format>
+    <command>ss -tuln | grep ":80\|:443\|:22\|:1514"</command>
+    <frequency>30</frequency>
+  </localfile>
+
+  <!-- Process monitoring -->
+  <localfile>
+    <log_format>command</log_format>
+    <command>ps aux --sort=-%cpu | head -10</command>
+    <frequency>300</frequency>
+  </localfile>
+
+  <!-- Enhanced Active response -->
+  <active-response>
+    <disabled>no</disabled>
+    <ca_store>etc/wpk_root.pem</ca_store>
+    <ca_verification>no</ca_verification>
+  </active-response>
+
+  <!-- Enhanced Rootkit Detection -->
+  <rootcheck>
+    <disabled>no</disabled>
+    <frequency>7200</frequency>  <!-- Every 2 hours -->
+    <scan_on_start>yes</scan_on_start>
+    
+    <!-- Enable all rootcheck features -->
+    <check_files>yes</check_files>
+    <check_trojans>yes</check_trojans>
+    <check_dev>yes</check_dev>
+    <check_sys>yes</check_sys>
+    <check_pids>yes</check_pids>
+    <check_ports>yes</check_ports>
+    <check_if>yes</check_if>
+    
+    <!-- Performance and security -->
+    <skip_nfs>yes</skip_nfs>
+    <scanall>no</scanall>
+    <readall>no</readall>
+    
+    <!-- Custom rootkit signatures -->
+    <rootkit_files>etc/shared/rootkit_files.txt</rootkit_files>
+    <rootkit_trojans>etc/shared/rootkit_trojans.txt</rootkit_trojans>
+    
+    <!-- System policy checks -->
+    <system_audit>etc/shared/system_audit_rcl.txt</system_audit>
+    
+    <!-- Ignore legitimate files that might trigger false positives -->
+    <ignore>/dev/shm/</ignore>
+    <ignore>/proc/</ignore>
+    <ignore>/sys/</ignore>
+    <ignore>/tmp/.X11-unix/</ignore>
+    <ignore>/tmp/.ICE-unix/</ignore>
+  </rootcheck>
+
+  <!-- Wodle configurations for system inventory -->
+  <wodle name="cis-cat">
+    <disabled>yes</disabled>
+  </wodle>
+
+  <wodle name="osquery">
+    <disabled>yes</disabled>
+  </wodle>
+
+  <wodle name="syscollector">
+    <disabled>no</disabled>
+    <interval>1h</interval>
+    <scan_on_start>yes</scan_on_start>
+    <hardware>yes</hardware>
+    <os>yes</os>
+    <network>yes</network>
+    <packages>yes</packages>
+    <ports all="no">yes</ports>
+    <processes>yes</processes>
+    <hotfixes>yes</hotfixes>
+  </wodle>
+
+  <!-- Vulnerability Detection Configuration -->
+  <vulnerability-detection>
+    <enabled>yes</enabled>
+    <index-status>yes</index-status>
+    <feed-update-interval>60m</feed-update-interval>
+  </vulnerability-detection>
+
+  <!-- Vulnerability Detector Wodle -->
+  <wodle name="vulnerability-detector">
+    <disabled>no</disabled>
+    <interval>1d</interval>
+    <run_on_start>yes</run_on_start>
+    <update_ubuntu_oval interval="60m" version="20,18,16,14">yes</update_ubuntu_oval>
+    <update_debian_oval interval="60m" version="11,10,9,8">yes</update_debian_oval>
+    <update_redhat_oval interval="60m" version="9,8,7,6">yes</update_redhat_oval>
+    <update_suse_oval interval="60m" version="15,12">yes</update_suse_oval>
+    <update_alpine_oval interval="60m" version="3.16,3.15,3.14">yes</update_alpine_oval>
+    <update_amazon_oval interval="60m" version="2,1">yes</update_amazon_oval>
+    <update_arch_oval interval="60m">yes</update_arch_oval>
+    <update_msu interval="60m">yes</update_msu>
+    <update_nvd interval="60m">yes</update_nvd>
+  </wodle>
+
+  <!-- Enhanced Security Configuration Assessment -->
+    <!-- Enhanced Security Configuration Assessment -->
+  <sca>
+    <enabled>yes</enabled>
+    <scan_on_start>yes</scan_on_start>
+    <interval>12h</interval>
+    <skip_nfs>yes</skip_nfs>
+
+    <policies>
+      <policy>cis_ubuntu_linux.yml</policy>
+      <policy>system_security.yml</policy>
+      <policy>network_hardening.yml</policy>
+    </policies>
+  </sca>
+
+  <!-- Active Response Configuration -->
+  <active-response>
+    <disabled>no</disabled>
+    <ca_store>/workspaces/AGENT2/etc/wpk_root.pem</ca_store>
+    <ca_verification>no</ca_verification>
+  </active-response>
+
+  <!-- Active Response Commands -->
+  
+  <!-- Firewall blocking for suspicious IPs -->
+  <command>
+    <name>firewall-block</name>
+    <executable>firewall-block</executable>
+    <timeout_allowed>yes</timeout_allowed>
+  </command>
+
+  <!-- IP blocking using iptables -->
+  <command>
+    <name>iptables-block</name>
+    <executable>iptables-block</executable>
+    <timeout_allowed>yes</timeout_allowed>
+  </command>
+
+  <!-- User account disabling -->
+  <command>
+    <name>disable-account</name>
+    <executable>disable-account</executable>
+    <timeout_allowed>yes</timeout_allowed>
+  </command>
+
+  <!-- Process termination -->
+  <command>
+    <name>kill-process</name>
+    <executable>kill-process</executable>
+    <timeout_allowed>yes</timeout_allowed>
+  </command>
+
+  <!-- Container quarantine -->
+  <command>
+    <name>container-quarantine</name>
+    <executable>container-quarantine</executable>
+    <timeout_allowed>yes</timeout_allowed>
+  </command>
+
+  <!-- Network isolation -->
+  <command>
+    <name>network-isolate</name>
+    <executable>network-isolate</executable>
+    <timeout_allowed>yes</timeout_allowed>
+  </command>
+
+  <!-- File quarantine -->
+  <command>
+    <name>file-quarantine</name>
+    <executable>file-quarantine</executable>
+    <timeout_allowed>yes</timeout_allowed>
+  </command>
+
+  <!-- Cloud resource isolation -->
+  <command>
+    <name>cloud-isolate</name>
+    <executable>cloud-isolate</executable>
+    <timeout_allowed>yes</timeout_allowed>
+  </command>
+
+  <!-- Vulnerability mitigation -->
+  <command>
+    <name>vuln-mitigation</name>
+    <executable>vuln-mitigation</executable>
+    <timeout_allowed>yes</timeout_allowed>
+  </command>
+
+  <!-- Alert notification -->
+  <command>
+    <name>alert-notify</name>
+    <executable>alert-notify</executable>
+    <timeout_allowed>no</timeout_allowed>
+  </command>
+
+  <!-- Active Response Rules -->
+
+  <!-- Block suspicious login attempts -->
+  <active-response>
+    <command>iptables-block</command>
+    <location>local</location>
+    <level>10</level>
+    <rules_group>authentication_failed,sshd</rules_group>
+    <timeout>600</timeout>
+  </active-response>
+
+  <!-- Disable compromised accounts -->
+  <active-response>
+    <command>disable-account</command>
+    <location>local</location>
+    <level>12</level>
+    <rules_group>authentication_failed</rules_group>
+    <timeout>3600</timeout>
+  </active-response>
+
+  <!-- Kill suspicious processes -->
+  <active-response>
+    <command>kill-process</command>
+    <location>local</location>
+    <level>10</level>
+    <rules_group>malware,rootkit</rules_group>
+    <timeout>60</timeout>
+  </active-response>
+
+  <!-- Quarantine containers with violations -->
+  <active-response>
+    <command>container-quarantine</command>
+    <location>local</location>
+    <level>8</level>
+    <rules_group>docker</rules_group>
+    <timeout>1800</timeout>
+  </active-response>
+
+  <!-- Isolate network on privilege escalation -->
+  <active-response>
+    <command>network-isolate</command>
+    <location>local</location>
+    <level>12</level>
+    <rules_group>privilege_escalation</rules_group>
+    <timeout>3600</timeout>
+  </active-response>
+
+  <!-- Quarantine malicious files -->
+  <active-response>
+    <command>file-quarantine</command>
+    <location>local</location>
+    <level>10</level>
+    <rules_group>malware,trojan</rules_group>
+    <timeout>0</timeout>
+  </active-response>
+
+  <!-- Isolate compromised cloud resources -->
+  <active-response>
+    <command>cloud-isolate</command>
+    <location>local</location>
+    <level>10</level>
+    <rules_group>cloud_compromise</rules_group>
+    <timeout>7200</timeout>
+  </active-response>
+
+  <!-- Immediate vulnerability mitigation -->
+  <active-response>
+    <command>vuln-mitigation</command>
+    <location>local</location>
+    <level>15</level>
+    <rules_group>vulnerability</rules_group>
+    <timeout>0</timeout>
+  </active-response>
+
+  <!-- Send alerts for critical events -->
+  <active-response>
+    <command>alert-notify</command>
+    <location>local</location>
+    <level>12</level>
+    <timeout>0</timeout>
+  </active-response>
+
+</ossec_config>

@@ -3880,3 +3880,60 @@
   "time": 1757780645,
   "timeNano": 1757780645844647196
 }
+{
+  "timestamp": "2025-09-13T16:34:05+00:00",
+  "status": "destroy",
+  "id": "9be103b49637",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "df7ec2f8edc815ee340b59a0d5989793bcb5304fecfb85a912b95e66b1cb6823",
+    "Attributes": {
+      "container": "api-service",
+      "image": "postgres:13",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757781245,
+  "timeNano": 1757781245136825703
+}
+{
+  "timestamp": "2025-09-13T16:34:05+00:00",
+  "status": "destroy",
+  "id": "d0c7d3a96bb7",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "a6aa634590d3d404babb336b09933cb54dbcc67b97859fc0e44c6315f6a2d99b",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "nginx:latest",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757781245,
+  "timeNano": 1757781245162149538
+}
+{
+  "timestamp": "2025-09-13T16:34:05+00:00",
+  "status": "create",
+  "id": "9a3f6e2f5435",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "66214526954e705faeb91ad8abe19ea1a6426bce1a52a7cacbf424cac8757739",
+    "Attributes": {
+      "container": "worker",
+      "image": "nginx:latest",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757781245,
+  "timeNano": 1757781245182779187
+}
