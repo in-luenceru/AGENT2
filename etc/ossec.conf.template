@@ -1,0 +1,100 @@
+<!--
+  Custom Wazuh Agent Configuration - Production Ready
+  Connect to official Wazuh manager
+-->
+
+<ossec_config>
+  <client>
+    <server>
+      <address>MANAGER_IP_PLACEHOLDER</address>
+      <port>1514</port>
+      <protocol>tcp</protocol>
+    </server>
+    <config-profile>generic</config-profile>
+    <notify_time>10</notify_time>
+    <time-reconnect>60</time-reconnect>
+    <auto_restart>yes</auto_restart>
+    <crypto_method>aes</crypto_method>
+    <enrollment>
+      <enabled>yes</enabled>
+      <manager_address>MANAGER_IP_PLACEHOLDER</manager_address>
+      <port>1515</port>
+      <agent_name>AGENT_NAME_PLACEHOLDER</agent_name>
+      <groups>default</groups>
+    </enrollment>
+  </client>
+
+  <logging>
+    <log_format>plain</log_format>
+    <debug_level>1</debug_level>
+  </logging>
+
+  <!-- File integrity monitoring -->
+  <syscheck>
+    <disabled>no</disabled>
+    <frequency>43200</frequency>
+    <scan_on_start>yes</scan_on_start>
+    <auto_ignore>no</auto_ignore>
+    <directories realtime="yes">/etc,/usr/bin,/usr/sbin</directories>
+    <directories>/bin,/sbin</directories>
+    <directories>/boot</directories>
+    
+    <!-- Ignore frequently changing files -->
+    <ignore>/etc/mtab</ignore>
+    <ignore>/etc/hosts.deny</ignore>
+    <ignore>/etc/random-seed</ignore>
+    <ignore>/etc/adjtime</ignore>
+    <ignore>/etc/resolv.conf</ignore>
+  </syscheck>
+
+  <!-- Log analysis -->
+  <localfile>
+    <log_format>syslog</log_format>
+    <location>/var/log/messages</location>
+  </localfile>
+
+  <localfile>
+    <log_format>syslog</log_format>
+    <location>/var/log/secure</location>
+  </localfile>
+
+  <localfile>
+    <log_format>syslog</log_format>
+    <location>/var/log/auth.log</location>
+  </localfile>
+
+  <!-- Active response -->
+  <active-response>
+    <disabled>no</disabled>
+  </active-response>
+
+  <!-- Security Configuration Assessment -->
+  <sca>
+    <enabled>yes</enabled>
+    <scan_on_start>yes</scan_on_start>
+    <interval>12h</interval>
+    <skip_nfs>yes</skip_nfs>
+  </sca>
+
+  <!-- Vulnerability assessment -->
+  <vulnerability-assessment>
+    <enabled>yes</enabled>
+    <interval>5m</interval>
+    <ignore_time>6h</ignore_time>
+    <run_on_start>yes</run_on_start>
+  </vulnerability-assessment>
+
+  <!-- System inventory -->
+  <wodle name="syscollector">
+    <disabled>no</disabled>
+    <interval>1h</interval>
+    <scan_on_start>yes</scan_on_start>
+    <hardware>yes</hardware>
+    <os>yes</os>
+    <network>yes</network>
+    <packages>yes</packages>
+    <ports all="no">yes</ports>
+    <processes>yes</processes>
+  </wodle>
+
+</ossec_config>

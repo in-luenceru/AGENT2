@@ -1,0 +1,23 @@
+# Top-level ignore for runtime files, backups, and build artifacts
+
+# Runtime and PID files
+var/run/
+
+# Logs
+logs/*.log
+
+# Backups and temp files
+backup/
+**/etc/*backup*
+**/etc/*.test_backup
+
+# Build and packaging artifacts
+build/
+bin/
+lib/*.so
+wazuh-agent_*.deb
+wazuh-control-production
+
+# Local scripts / environment
+*.bak
+*.swp
