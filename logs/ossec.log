@@ -2928,3 +2928,11 @@ Sun Sep 14 02:17:04 UTC 2025 wazuh-agent: Ready for manager connection
 2025/09/14 07:32:55 wazuh-agentd: INFO: Trying to connect to server ([172.17.0.2]:1514/tcp).
 2025/09/14 07:32:58 wazuh-agentd: ERROR: (1216): Unable to connect to '[172.17.0.2]:1514/tcp': 'No route to host'.
 2025/09/14 07:32:58 wazuh-agentd: ERROR: (1216): Unable to connect to '[172.17.0.2]:1514/tcp': 'No route to host'.
+2025/09/14 07:33:08 wazuh-agentd: INFO: Trying to connect to server ([172.17.0.2]:1514/tcp).
+2025/09/14 07:33:08 wazuh-agentd: INFO: Trying to connect to server ([172.17.0.2]:1514/tcp).
+2025/09/14 07:33:11 wazuh-agentd: ERROR: (1216): Unable to connect to '[172.17.0.2]:1514/tcp': 'No route to host'.
+2025/09/14 07:33:11 wazuh-agentd: ERROR: (1216): Unable to connect to '[172.17.0.2]:1514/tcp': 'No route to host'.
+2025/09/14 07:33:21 wazuh-agentd: INFO: Trying to connect to server ([172.17.0.2]:1514/tcp).
+2025/09/14 07:33:21 wazuh-agentd: INFO: Trying to connect to server ([172.17.0.2]:1514/tcp).
+2025/09/14 07:33:24 wazuh-agentd: ERROR: (1216): Unable to connect to '[172.17.0.2]:1514/tcp': 'No route to host'.
+2025/09/14 07:33:24 wazuh-agentd: ERROR: (1216): Unable to connect to '[172.17.0.2]:1514/tcp': 'No route to host'.
