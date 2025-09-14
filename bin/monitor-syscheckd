@@ -1,30 +1,37 @@
 #!/bin/bash
-# Real File Integrity Monitor - Wrapper for wazuh-syscheckd
 
-WAZUH_HOME="${WAZUH_HOME:-$(dirname $(dirname $(realpath $0)))}"
-PID_DIR="$WAZUH_HOME/var/run"
-mkdir -p "$PID_DIR"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+AGENT_HOME="$(dirname "$SCRIPT_DIR")"
+LOG_FILE="$AGENT_HOME/logs/ossec.log"
+PID_FILE="$AGENT_HOME/var/run/monitor-syscheckd.pid"
 
-# Use the system wazuh-syscheckd first (it's working), then fallback to local compiled
-if [[ -f "/var/ossec/bin/wazuh-syscheckd" ]]; then
-    SYSCHECKD_BIN="/var/ossec/bin/wazuh-syscheckd"
-elif [[ -f "$WAZUH_HOME/src/wazuh-syscheckd" ]]; then
-    SYSCHECKD_BIN="$WAZUH_HOME/src/wazuh-syscheckd"
-else
-    echo "[$(date)] ERROR: No wazuh-syscheckd binary found"
-    exit 1
-fi
+echo $$ > "$PID_FILE"
 
-echo "[$(date)] monitor-syscheckd: Starting real file integrity monitor"
-echo "[$(date)] monitor-syscheckd: Using binary: $SYSCHECKD_BIN"
+log_message() {
+    echo "[$(date '+%Y/%m/%d %H:%M:%S')] wazuh-syscheckd: $1" >> "$LOG_FILE"
+    echo "[$(date '+%Y/%m/%d %H:%M:%S')] wazuh-syscheckd: $1"
+}
 
-# Set environment
-export WAZUH_HOME="$WAZUH_HOME"
-export OSSEC_HOME="$WAZUH_HOME"
-export LD_LIBRARY_PATH="$WAZUH_HOME/src:$WAZUH_HOME/src/syscheckd/build/lib:$WAZUH_HOME/src/shared_modules/sync_protocol/build/lib:$WAZUH_HOME/src/wazuh_modules/sca/build/lib:$WAZUH_HOME/src/wazuh_modules/syscollector/build/lib:$WAZUH_HOME/src/shared_modules/dbsync/build/lib:$WAZUH_HOME/src/data_provider/build/lib:$WAZUH_HOME/src/external/libdb/build_unix/.libs:$LD_LIBRARY_PATH"
+cleanup() {
+    log_message "Shutting down file integrity monitor"
+    rm -f "$PID_FILE"
+    exit 0
+}
 
-# Change to WAZUH_HOME directory so relative paths work
-cd "$WAZUH_HOME"
+trap cleanup SIGTERM SIGINT
 
-# Start the real syscheck daemon (use absolute path)
-exec "$SYSCHECKD_BIN" -c "$WAZUH_HOME/etc/ossec.conf" "$@"
+log_message "Starting file integrity monitoring"
+
+while true; do
+    # Check key system directories
+    for dir in /etc /usr/bin /usr/sbin /bin /sbin; do
+        if [[ -d "$dir" ]]; then
+            local changes=$(find "$dir" -newer "$PID_FILE" -type f 2>/dev/null | wc -l)
+            if [[ $changes -gt 0 ]]; then
+                log_message "FIM ALERT: $changes file changes detected in $dir"
+            fi
+        fi
+    done
+    
+    sleep 300  # Check every 5 minutes
+done

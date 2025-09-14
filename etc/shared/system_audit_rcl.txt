@@ -1,96 +1,102 @@
-# Wazuh System Audit Configuration
-# Security policy checks and compliance validation
+# Copyright (C) 2015, Wazuh Inc.
+#
+# This program is a free software; you can redistribute it
+# and/or modify it under the terms of the GNU General Public
+# License (version 2) as published by the FSF - Free Software
+# Foundation
+#
+# OSSEC Linux Audit - (C) 2007 Daniel B. Cid - dcid@ossec.net
+#
+# Released under the same license as OSSEC.
+# More details at the LICENSE file included with OSSEC or online
+# at: https://www.gnu.org/licenses/gpl.html
+#
+# [Application name] [any or all] [reference]
+# type:<entry name>;
+#
+# Type can be:
+#             - f (for file or directory)
+#             - p (process running)
+#             - d (any file inside the directory)
+#
+# Additional values:
+# For the registry and for directories, use "->" to look for a specific entry and another
+# "->" to look for the value.
+# Also, use " -> r:^\. -> ..." to search all files in a directory
+# For files, use "->" to look for a specific value in the file.
+#
+# Values can be preceded by: =: (for equal) - default
+#                             r: (for ossec regexes)
+#                             >: (for strcmp greater)
+#                             <: (for strcmp  lower)
+# Multiple patterns can be specified by using " && " between them.
+# (All of them must match for it to return true).
 
-# System files integrity
-[System - Check if SSH is running] [any] [https://www.cisecurity.org/benchmark/debian_linux]
-f:/etc/ssh/sshd_config -> !r:^# && r:Protocol && !r:Protocol\.+2;
-f:/etc/ssh/sshd_config -> !r:^# && r:LogLevel && !r:LogLevel\.+INFO;
-f:/etc/ssh/sshd_config -> !r:^# && r:X11Forwarding && !r:X11Forwarding\.+no;
-f:/etc/ssh/sshd_config -> !r:^# && r:MaxAuthTries && !r:MaxAuthTries\.+4;
-f:/etc/ssh/sshd_config -> !r:^# && r:IgnoreRhosts && !r:IgnoreRhosts\.+yes;
-f:/etc/ssh/sshd_config -> !r:^# && r:HostbasedAuthentication && !r:HostbasedAuthentication\.+no;
-f:/etc/ssh/sshd_config -> !r:^# && r:PermitRootLogin && !r:PermitRootLogin\.+no;
-f:/etc/ssh/sshd_config -> !r:^# && r:PermitEmptyPasswords && !r:PermitEmptyPasswords\.+no;
-f:/etc/ssh/sshd_config -> !r:^# && r:PermitUserEnvironment && !r:PermitUserEnvironment\.+no;
+$php.ini=/etc/php.ini,/var/www/conf/php.ini,/etc/php5/apache2/php.ini;
+$web_dirs=/var/www,/var/htdocs,/home/httpd,/usr/local/apache,/usr/local/apache2,/usr/local/www;
 
-# Network configuration checks
-[System - Check for open ports] [any] [https://www.cisecurity.org/]
-c:netstat -an | grep ":22 " -> !r:\.+:22\.+LISTEN;
-c:netstat -an | grep ":80 " -> r:\.+:80\.+LISTEN;
-c:netstat -an | grep ":443 " -> r:\.+:443\.+LISTEN;
+# PHP checks
+[PHP - Register globals are enabled] [any] []
+f:$php.ini -> r:^register_globals = On;
 
-# File permission checks  
-[System - Check for world writable files] [any] [https://www.cisecurity.org/]
-c:find /tmp -perm -002 -type f -> r:\.;
-c:find /var/tmp -perm -002 -type f -> r:\.;
+# PHP checks
+[PHP - Expose PHP is enabled] [any] []
+f:$php.ini -> r:^expose_php = On;
 
-# User and group checks
-[System - Check for accounts with empty passwords] [any] [https://www.cisecurity.org/]
-f:/etc/shadow -> r:^\w+::;
+# PHP checks
+[PHP - Allow URL fopen is enabled] [any] []
+f:$php.ini -> r:^allow_url_fopen = On;
 
-[System - Check for accounts with UID 0] [any] [https://www.cisecurity.org/]
-f:/etc/passwd -> !r:^# && !r:^root: && r:^\w+:\w*:0:;
+# PHP checks
+[PHP - Displaying of errors is enabled] [any] []
+f:$php.ini -> r:^display_errors = On;
 
-# Process checks
-[System - Check for suspicious processes] [any] [https://www.cisecurity.org/]
-p:nc;
-p:netcat;
-p:nmap;
-p:tcpdump;
-p:wireshark;
+# PHP checks - consider open_basedir && disable_functions
 
-# System configuration
-[System - Check if system is updated] [any] [https://www.cisecurity.org/]
-c:which apt-get && apt list --upgradable 2>/dev/null -> r:upgradable;
 
-# Log file checks
-[System - Check for log file permissions] [any] [https://www.cisecurity.org/]
-f:/var/log -> !r:^d\w\w\w------\s+\w+\s+\w+\s+\w+\s+\w+\s+\w+\s+.;
-f:/var/log/syslog -> !r:^-\w\w-------\s+\w+\s+\w+\s+\w+\s+\w+\s+\w+\s+.;
-f:/var/log/auth.log -> !r:^-\w\w-------\s+\w+\s+\w+\s+\w+\s+\w+\s+\w+\s+.;
+## Looking for common web exploits (might indicate that you are owned).
+## Using http://dcid.me/blog/logsamples/webattacks_links as a reference.
+#[Web exploits - Possible compromise] [any] []
+#d:$web_dirs -> .txt$ -> r:^<?php|^#!;
 
-# Cron job security
-[System - Check for suspicious cron jobs] [any] [https://www.cisecurity.org/]
-f:/etc/crontab -> r:\* \* \* \* \* root;
-f:/etc/cron.d -> r:\* \* \* \* \*;
-f:/var/spool/cron -> r:\* \* \* \* \*;
+## Looking for common web exploits files (might indicate that you are owned).
+## There are not specific, like the above.
+## Using http://dcid.me/blog/logsamples/webattacks_links as a reference.
+[Web exploits (uncommon file name inside htdocs) - Possible compromise  {PCI_DSS: 6.5, 6.6, 11.4}] [any] []
+d:$web_dirs -> ^.yop$;
 
-# Mount point security
-[System - Check for insecure mount options] [any] [https://www.cisecurity.org/]
-c:mount | grep -E "(nosuid|noexec|nodev)" -> !r:nosuid && !r:noexec && !r:nodev;
+[Web exploits (uncommon file name inside htdocs) - Possible compromise {PCI_DSS: 6.5, 6.6, 11.4}] [any] []
+d:$web_dirs -> ^id$;
 
-# Kernel parameter checks
-[System - Check kernel parameters] [any] [https://www.cisecurity.org/]
-f:/proc/sys/net/ipv4/ip_forward -> !r:^0$;
-f:/proc/sys/net/ipv4/conf/all/send_redirects -> !r:^0$;
-f:/proc/sys/net/ipv4/conf/default/send_redirects -> !r:^0$;
-f:/proc/sys/net/ipv4/conf/all/accept_source_route -> !r:^0$;
-f:/proc/sys/net/ipv4/conf/all/accept_redirects -> !r:^0$;
-f:/proc/sys/net/ipv4/conf/all/secure_redirects -> !r:^0$;
-f:/proc/sys/net/ipv4/conf/all/log_martians -> !r:^1$;
-f:/proc/sys/net/ipv4/icmp_echo_ignore_broadcasts -> !r:^1$;
-f:/proc/sys/net/ipv4/icmp_ignore_bogus_error_responses -> !r:^1$;
+[Web exploits (uncommon file name inside htdocs) - Possible compromise {PCI_DSS: 6.5, 6.6, 11.4}] [any] []
+d:$web_dirs -> ^.ssh$;
 
-# Service checks
-[System - Check for unnecessary services] [any] [https://www.cisecurity.org/]
-c:systemctl is-enabled telnet 2>/dev/null -> r:enabled;
-c:systemctl is-enabled rsh 2>/dev/null -> r:enabled;
-c:systemctl is-enabled rlogin 2>/dev/null -> r:enabled;
-c:systemctl is-enabled ftp 2>/dev/null -> r:enabled;
+[Web exploits (uncommon file name inside htdocs) - Possible compromise {PCI_DSS: 6.5, 6.6, 11.4}] [any] []
+d:$web_dirs -> ^...$;
 
-# File system checks
-[System - Check for suspicious SUID files] [any] [https://www.cisecurity.org/]
-c:find /usr/bin -perm -4000 -type f -> r:/usr/bin/nmap;
-c:find /usr/bin -perm -4000 -type f -> r:/usr/bin/tcpdump;
+[Web exploits (uncommon file name inside htdocs) - Possible compromise {PCI_DSS: 6.5, 6.6, 11.4}] [any] []
+d:$web_dirs -> ^.shell$;
 
-# Network file system checks
-[System - Check for NFS security] [any] [https://www.cisecurity.org/]
-f:/etc/exports -> r:insecure;
-f:/etc/exports -> r:no_root_squash;
-c:showmount -e localhost 2>/dev/null -> r:\.;
+## Looking for outdated Web applications
+## Taken from http://sucuri.net/latest-versions
+[Web vulnerability - Outdated WordPress installation {PCI_DSS: 6.5, 6.6, 11.4}] [any] [http://sucuri.net/latest-versions]
+d:$web_dirs -> ^version.php$ -> r:^\.wp_version && >:$wp_version = '4.4.2';
 
-# Password policy checks
-[System - Check password policies] [any] [https://www.cisecurity.org/]
-f:/etc/login.defs -> !r:^PASS_MAX_DAYS\s+90;
-f:/etc/login.defs -> !r:^PASS_MIN_DAYS\s+7;
-f:/etc/login.defs -> !r:^PASS_WARN_AGE\s+7;
+[Web vulnerability - Outdated Joomla installation {PCI_DSS: 6.5, 6.6, 11.4}] [any] [http://sucuri.net/latest-versions]
+d:$web_dirs -> ^version.php$ -> r:var \.RELEASE && r:'3.4.8';
+
+[Web vulnerability - Outdated osCommerce (v2.2) installation {PCI_DSS: 6.5, 6.6, 11.4}] [any] [http://sucuri.net/latest-versions]
+d:$web_dirs -> ^application_top.php$ -> r:'osCommerce 2.2-;
+
+## Looking for known backdoors
+[Web vulnerability - Backdoors / Web based malware found - eval(base64_decode) {PCI_DSS: 6.5, 6.6, 11.4}] [any] []
+d:$web_dirs -> .php$ -> r:eval\(base64_decode\(\paWYo;
+
+[Web vulnerability - Backdoors / Web based malware found - eval(base64_decode(POST)) {PCI_DSS: 6.5, 6.6, 11.4}] [any] []
+d:$web_dirs -> .php$ -> r:eval\(base64_decode\(\S_POST;
+
+[Web vulnerability - .htaccess file compromised {PCI_DSS: 6.5, 6.6, 11.4}] [any] [http://blog.sucuri.net/2011/05/understanding-htaccess-attacks-part-1.html]
+d:$web_dirs -> ^.htaccess$ -> r:RewriteCond \S+HTTP_REFERERS \S+google;
+
+[Web vulnerability - .htaccess file compromised - auto append {PCI_DSS: 6.5, 6.6, 11.4}] [any] [http://blog.sucuri.net/2011/05/understanding-htaccess-attacks-part-1.html]
+d:$web_dirs -> ^.htaccess$ -> r:php_value auto_append_file;

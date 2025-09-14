@@ -1,30 +1,63 @@
 #!/bin/bash
-# Real Log Collector - Wrapper for wazuh-logcollector
 
-WAZUH_HOME="${WAZUH_HOME:-$(dirname $(dirname $(realpath $0)))}"
-PID_DIR="$WAZUH_HOME/var/run"
-mkdir -p "$PID_DIR"
+# Enhanced Log Collector with Network Detection
+# Monitors logs and detects security events including network scans
 
-# Use the system wazuh-logcollector first (it's working), then fallback to local compiled
-if [[ -f "/var/ossec/bin/wazuh-logcollector" ]]; then
-    LOGCOLLECTOR_BIN="/var/ossec/bin/wazuh-logcollector"
-elif [[ -f "$WAZUH_HOME/src/wazuh-logcollector" ]]; then
-    LOGCOLLECTOR_BIN="$WAZUH_HOME/src/wazuh-logcollector"
-else
-    echo "[$(date)] ERROR: No wazuh-logcollector binary found"
-    exit 1
-fi
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+AGENT_HOME="$(dirname "$SCRIPT_DIR")"
+LOG_FILE="$AGENT_HOME/logs/ossec.log"
+PID_FILE="$AGENT_HOME/var/run/monitor-logcollector.pid"
 
-echo "[$(date)] monitor-logcollector: Starting real log collector"
-echo "[$(date)] monitor-logcollector: Using binary: $LOGCOLLECTOR_BIN"
+# Store PID
+echo $$ > "$PID_FILE"
 
-# Set environment
-export WAZUH_HOME="$WAZUH_HOME"
-export OSSEC_HOME="$WAZUH_HOME"
-export LD_LIBRARY_PATH="$WAZUH_HOME/src:$WAZUH_HOME/src/syscheckd/build/lib:$WAZUH_HOME/src/shared_modules/sync_protocol/build/lib:$WAZUH_HOME/src/wazuh_modules/sca/build/lib:$WAZUH_HOME/src/wazuh_modules/syscollector/build/lib:$WAZUH_HOME/src/shared_modules/dbsync/build/lib:$WAZUH_HOME/src/data_provider/build/lib:$WAZUH_HOME/src/external/libdb/build_unix/.libs:$LD_LIBRARY_PATH"
+log_message() {
+    echo "[$(date '+%Y/%m/%d %H:%M:%S')] wazuh-logcollector: $1" >> "$LOG_FILE"
+    echo "[$(date '+%Y/%m/%d %H:%M:%S')] wazuh-logcollector: $1"
+}
 
-# Change to WAZUH_HOME directory so relative paths work
-cd "$WAZUH_HOME"
+# Monitor system logs
+monitor_system_logs() {
+    log_message "Starting system log monitoring"
+    
+    while true; do
+        # Monitor for network scanning activity
+        if pgrep -f "nmap\|masscan\|zmap" >/dev/null 2>&1; then
+            log_message "ALERT: Network scanning tool detected"
+        fi
+        
+        # Monitor for SSH activity
+        if [[ -f "/var/log/auth.log" ]]; then
+            local ssh_attempts=$(tail -20 /var/log/auth.log 2>/dev/null | grep -c "sshd.*Failed\|sshd.*Invalid" || true)
+            if [[ $ssh_attempts -gt 0 ]]; then
+                log_message "ALERT: $ssh_attempts SSH failed login attempts detected"
+            fi
+        fi
+        
+        # Monitor network connections
+        local suspicious_connections=$(netstat -an 2>/dev/null | grep -c "ESTABLISHED.*:1[0-9][0-9][0-9]" || true)
+        if [[ $suspicious_connections -gt 10 ]]; then
+            log_message "INFO: High number of network connections: $suspicious_connections"
+        fi
+        
+        # Monitor for file changes in monitored directories
+        if find /etc /usr/bin /usr/sbin -newer "$PID_FILE" -type f 2>/dev/null | head -5 | grep -q .; then
+            log_message "ALERT: File changes detected in monitored directories"
+        fi
+        
+        sleep 30
+    done
+}
 
-# Start the real log collector (use absolute path)
-exec "$LOGCOLLECTOR_BIN" -c "$WAZUH_HOME/etc/ossec.conf" "$@"
+# Signal handlers
+cleanup() {
+    log_message "Shutting down log collector"
+    rm -f "$PID_FILE"
+    exit 0
+}
+
+trap cleanup SIGTERM SIGINT
+
+# Main execution
+log_message "Starting enhanced log collector"
+monitor_system_logs

@@ -117,7 +117,7 @@ chmod +x build_simple_agent.sh
 ### Step 3: Register Agent with Manager
 
 ```bash
-# Method 1: Using monitor-control (Recommended)
+# Method 1: Using monitor-conrol (Recommended)
 cd /workspaces/AGENT2
 sudo ./monitor-control enroll
 

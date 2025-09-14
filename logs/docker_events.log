@@ -3937,3 +3937,687 @@
   "time": 1757781245,
   "timeNano": 1757781245182779187
 }
+{
+  "timestamp": "2025-09-14T03:09:28+00:00",
+  "status": "stop",
+  "id": "309008c69ae2",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "f00467f90ccbcd7a1eaff0929fbd05e64f63a60fafd5de193885fc3ff7c495ea",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "nginx:latest",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757819368,
+  "timeNano": 1757819368166624497
+}
+{
+  "timestamp": "2025-09-14T03:09:28+00:00",
+  "status": "create",
+  "id": "a751fe6449f1",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "6b4948aa99075adbecca806404df51471df1b97d46bdd8b386e77355976a204a",
+    "Attributes": {
+      "container": "worker",
+      "image": "node:16-alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757819368,
+  "timeNano": 1757819368209316353
+}
+{
+  "timestamp": "2025-09-14T03:09:28+00:00",
+  "status": "stop",
+  "id": "a5d93ef9d4fa",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "bde5dce0162fdf92844f3bd7730d3bf576e5d17771fa190ac4d9419a5a74f8df",
+    "Attributes": {
+      "container": "database",
+      "image": "postgres:13",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757819368,
+  "timeNano": 1757819368253527012
+}
+{
+  "timestamp": "2025-09-14T03:12:40+00:00",
+  "status": "pull",
+  "id": "06a53f3639f4",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "c587c9c8ec3e21e185085b8721c653126214b184f4db1f906f0dff3f883808ba",
+    "Attributes": {
+      "container": "worker",
+      "image": "nginx:latest",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757819560,
+  "timeNano": 1757819560201138187
+}
+{
+  "timestamp": "2025-09-14T03:12:40+00:00",
+  "status": "pull",
+  "id": "8a9866d17cc8",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "98702f03e22d29d066794a40c43b35172b19303bd35a6f88b59861501523d00b",
+    "Attributes": {
+      "container": "worker",
+      "image": "node:16-alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757819560,
+  "timeNano": 1757819560225561965
+}
+{
+  "timestamp": "2025-09-14T03:12:40+00:00",
+  "status": "destroy",
+  "id": "661c062a763f",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "211d56dab107f2536c8c846f1ab6dcb3cda3013f11f4abd78e74c5e27b1279f5",
+    "Attributes": {
+      "container": "api-service",
+      "image": "redis:alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757819560,
+  "timeNano": 1757819560252015446
+}
+{
+  "timestamp": "2025-09-14T03:15:25+00:00",
+  "status": "stop",
+  "id": "e28fcecb3d41",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "7f6a5055c5e63496d5616d3b78e604bb65d0f658a437b755b4285f3487095f7d",
+    "Attributes": {
+      "container": "api-service",
+      "image": "python:3.9",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757819725,
+  "timeNano": 1757819725260466675
+}
+{
+  "timestamp": "2025-09-14T03:15:25+00:00",
+  "status": "create",
+  "id": "207728cb45b1",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "ad26e84710e688ab971321c0c6d294cf46bf1b62d929acddc9bb66bf669806d9",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "node:16-alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757819725,
+  "timeNano": 1757819725291420295
+}
+{
+  "timestamp": "2025-09-14T03:15:25+00:00",
+  "status": "pull",
+  "id": "da4e9f2cbd1d",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "757e1702131d0f57a6e1b59963b73c2ebc848076cb7759d6d1e8b1fb558751f4",
+    "Attributes": {
+      "container": "database",
+      "image": "redis:alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757819725,
+  "timeNano": 1757819725337272293
+}
+{
+  "timestamp": "2025-09-14T03:19:39+00:00",
+  "status": "destroy",
+  "id": "c5ffc31a204c",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "3c2a976b7708243c3dffbea13ad2a42de67f7cf9b698fc4cfdd4ad8abc5551dd",
+    "Attributes": {
+      "container": "database",
+      "image": "redis:alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757819979,
+  "timeNano": 1757819979485704175
+}
+{
+  "timestamp": "2025-09-14T03:19:39+00:00",
+  "status": "destroy",
+  "id": "55d856c58391",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "24f0088b3c9df043eb076ed7e39d4e22aa7a9daca5e2a1548672782c062bff86",
+    "Attributes": {
+      "container": "worker",
+      "image": "nginx:latest",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757819979,
+  "timeNano": 1757819979518961368
+}
+{
+  "timestamp": "2025-09-14T03:19:39+00:00",
+  "status": "pull",
+  "id": "b32b10050667",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "ff40a952c31a19f3f9ff3aa56c14fe153b398479c0837b4b00b13407de768459",
+    "Attributes": {
+      "container": "database",
+      "image": "postgres:13",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757819979,
+  "timeNano": 1757819979553407604
+}
+{
+  "timestamp": "2025-09-14T03:25:28+00:00",
+  "status": "destroy",
+  "id": "6ba3706ab68f",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "c54dd2beae7e58cf0c4a8ea1eb326f08538454f1495c19c114d92ca8986d9a19",
+    "Attributes": {
+      "container": "worker",
+      "image": "python:3.9",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757820328,
+  "timeNano": 1757820328089999657
+}
+{
+  "timestamp": "2025-09-14T03:25:28+00:00",
+  "status": "destroy",
+  "id": "442088cc056f",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "9bd0b1a5d753410244dc6474f2f93f9de932311d458adc8e7c6a313f1e04f8e9",
+    "Attributes": {
+      "container": "database",
+      "image": "redis:alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757820328,
+  "timeNano": 1757820328126844598
+}
+{
+  "timestamp": "2025-09-14T03:25:28+00:00",
+  "status": "start",
+  "id": "24da125b8eff",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "a9a41130ef70bed1c1605380c4280f82423ed9ec9dbb8016b7e42062e9c75a44",
+    "Attributes": {
+      "container": "api-service",
+      "image": "python:3.9",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757820328,
+  "timeNano": 1757820328173058874
+}
+{
+  "timestamp": "2025-09-14T03:35:27+00:00",
+  "status": "pull",
+  "id": "7c3150804c55",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "b19aa2bd6e43de72fbb718cbf1873a7015e6c95597d8d84d6856215b05b0780f",
+    "Attributes": {
+      "container": "api-service",
+      "image": "nginx:latest",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757820927,
+  "timeNano": 1757820927778209452
+}
+{
+  "timestamp": "2025-09-14T03:35:27+00:00",
+  "status": "push",
+  "id": "afc83cfe8e97",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "3e095cdcf74e5ba43ecb77cbaafdca83c1b92cc86b414981e1a1f66c4ac3d37c",
+    "Attributes": {
+      "container": "database",
+      "image": "postgres:13",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757820927,
+  "timeNano": 1757820927789770171
+}
+{
+  "timestamp": "2025-09-14T03:35:27+00:00",
+  "status": "stop",
+  "id": "20ab72026293",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "5cc1d7c49b6e03a201c96d18bb3a51daeecd02d01bbf6f7d83600371eb450028",
+    "Attributes": {
+      "container": "api-service",
+      "image": "nginx:latest",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757820927,
+  "timeNano": 1757820927801316847
+}
+{
+  "timestamp": "2025-09-14T03:45:29+00:00",
+  "status": "pull",
+  "id": "86d62b374702",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "3ede12af7a18ad6a16cb5d0ca2bb2c91839491b6d9cbc2b4d324233ac482b1cd",
+    "Attributes": {
+      "container": "database",
+      "image": "postgres:13",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757821529,
+  "timeNano": 1757821529150330402
+}
+{
+  "timestamp": "2025-09-14T03:45:29+00:00",
+  "status": "push",
+  "id": "a9ec5b456365",
+  "from": "nginx:latest",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "3a2ec481f80f165ccbee4354b3f68f852e4ed543f30aff62e439af815d763c9d",
+    "Attributes": {
+      "container": "database",
+      "image": "nginx:latest",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757821529,
+  "timeNano": 1757821529161914461
+}
+{
+  "timestamp": "2025-09-14T03:45:29+00:00",
+  "status": "destroy",
+  "id": "03fc57ee532b",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "3100477add2350f76e992fa604e9f49eeb9593e74f32d692642979322e9bff7b",
+    "Attributes": {
+      "container": "api-service",
+      "image": "node:16-alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757821529,
+  "timeNano": 1757821529173305022
+}
+{
+  "timestamp": "2025-09-14T03:55:30+00:00",
+  "status": "pull",
+  "id": "9aee9f931fc7",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "b57e3c49bf20609f11e45fed69bcd5c75575c0d76edca1129dc320837254cf53",
+    "Attributes": {
+      "container": "database",
+      "image": "redis:alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757822130,
+  "timeNano": 1757822130559592437
+}
+{
+  "timestamp": "2025-09-14T03:55:30+00:00",
+  "status": "stop",
+  "id": "0c29bb5a819d",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "stop",
+  "Actor": {
+    "ID": "2f0bc08c5d1eb6d3528e9b5510380233a496962c73bcad366e249921b775c714",
+    "Attributes": {
+      "container": "api-service",
+      "image": "python:3.9",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757822130,
+  "timeNano": 1757822130602341086
+}
+{
+  "timestamp": "2025-09-14T03:55:30+00:00",
+  "status": "start",
+  "id": "f6f8a70ce287",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "3d08280398a1f8fb536b22a14915635336b9defb0bee9766c0841027d335e270",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "redis:alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757822130,
+  "timeNano": 1757822130641226126
+}
+{
+  "timestamp": "2025-09-14T06:29:14+00:00",
+  "status": "create",
+  "id": "83d192f40777",
+  "from": "python:3.9",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "e42ffced3c65f6dde09f4dda88657d9b9becb8caf7754b3d24f26d7fa4352c70",
+    "Attributes": {
+      "container": "worker",
+      "image": "python:3.9",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757831354,
+  "timeNano": 1757831354086202185
+}
+{
+  "timestamp": "2025-09-14T06:29:14+00:00",
+  "status": "push",
+  "id": "ec93b9c1b0d9",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "5a08c7d9b21ba8ed57455b062886b4f0d6d3201c1d580ac7a7cd9715c4a0762f",
+    "Attributes": {
+      "container": "worker",
+      "image": "redis:alpine",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757831354,
+  "timeNano": 1757831354125780887
+}
+{
+  "timestamp": "2025-09-14T06:29:14+00:00",
+  "status": "push",
+  "id": "b7de972085e9",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "1a866e4ba035047510a5426be09bc7955b08bfab0479bc0f9cb539a351a90165",
+    "Attributes": {
+      "container": "api-service",
+      "image": "node:16-alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757831354,
+  "timeNano": 1757831354153091145
+}
+{
+  "timestamp": "2025-09-14T06:33:22+00:00",
+  "status": "push",
+  "id": "8d5528d79f58",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "91a22f412d1729d1c78718b09aed50f0e2f188e74a0d21b09171bf3811900ac6",
+    "Attributes": {
+      "container": "database",
+      "image": "node:16-alpine",
+      "name": "database"
+    }
+  },
+  "scope": "local",
+  "time": 1757831602,
+  "timeNano": 1757831602375006037
+}
+{
+  "timestamp": "2025-09-14T06:33:22+00:00",
+  "status": "create",
+  "id": "e195cdc5fbb0",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "5a813e72bd01a0b5d02d144298a16786a7c9f0cb6cc8b2fc96e63b199445f3a8",
+    "Attributes": {
+      "container": "worker",
+      "image": "postgres:13",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757831602,
+  "timeNano": 1757831602421378678
+}
+{
+  "timestamp": "2025-09-14T06:33:22+00:00",
+  "status": "start",
+  "id": "ac5f524d3c9c",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "1b42121dd30f8c627c72377379047e5f2571a5375957a80ef6cbdfd42762349b",
+    "Attributes": {
+      "container": "worker",
+      "image": "postgres:13",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757831602,
+  "timeNano": 1757831602473558364
+}
+{
+  "timestamp": "2025-09-14T06:38:07+00:00",
+  "status": "create",
+  "id": "95b4576fdc37",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "create",
+  "Actor": {
+    "ID": "93a477a163e5f168a15c30b5827ffaa6e96d2e39e4a93facedbe61bd0d751e7d",
+    "Attributes": {
+      "container": "cache-server",
+      "image": "node:16-alpine",
+      "name": "cache-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757831887,
+  "timeNano": 1757831887641881576
+}
+{
+  "timestamp": "2025-09-14T06:38:07+00:00",
+  "status": "push",
+  "id": "fdc1331f4491",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "push",
+  "Actor": {
+    "ID": "19372c0ab13c8e817e20a0f23433db526333269914a7faa9720c1bca27c4466a",
+    "Attributes": {
+      "container": "api-service",
+      "image": "redis:alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757831887,
+  "timeNano": 1757831887657251232
+}
+{
+  "timestamp": "2025-09-14T06:38:07+00:00",
+  "status": "destroy",
+  "id": "35910aadd044",
+  "from": "node:16-alpine",
+  "Type": "container",
+  "Action": "destroy",
+  "Actor": {
+    "ID": "fbaf8fdbadf1e9d4e5b5f81f281dd0c28134a5876e140a4a841e708396b64b7c",
+    "Attributes": {
+      "container": "api-service",
+      "image": "node:16-alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757831887,
+  "timeNano": 1757831887673149686
+}
+{
+  "timestamp": "2025-09-14T06:48:06+00:00",
+  "status": "start",
+  "id": "2dfb24f9f04a",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "start",
+  "Actor": {
+    "ID": "f6fd8dbcf1718de9e33c95c5fd370233a730a99b0aa1d456e20b106899a593c2",
+    "Attributes": {
+      "container": "worker",
+      "image": "postgres:13",
+      "name": "worker"
+    }
+  },
+  "scope": "local",
+  "time": 1757832486,
+  "timeNano": 1757832486691151112
+}
+{
+  "timestamp": "2025-09-14T06:48:06+00:00",
+  "status": "pull",
+  "id": "5bf4aa2fc814",
+  "from": "postgres:13",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "8217df41b70bd93e7220d73875328e6c42ab25c32ffdcd57e12df5ecae39e95e",
+    "Attributes": {
+      "container": "web-server",
+      "image": "postgres:13",
+      "name": "web-server"
+    }
+  },
+  "scope": "local",
+  "time": 1757832486,
+  "timeNano": 1757832486702679739
+}
+{
+  "timestamp": "2025-09-14T06:48:06+00:00",
+  "status": "pull",
+  "id": "813eaef8d6a6",
+  "from": "redis:alpine",
+  "Type": "container",
+  "Action": "pull",
+  "Actor": {
+    "ID": "60b4954d5d4aafbc19ade7ab59b7350522b2859cc86246007b5cd543d8710dd6",
+    "Attributes": {
+      "container": "api-service",
+      "image": "redis:alpine",
+      "name": "api-service"
+    }
+  },
+  "scope": "local",
+  "time": 1757832486,
+  "timeNano": 1757832486714095139
+}

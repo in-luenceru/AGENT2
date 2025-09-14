@@ -1,80 +1,203 @@
 #!/bin/bash
-# Real Monitoring Agent Daemon - Wrapper for wazuh-agentd
-# Enhanced with persistent agent name support
 
-WAZUH_HOME="${WAZUH_HOME:-$(dirname $(dirname $(realpath $0)))}"
-PID_DIR="$WAZUH_HOME/var/run"
-mkdir -p "$PID_DIR"
+# Hybrid Custom Wazuh Agent Daemon
+# Uses official wazuh-agentd for communication, custom logic for monitoring
 
-# Load agent identity library for name resolution
-if [[ -f "$WAZUH_HOME/lib/agent_identity.sh" ]]; then
-    source "$WAZUH_HOME/lib/agent_identity.sh"
-    AGENT_IDENTITY_AVAILABLE=true
-else
-    echo "[$(date)] WARNING: Agent identity library not found, using fallback methods"
-    AGENT_IDENTITY_AVAILABLE=false
-fi
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+AGENT_HOME="$(dirname "$SCRIPT_DIR")"
+CONFIG_FILE="$AGENT_HOME/etc/ossec.conf"
+CLIENT_KEYS="$AGENT_HOME/etc/client.keys"
+LOG_FILE="$AGENT_HOME/logs/ossec.log"
+PID_FILE="$AGENT_HOME/var/run/monitor-agentd.pid"
+CONTROL_MSG_FILE="$AGENT_HOME/logs/control.msg"
 
-# Get persistent agent name
-get_persistent_agent_name() {
-    local agent_name=""
-    
-    # Try to get from identity storage
-    if [[ "$AGENT_IDENTITY_AVAILABLE" == "true" ]]; then
-        agent_name=$(get_agent_name 2>/dev/null)
-        if [[ -n "$agent_name" ]]; then
-            echo "[$(date)] monitor-agentd: Using persistent agent name: $agent_name"
-            echo "$agent_name"
-            return 0
-        fi
-    fi
-    
-    # Fallback to config file
-    if [[ -f "$WAZUH_HOME/etc/ossec.conf" ]]; then
-        agent_name=$(grep -A 10 "<enrollment>" "$WAZUH_HOME/etc/ossec.conf" | grep "<agent_name>" | sed 's/.*<agent_name>\(.*\)<\/agent_name>.*/\1/' | tr -d '[:space:]')
-        if [[ -n "$agent_name" ]]; then
-            echo "[$(date)] monitor-agentd: Using agent name from config: $agent_name"
-            echo "$agent_name"
-            return 0
-        fi
-    fi
-    
-    # Last resort - hostname
-    agent_name="$(hostname -s)"
-    echo "[$(date)] monitor-agentd: WARNING - Using hostname as agent name: $agent_name"
-    echo "$agent_name"
-    return 0
+# Check if official wazuh-agentd is available for communication
+WAZUH_AGENTD="$AGENT_HOME/bin/wazuh-agentd"
+
+# Store PID
+echo $$ > "$PID_FILE"
+
+log_message() {
+    echo "[$(date '+%Y/%m/%d %H:%M:%S')] wazuh-agentd: $1" | tee -a "$LOG_FILE"
 }
 
-# Use the system wazuh-agentd first (it's working), then fallback to local compiled
-if [[ -f "/var/ossec/bin/wazuh-agentd" ]]; then
-    AGENTD_BIN="/var/ossec/bin/wazuh-agentd"
-elif [[ -f "$WAZUH_HOME/src/wazuh-agentd" ]]; then
-    AGENTD_BIN="$WAZUH_HOME/src/wazuh-agentd"
-else
-    echo "[$(date)] ERROR: No wazuh-agentd binary found"
+# Read configuration
+read_config() {
+    if [[ -f "$CONFIG_FILE" ]]; then
+        MANAGER_IP=$(grep -A 5 "<client>" "$CONFIG_FILE" | grep "<address>" | sed 's/.*<address>\(.*\)<\/address>.*/\1/' | tr -d '[:space:]')
+        MANAGER_PORT=$(grep -A 5 "<client>" "$CONFIG_FILE" | grep "<port>" | sed 's/.*<port>\(.*\)<\/port>.*/\1/' | tr -d '[:space:]')
+        MANAGER_PROTOCOL=$(grep -A 5 "<client>" "$CONFIG_FILE" | grep "<protocol>" | sed 's/.*<protocol>\(.*\)<\/protocol>.*/\1/' | tr -d '[:space:]')
+        
+        # Set defaults
+        MANAGER_PORT="${MANAGER_PORT:-1514}"
+        MANAGER_PROTOCOL="${MANAGER_PROTOCOL:-tcp}"
+    fi
+}
+
+# Read agent identity
+read_agent_identity() {
+    if [[ -f "$CLIENT_KEYS" && -s "$CLIENT_KEYS" ]]; then
+        AGENT_ID=$(head -1 "$CLIENT_KEYS" | cut -d' ' -f1)
+        AGENT_NAME=$(head -1 "$CLIENT_KEYS" | cut -d' ' -f2)
+        AGENT_IP=$(head -1 "$CLIENT_KEYS" | cut -d' ' -f3)
+        AGENT_KEY=$(head -1 "$CLIENT_KEYS" | cut -d' ' -f4-)
+        log_message "Agent identity loaded: ID=$AGENT_ID, Name=$AGENT_NAME"
+    else
+        log_message "WARNING: No agent identity found. Agent not enrolled."
+        return 1
+    fi
+}
+
+# Start official wazuh-agentd for communication
+start_official_agentd() {
+    if [[ ! -f "$WAZUH_AGENTD" ]]; then
+        log_message "ERROR: Official wazuh-agentd not found at $WAZUH_AGENTD"
+        return 1
+    fi
+    
+    log_message "Starting official wazuh-agentd for manager communication..."
+    
+    # Set environment
+    export WAZUH_HOME="$AGENT_HOME"
+    export OSSEC_HOME="$AGENT_HOME" 
+    export LD_LIBRARY_PATH="$AGENT_HOME/lib:${LD_LIBRARY_PATH:-}"
+    
+    # Start official agent daemon in background
+    cd "$AGENT_HOME"
+    nohup "$WAZUH_AGENTD" -f >> "$LOG_FILE" 2>&1 &
+    local wazuh_pid=$!
+    
+    # Give it time to start
+    sleep 5
+    
+    if kill -0 "$wazuh_pid" 2>/dev/null; then
+        echo "$wazuh_pid" > "$AGENT_HOME/var/run/wazuh-agentd.pid"
+        log_message "Official wazuh-agentd started successfully (PID: $wazuh_pid)"
+        echo "$(date '+%Y/%m/%d %H:%M:%S'): Official agent started" > "$CONTROL_MSG_FILE"
+        return 0
+    else
+        log_message "Failed to start official wazuh-agentd"
+        return 1
+    fi
+}
+
+# Monitor official agent and provide custom functionality
+monitor_and_enhance() {
+    local check_interval=30
+    local official_agent_pid=""
+    
+    # Get the official agent PID
+    if [[ -f "$AGENT_HOME/var/run/wazuh-agentd.pid" ]]; then
+        official_agent_pid=$(cat "$AGENT_HOME/var/run/wazuh-agentd.pid" 2>/dev/null)
+    fi
+    
+    log_message "Starting monitoring and enhancement loop"
+    
+    while true; do
+        # Check if official agent is still running
+        if [[ -n "$official_agent_pid" ]] && kill -0 "$official_agent_pid" 2>/dev/null; then
+            # Official agent is running - check manager connectivity
+            if [[ -z "$MANAGER_IP" ]]; then
+                log_message "No manager configured"
+            else
+                # Test connectivity
+                if timeout 5 bash -c "exec 3<>/dev/tcp/$MANAGER_IP/$MANAGER_PORT" 2>/dev/null; then
+                    exec 3<&-
+                    exec 3>&-
+                    echo "$(date '+%Y/%m/%d %H:%M:%S'): Connected to $MANAGER_IP:$MANAGER_PORT" > "$CONTROL_MSG_FILE"
+                    
+                    # Check agent status on manager
+                    log_message "Manager connectivity verified"
+                else
+                    echo "$(date '+%Y/%m/%d %H:%M:%S'): Connection failed" > "$CONTROL_MSG_FILE"
+                    log_message "Manager not reachable at $MANAGER_IP:$MANAGER_PORT"
+                fi
+            fi
+            
+            # Add custom monitoring here
+            log_message "Custom monitoring: System status check"
+            
+            # Monitor system resources
+            if command -v free >/dev/null 2>&1; then
+                local mem_usage=$(free | awk '/^Mem:/ {printf "%.1f", $3/$2 * 100.0}')
+                log_message "Memory usage: ${mem_usage}%"
+            fi
+            
+            # Monitor disk usage
+            if command -v df >/dev/null 2>&1; then
+                local disk_usage=$(df / | awk 'NR==2 {print $5}' | sed 's/%//')
+                if [[ $disk_usage -gt 90 ]]; then
+                    log_message "ALERT: High disk usage: ${disk_usage}%"
+                fi
+            fi
+            
+        else
+            log_message "Official wazuh-agentd stopped, attempting restart..."
+            echo "$(date '+%Y/%m/%d %H:%M:%S'): Agent disconnected" > "$CONTROL_MSG_FILE"
+            
+            # Try to restart official agent
+            if start_official_agentd; then
+                if [[ -f "$AGENT_HOME/var/run/wazuh-agentd.pid" ]]; then
+                    official_agent_pid=$(cat "$AGENT_HOME/var/run/wazuh-agentd.pid" 2>/dev/null)
+                fi
+            else
+                log_message "Failed to restart official agent, waiting..."
+                sleep 60
+            fi
+        fi
+        
+        sleep "$check_interval"
+    done
+}
+
+# Signal handlers
+cleanup() {
+    log_message "Shutting down hybrid agent daemon"
+    
+    # Stop official wazuh-agentd if running
+    if [[ -f "$AGENT_HOME/var/run/wazuh-agentd.pid" ]]; then
+        local wazuh_pid=$(cat "$AGENT_HOME/var/run/wazuh-agentd.pid" 2>/dev/null)
+        if [[ -n "$wazuh_pid" ]] && kill -0 "$wazuh_pid" 2>/dev/null; then
+            log_message "Stopping official wazuh-agentd (PID: $wazuh_pid)"
+            kill -TERM "$wazuh_pid" 2>/dev/null
+            sleep 3
+            if kill -0 "$wazuh_pid" 2>/dev/null; then
+                kill -KILL "$wazuh_pid" 2>/dev/null
+            fi
+        fi
+        rm -f "$AGENT_HOME/var/run/wazuh-agentd.pid"
+    fi
+    
+    echo "$(date '+%Y/%m/%d %H:%M:%S'): Stopped" > "$CONTROL_MSG_FILE"
+    rm -f "$PID_FILE"
+    exit 0
+}
+
+trap cleanup SIGTERM SIGINT
+
+# Main execution
+log_message "Starting hybrid custom/official agent daemon"
+log_message "Agent Home: $AGENT_HOME"
+
+# Read configuration and identity
+read_config
+if ! read_agent_identity; then
+    log_message "CRITICAL: Agent not enrolled. Please run enrollment first."
     exit 1
 fi
 
-echo "[$(date)] monitor-agentd: Starting real agent daemon"
-echo "[$(date)] monitor-agentd: Using binary: $AGENTD_BIN"
-echo "[$(date)] monitor-agentd: Configuration: $WAZUH_HOME/etc/ossec.conf"
-
-# Get and set persistent agent name
-PERSISTENT_AGENT_NAME=$(get_persistent_agent_name)
-if [[ -n "$PERSISTENT_AGENT_NAME" ]]; then
-    export WAZUH_AGENT_NAME="$PERSISTENT_AGENT_NAME"
-    export OSSEC_AGENT_NAME="$PERSISTENT_AGENT_NAME"
-    echo "[$(date)] monitor-agentd: Agent name environment set: $PERSISTENT_AGENT_NAME"
+if [[ -z "$MANAGER_IP" ]]; then
+    log_message "CRITICAL: No manager configured. Please check configuration."
+    exit 1
 fi
 
-# Set environment for Wazuh agent
-export WAZUH_HOME="$WAZUH_HOME"
-export OSSEC_HOME="$WAZUH_HOME"
-export LD_LIBRARY_PATH="$WAZUH_HOME/src:$WAZUH_HOME/src/syscheckd/build/lib:$WAZUH_HOME/src/shared_modules/sync_protocol/build/lib:$WAZUH_HOME/src/wazuh_modules/sca/build/lib:$WAZUH_HOME/src/wazuh_modules/syscollector/build/lib:$WAZUH_HOME/src/shared_modules/dbsync/build/lib:$WAZUH_HOME/src/data_provider/build/lib:$WAZUH_HOME/src/external/libdb/build_unix/.libs:$LD_LIBRARY_PATH"
+log_message "Configuration: Manager=$MANAGER_IP:$MANAGER_PORT, Protocol=$MANAGER_PROTOCOL"
 
-# Change to WAZUH_HOME directory so relative paths work
-cd "$WAZUH_HOME"
-
-# Start the real agent daemon with proper configuration (use absolute path)
-exec "$AGENTD_BIN" -c "$WAZUH_HOME/etc/ossec.conf" "$@"
+# Start official agent for communication
+if start_official_agentd; then
+    log_message "Official agent started, beginning monitoring"
+    monitor_and_enhance
+else
+    log_message "CRITICAL: Failed to start official wazuh-agentd"
+    exit 1
+fi
